@@ -1,0 +1,22 @@
+---
+title: "CREATE DERIVED VIEW Statements"
+sidebarTitle: "CREATE DERIVED VIEW"
+description: "To create new derived views, use CREATE DERIVED VIEW statements."
+---
+
+
+
+
+## CREATE DERIVED VIEW Syntax
+
+The CREATE DERIVED VIEW statement specifies the view name and the contents of the SQL query, as shown in the following example:
+
+```sql
+CREATE DERIVED VIEW [<view_name>] AS <sql_query_contents>
+```
+
+The following example statement creates a derived view called MyViewName, with the query `SELECT * FROM Customers LIMIT 20;`
+
+```sql
+CREATE DERIVED VIEW [MyViewName] AS SELECT * FROM Customers LIMIT 20;
+```

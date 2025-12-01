@@ -1,0 +1,19 @@
+---
+title: "Clear Connection Metadata"
+description: "Clear Connection Metadata clears the metadata cache for the specified connection. In some situations, clearing the metadata cache can help fix loading or performance issues."
+api: DELETE https://cloud.cdata.com/api/poweredby/connection/{id}/metadata
+contentType: application/json
+---
+
+
+### Path Params
+
+<ParamField path="id" type="string" required>
+The connection Id of the connection in which to clear the metadata.
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`

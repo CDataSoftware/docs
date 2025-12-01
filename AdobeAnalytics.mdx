@@ -1,0 +1,111 @@
+---
+title: "Adobe Analytics"
+---
+
+
+## Setup Guide
+
+Follow these steps to connect Adobe Analytics to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Adobe Analytics* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuthClient
+
+<Steps>
+<Step>
+Follow the steps below to create a custom app and obtain the connection properties to enter in this section.
+	
+	a. Navigate to the following URL: [https://console.adobe.io/home](https://console.adobe.io/home).
+	
+	b. Click the **Create new project** button.
+	
+	c. Select the **Add API** option.
+	
+	d. Select **Adobe Analytics**, click **Next**, and then select **OAuth** and then click **Next** again.
+	
+	e. Select the **Web** option and supply the URL of the page to redirect to (`https://oauth.cdata.com/oauth/`).
+	
+	f. Click **Save configured API**.
+	
+	Your client is now created. Note that your client has an Client ID (API Key) and a Client Secret. These are added in the next step.
+</Step>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you registered your Adobe Analytics account for OAuth.
+	- **RSID**—(optional) your report suite identifier. To find your RSID, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+	- **Global Company Id**—(optional) your company identifier. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+At the top of the Connect AI **Add Adobe Analytics Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth
+
+<Steps>
+<Step>
+(Optional) Enter your Report Suite Id in the **RSID** field. To find your Report Suite Id, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+</Step>
+<Step>
+(Optional) Enter your **Global Company Id**. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Adobe Analytics sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Adobe Analytics account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Adobe Analytics Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthJWT
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth JWT Certificate**—the contents of the public key you generated.
+	- **OAuth JWT Cert Password**—the password for the OAuth JWT certificate.
+	- **Organizaton Id**—the organization Id from the Adobe I/O Console integration, in the format of organizationid@AdobeOrg.
+	- **RSID**—(optional) your report suite identifier. To find your RSID, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+	- **Global Company Id**—(optional) your company identifier. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+At the top of the Connect AI **Add Adobe Analytics Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Adobe Analytics, see [this information page](https://cdn.cdata.com/help/SCK/cloud/default.htm#default).

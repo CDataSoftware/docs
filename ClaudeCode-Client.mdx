@@ -1,0 +1,47 @@
+---
+title: "Claude Code"
+description: "Claude Code is Anthropic’s AI programming mode, built into Claude. This page explains how to connect Claude Code to the Connect AI MCP server."
+---
+
+
+## Prerequisites
+
+Before you can configure and use Claude Code with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+<Steps>
+<Step>
+ Open PowerShell as an Administrator and run the following command:
+	```bash
+	npm install -g @anthropic-ai/claude-code
+	```
+</Step>
+<Step>
+ Once the installation is done, try running: `npm list -g @anthropic-ai/claude-code` in your terminal to confirm the installation. You should see something like this:
+	```bash
+	\`C:\Users\ConnectAIUser\AppData\Roaming\npm\`
+	\`-- @anthropic-ai/claude-code@2.0.28
+	```
+</Step>
+<Step>
+ Create a project named `Claude code` and open it in Visual Studio Code.
+</Step>
+<Step>
+ In the terminal of your project, run the following command:
+	`claude mcp add --transport http connectmcp https://mcp.cloud.cdata.com/mcp --header "Authorization: Basic {Your_Base64Encoded_EMAIL:PAT}"`
+	This creates a JSON file with your MCP Server.
+</Step>
+<Step>
+ Type `claude`. A welcome screen appears:
+	<Frame>![](/images/claudecode_client_welcome.png)</Frame>
+</Step>
+<Step>
+ Choose a text style and login method. Claude Code opens the browser to log in to Claude.
+</Step>
+<Step>
+ You can now interact with the MCP server:
+	<Frame>![](/images/claudecode_client_prompt.png)</Frame>
+</Step>
+</Steps>    

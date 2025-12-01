@@ -1,0 +1,40 @@
+---
+title: "APOS"
+---
+
+## Prerequisites
+
+You must connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+## Connect to Connect AI
+
+To establish a connection from APOS to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to APOS Live Data Gateway Manager.
+</Step>
+<Step>
+In the APOS Live Data Gateway Manager, click **Add**.
+<Frame>
+  <img src="/images/apos_client.png" alt="APOS Client" />
+</Frame>
+</Step>
+<Step>
+Enter the connection information in the **Connection** tab of the dialog that appears.
+- **Data source**—select **Database**
+- **Database**—select **JDBC Generic**
+- **Connection String**—supply the connection string information in this format, where databaseName is the name of a configured connection in Connect AI: `jdbc:sqlserver://tds.cdata.com:14333;databaseName=MyConnectionName;`
+- **Driver Class**—set to `com.CData.connect.Driver` (this should be set by default)
+</Step>
+<Step>
+Click **Test Connection**.
+</Step>
+<Step>
+Click **Save** and give your connection a unique prefix.
+</Step>
+</Steps>
+
+
+
+Once your connection is created, it appears in the **Available Connection** table. Now you can use it to create semantic layer views in the APOS Live Data Gateway Web UI.

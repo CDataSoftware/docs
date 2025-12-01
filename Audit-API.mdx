@@ -1,0 +1,156 @@
+---
+title: "Audit API"
+description: "Get a list of audit events for an account."
+api: POST https://cloud.cdata.com/api/log/audit/list
+contentType: application/json
+---
+
+### Query String Parameters
+
+<ParamField path="startTime" type="string">
+
+Timestamp in UTC (ISO 8601 format). 
+Format: date-time
+
+Example: `"2025-08-18T00:00:00Z"`
+
+</ParamField>
+
+<ParamField path="endTime" type="string">
+
+Timestamp in UTC (ISO 8601 format).
+
+Format: date-time
+
+Example: `"2025-08-18T23:59:59Z"`
+
+</ParamField>
+
+### Headers
+
+<ParamField path="Authorization" type="string" required>
+
+Bearer token for authentication.
+
+Format: Bearer {token}
+
+</ParamField>
+
+<ParamField path="Content-Type" type="string" required>
+
+Defaults to application/json.
+
+</ParamField>
+
+## Responses
+
+### 200
+
+Success
+
+<Expandable title="Response body">
+
+<ResponseField name="events" type="array of objects" required>
+
+  <ResponseField name="eventType" type="integer" required>
+
+The audit event type, such as user login, user PAT created, or permission created.
+
+  </ResponseField>
+
+  <ResponseField name="timestamp" type="string" required>
+
+	The timestamp of the event.
+
+  </ResponseField>
+
+  <ResponseField name="relatedId" type="string" required>
+
+    The related resource Id, if applicable.
+
+  </ResponseField>
+
+  <ResponseField name="relatedName" type="string" required>
+
+    The related resource name, if applicable
+
+  </ResponseField>
+
+  <ResponseField name="relatedType" type="integer" required>
+
+    The related resource type, if applicable.
+
+  </ResponseField>
+
+  <ResponseField name="targetId" type="string" required>
+
+    The Id of the event, such as the Query Id.
+
+  </ResponseField>
+
+  <ResponseField name="targetName" type="string" required>
+
+    The target resource name, such a user’s email or a connection name.
+
+  </ResponseField>
+
+  <ResponseField name="targetType" type="integer" required>
+
+    The target type, such as query or connection change.
+
+  </ResponseField>
+
+  <ResponseField name="userId" type="string">
+
+ The user’s Id.
+
+  </ResponseField>
+
+  <ResponseField name="userName	" type="string">
+
+   The user’s name.
+
+  </ResponseField>
+
+  <ResponseField name="userType" type="integer">
+
+   The user type.
+  </ResponseField>
+
+</ResponseField>
+
+</Expandable>
+
+
+<ResponseExample>
+```bash 200
+
+{
+  "events": [
+    {
+      "eventType": 1003,
+      "timestamp": "2025-08-18T17:07:07.3673862Z",
+      "targetId": "aaa96669-74c8-480f-a8c1-7956979cbee9",
+      "targetName": "PostgreSQL1",
+      "targetType": 1,
+      "userId": "6b8d5c25-cdc1-4b0c-b9f1-5b26647a8240",
+      "userName": "User1",
+      "userType": 0
+    },
+    {
+      "eventType": 1107,
+      "timestamp": "2025-08-13T21:20:08.4380865Z",
+      "relatedId": "4780a367-2ba0-4b73-b086-b0d964323032",
+      "relatedName": "Mcp",
+      "relatedType": 4,
+      "targetId": "a41dd9b5-1ed6-54d9-b5e5-2754e4a29deb",
+      "targetName": "test@cdata.com",
+      "targetType": 2,
+      "userId": "a41dd9b5-1ed6-54d9-b5e5-2754e4a29deb",
+      "userName": "User2",
+      "userType": 0
+    }
+  ]
+}
+```
+</ResponseExample>

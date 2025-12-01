@@ -1,0 +1,83 @@
+---
+title: "Azure Table Storage"
+---
+
+
+## Setup Guide
+
+Follow these steps to connect Azure Table Storage to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Azure Table Storage* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### SharedAccessSignature
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Shared Access Signature**—a valid signature of a resource to connect to. This signature may be generated with a tool such as Azure Storage Explorer. See [Microsoft's help page](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview) for more information about shared access signatures.
+	- **Account**—the Azure Storage account name. To access your Azure storage accounts or create one, log in to the Azure portal and click **Storage Accounts** in the services menu on the left. If the backend is set to **AzureStack**, set the Account as the complete host for your data. For example: `<account>.nm.azs.sandia.gov`. If the backend is set to **Emulator**, set the Account as the complete host. For example: `http://127.0.0.1:10002/devstoreaccount1`.
+	- **Backend**—select the backend from the drop-down list. The backend is where the data is stored. Data may retrieved from the classic Azure Table Storage repository (**Storage**, the default), Azure Storage Emulator, CosmosDB, or Azure Stack Hub.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Table Storage Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AccessKey
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Account**—the Azure Storage account name. To access your Azure storage accounts or create one, log in to the Azure portal and click **Storage Accounts** in the services menu on the left. If the backend is set to **AzureStack**, set the Account as the complete host for your data. For example: `<account>.nm.azs.sandia.gov`. If the backend is set to **Emulator**, set the Account as the complete host. For example: `http://127.0.0.1:10002/devstoreaccount1`. To obtain the account name for the backend of **CosmosDB**, navigate to Cosmos DB service and select your Azure Cosmos DB Account. From the resource menu, go to the **Connection String** page. Find the account name and set the Account to this value.
+	- **Access Key**—the key for the storage account. To obtain the Access Key for the default backend (**Storage**), log in to the Azure portal and click **Storage Accounts** in the services menu on the left to list the storage accounts. Select a storage account and click **Access Keys** in the **Settings** section. Either key1 or key2 can be used. To obtain the Access Key for the backend of **CosmosDB**, navigate to Cosmos DB service and select your Azure Cosmos DB Account. From the resource menu, go to the **Connection String** page. Find the PRIMARY KEY value and set the Access Key to this value.
+	- **Backend**—select the backend from the drop-down list. Data may retrieved from the classic Azure Table Storage repository (**Storage**, the default), Azure Storage Emulator, CosmosDB, or Azure Stack Hub.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Table Storage Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Azure Tenant**—(optional) the Microsoft Online tenant being used to access data. This value is the directory Id in **Azure Portal** > **Azure Active Directory** > **Properties**. If not specified, your default tenant is used.
+	- **Account**—the Azure Storage account name. To access your Azure storage accounts or create one, log in to the Azure portal and click **Storage Accounts** in the services menu on the left. If the backend is set to **AzureStack**, set the Account as the complete host for your data. For example: `<account>.nm.azs.sandia.gov`. If the backend is set to **Emulator**, set the Account as the complete host. For example: `http://127.0.0.1:10002/devstoreaccount1`.
+	- **Backend**—select the backend from the drop-down list. Data may retrieved from the classic Azure Table Storage repository (**Storage**, the default), Azure Storage Emulator, CosmosDB, or Azure Stack Hub.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Table Storage Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Azure Table Storage, see [this information page](https://cdn.cdata.com/help/CAK/cloud/default.htm#default).

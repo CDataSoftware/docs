@@ -1,0 +1,72 @@
+---
+title: "ADO.NET"
+description: "This page outlines the steps that are required to use the Microsoft ADO.NET data provider for Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use ADO.NET with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Install the Provider
+
+Follow these steps to download and install the provider:
+
+<Steps>
+<Step>
+[Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-A/setup.exe&name=ADO.NET%20Provider%20for%20CData%20Connect&tag=Download-ado) and run the ADO.NET setup file.
+</Step>
+<Step>
+The installer can automatically detect software that supports ADO.NET, such as Visual Studio. Select the options that you want the installer to configure.
+</Step>
+<Step>
+After installation, the ADO.NET Provider will be available in the software that you selected during installation.
+</Step>
+</Steps>
+
+## Connect to Connect AI
+
+Connect AI uses OAuth to establish a connection between the ADO.NET Provider and your account. The steps below provide an example of configuring the ADO.NET Provider in Visual Studio 2022:
+
+<Steps>
+<Step>
+In Visual Studio, click **Tools** > **Connect to Database**.
+</Step>
+<Step>
+Select **CData Connect Data Source** as your Data Source.
+</Step>
+<Step>
+In the **Data Provider** drop-down menu, select **ADO.NET Provider for CData Connect 2021** and click **Continue**.
+</Step>
+<Step>
+The **Add Connection** window appears. In the **Auth Scheme** field, select **OAuth**. Do not fill out other fields.
+</Step>
+<Step>
+Click **Test Connection**.
+	- If you are already logged in, a success message appears.
+	- If you are not logged in, the Connect AI sign-in window opens in your web browser. Sign in and return to Visual Studio.
+</Step>
+<Step>
+Click **OK** on the success message and **OK** in the **Add Connection** window.
+</Step>
+</Steps>
+
+Your connection appears in the **Server Explorer** pane under the **Data Connections** section.
+
+## Connect to a Workspace
+
+To connect the ADO client to a specific [workspace](/Workspaces), you specify the workspace name in the **Workspace** field of the **Add Connection** window.
+
+<Frame>
+![](/images/ado_specify_workspace.png)
+</Frame>
+
+
+## Connect to Connect AI
+
+Embedded Cloud users can connect the ADO.NET client to Connect AI using OAuthJWT authentication. To connect to Connect AI using OAuthJWT, set the **Auth Scheme** in your ADO.NET connection as **OAuthJWT**.
+
+## Learn More
+
+To learn more information about using the ADO.NET Provider for Connect AI, click [here](https://cdn.cdata.com/help/LFM/ado/default.htm).

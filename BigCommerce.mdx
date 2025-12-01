@@ -1,0 +1,71 @@
+---
+title: "BigCommerce"
+---
+
+## Setup Guide
+
+Follow these steps to connect BigCommerce to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *BigCommerce* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you registered your BigCommerce account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you registered your BigCommerce account for OAuth.
+	- **Store Id**—this is located in the BigCommerce URL when you are logged in to your account. It is formatted as `https://store-[StoreId].mybigcommerce.com/`.
+</Step>
+<Step>
+At the top of the Connect AI **Add BigCommerce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### PersonalAccessToken
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Access Token**—To obtain the OAuth Access Token, log in to your BigCommerce account and do the following:
+		1. Go to **Settings** > **Store-level API Tokens** > **+Create API Account**.
+		2. Select **Token type** > **V2/V3 API Token**.
+		3. Enter the name of your account (minimum of four characters).
+		4. Choose the OAuth Scopes for the API Account you are creating. The driver cannot access data marked as "None" and cannot modify data marked as "read-only".
+		5. Click **Save**. A successful save displays a pop-up window containing API credentials. Save your credentials, since you cannot return to this pop-up window.
+	- **Store Id**—this is located in the BigCommerce URL when you are logged in to your account. It is formatted as `https://store-[StoreId].mybigcommerce.com/`. In BigCommerce, it is also known as the store hash.
+</Step>
+<Step>
+At the top of the Connect AI **Add BigCommerce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and BigCommerce, see [this information page](https://cdn.cdata.com/help/UBK/cloud/default.htm#default).

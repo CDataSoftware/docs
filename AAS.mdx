@@ -1,0 +1,95 @@
+---
+title: "Azure Analysis Services"
+---
+
+
+## Setup Guide
+
+Follow these steps to connect Azure Analysis Services to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Azure Analysis Services* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+In the **URL** field, enter the URL of the Azure server instance. For example, `asazure://eastus.asazure.windows.net/serverCode`.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### AzureAD
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id found on the Overview page of the OAuth app used to authenticate to Microsoft SharePoint on Azure.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Azure Analysis Services sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Azure Analysis Services account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Analysis Services Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Azure Password
+
+<Steps>
+<Step>
+In **User** enter the Azure Analysis Services username for authentication.
+</Step>
+<Step>
+In **Password** enter the user password.
+</Step>
+<Step>
+Enter the **Azure Tenant** Id found on the Overview page of the OAuth app used to authenticate to Microsoft SharePoint on Azure.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Analysis Services Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipal
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** that you will use to access data.
+</Step>
+<Step>
+Enter your **OAuth Client Id**.
+</Step>
+<Step>
+Enter your **OAuth JWT Cert** OR your **OAuth Client Secret**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Analysis Services Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Azure Analysis Services, see [this information page](https://cdn.cdata.com/help/OAK/cloud/default.htm#default).

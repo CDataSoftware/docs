@@ -1,0 +1,65 @@
+---
+title: "ADP"
+---
+
+## Prerequisites
+
+Before you can establish a connection with ADP, go to ADP’s [API Central documentation](https://developers.adp.com/guides/quick-start-guides/adp-api-central-for-clients/api-guides/api-central-quick-start-guide) to learn how to obtain the necessary credentials.
+
+The following is an overview of the steps:
+
+<Steps>
+<Step>
+Create a new project and add a use case and name.
+</Step>
+<Step>
+Click **View project** and copy the client Id and client secret.
+</Step>
+<Step>
+Generate an SSL security certificate for your project, which contains a private key. Copy and securely save the private key for authenticating to the ADP API.
+</Step>
+<Step>
+ADP masks all sensitive personal information by default. Ask an ADP administrator to update this for API access if needed.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect ADP to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *ADP* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information in Connect AI:
+	- **OAuth Client Id**—the client Id that you copied in the prerequisites.
+	- **OAuth Client Secret**—the client secret that you copied in the prerequisites.
+	- **SSL Client Cert**—First, paste the entire private key that you copied in ADP API Central. The private key begins with `---BEGIN PRIVATE KEY---` and ends with `---END PRIVATE KEY---`.
+		Then, open the .pem file you downloaded from ADP API Central. The .pem file contains the public certificate. Copy and paste the contents of the .pem file after the private key information. The public certificate begins with `---BEGIN CERTIFICATE---` and ends with `---END CERTIFICATE---`.
+		<Note>If you followed the manual process to use a PFX certificate instead of PEM, you must use a password-protected PFX. You also need to change the **SSL Client Cert Type** setting to **PFXBLOB** in the **Advanced Settings** tab of this screen.</Note>
+	- **SSL Client Cert Password**—(optional) the password for the Client Cert, if it is encrypted. If it is not password-protected, leave this field blank.
+</Step>
+<Step>
+Set the **Use UAT** field according to your ADP configuration.
+</Step>
+<Step>
+At the top of the Connect AI **Add ADP Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and ADP, see [this information page](https://cdn.cdata.com/help/JDJ/cloud/default.htm#default).

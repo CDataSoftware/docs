@@ -1,0 +1,84 @@
+---
+title: "Bullhorn CRM"
+---
+
+## Setup Guide
+
+Follow these steps to connect Bullhorn CRM to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Bullhorn CRM* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **Data Center Code** where your account data is hosted. This code appears at the beginning of the Bullhorn CRM URL when you are logged in. For example, if your URL is `https://cls21.bullhornstaffing.com/BullhornSTAFFING/MainFrame.jsp`, your code is `CLS21`.
+</Step>
+<Step>
+Contact Bullhorn CRM to set up a custom OAuth application with the correct redirect URI for Connect AI, which is *https://oauth.cdata.com/oauth/*.
+
+<Note>
+Bullhorn CRM does not allow users to configure custom OAuth applications themselves. You must contact Bullhorn CRM for this step.
+</Note>
+</Step>
+<Step>
+After setting up your OAuth application, enter your **OAuth Client Id** and **OAuth Client Secret** in Connect AI.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Toggle **Include Custom Fields** on or off, depending on whether you want to include custom fields in the column listing.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Bullhorn CRM sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Bullhorn CRM account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Bullhorn CRM Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthPassword
+
+<Steps>
+<Step>
+Enter the Bullhorn CRM username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<Step>
+Toggle **Include Custom Fields** on or off, depending on whether you want to include custom fields in the column listing.
+</Step>
+<Step>
+At the top of the Connect AI **Add Bullhorn CRM Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Bullhorn CRM, see [this information page](https://cdn.cdata.com/help/HAK/cloud/default.htm#default).

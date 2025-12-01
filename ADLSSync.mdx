@@ -1,0 +1,65 @@
+---
+title: "Azure Data Lake Storage"
+---
+
+
+## Prerequisites
+
+#### Whitelist CData IPs
+
+To establish a connection to Azure Data Lake Storage, you need to allow access to Azure Data Lake Storage via CData’s IP. When hosting Azure Data Lake Storage behind a firewall, you must safelist these IP addresses in your firewall.
+
+- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
+- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+
+#### Ensure Azure Data Lake Storage Is Publicly Accessible
+
+Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+#### If Connect AI Is Configured to Run in the Same Region as Azure Data Lake Storage
+
+If you have a firewall enabled and Connect AI is running in the same region as Azure Data Lake Storage, you need to configure virtual network rules and add Connect AI virtual network subnets to the list of allowed virtual networks. See Microsoft’s [documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#grant-access-from-a-virtual-network) for details. Contact [CData support](https://www.cdata.com/support/submit.aspx) if you need a list of region-specific fully qualified subnet IDs.
+
+## Setup Guide
+
+Follow these steps to connect Azure Data Lake Storage to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Azure Data Lake Storage* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **File Format**—choose the file format type.
+	- **Auth Scheme**—set to **Azure AD** (Entra ID).
+	- **Azure Storage Account**—the name of the storage account.
+	- **File System**(Optional)—enter the file system protocol.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Azure Data Lake Storage sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Azure Data Lake Storage account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Data Lake Storage Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>	

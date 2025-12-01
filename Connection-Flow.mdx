@@ -1,0 +1,38 @@
+---
+title: "Connection Flow"
+description: "The following diagram shows the connection and authentication flow for your customer using Embedded Cloud to configure a connection."
+---
+
+<Frame>
+![](/images/powered_by_cdata_connection_flow.svg)
+</Frame>
+Creating a connection to a Connect AI data source from a client account involves the following steps:
+<Steps>
+<Step>
+An end user of your customer’s account clicks **Add Connection** on your web page.
+</Step>
+<Step>
+Your application creates a JSON Web Token (JWT) signed by a private key and makes a request to the Embedded Cloud Create Connection API.
+</Step>
+<Step>
+Embedded Cloud returns a redirect URL to your application.
+</Step>
+<Step>
+The end user is redirected to the Connect AI **Add Connection** page.
+</Step>
+<Step>
+The end user adds connection information for the particular data connector, such as Salesforce, and then tests and saves the connection.
+</Step>
+<Step>
+Embedded Cloud calls [Create Connection](https://cloud.cdata.com/docs/Connection-Management.html).
+</Step>
+<Step>
+Create Connection returns success or failure on the **Add Connection** page.
+</Step>
+<Step>
+The end user clicks the **Close** button. Embedded Cloud redirects with a connection Id back to your web page.
+</Step>
+<Step>
+Your web page now displays the end user’s list of connections.
+</Step>
+</Steps>

@@ -1,0 +1,59 @@
+---
+title: "ChatGPT"
+---
+
+## Prerequisites
+
+Before you can configure and use ChatGPT with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+You also need ChatGPT Plus or Pro.
+
+## Configure the Connect AI MCP Server
+
+<Steps>
+<Step>
+In ChatGPT, go to **Settings** > **Connectors** > **Advanced settings** and then toggle **Developer mode** on.
+</Step>
+<Step>
+Return to **Settings** > **Connectors** and click **Create**. A **New Connector** dialog appears.
+</Step>
+<Step>
+In the **New Connector** dialog, enter the following:
+- **Name**–enter a name for the connector, such as *QueryMCP*.
+- **Description**–enter a description for the connector.
+- **MCP Server URL**–enter the URL for the MCP server: *https://mcp.cloud.cdata.com/mcp*.
+- **Authentication**–select OAuth.
+</Step>
+<Step>
+Select **I trust this application**.
+<Frame>
+  <img src="/images/chatgpt_client_connector.png" alt="ChatGPT Connector" />
+</Frame>
+</Step>
+<Step>
+Click **Create**.
+</Step>
+<Step>
+Connect AI prompts you for a username and password.
+</Step>
+<Step>
+In the ChatGPT chat session, click the **+** button and then **More** > **Developer Mode**.
+</Step>
+<Step>
+Click **Add sources** and toggle on the connector you created. The connector appears in the chat session.
+<Frame>
+  <img src="/images/chatgpt_client_developermode.png" alt="ChatGPT Developer Mode" />
+</Frame>
+
+</Step>
+<Step>
+Ask ChatGPT questions about your data. ChatGPT may ask your permission to access the data.
+</Step>
+<Step>
+Expand **Called tool** to view details about how ChatGPT accesses your data using MCP tools.
+<Frame>
+  <img src="/images/chatgpt_client_calledtool.png" alt="ChatGPT Called Tool" />
+</Frame>
+</Step>
+</Steps>
+

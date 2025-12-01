@@ -1,0 +1,156 @@
+---
+title: "Connection Management"
+---
+
+## Create Connection
+
+Create Connection requests the Connection Create Flow from the Embedded Cloud product.
+
+Create Connection validates the JWT and returns a string containing the URL to redirect the user to.
+
+### Request
+
+`POST https://cloud.cdata.com/api/poweredby/connection/create`
+
+```
+{
+    "dataSource": "ExcelOnline",
+    "redirectURL": "https://www.google.com",
+    "name" : "ExcelConnection"
+}
+```
+
+#### Payload Parameters
+
+| **Name** | **Description** |
+| --- | --- |
+| dataSource | The type of data source (For example: Snowflake, ActOn, etc.). |
+|  | **Note:** You can obtain data source names from [List Data Sources](https://cloud.cdata.com/docs/Data-Sources-Management.html). |
+| redirectURL | The URL to redirect the customer once the customer has created the connection through the Connect AI UI. |
+| name | (Optional) If provided, the connection name. |
+
+### Response
+
+A string containing the URL to redirect the user to.
+
+`HTTP 200 OK`
+
+```
+{
+    "redirectURL": "https://cloud.cdata.com/oem/user/connections/edit?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IkV4Y2VsT25saW5lIiwibmJmIjoxNzIxMTU0ODY1LCJleHAiOjE3MjExNTUwNDUsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.Yjph-6HkExJ3eIc3d2pgjZUYMx-GvYcCuuRx8NfKBXkCo_LHZdg8Hn9tcYDr4dEUuL8JTFMzNVgLa-KMQ9PNFmF-R43LSEY3rPXw0iI-9AjYiWOf_fqZe79b-8ig-gnHRKYtHyohVbB4JoXKcICitNBW58gvxc3w7D6XkykAAKRugvVdTJYsaYOwcHar8J7hxtUYaiwmNfP11xo-i1HFkxubUbi3OXr02eGURXidSCAgDxEL7wEXFjLAIxN4sXvbNiAy_OVNSUYnjEhJNxRJiDD7-XZbSVK-Uw68ohv3h4HPnVCKW8DSRWOGhu6kZ_yMQ0buI8qli3tt_YONyAazhw&driver=ExcelOnline&redirectUrl=https%3A%2F%2Fwww.google.com"
+}
+```
+
+## Edit Connection
+
+Edit Connection edits a connection in the Embedded Cloud product.
+
+### Request
+
+`POST https://cloud.cdata.com/api/poweredby/connection/edit/{connectionId}`
+
+```
+{
+    "redirectURL": "https://www.google.com"
+}
+```
+
+#### Path Parameters
+
+| **Name** | **Description** |
+| --- | --- |
+| connectionId | The connection Id created in [Create Connection](https://cloud.cdata.com/docs/#create-connection). |
+
+#### Payload Parameters
+
+| **Name** | **Description** |
+| --- | --- |
+| redirectURL | The URL to redirect the customer once the customer has edited the connection through the Connect AI UI. |
+
+### Response
+
+A string containing the URL to redirect the user to.
+
+`HTTP 200 OK`
+
+```
+{  
+   "redirectURL": "https://cloud.cdata.com/oem/user/connections/edit/eeef6211-5d6f-4347-b5bb-f99d574e75e5?driver=MailChimp&token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6InVwZGF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJjb25uZWN0aW9uSWQiOiJlZWVmNjIxMS01ZDZmLTQzNDctYjViYi1mOTlkNTc0ZTc1ZTUiLCJuYmYiOjE3MjExNTQ2MTUsImV4cCI6MTcyMTE1NDc5NSwiaXNzIjoiY2RhdGEuY29ubmVjdC5hY2NvdW50c2VydmljZSIsImF1ZCI6ImNkYXRhLmNvbm5lY3Qub2VtIn0.JHkjo7tMBrwfoYRrPLUMXoW08Na6CU4EeZS374qvoaO5VGcUef5yyCssC49ca6lIH6DDXgb0a039XPPfIvj9ezqeeVPAt1iJo2TahUTilWwnNeFpkJ8Nh12X29yquzrWJFUYPhDdCKgHpaV0yPqHTZ0V5k8DoDIcTWFtA5xExo9_alpAmfYeIggtu_6pmlRbRWJHRpTWvSiadAzwWeDdMyGlwPjuDE06GjTIByelbH2fpYehlGedh7rganCxNLyjhtuKWlv7VqCQh2S6NOpAXFRgl6Fqy6byp9oIhyb3HeuWptvTig_YClN4_EP0Moq1lHV2v2LE-PBj6ixPoI0i-w&redirectUrl=https%3A%2F%2Fwww.google.com"
+}
+```
+
+## List Connections
+
+List Connections requests a list of connections for a child account.
+
+### Request
+
+`GET https://cloud.cdata.com/api/poweredby/connection/list`
+
+### Response
+
+`HTTP 200 OK`
+
+```
+{
+    "connections": [
+        {
+            "id": "880dc1a2-03c3-4288-9857-6f5c029d897c",
+            "name": "ExcelOnline1",
+            "dataSource": "ExcelOnline",
+            "lastModified": "2024-08-02T21:30:55.154Z"
+        },
+        {
+            "id": "eeef6211-5d6f-4347-b5bb-f99d574e75e5",
+            "name": "MailChimp1",
+            "dataSource": "MailChimp",
+            "lastModified": "2023-10-11T20:43:33.28Z"
+        }
+    ]
+}
+```
+
+#### Fields
+
+| **Name** | **Description** |
+| --- | --- |
+| id | The internal Connect AI account Id. |
+| name | The catalog/connection name. |
+| dataSource | The data source name. Example: Snowflake, Salesforce, etc. |
+| lastModified | The time when the connection was last modified. |
+
+## Delete Connection
+
+Delete Connection deletes a child account’s connection from the Embedded Cloud product.
+
+### Request
+
+`DELETE https:/cloud.cdata.com/api/poweredby/connection/delete/{id}`
+
+#### Path Parameters
+
+| **Name** | **Description** |
+| --- | --- |
+| id | The connection Id to delete. |
+
+### Response
+
+`HTTP 200 OK`
+
+## Clear Connection Metadata
+
+Clear Connection Metadata clears the metadata cache for the specified connection. In some situations, clearing the metadata cache can help fix loading or performance issues.
+
+### Request
+
+`DELETE https:/cloud.cdata.com/api/poweredby/connection/{id}/metadata`
+
+#### Path Parameters
+
+| **Name** | **Description** |
+| --- | --- |
+| id | The connection Id of the connection in which to clear the metadata. |
+
+### Response
+
+`HTTP 200 OK`

@@ -1,0 +1,212 @@
+---
+title: "Example API"
+---
+
+## Summary
+
+This page acts as an example of the steps required to configure a connection to an API from start to finish. For this example, we are using an API that contains people’s maintenance schedules for their vehicles.
+
+## Create the API Connection
+
+First you must create a new API connection.
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type API in the **Add Connection** dialog that opens to bring up the API connector tile and click it.
+</Step>
+<Step>
+On the **Global Settings Tab**, name the connection. In this example we are using "TestAPI."
+</Step>
+<Step>
+Select the Authentication method. Since no authentication is required for this API, select `No Auth`.
+</Step>
+<Step>
+Since no headers are required for this connection, this section can be left blank.
+</Step>
+<Step>
+Set the pagination. This API uses a next page URL, by providing the next page URL as part of the response. Shown below is the relevant part of the response in the Vehicles's endpoint:
+
+```json
+{
+  "people": [
+    {
+        ...
+    },
+    ...
+  ],
+  "nextLink": "https://my_vehicles/api?$skiptoken='ERNSH'"
+}
+```
+</Step>
+<Step>
+Set the Pagination **Type** to `URL`.
+</Step>
+<Step>
+Set the URL Path to `/nextLink`.
+</Step>
+<Step>
+Click the **Create** button at the top of the page to save the API connection.
+</Step>
+</Steps>
+
+## Create the table
+
+Now that you've added a connection corresponding to a catalog, you can create tables for each of the API's endpoints.
+
+<Steps>
+<Step>
+In your API connection, click **Tables** to open the Tables tab.
+</Step>
+<Step>
+Click **Add** to add a new table.
+</Step>
+<Step>
+Provide a **Name** for your table. This is the name that the table displays when accessing it from clients. For example: `Vehicles`.
+</Step>
+<Step>
+Leave the **Response Type** as `JSON`, and the Request call to `GET`.
+</Step>
+<Step>
+Set the **Request URL** to your API endpoint URL. In this example, we are using `https://my_vehicles/api`.
+</Step>
+<Step>
+Leave the **Parameters** section blank, since there are none for this API.
+</Step>
+<Step>
+Similarly, leave **Headers** blank.
+</Step>
+<Step>
+In the **Table Data** section, click **Configure** to automatically fill out the **Table Data** information. This opens the **Preview Request**, which shows the following API response:
+
+```json expandable
+{
+  "people": [
+    {
+      "personal": {
+        "age": 21,
+        "gender": "M",
+        "name": {
+          "first": "John",
+          "last": "Doe"
+        }
+      },
+      "vehicles": [
+        {
+          "type": "car",
+          "model": "Honda Civic",
+          "insurance": {
+            "company": "ABC Insurance",
+            "policy_num": "12345"
+          },
+          "features": [
+            "sunroof",
+            "rims"
+          ],
+          "maintenance": [
+            {
+              "date": "07-17-2017",
+              "desc": "oil change"
+            },
+            {
+              "date": "01-03-2018",
+              "desc": "new tires"
+            }
+          ]
+        },
+        {
+          "type": "truck",
+          "model": "Dodge Ram",
+          "insurance": {
+            "company": "ABC Insurance",
+            "policy_num": "12345"
+          },
+          "features": [
+            "lift kit",
+            "tow package"
+          ],
+          "maintenance": [
+            {
+              "date": "08-27-2017",
+              "desc": "new tires"
+            },
+            {
+              "date": "01-08-2018",
+              "desc": "oil change"
+            }
+          ]
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+</Step>
+<Step>
+Click **Next** to access the Add Columns menu. Here, you need to select a root path, and any columns to expose.
+	The **Root Path** is the JSON element which contains repeating sub-elements and determines the rows of the table. In this case, we need to select multiple root paths because there are multiple elements that are repeated in this document. Since the root elements are nested, some of the data is repeated for each row as you can see in this example. We select the `people` element first because this repeats for each person as shown in the snippet from the response below:
+	```json
+	{
+	     "people": [
+	         {
+	         <Person 1 data>
+	         },
+	         {
+	         <Person 2 data>
+	         }, 
+	         ...
+	     ]
+	 }
+	```
+	We also select the `vehicles` and `maintenance` elements because we are interested in data from those two repeated sections as well.
+	*Note: The JSON array uses square brackets `[]` to contain an array of JSON objects which are each contained within angle brackets `{}`.*
+</Step>
+<Step>
+For this example, select `first`, `last` from the people array, `type`, `model` from the vehicles array, and `date`, `description` from the maintenance array as the columns to expose.
+</Step>
+<Step>
+Click **Next** to access the **Table Preview**. This renders the first 10 rows of the table as currently configured. If configured correctly, you should see data for each column selected:
+
+| first | last | type | model | date | description |
+|:- |:- |:- |:- |:- |:- |
+| John | Doe | car | Honda Civic | 07-17-2017 | oil change |
+| John | Doe | car | Honda Civic | 01-03-2018 | new tires |
+| John | Doe | truck | Dodge Ram | 08-27-2017 | new tires |
+| John | Doe | truck | Dodge Ram | 01-08-2018 | oil change |
+</Step>
+<Step>
+Click **Confirm** to automatically add your **Table Data** configuration. The data selected should be reflected in the **Root Path** and **Columns** fields in the **Table Data** section.
+</Step>
+<Step>
+Click **Save** to save this table.
+</Step>
+</Steps>
+
+## Test Queries
+
+After configuring your connection and your table, you can test it by running queries in the **Data Explorer**.
+
+<Steps>
+<Step>
+In Connect AI, navigate to **Data Explorer**.
+</Step>
+<Step>
+In the **Connections** list, select the `TestAPI` connection created earlier. This expands all of that connection's tables, including the `Vehicles` table created in this example.
+</Step>
+<Step>
+Click the ellipsis next to this table and select **query**. This automatically generates the SQL query to retrieve all vehicles:
+	- `SELECT * FROM [TestAPI].[REST].[Vehicles]` You can modify this SQL query as needed. For example, you can add a `WHERE` clause to select only vehicles of a specific model:
+	- `SELECT * FROM [TestAPI].[REST].[Vehicles] WHERE model='Honda Civic'`
+</Step>
+<Step>
+Click **Execute** to run this query. If everything is configured correctly, the results are visible immediately.
+</Step>
+</Steps>
+
+To connect to this API data from your preferred client, refer to the details documented for the specific client in the **Integrations** page. To access this data, you might need to set the catalog (or database, depending on the client), to `TestAPI`.

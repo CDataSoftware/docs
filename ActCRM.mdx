@@ -1,0 +1,62 @@
+---
+title: "Act! CRM"
+---
+
+## Setup Guide
+
+Follow these steps to connect Act! CRM to your Connect AI account:
+<Steps>
+<Step>
+ Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+ Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+ Type *Act! CRM* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+ Choose an **Act Edition** and follow the relevant instructions below.
+</Step>
+</Steps>
+## Authentication Methods
+
+### Act CRM
+<Steps>
+<Step>
+ Enter the following information:
+	- **Password**—the user password
+	- **User**—the Act! CRM username for authentication
+	- **URL**—the URL of the Act! CRM account
+	- **Act Database**—the Act! database to which you want to connect
+</Step>
+<Step>
+ At the top of the Connect AI **Add Act! CRM Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Act Premium Cloud
+<Steps>
+<Step>
+Enter the following information:
+	- **Act Cloud Name**—the handle assigned to the Act! Premium Cloud account. You can find this in your web browser’s address field when you open your Act! account. The form is similar to `https://eup1-iis-04.eu.hosted.act.com/**ActCloudName**`. Enter only the Act cloud name, not the entire URL.
+	- **Password**—the user password
+	- **User**—the Act! CRM username for authentication
+	- **URL**—the URL of the Act! CRM account
+	- **Act Database**—the Act! database to which you want to connect
+</Step>
+<Step>
+At the top of the Connect AI **Add Act! CRM Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Act! CRM, see [this information page](https://cdn.cdata.com/help/FTK/cloud/default.htm#default).

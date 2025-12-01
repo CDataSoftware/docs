@@ -1,0 +1,61 @@
+---
+title: "Airtable"
+---
+
+## Setup Guide
+
+Follow these steps to connect Airtable to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Airtable* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+</Steps>
+
+By default, **Enable Metadata API** (in the **Advanced Settings** tab) is set to true. Enabling the Metadata API requires the 'schema.bases:read' scope for both PersonalAccessToken and OAuthPKCE authentication.
+
+## Authentication Methods
+
+## PersonalAccessToken
+
+<Steps>
+<Step>
+Enter the Airtable Personal Access Token in the **OAuth Access Token** field. To obtain the token, log in to your [Airtable user account](https://airtable.com/), navigate to the token creation page, and click **Create new token**. Add all the workspaces and bases that you want the token to have access to. Copy and save the generated token, as it will only be shown once.
+</Step>
+<Step>
+Enter your Airtable **Base Id**. The Base Id can be found in the [Airtable API Reference](https://airtable.com/api).
+</Step>
+<Step>
+At the top of the Connect AI **Add Airtable Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+
+## OAuthPKCE
+
+<Steps>
+<Step>
+Enter your Airtable Base Id in the **Base Id** field. The Base Id can be found in the [Airtable API Reference](https://airtable.com/api).
+</Step>
+<Step>
+At the top of the Connect AI **Add Airtable Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and Airtable, see [this information page](https://cdn.cdata.com/help/JAK/cloud/default.htm#default).

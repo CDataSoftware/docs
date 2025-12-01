@@ -1,0 +1,72 @@
+---
+title: "Claude"
+---
+
+## Prerequisites
+
+Before you can use Claude with Connect AI, you must first connect at least one data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+## Connect to Connect AI
+
+Follow these steps to add a Connect AI connector in Claude:
+
+<Steps>
+<Step>
+Sign in to https://claude.ai or create a new account.
+</Step>
+<Step>
+Expand the left navigation menu.
+</Step>
+<Step>
+In the bottom-left corner, click your user name and select **Settings** from the menu. The **Settings** screen appears.
+</Step>
+<Step>
+In the **Settings** screen, click **Connectors**.
+</Step>
+<Step>
+In the top-right corner, set your button toggle to **Organization connectors**.
+</Step>
+<Step>
+Click **Add custom connector** at the bottom of the page.
+</Step>
+<Step>
+Enter a name for the connector (such as *Connect AI MCP*).
+</Step>
+<Step>
+In the **Remote MCP server URL** field, enter *https://mcp.cloud.cdata.com/mcp*.
+</Step>
+<Step>
+Click **Add** to save the connector. The Connect AI MCP connector appears under **Connectors**.
+</Step>
+<Step>
+Click **Connect** to the right of the connector and enter your Connect AI user name and password. You have now connected Claude to Connect AI.
+<Frame>
+  <img src="/images/claude_client_connect.png" alt="Claude Connect" />
+</Frame>
+
+</Step>
+<Step>
+Click the three dots after **Connected** and select **Tools and settings**.
+<Frame>
+  <img src="/images/claude_client_tools.png" alt="Claude Tools" />
+</Frame>
+</Step>
+<Step>
+Review the provided tools and enable or disable specific tools made available by the server. In addition, determine whether you want unsupervised access to the tools, or whether you want Claude to ask your permission.
+</Step>
+<Step>
+Click **Done** when finished with your settings.
+</Step>
+<Step>
+In the left navigation menu, click **New chat**.
+</Step>
+<Step>
+You can now start exploring your data with natural language prompts. Claude outlines the steps it uses to retrieve data from the source in Connect AI. Refer to CData's [prompt library](https://www.cdata.com/solutions/mcp/prompt-library/) for prompt ideas.
+</Step>
+</Steps>
+
+
+
+<Note>
+Claude's setup process is subject to change. Refer to [Claude's documentation](https://support.anthropic.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp) for the latest setup information.
+</Note>

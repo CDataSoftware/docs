@@ -1,0 +1,57 @@
+---
+title: "Amazon QuickSight"
+description: "This page outlines the steps to connect Amazon QuickSight to the Connect AI Virtual SQL Server API."
+---
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Amazon QuickSight to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Amazon QuickSight.
+</Step>
+<Step>
+In the navigation pane, select **Datasets**.
+<Frame>
+  <img src="/images/quicksight_datasets.png" alt="QuickSight Datasets" />
+</Frame>
+
+</Step>
+<Step>
+On the Datasets page, click **New Dataset**.
+</Step>
+<Step>
+Select **SQL Server**.
+</Step>
+<Step>
+Enter the connection information in the dialog that appears.
+- **Data source name**—a name that you will use to identify the data source.
+- **Connection type**—select **Public network**.
+- **Database server**—enter *tds.cdata.com*
+- **Port**—enter *14333*
+- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- **Enable SSL**—enabled
+<Frame>
+  <img src="/images/quicksight_newsource.png" alt="QuickSight New Source" />
+</Frame>
+</Step>
+<Step>
+Click **Validate connection** to test your entered credentials. If you receive an error, check all fields and try again.
+</Step>
+<Step>
+Click **Create data source**.
+</Step>
+</Steps>
+
+
+Once your connection is created, it appears under the **From Existing Data Sources** section of your Dataset list. The **Choose your table** dialog automatically appears for you to select a schema and tables to issue a query. You can manually open this dialog again by clicking your data source in the list. When selecting Schema, make sure to avoid any dbo schemas and select the actual schema instead.

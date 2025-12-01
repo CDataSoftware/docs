@@ -1,0 +1,155 @@
+---
+title: "Confluence"
+---
+
+## Setup Guide
+
+Follow these steps to connect Confluence to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Confluence* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—Set to the URL to your Jira endpoint in the form `https://[YourSiteName].atlassian.net/`.
+	- **OAuth Client Id**—Set to the client Id in your app settings.
+	- **OAuth Client Secret**—Set to the client secret in your app settings.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Confluence sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Confluence account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic
+
+<Note>
+Basic authentication is only applicable for Server instances. For Cloud instances, use APIToken authentication.
+</Note>
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—Set to the URL to your Jira endpoint in the form `https://[YourSiteName].atlassian.net/`.
+	- **User**—the Confluence username for authentication.
+	- **Password**—the user password.
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### APIToken
+
+<Note>
+APIToken is only applicable for Cloud instances. For Server instances, use Basic authentication.
+</Note>
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—Set to the URL to your Jira endpoint in the form `https://[YourSiteName].atlassian.net/`.
+	- **User**—the Confluence username for authentication.
+	- **API Token**—the API token for the current user. To create an API token, go to the **Security** tab of your Atlassian account and click **Create and manage API tokens**. On the **API Tokens** page, click **Create API token**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Crowd
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—Set to the URL to your Jira endpoint in the form `https://[YourSiteName].atlassian.net/`.
+	- **User**—The Crowd user account.
+	- **Password**—The password associated with the Crowd account.
+	- **SSO Login URL**—The login URL associated with the Crowd account. You can find the IDP URL by navigating to **your application > SSO > SSO information > Identity provider single sign-on URL**.
+	- **SSO Exchange URL**—The URL used used to exchange the SAML token for Confluence cookies. This URL can have the following formats:
+		- https:///plugins/servlet/samlconsumer
+		- https:///plugins/servlet/samlsso
+	- **SSO App Name**—The name of the application in which SSO is enabled.
+	- **SSO App Password**—The password of the application in which SSO is enabled.
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Okta
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—Set to the URL to your Jira endpoint in the form `https://[YourSiteName].atlassian.net/`.
+	- **User**—The Okta user account.
+	- **Password**—The password associated with the Okta account.
+	- **SSO Login URL**—Set to the URL used by the SSO provider.
+	- **SSO Properties**—(Optional) This is needed if you use MFA, applications that override the Okta requests, or a proxy. Otherwise it can be left blank.
+	- **SSO Exchange URL**—The URL used used to exchange the SAML token for Confluence cookies. This URL can have the following formats:
+		- https:///plugins/servlet/samlconsumer
+		- https:///plugins/servlet/samlsso
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### PAT
+
+<Steps>
+<Step>
+In your Atlassian account, go to **Profile** > **Personal Access Tokens** > **Create token**. Copy and paste the PAT here.
+</Step>
+<Step>
+At the top of the Connect AI **Add Confluence Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Confluence, see [this information page](https://cdn.cdata.com/help/UGK/cloud/default.htm#default).

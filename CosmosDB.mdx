@@ -1,0 +1,97 @@
+---
+title: "Cosmos DB"
+---
+
+## Setup Guide
+
+Follow these steps to connect Cosmos DB to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Cosmos DB* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter your Cosmos DB account URL **Account Endpoint**. You can find this URL under the **Keys** blade of the Cosmos DB account.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### AccountKey
+
+<Steps>
+<Step>
+Enter the master key token or resource token for connecting to the Cosmos DB REST API in the **Account Key** field.
+</Step>
+<Step>
+Use the **Token Type** field to specify whether the token you entered in the **Account Key** field is a **master** or **resource** token.
+</Step>
+<Step>
+In Cosmos DB, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Cosmos DB Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your Cosmos DB account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your Cosmos DB account for OAuth.
+</Step>
+<Step>
+In Cosmos DB, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Cosmos DB Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipal
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id to connect to.
+</Step>
+<Step>
+Enter the **OAuth Client Id** found in your application settings.
+</Step>
+<Step>
+Enter your **OAuth Client Secret**.
+</Step>
+<Step>
+In Cosmos DB, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Cosmos DB Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Cosmos DB, see [this information page](https://cdn.cdata.com/help/EHK/cloud/default.htm#default).

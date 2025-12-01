@@ -1,0 +1,314 @@
+---
+title: "Global Settings"
+---
+
+
+## Summary
+
+Global settings apply to all the tables that can be discovered through an API connection. This page covers the configuration of authentication, headers, and pagination. Once these are set, you can continue to the **Tables** tab and create [Tables](/APICreateTable).
+
+## Authentication
+
+By default, an API connector is set to No Auth for its Authentication Type. If no authentication is required to access your API endpoints, click **Create** to save the connector. Afterwards, you can create any required [Headers](#headers) or set the [Pagination](#pagination) type for your connector before proceeding to create [Tables](/APICreateTable). If authentication is required, select the Authentication method and follow the instructions in the relevant section.
+
+<Note>
+  The authentication method you choose applies to every table added to this connector.
+</Note>
+
+### Basic Auth
+
+<Steps>
+<Step>
+In the **User** field, enter the Global Settings username for authentication.
+</Step>
+<Step>
+Enter the user password in the **Password** field.
+</Step>
+<Step>
+At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
+</Step>
+<Step>
+After saving the connection, click **Tables** to move on to creating [Tables](/APICreateTable).
+</Step>
+</Steps>
+
+### Digest Auth
+
+<Steps>
+<Step>
+In the **User** field, enter the Global Settings username for authentication.
+</Step>
+<Step>
+Enter the user password in the **Password** field.
+</Step>
+<Step>
+At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
+</Step>
+<Step>
+After saving the connection, click **Tables** to move on to creating [Tables](/APICreateTable).
+</Step>
+</Steps>
+
+### OAuth 1.0
+
+<Steps>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** assigned when you registered for OAuth.
+</Step>
+<Step>
+Enter your **OAuth Request Token URL** to retrieve request tokens from.
+</Step>
+<Step>
+Enter your **OAuth Authorization URL** so request tokens can be authorized on sign in.
+</Step>
+<Step>
+Enter your **OAuth Access Token URL** so authorized request tokens can be exchanged for access tokens.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Global Settings sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Global Settings account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
+</Step>
+<Step>
+After saving the connection, click **Tables** to move on to creating [Tables](/APICreateTable).
+</Step>
+</Steps>
+
+### OAuth 2.0
+
+<Steps>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** assigned when you registered for OAuth.
+</Step>
+<Step>
+Enter your **OAuth Authorization URL** so users can be authorized on sign in.
+</Step>
+<Step>
+Enter your **OAuth Access Token URL** so authorization tokens can be exchanged for access tokens.
+</Step>
+<Step>
+Enter your **OAuth Refresh Token URL** so refresh tokens can be exchanged for access tokens when old access tokens expire.
+</Step>
+<Step>
+Enter the **Header Prefix**. The header prefix is incorporated into the Authorization header before the token. The default value is `Bearer`.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Global Settings sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Global Settings account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
+</Step>
+<Step>
+After saving the connection, click **Tables** to move on to creating [Tables](/APICreateTable).
+</Step>
+</Steps>
+
+#### OAuth 2.0 Custom Parameters
+
+To add custom parameters to associated requests in OAuth 2.0, do the following:
+
+<Steps>
+<Step>
+Enter the parameter name in the **Name** field.
+</Step>
+<Step>
+Enter the value of the parameter in the **Value** field.
+</Step>
+</Steps>
+
+To add more parameters, click **Add Parameter** and repeat the above steps as required.
+
+## Headers
+
+To add HTTP headers that are sent with all API calls, do the following:
+
+<Steps>
+<Step>
+Enter the header name in the **Name** field.
+</Step>
+<Step>
+Specify the value of the header in the **Value** field.
+</Step>
+</Steps>
+
+To add more headers, click **Add Header** and repeat the above steps as required.
+
+## Pagination
+
+You can specify the pagination **Type** to use with API Connector. First, select the Pagination type. The options available are:
+
+### None
+
+Any API request returns the full dataset in one response.
+
+### Offset
+
+When using offset paging, Connect AI defines the page size and the number of records to skip when retrieving subsequent pages. For offset paging, set the following values:
+
+- **Offset Param**: The name of the URL parameter defining the API offset in the API request.
+- **Page Size Param** (Optional): The name of the URL parameter defining how many records to retrieve per page.
+- **Page Size**: The number of records to retrieve per page. The connector uses this value to calculate the offset. Set this to the default page size of the API you are connecting to.
+
+#### Example
+
+In the request below, the user has set **Offset Param** to "pageOffset", **Page Size Param** to "pageSize", and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the offset.
+
+```bash
+https://myapi?pageOffset=5000&pageSize=1000
+```
+
+### Number
+
+When using page numbers to control paging, set the following values:
+
+- **Page Number Param**: The name of the URL parameter defining the page number.
+- **Page Size Param** (Optional): The name of the URL parameter that defines the page size.
+- **Page Size** (Optional): The number of records to retrieve per page.
+
+#### Example
+
+In the request below, the user has set **Page Number Param** to "pageNum", **Page Size Param** to "pageSize", and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the page.
+
+```bash
+https://myapi?pageNum=6&pageSize=1000
+```
+
+### Token
+
+When using next page token to control paging, set the following values. The connector automatically includes the token in each request from the previous response.
+
+- **Token Path**: The path in the API response defining the next page token.
+- **Has More Path** (Optional): The path in the API response defining whether there are more records available.
+- **Token Source**: Select whether the token should be sent in the request as a `URL Parameter` or in the `Request Body`.
+- **URL Parameter**: The name of the URL parameter to pass the paging token.
+- **Request Body**: The path in the request body where to pass the paging token.
+
+#### Example using Parameters
+
+In the request below, the user has set **URL Parameter** to “pageToken” and **Token Path** to “/results/nextpagetoken”.
+
+**Request:**
+
+```bash
+https://myapi?pageToken=123456
+```
+
+**Response:**
+
+```json
+{
+  "results": [
+    {
+      "rows": [
+        {
+          "id": "123",
+          "name": "Acme",
+          "country": "United States",
+          "no_employees": 500
+        },
+        ...
+      ],
+      "nextpagetoken": 123457
+    }
+  ]
+}
+```
+
+#### Example using Body
+
+In the request below, the user has set **Request Body** to “/request/pageToken”, **Token Path** to “/results/nextpagetoken”, and **Has More Path** to “/results/morePages”.
+
+**Request Body:**
+
+```json
+{
+  "request": [
+    {
+      "country": "United States",
+      "pageToken": 123456
+    }
+  ]
+}
+```
+
+**Response:**
+
+```json
+{
+  "results": [
+    {
+      "rows": [
+        {
+          "id": "123",
+          "name": "Acme",
+          "country": "United States",
+          "no_employees": 500
+        },
+        ...
+      ],
+      "nextpagetoken": 123457,
+      "morePages": true
+    }
+  ]
+}
+```
+
+### URL
+
+When using next page URLs to control paging, you first need to select where the URL for the next page is in the response:
+
+- **Response Type**: Select either `Response Body` if the URL is in the body of the response, or `Response Header` if the URL is in a header of the response.
+- **Response Body**: The path in the API response defining the next page URL. This value should be supplied in XPath notation. See the example below.
+- **Response Header**: If the next page URL is passed in the response headers with a “Link” header, set this to specify the header name.
+
+#### Example using Path
+
+In the example below, the user has set **Response Body** to “/results/nextpageurl”. Here is an example response which contains the next page URL:
+
+**Response:**
+
+```json
+{
+  "results": [
+    {
+      "rows": [
+        {
+          "id": "123",
+          "name": "Acme",
+          "country": "United States",
+          "no_employees": 500
+        },
+        ...
+      ],
+      "nextpageurl": "https://myapi?nextpage=81a3ebdb-1483-45cd-84d1-f711d1308698"
+    }
+  ]
+}
+```
+
+## Advanced
+
+The **Verbosity** field should be left at `2` unless required for troubleshooting purposes.
+
+After creating an API connection, proceed to creating [Tables](/APICreateTable).
+
+You can add **Retry Status Codes** to retry the request if the API call fails with that status code.

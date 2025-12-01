@@ -1,0 +1,67 @@
+---
+title: "Cvent"
+---
+
+## Prerequisites
+
+Before obtaining OAuth credentials, you need to create a custom OAuth application in Cvent if you do not already have one.
+
+To create an OAuth application in Cvent:
+
+<Steps>
+<Step>
+Navigate to the [Cvent Developer Portal's Applications page](https://developers.cvent.com/) and click **Create application**.
+</Step>
+<Step>
+Select the **Machine to Machine** application type.
+</Step>
+<Step>
+Under **Application name**, specify a name for the application.
+</Step>
+<Step>
+Click **Select scopes** and select all of the scopes you want to add to your application. You are limited to the scopes allowed by the Workspace.
+</Step>
+<Step>
+Click **Save** to create the application.
+</Step>
+<Step>
+Click **View Applications** to return to the Applications page.
+</Step>
+</Steps>
+
+Note the values of the **Client ID** and **Client secret**. You will use these below to authenticate to Cvent.
+
+## Setup Guide
+
+Follow these steps to connect Cvent to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Cvent* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **OAuthClientId** from the prerequisites.
+</Step>
+<Step>
+Enter the **OAuthClientSecret** from the prerequisites.
+</Step>
+<Step>
+(Optional) Enter the **Scope** of the authenticating user's access to the application. This can be done when you create the OAuth application.
+</Step>
+<Step>
+At the top of the Connect AI **Add Cvent Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>	

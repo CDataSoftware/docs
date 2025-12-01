@@ -1,0 +1,71 @@
+---
+title: "Airbyte"
+description: "This page outlines the steps to connect Airbyte to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Airbyte to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to your Airbyte account.
+<Frame>
+![](/images/Airbyte01.png)
+</Frame>
+</Step>
+<Step>
+On the left pane, click **Sources**, then **Add New Source**.
+</Step>
+<Step>
+Select MSSQL Server from **Source Type** to connect the TDS endpoint.
+</Step>
+<Step>
+Enter your **Source Name**.
+</Step>
+<Step>
+Enter your **Host** URL. In this case the host is `tds.cdata.com`.
+</Step>
+<Step>
+Add the **Port** to connect to. In our example the port is `14333`.
+</Step>
+<Step>
+Enter the **Database** to connect to. In the example, the Database is `GoogleSheets1`.
+</Step>
+<Step>
+Enter the **Username** you use to connect to the source.
+</Step>
+<Step>
+For the **SSL Method**, use `Encrypted (trust server certificate)`, leave the **Replication Method** as standard, and the **SSH Tunnel Method** as `No Tunnel`.
+</Step>
+<Step>
+Add any **Schema** you want to apply to the source.
+</Step>
+<Step>
+Enter your **Password** for the source.
+</Step>
+<Step>
+(Optional) Enter any needed **JBDC URL Params**.
+<Frame>
+![](/images/Airbyte02.png)
+</Frame>
+</Step>
+<Step>
+Click **Test and Save** to create the data source. You can now connect your source with a destination, which you will need to create separately.
+</Step>
+<Step>
+To connect your new source with your destination, click **Connections** and then **Set Up Connection**.
+</Step>
+<Step>
+Select the source created above and your desired destination, then allow Airbyte to process. When it is done, your connection is ready for use.
+</Step>
+</Steps>

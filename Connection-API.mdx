@@ -1,0 +1,54 @@
+---
+title: "Create Connection"
+description: "Create Connection validates the JWT and returns a string containing the URL to redirect the user to."
+api: POST https://cloud.cdata.com/api/poweredby/connection/create
+contentType: application/json
+---
+
+
+
+If you include the parameter `dataSource`, the URL redirects the user to an **Add Connection** page for the data source. If you omit `dataSource`, the URL redirects the user to a general **Add Connection** page where the user can select a connection to add from the connections list.
+
+### Payload Parameters
+
+<ParamField path="dataSource" type="string">
+(Optional) The type of data source (For example: Snowflake, ActOn, or Salesforce). 
+<Note>
+**Note:** You can obtain data source names from [List Data Sources](https://cloud.cdata.com/docs/Data-Sources-API.html). If you omit this parameter, the user can select from a list of available data sources.
+</Note>
+</ParamField>
+
+<ParamField path="redirectURL" type="string" required>
+The URL to redirect the customer once the customer has created the connection through the Connect AI UI.
+</ParamField>
+
+<ParamField path="name" type="string">
+(Optional) If provided, the connection name.
+</ParamField>
+
+## Responses
+
+### 200
+
+
+A string containing the URL to redirect the user to. If you include the parameter `dataSource`, the URL redirects the user to an **Add Connection** page for the data source. If you omit `dataSource`, the URL redirects the user to a general **Add Connection** page where the user can select a connection to add from the connections list.
+
+`HTTP 200 OK`
+<Expandable title="Response body">
+
+<ResponseField name="redirectURL" type="string" required>
+A string containing the URL to redirect the user to.
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+    "redirectURL": "https://cloud.cdata.com/oem/user/connections/edit?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IkV4Y2VsT25saW5lIiwibmJmIjoxNzIxMTU0ODY1LCJleHAiOjE3MjExNTUwNDUsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.Yjph-6HkExJ3eIc3d2pgjZUYMx-GvYcCuuRx8NfKBXkCo_LHZdg8Hn9tcYDr4dEUuL8JTFMzNVgLa-KMQ9PNFmF-R43LSEY3rPXw0iI-9AjYiWOf_fqZe79b-8ig-gnHRKYtHyohVbB4JoXKcICitNBW58gvxc3w7D6XkykAAKRugvVdTJYsaYOwcHar8J7hxtUYaiwmNfP11xo-i1HFkxubUbi3OXr02eGURXidSCAgDxEL7wEXFjLAIxN4sXvbNiAy_OVNSUYnjEhJNxRJiDD7-XZbSVK-Uw68ohv3h4HPnVCKW8DSRWOGhu6kZ_yMQ0buI8qli3tt_YONyAazhw&driver=ExcelOnline&redirectUrl=https%3A%2F%2Fwww.google.com"
+}
+```
+
+</ResponseExample>

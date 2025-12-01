@@ -1,0 +1,28 @@
+---
+title: "Conversion"
+description: "Conversion functions can be used to convert the value of one data type into another data type."
+---
+
+
+
+## CAST()
+
+Converts a value of one supported data type into another supported data type.
+
+#### Syntax
+
+```bash
+CAST(expression AS datatype[(length)])
+```
+
+#### Parameters
+
+- **expression** An expression of any supported data type to be converted into a different supported data type.
+- **datatype** The data type to which to convert the expression.
+- **length** (Optional) The length of the resulting data type.
+
+#### Example(s)
+
+```bash
+SELECT CAST ('2024-01-01' AS datetime)
+```

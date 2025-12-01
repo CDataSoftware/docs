@@ -1,0 +1,101 @@
+---
+title: "Azure Active Directory"
+---
+
+
+## Setup Guide
+
+Follow these steps to connect Azure Active Directory to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Azure Active Directory* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### AzureAD
+
+<Steps>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Azure Active Directory sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Azure Active Directory account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Active Directory Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipal
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** that you use to access data.
+</Step>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter your **OAuth Client Id** assigned when you registered your Azure Active Directory account.
+</Step>
+<Step>
+Enter your **OAuth Client Secret** assigned when you registered your Azure Active Directory account for OAuth.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Active Directory Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipalCert
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** that you use to access data.
+</Step>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter your **OAuth Client Id** assigned when you registered your Azure Active Directory account.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert**, the contents of the JWT Certificate store. This is a multi-line key with the format shown.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Password** (optional) if the certificate store requires it.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Subject** (optional). This is the subject of the OAuth JWT certificate. If omitted, the first certificate in the certificate store is used.
+</Step>
+<Step>
+At the top of the Connect AI **Add Azure Active Directory Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Azure Active Directory, see [this information page](https://cdn.cdata.com/help/CJK/cloud/default.htm#default).

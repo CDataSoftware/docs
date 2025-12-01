@@ -1,0 +1,292 @@
+---
+title: "Authentication"
+description: "All requests to the Embedded Cloud API must be properly authenticated using JSON Web Tokens (JWT)."
+---
+
+
+
+CData requires that a JWT is signed using the RSA 256 algorithm.
+
+## Creating a JWT
+
+Follow these steps to create a JWT.
+<Steps>
+<Step>
+Create a JWT header with this format:
+	`{"alg": "RS256", "typ": "JWT"}`
+</Step>
+<Step>
+ Base64url encode the JWT header.
+</Step>
+<Step>
+ Construct a JSON Claims Set for the JWT with the following parameters.
+	| Parameter | Description |
+	|:--- |:--- |
+	| `tokenType` | powered-by (This JWT token is type `powered-by`.) |
+	| `iat` | The time the JWT is issued, expressed as the number of seconds from 1970-01-01T0:0:0Z measured in UTC. |
+	| `exp` | The date and time at which the token expires, expressed as the number of seconds from 1970-01-01T0:0:0Z measured in UTC. |
+	| `iss` | The account Id of the parent account. |
+	| `sub` | The account Id of the child account (optional for [Create Account](/Account-API#create-account) and [List Data Sources](https://cloud.cdata.com/docs/Data-Sources-API.html)). |
+	The following is an example JSON Claim Set for the JWT:
+
+	```bash
+	{
+	   "tokenType": "powered-by",
+	   "iat": current_time_seconds,
+	   "exp": expiration_time_seconds,
+	   "iss": "your_oem_account_id_here",
+	   "sub": "your_sub_account_id_here",
+	 }
+	```
+</Step>
+<Step>    
+Base64url encode the JSON Claims Set without any line breaks.
+</Step>
+<Step>
+Create a string for the encoded JWT Header and the encoded JWT Claims Set in the following format:
+	```bash
+	Base64UrlEncode(JWT_header)\` + "." + Base64UrlEncode(JWT_Claims_Set)
+	```
+</Step>
+<Step>
+Sign the token with your [private key](#generating-a-private-key) and format the token.
+</Step>
+<Step>
+Register the [public key](#generating-a-public-key) certificate in Privacy-Enhanced Mail (PEM) format in the management account. Open a support ticket with Connect AI to register the public key.
+</Step>
+</Steps>
+## Generating JWT Keys
+
+A JWT requires a public and private key in PEM format. You sign the JWT with your private key and you register the public key with CData. There are several ways to generate JWT keys. The examples below use `openssl`.
+
+### Generating a Private Key
+
+The following example shows how to generate the JWT private key using `openssl`:
+
+```bash
+openssl genrsa -out ./private.key 4096
+```
+
+Your current directory should now contain the `private.key`. Do not share this file with anyone!
+
+### Generating a Public Key
+
+Use the private key to generate the public key. In `openssl`, the command is as follows:
+
+```bash
+openssl rsa -in private.key -pubout -outform PEM -out public.key
+```
+
+Your current directory should now contain the `public.key`, which you need to share with CData.
+
+## Code Samples
+
+Code samples for creating a JWT are available in the following programming languages:
+
+- [Java](#java)
+- [Python](#python)
+- [C#](#c)
+- [node.js](#nodejs)
+
+### Java
+
+Creating a JWT in Java:
+
+```bash expandable
+import org.apache.commons.codec.binary.Base64;
+import java.io.*;
+import java.security.*;
+import java.lang.*;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.text.MessageFormat;
+
+public class JWTExample {
+
+    public static void main(String[] args) {
+
+        String privateKey = """
+                your_secret_key_here
+        """
+            .replace("-----BEGIN PRIVATE KEY-----", "")
+            .replaceAll(System.lineSeparator(), "")
+            .replace("-----END PRIVATE KEY-----", "");
+
+        String header = "{\"alg\": \"RS256\", \"typ\": \"JWT\"}";
+        String claimTemplate = """
+        '{
+         '\"tokenType\": \"{0}\", 
+          \"iat\": {1}, 
+          \"exp\": {2}, 
+          \"iss\": \"{3}\", 
+          \"sub\": \"{4}\"'
+        }'""";
+
+            try {
+        StringBuffer token = new StringBuffer();
+
+        //Encode the JWT Header and add it to our string to sign
+        token.append(Base64.encodeBase64URLSafeString(header.getBytes("UTF-8")));
+
+        //Separate with a period
+        token.append(".");
+
+        //Create the JWT Claims Object
+        String[] claimArray = new String[5];
+        claimArray[0] = "powered-by";
+        claimArray[1] = Long.toString( System.currentTimeMillis()/1000 );
+        claimArray[2] = Long.toString( ( System.currentTimeMillis()/1000 ) + 300);
+        claimArray[3] = "your_oem_account_id_here";
+        claimArray[4] = "your_sub_account_id_here";
+        var claims = new MessageFormat(claimTemplate);
+        String payload = claims.format(claimArray);
+
+        //Add the encoded claims object
+        token.append(Base64.encodeBase64URLSafeString(payload.getBytes("UTF-8")));
+
+        // Load the private key
+        byte[] keyBytes = Base64.decodeBase64(privateKey.getBytes("utf-8"));
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory fact = KeyFactory.getInstance("RSA");
+        PrivateKey signingKey = fact.generatePrivate(keySpec);
+
+        //Sign the JWT Header + "." + JWT Claims Object
+        Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initSign(signingKey);
+        signature.update(token.toString().getBytes("UTF-8"));
+        String signedPayload = Base64.encodeBase64URLSafeString(signature.sign());
+
+        //Separate with a period
+        token.append(".");
+
+        //Add the encoded signature
+        token.append(signedPayload);
+
+        System.out.println(token.toString());
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+}
+```
+
+### Python
+
+Creating a JWT in Python:
+
+Use the PyJWT and cryptography packages in Python. You can install these via pip: `pip install pyjwt` and `pip install cryptography`.
+
+```bash expandable
+import jwt
+import datetime
+
+# Secret key used to sign the JWT
+secret_key = """your_secret_key_here"""
+
+# Payload (claims) for the JWT
+
+current_datetime_seconds = datetime.datetime.today().timestamp()
+expiration_datetime_seconds = (datetime.datetime.today() + datetime.timedelta(minutes=5)).timestamp();
+
+payload = {
+    'tokenType': 'powered-by',
+    'iat': current_datetime_seconds,
+    'exp': expiration_datetime_seconds,
+    'iss': 'your_oem_account_id_here',
+    'sub': 'your_sub_account_id_here',
+  }
+
+# Create the JWT token
+token = jwt.encode(payload, secret_key, algorithm='RS256')
+
+print(token)
+```
+
+### C#
+
+Creating a JWT in C#:
+
+Use the Nuget Package Manager Console to install the `System.IdentityModel.Tokens.Jwt` library with the following command:
+
+`Install-Package System.IdentityModel.Tokens.Jwt`.
+
+```bash expandable
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using Microsoft.IdentityModel.Tokens;
+
+// Secret key used to sign the JWT
+var secretKey = "your_secret_key_here";
+
+// Create an rsa security key from the secret key
+var rsa = new RSACryptoServiceProvider();
+rsa.ImportFromPem(secretKey.ToCharArray());
+
+// Create signing credentials using the security key
+SigningCredentials signingCredentials = new(new RsaSecurityKey(rsa), SecurityAlgorithms.RsaSha256);
+
+DateTime currentTime = DateTime.UtcNow;
+DateTime expirationTime = currentTime.AddMinutes(5);
+
+// Create claims for the JWT payload
+var claims = new[]
+{
+   new Claim(JwtRegisteredClaimNames.Iss, "your_oem_account_id_here"),
+   new Claim(JwtRegisteredClaimNames.Sub, "your_sub_account_id_here"),
+   new Claim("tokenType", "powered-by"),
+};
+
+// Create a JWT token descriptor with claims and signing credentials
+var tokenDescriptor = new SecurityTokenDescriptor
+{
+  Subject = new ClaimsIdentity(claims),
+  SigningCredentials = signingCredentials,
+  Expires = expirationTime,
+  IssuedAt = currentTime
+};
+
+// Create a JWT token handler
+var tokenHandler = new JwtSecurityTokenHandler();
+
+// Create and encode the JWT token
+var token = tokenHandler.CreateToken(tokenDescriptor);
+var tokenString = tokenHandler.WriteToken(token);
+
+Console.WriteLine(tokenString);
+Console.ReadLine();
+```
+
+### node.js
+
+Creating a JWT in node.js:
+
+```bash
+const jwt = require("jsonwebtoken");
+
+// Claims
+const currentTimeInSeconds = Math.floor(Date.now() / 1000); // Convert milliseconds to seconds
+const expirationTimeInSeconds = currentTimeInSeconds + 60 * 5; // Example: 5 min
+
+const claims = {
+  tokenType: "powered-by",
+  iat: currentTimeInSeconds,
+  exp: expirationTimeInSeconds,
+  iss: "your_oem_account_id_here",
+  sub: "your_sub_account_id_here",
+};
+
+// Secret key to sign the token
+const secretKey = \`your_secret_key_here\`;
+
+// Generate JWT token
+const token = jwt.sign(claims, secretKey, { algorithm: "RS256" });
+
+console.log(token);
+```
+
+To run the code, save index.js and execute it as follows:
+
+```bash
+node index.js
+```

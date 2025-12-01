@@ -1,0 +1,82 @@
+---
+title: "Apache Hive"
+---
+
+
+## Setup Guide
+
+Follow these steps to connect Apache Hive to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Apache Hive* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **Transport Mode** to use for communicating with the Hive server: **HTTP** or **BINARY**.
+</Step>
+<Step>
+For HTTP transport mode only, enter the **HTTP Path**, available in the 'hive.server2.thrift.http.path' property of your Hive configuration file (hive.site.xml).
+</Step>
+<Step>
+Select an **Auth Scheme** for use in connecting to Apache Hive. Select the option that matches the configuration of the HiveServer2. Follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Plain
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the Apache Hive username for authentication.
+	- **Password**—the user password.
+	- **Port**—the port for connecting to the Apache Hive server. If using HTTP transport mode, set **Port** to the value in the 'hive.server2.thrift.http.port' property of the Hive configuration file (hive.site.xml).
+	- **Server**—the host name or IP address of the server hosting HiveServer2.
+	- **Database**—(optional) the Apache Hive database to use. If left empty, the connection uses the default Apache Hive database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Apache Hive Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+<Step>
+In Apache Hive, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+
+### LDAP
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the Apache Hive username for authentication.
+	- **Password**—the user password.
+	- **Port**—the port for connecting to the Apache Hive server. If using HTTP transport mode, set **Port** to the value in the 'hive.server2.thrift.http.port' property of the Hive configuration file (hive.site.xml).
+	- **Server**—the host name or IP address of the server hosting HiveServer2.
+	- **Database**—(optional) the Apache Hive database to use. If left empty, the connection uses the default Apache Hive database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Apache Hive Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+<Step>
+In Apache Hive, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and Apache Hive, see [this information page](https://cdn.cdata.com/help/FIK/cloud/default.htm#default).

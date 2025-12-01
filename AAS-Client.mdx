@@ -1,0 +1,221 @@
+---
+title: "Azure Analysis Services"
+description: "This page outlines the steps to connect Azure Analysis Services to Connect AI. You can use either Connect AI Virtual SQL Server API or the Connect AI OData endpoint to connect. Note that the performance of Azure Analysis Services is much slower with an OData connection."
+---
+
+
+## Prerequisites for Connecting via Virtual SQL Server API
+
+Before you connect via Virtual SQL Server API, you must first do the following:
+
+- Create a server in Azure Analysis Services to which you will deploy your data from Connect AI.
+- An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources. To install and configure an on-premises gateway to access data sources, refer to the Microsoft documentation: [Install an On-Premises Gateway](https://learn.microsoft.com/en-us/azure/analysis-services/analysis-services-gateway-install?tabs=azure-portal).
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via Virtual SQL Server API
+
+To establish a connection from Azure Analysis Services to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Note>
+These steps involve creating a tabular model project through Visual Studio and deploying the model to Azure Analysis Services. For further instructions on using Azure Analysis Services, please refer to Microsoft documentation.
+</Note>
+
+### Step 1: Prepare Visual Studio
+
+<Steps>
+<Step>
+Open Visual Studio. In the navigation bar, select **Extensions** > **Manage Extensions**.
+</Step>
+<Step>
+In the search bar, enter *Microsoft Analysis Services Projects 2022*. When it appears in the list, click **Download**.
+</Step>
+<Step>
+When the installer file finishes downloading, close Visual Studio and double-click the extension installation file to install it.
+</Step>
+<Step>
+Follow the installation prompts. When the installation finishes, restart Visual Studio.
+</Step>
+</Steps>
+
+### Step 2: Create the Data Model Project
+
+<Steps>
+<Step>
+In Visual Studio, create a new project.
+</Step>
+<Step>
+Select **Analysis Services Tabular Project**.
+</Step>
+<Step>
+In **Configure your new project**, enter a name for your project in the **Project name** field.
+</Step>
+<Step>
+Specify a location for the project files and set **Framework** to the latest available value.
+<Frame>
+  <img src="/images/azureanalysis_configurenewproject.png" alt="Azure Analysis Configure New Project" />
+</Frame>
+
+</Step>
+<Step>
+Click **Create**. The **Tabular model designer** dialog opens.
+</Step>
+<Step>
+Select **Workspace server** and enter the address of your Azure Analysis Services server (for example, `asazure://eastus.azure.windows.net/myAzureServer`).
+</Step>
+<Step>
+Set **Compatibility Level** to **SQL Server 2022 / Azure Analysis Services (1600)**.
+<Note>
+The rest of this guide is written for this compatibility level. If you select a different compatibility level, the steps below may not apply, and you might encounter issues when connecting to your data.
+</Note>
+
+<Frame>
+  <img src="/images/azureanalysis_tmd.png" alt="Azure Analysis TMD" />
+</Frame>
+</Step>
+<Step>
+Click **Test Connection** and sign in to your server.
+</Step>
+<Step>
+Click **OK** to create the project. Your Visual Studio window should resemble the following screenshot:
+<Frame>
+  <img src="/images/azureanalysis_start.png" alt="Azure Analysis Start" />
+</Frame>
+</Step>
+</Steps>
+
+
+
+
+### Step 3: Import Data
+
+<Steps>
+<Step>
+In Visual Studio, in **Tabular model Explorer**, right-click **Data Sources** and select **Import From Data Source**.
+<Frame>
+  <img src="/images/azureanalysis_import.png" alt="Azure Analysis Import" />
+</Frame>
+
+</Step>
+<Step>
+In **Table Import Wizard**, select **SQL Server database** and click **Connect**.
+<Frame>
+  <img src="/images/azureanalysis_ssdb.png" alt="Azure Analysis SSDB" />
+</Frame>
+</Step>
+<Step>
+In the **Server** field, enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*.
+<Frame>
+  <img src="/images/azureanalysis_enterdb.png" alt="Azure Analysis Enter DB" />
+</Frame>
+</Step>
+<Step>
+Click **OK**. In the new window, select **Database**.
+</Step>
+<Step>
+Enter the following information:
+- **User name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+<Frame>
+  <img src="/images/azureanalysis_entercredentials.png" alt="Azure Analysis Enter Credentials" />
+</Frame>
+
+</Step>
+<Step>
+Click **Connect**. In the **Navigator** window that opens, select your desired data source and click **OK**.
+<Frame>
+  <img src="/images/azureanalysis_navigator.png" alt="Azure Analysis Navigator" />
+</Frame>
+
+</Step>
+<Step>
+**Navigator** refreshes and displays the tables in your data source. Select your tables and click **Load**.
+<Frame>
+  <img src="/images/azureanalysis_tableselect.png" alt="Azure Analysis Table Select" />
+</Frame>  
+</Step>
+</Steps>
+
+
+
+### Step 4: Deploy the Project
+
+<Steps>
+<Step>
+In Visual Studio, select **Solution Explorer**.
+<Frame>
+  <img src="/images/azureanalysis_solution.png" alt="Azure Analysis Solution" />
+</Frame>
+</Step>
+<Step>
+Right-click your project and select **Deploy**.
+- For more information about deploying data, please see [this Microsoft help page](https://learn.microsoft.com/en-us/azure/analysis-services/analysis-services-deploy).
+- For more information about on-premises data gateways, please see [this Microsoft help page](https://learn.microsoft.com/en-us/azure/analysis-services/analysis-services-gateway-install?tabs=azure-portal).
+</Step>
+</Steps>
+
+
+
+Once you deploy your data to Azure Analysis Services, you can use your data to create data models. For more information please see [Azure Analysis Services documentation](https://learn.microsoft.com/en-us/azure/analysis-services/).
+
+## Prerequisites for Connecting via OData Endpoint
+
+If you do not want to use a local gateway with Azure Analysis Services, you can use an OData endpoint to connect to Connect AI. However, the performance is slower than with a Virtual SQL Server connection.
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via OData Endpoint
+
+To connect to Connect AI using the OData protocol, follow these steps.
+
+<Steps>
+<Step>
+After creating a project in Azure Analysis Services, right-click the data source option and select **New Data Source**.
+
+<Frame>
+  <img src="/images/azureanalysis_newdatasource.png" alt="Azure Analysis New Data Source" />
+</Frame>
+
+</Step>
+<Step>
+Search for *OData Feed*.
+
+<Frame>
+  <img src="/images/azureanalysis_odata_feed.png" alt="Azure Analysis OData Feed" />
+</Frame>
+
+</Step>
+<Step>
+In the **OData feed** dialog, enter the following URL: *https://cloud.cdata.com/api/odata/{workspace\_name}*. Then click **OK**.
+<Frame>
+  <img src="/images/azureanalysis_odata_url.png" alt="Azure Analysis OData URL" />
+</Frame>
+
+</Step>
+<Step>
+Next, enter **Basic** credentials. The **User name** is your Connect AI user name, and the **Password** is the PAT from the prerequisites.
+<Frame>
+  <img src="/images/azureanalysis_odata_credentials.png" alt="Azure Analysis OData Credentials" />
+</Frame>
+
+</Step>
+<Step>
+Click **Connect** to test the new connection.
+</Step>
+<Step>
+In the **Navigator**, select the desired table and click **Load**.
+<Frame>
+  <img src="/images/azureanalysis_odata_load.png" alt="Azure Analysis OData Load" />
+</Frame>
+
+</Step>
+<Step>
+You can now view your data in the Navigator.
+<Frame>
+  <img src="/images/azureanalysis_odata_navigator.png" alt="Azure Analysis OData Navigator" />
+</Frame>
+</Step>
+</Steps>
+

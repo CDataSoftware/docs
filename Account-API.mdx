@@ -1,0 +1,47 @@
+---
+title: "Create Account"
+description: "Create Account creates a child account for the parent account in the Embedded Cloud product."
+api: POST https://cloud.cdata.com/api/poweredby/account/create
+contentType: application/json
+---
+
+### Payload Parameters
+
+<ParamField path="externalId" type="string" required>
+The external Id of the account to be created.
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`
+
+<Expandable title="Response body">
+
+<ResponseField name="accountId" type="string" required>
+The internal Connect AI account Id.
+</ResponseField>
+
+<ResponseField name="externalId" type="string" required>
+The customer's identifier.
+</ResponseField>
+
+<ResponseField name="createdTime" type="string" required>
+The time when the account was created.
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+    "accountId": "8744e71e-ee33-4d4e-916f-0a21eba65902",
+    "externalId": "MyExternalId",
+    "createdTime": "2024-07-10T19:10:52.139Z"
+}
+```
+
+</ResponseExample>

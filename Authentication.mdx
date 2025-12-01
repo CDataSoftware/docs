@@ -1,0 +1,26 @@
+---
+title: "Authentication"
+description: "All requests to the Connect AI API must be properly authenticated using either OAuth or Basic Authentication."
+---
+
+
+
+To authenticate a request using Basic Authentication, pass the Base64-encoded login credentials of a registered user in the `Authorization` header of the request. Follow this guidance when passing the credentials:
+
+- The username is the email address of the user, e.g. `user@cdata.com`.
+- The password is a Personal Access Token (PAT) that you generate from the [Settings](/Settings#access-tokens) page.
+- If your application or service does not automatically Base64-encode the string, follow these steps to encode it manually:
+    - Separate the username and PAT with a colon, for example, `user@cdata.com:token`.
+    - Use Base64 to encode the colon-separated string.
+
+
+The following is an example of a curl command that calls the API to return results from a Salesforce Account table:
+
+```bash
+curl -X POST https://cloud.cdata.com/api/query
+   -H "Content-Type: application/json"
+   -d '{"query":"SELECT * FROM Salesforce1.Salesforce.Account LIMIT 10"}'
+   --user "user@cdata.com:123456789abcdefghijklmnopqrstuvwxyz"
+```
+
+Since curl automatically Base64-encodes basic authentication credentials, it is not necessary to manually perform this encoding before sending the request.

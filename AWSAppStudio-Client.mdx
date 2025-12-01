@@ -1,0 +1,89 @@
+---
+title: "AWS App Studio"
+description: "AWS App Studio is an AWS service that enables application development using generative AI. When connected to Connect AI, AWS App Studio lets you develop applications using SaaS data."
+---
+
+
+This page outlines the steps to connect AWS App Studio to your Connect AI account.
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- [Add a workspace](/Workspaces#add-a-workspace) to Workspaces.
+- [Add assets](/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via OpenAPI
+
+To establish a connection from AWS App Studio to Connect AI via OpenAPI, follow these steps.
+
+<Steps>
+<Step>
+In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/OpenAPI) for more information.
+<Note>
+You must use OpenAPI version 3.0.
+</Note>
+<Frame>
+![](/images/aws_appstudio_client_endpoints.png)
+</Frame>
+</Step>
+<Step>
+Log in to AWS App Studio.
+</Step>
+<Step>
+Open the Admin hub.
+</Step>
+<Step>
+Click **Create Connector**.
+</Step>
+<Step>
+In the **Select a connector** page, select **OpenAPI Connector**.
+</Step>
+<Step>
+In the **OpenAPI Connector Configuration** page, configure the following:
+	- **Name**—enter a name of your choice for the connection.
+	- **Description**—if desired, enter a description for the connection.
+	- **Base URL**—the URL of the OpenAPI Specification file.
+	- **Authentication method**—select **Basic**.
+	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **OpenAPI Specification file**—import the OpenAPI Specification file you downloaded from Connect AI.
+</Step>
+<Step>
+Save the connector.
+</Step>
+</Steps>
+
+## Use the OpenAPI Connection in AWS App Studio
+
+<Steps>
+<Step>
+Open the Builder hub.
+</Step>
+<Step>
+Click **Create app** and give the application a name.
+</Step>
+<Step>
+Click **Add automation**.
+</Step>
+<Step>
+In the **Actions** tab to the right of the application creation screen, click **Invoke API** and add it to a flow.
+<Frame>
+![](/images/aws_appstudio_client_automation.png)
+</Frame>
+</Step>
+<Step>
+In the **Properties** tab to the right of the application creation screen, select the OpenAPI connector you created.
+<Frame>
+![](/images/aws_appstudio_client_properties.png)
+</Frame>
+</Step>
+<Step>
+Confirm the contents of the OpenAPI connector.
+</Step>
+<Step>
+Once the flow is successfully completed, you can test the outputs for your flow.
+</Step>
+</Steps>

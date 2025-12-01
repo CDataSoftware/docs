@@ -1,0 +1,188 @@
+---
+title: "Amazon S3"
+---
+
+## Setup Guide
+
+Follow these steps to connect Amazon S3 to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Amazon S3* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the Name of the bucket containing the CSV, Parquet, or Avro files you are connecting to.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### ADFS
+
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Specify the **SSO Login URL** used by the SSO provider.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Select the **File Format** to use.
+</Step>
+<Step>
+In Amazon S3, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AWSRootKeys
+
+<Steps>
+<Step>
+Enter the **AWS Access Key** associated with the AWS root account. You can find this on your AWS security credentials page.
+</Step>
+<Step>
+Enter the **AWS Secret Key** associated with the AWS root account. You can find this on your AWS security credentials page.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Select the **File Format** to use.
+</Step>
+<Step>
+In Amazon S3, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AWSIAMRoles
+
+<Steps>
+<Step>
+Enter the **AWS Access Key** associated with the AWS root account. You can find this on your AWS security credentials page.
+</Step>
+<Step>
+Enter the **AWS Secret Key** associated with the AWS root account. You can find this on your AWS security credentials page.
+</Step>
+<Step>
+Enter the **AWS Role ARN** for the authenticating User Id.
+</Step>
+<Step>
+(Optional) Enter the **AWS External Id** only if emulating a different role.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Select the **File Format** to use.
+</Step>
+<Step>
+In Amazon S3, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Okta
+
+<Steps>
+<Step>
+In **User** enter the Amazon S3 username for authentication.
+</Step>
+<Step>
+In **Password** enter the user password.
+</Step>
+<Step>
+Enter the **SSO Login URL**.
+</Step>
+<Step>
+Enter all relevant **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Select the **File Format** to use.
+</Step>
+<Step>
+In Amazon S3, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### PingFederate
+
+<Steps>
+<Step>
+In **User** enter the Amazon S3 username for authentication.
+</Step>
+<Step>
+In **Password** enter the user password.
+</Step>
+<Step>
+Enter the **SSO Login URL**.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL**.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Select the **File Format** to use.
+</Step>
+<Step>
+In Amazon S3, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Amazon S3, see [this information page](https://cdn.cdata.com/help/SXH/cloud/default.htm#default).
