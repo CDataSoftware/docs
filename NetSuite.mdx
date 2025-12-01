@@ -1,0 +1,231 @@
+---
+title: "NetSuite"
+sidebarTitle: "Overview"
+description: "NetSuite supports two connection methods: SuiteQL and SuiteTalk. Each method has benefits and drawbacks, as outlined below. For most users, CData recommends using SuiteQL."
+---
+
+
+For a detailed discussion about the differences between SuiteTalk and SuiteQL, see the [NetSuite driver documentation](https://cdn.cdata.com/help/DNK/cloud/default.htm#pg_suiteql).
+
+### SuiteQL
+
+SuiteQL is the newer of the two connection methods. This method offers much better performance, especially when you issue large queries. It also supports rich join support, grouping, aggregation, custom list tables, and retrieval of specific columns in your data.
+
+However, SuiteQL only supports SELECT queries. As a result, you cannot issue INSERT, UPDATE, or DELETE queries to NetSuite when you are connected via SuiteQL.
+
+### SuiteTalk
+
+SuiteTalk is the older of the two connection methods. This method provides broad entity support and full support for INSERT, UPDATE, and DELETE queries. However, it often performs poorly during large SELECT queries and lacks reliable table joining capabilities. You also cannot group or aggregate data using SuiteTalk.
+
+For performance and reliability reasons, CData recommends using SuiteTalk only if you require access to INSERT, UPDATE, and DELETE queries for your connection to NetSuite.
+
+## Setup Guide
+
+To configure your NetSuite connection, follow these steps:
+
+<Steps>
+<Step>
+Configure [user roles](#step-1-configure-roles).
+</Step>
+<Step>
+Choose a connection method (SuiteQL/OAuth or SuiteTalk/Token). Note that NetSuite does not support basic authentication through username and password credentials in recent versions. Connect AI recommends using OAuth or Token authorization.
+</Step>
+<Step>
+Follow the steps under [Connect to NetSuite](#step-2-connect-to-netsuite) to establish the connection.
+</Step>
+</Steps>
+
+### Step 1: Configure Roles
+
+Connect AI communicates with NetSuite through NetSuite Web services. If the user account that you will use for establishing the connection does not have NetSuite Web services permissions, follow these steps to create them:
+
+<Steps>
+<Step>
+Log in to NetSuite as an administrator. From the navigation bar, select **Setup** > **Users/Roles** > **Manage Roles**.
+</Step>
+<Step>
+Choose an existing role or create a new one, depending on your needs.
+</Step>
+<Step>
+On the **Edit Role** page, navigate to the **Permissions** section.
+</Step>
+<Step>
+Expand the **Setup ()** field.
+</Step>
+<Step>
+In a blank slot, select **SOAP Web Services** and click **Add** to add the permission.
+</Step>
+<Step>
+In another blank slot, select **REST Web Services** and click **Add** to add the permission.
+</Step>
+<Step>
+Add additional permissions.
+	- If you plan to connect to NetSuite via SuiteQL/OAuth, add the **OAuth 2.0 Authorized Applications Management** permission.
+	- If you plan to connect to NetSuite via SuiteTalk/Token add the **User Access Token** and **Access Token Management** permissions.
+	**Important: See [Permission Configurations](https://cdn.cdata.com/help/DNK/cloud/default.htm#pg_permissions) in the NetSuite driver documentation for additional permissions that may be needed.**
+</Step>
+<Step>
+When you finish, return to the top of the page and click **Save** to save the role.
+</Step>
+</Steps>
+
+Next, add this role to an employee:
+
+<Steps>
+<Step>
+From the navigation bar, select **Lists** > **Employees** > **Employees**. Select an employee or add a new one.
+</Step>
+<Step>
+Scroll to the **Access** section. In the **Roles** subsection, add the role that you created.
+</Step>
+<Step>
+Scroll to the top and click **Save**.
+</Step>
+</Steps>
+
+Continue to Connecting to NetSuite below.
+
+### Step 2: Connect to NetSuite
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *NetSuite* in the **Add Connection** dialog that opens. Click the data-source name when it is displayed.
+</Step>
+<Step>
+On a separate browser tab, log in to your NetSuite account as an administrator role.
+</Step>
+<Step>
+From the top navigation bar, select **Setup** > **Company** > **Company Information**.
+</Step>
+<Step>
+Copy the value for **Account Id** to your clipboard.
+</Step>
+<Step>
+Return to Connect AI and enter the copied value into the **Account Id** field .
+</Step>
+<Step>
+For the **Schema** field, select either SuiteQL or SuiteTalk.
+	**Note:** CData recommends SuiteQL for most use cases. Click [here](https://cdn.cdata.com/help/DNK/cloud/default.htm#pg_suiteql) for information on the differences between SuiteQL and SuiteTalk.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions. Note that OAuth is only available if SuiteQL is selected, and Basic is only available when Suitetalk is selected.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the NetSuite sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your NetSuite account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add NetSuite Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Token
+
+<Steps>
+<Step>
+In NetSuite, navigate to **Setup** > **Company** > **Enable Features**.
+</Step>
+<Step>
+Open the **SuiteCloud** tab and scroll to **Manage Authentication**. Make sure the checkbox **Token-Based Authentication** is selected, then scroll to the top and click **Save**.
+</Step>
+<Step>
+Navigate to **Setup** > **Integration** > **Manage Integrations**.
+</Step>
+<Step>
+Create a new integration. Under **Token-based Authentication**, select the **Token-Based Authentication** and **TBA: Authorization Flow** checkboxes.
+</Step>
+<Step>
+In the **Callback URL** field, enter `https://oauth.cdata.com/oauth/`.
+</Step>
+<Step>
+In the **OAuth 2.0** section, if you do not plan to use OAuth elsewhere with this integration, clear the **Authorization Code Grant** checkbox.
+</Step>
+<Step>
+Copy the values for **Consumer Key / Client ID** and **Consumer Secret / Client Secret** from the **Client Credentials** section. You need these values later. (**Note:** If you click **Save** before you copy the consumer key and secret, click **Edit** then **Reset Credentials**.)
+</Step>
+<Step>
+Click **Save** to save the integration.
+</Step>
+</Steps>
+
+Next, create an access token by following these steps:
+
+<Steps>
+<Step>
+From the navigation bar, select **Setup** > **Users/Roles** > **Access Tokens**.
+</Step>
+<Step>
+Create a new access token. For the application name, select the integration you created.
+</Step>
+<Step>
+In the **User** and **Role** fields, use the same user and role from the [Configure Roles](#step-1-configure-roles) section.
+</Step>
+<Step>
+Click **Save**. Copy the credentials for **Token ID** and **Token Secret**.
+</Step>
+<Step>
+Return to Connect AI and enter your **OAuth Client Id**.
+</Step>
+<Step>
+Enter your Client or Consumer secret into **OAuth Client Secret**.
+</Step>
+<Step>
+Enter your **OAuth Access Token** Id.
+</Step>
+<Step>
+Enter your **OAuth Access Token Secret**.
+</Step>
+<Step>
+At the top of the Connect AI **Add NetSuite Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic
+<Note>
+*Note: This version is only supported on older versions of NetSuite and is not recommended.*
+</Note>
+<Steps>
+<Step>
+In the **User** field, enter the NetSuite username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<Step>
+At the top of the Connect AI **Add NetSuite Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## Troubleshooting
+
+**When logging in through OAuth, I receive the error “Your role does not support OAuth2 login, please select a different one.”**
+
+This error appears when the role that you select during OAuth login is not configured for OAuth. If you have an OAuth-configured role, click **Choose another role** on the NetSuite authorization page and select that role. If you do not have an OAuth-configured role, follow the steps in the [Configure Roles](#step-1-configure-roles) section.
+
+## More Information
+
+For more information about interactions between Connect AI and NetSuite, see [this information page](https://cdn.cdata.com/help/DNK/cloud/default.htm#default).

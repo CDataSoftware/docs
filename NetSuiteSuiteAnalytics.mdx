@@ -1,0 +1,73 @@
+---
+title: "NetSuite SuiteAnalytics"
+---
+
+## Setup Guide
+
+Follow these steps to connect NetSuite SuiteAnalytics to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *NetSuite SuiteAnalytics* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **Server**—the host name or IP address of the server.
+	- **AccountId**—the company account your username is associated with on NetSuite.
+	- **RoleId**—the InternalId of the role that is used to log in to NetSuite. Obtain the RoleId by logging in to NetSuite and navigating to **Setup** > **Integration** > **Web Services Preferences**. The RoleId is displayed next to the specified role.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Basic
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the NetSuite SuiteAnalytics username for authentication
+	- **Password**—the user password
+</Step>
+<Step>
+At the top of the Connect AI **Add NetSuite SuiteAnalytics Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Token
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Consumer Key**—The consumer key for the integration record. This string was created when you created the integration record.
+	- **Consumer Secret**—The consumer secret for the integration record. This string was created when you created the integration record.
+	- **TokenKey**—The token key used to authenticate requests to the data source.
+	- **TokenSecret**—The token secret used to authenticate requests to the data source.
+</Step>
+<Step>
+At the top of the Connect AI **Add NetSuite SuiteAnalytics Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## Advanced Settings Tab
+
+### Authentication
+
+Optionally, enter any **Native Driver Properties** in the **Advanced Settings** tab. These are any extra NetSuite SuiteAnalytics properties you want to add to the connection string, along with the other properties from the **Basic Settings** tab.

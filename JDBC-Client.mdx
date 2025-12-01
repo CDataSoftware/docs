@@ -1,0 +1,82 @@
+---
+title: "JDBC"
+description: "This page outlines the steps to use the JDBC driver for Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use JDBC with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Install the Driver
+
+Download and run the JDBC setup file for your operating system.
+
+- [Mac Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-V/setup.dmg&name=CData%20Connect%20JDBC%20Driver&tag=Download-connect)
+- [Windows Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-V/setup.exe&name=CData%20Connect%20JDBC%20Driver&tag=Download-connect)
+- [Linux Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-V/setup.zip&name=CData%20Connect%20JDBC%20Driver&tag=Download-connect)
+
+## Create a JDBC Data Source
+
+Follow these steps to create a JDBC data source to connect to Connect AI from your Java application:
+
+<Steps>
+<Step>
+Add the driver JAR file to the classpath. The JAR file is located in the `lib` subfolder of the JDBC driver for Connect AI installation directory.
+
+<Note>
+The .lic file must be located in the same folder as the JAR file.
+</Note>
+</Step>
+<Step>
+Some applications automatically populate the driver class. For applications that do not automatically populate it, you must enter it manually. For example:
+
+```bash
+cdata.jdbc.connect.ConnectDriver
+```
+</Step>
+<Step>
+Provide the JDBC URL. For example:
+
+```bash
+jdbc:connect:AuthScheme=OAuth;
+```
+
+or
+
+```bash
+jdbc:cdata:connect:AuthScheme=OAuth;
+```
+
+The second format above can be used to ensure you are using the CData driver whenever there is a conflict in your application between drivers using the same URL format. The URL must start with either `jdbc:connect:` or `jdbc:cdata:connect:`, and it must only include the AuthScheme setting as OAuth.
+</Step>
+</Steps>
+
+## Connect to Connect AI
+
+There are two ways to connect to Connect AI through the JDBC driver: OAuth authentication and Basic authentication.
+
+To connect to Connect AI using OAuth, set the **Auth Scheme** in your JDBC connection as **OAuth**. If the OAuth login page appears in your default web browser, log in to Connect AI to proceed.
+
+If you are unable to use browser-based OAuth authentication to connect to Connect AI, you can use Basic authentication. In this case, set the AuthScheme in your JDBC connection to Basic, and then set the User and Personal Access Token for Connect AI.
+
+### Connect to a Workspace
+
+To connect the JDBC client to a specific [workspace](/Workspaces), you specify the workspace name in the **Advanced** tab of the JDBC driver for Connect AI.
+
+<Frame>
+![](/images/jdbc_specify_workspace.png)
+</Frame>
+
+## Designate a Log File
+
+You can designate a log file for the JDBC driver in the **Advanced** tab of **Connection Properties**. You can also change the verbosity of the log file for greater detail.
+
+<Frame>
+![](/images/jdbc_logfile.png)
+</Frame>
+
+## Learn More
+
+To learn more information about using the JDBC driver for Connect AI, click [here](https://cdn.cdata.com/help/LFM/jdbc/default.htm).

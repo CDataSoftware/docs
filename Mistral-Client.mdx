@@ -1,0 +1,68 @@
+---
+title: "Mistral Le Chat"
+description: "The Connect AI Remote MCP Service enables Mistral Le Chat to securely read and take action on your data in real time."
+---
+
+This page outlines the steps to configure Mistral Le Chat to use the Connect AI Remote MCP Service. You can then use natural language to query your data in real time.
+
+## Prerequisites
+
+Before you can configure and use Mistral Le Chat with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Configure the Connect AI MCP Server
+
+<Steps>
+<Step>
+Log in to Mistral Le Chat.
+</Step>
+<Step>
+In the navigation menu, select **Intelligence**, and then select **Connectors**. Click **+Add Connector**.
+<Frame>
+  <img src="/images/mistral_client_connectors.png" alt="Mistral Connectors" />
+</Frame>
+</Step>
+<Step>
+In the dialog, select **Custom MCP Connector** and enter the following details:
+- **Connector Name**–enter a name for the connector, such as *CData\_Remote\_MCP*.
+- **Connector Server**–enter the URL for the MCP server: *https://mcp.cloud.cdata.com/mcp*.
+- **Description**–enter a description for the connector.
+- **Authentication Method**–select **API Token Authentication**.
+- **Header name**–enter *Authorization*.
+- **Header type**–select **Basic**.
+- **Header value**\-enter *EmailAddress:PAT*, replacing *Email* with your Connect AI username and *PAT* with the PAT obtained in the prerequisites.
+
+<Frame>
+  <img src="/images/mistral_client_mcp.png" alt="Mistral MCP" />
+</Frame>
+</Step>
+<Step>
+Click **Create** to create the new connector.
+</Step>
+<Step>
+Scroll down to the bottom of **My Connectors** to view the connector you created. This step ensures that Mistral Le Chat can securely route queries through the CData Remote MCP Server to your data.
+<Frame>
+  <img src="/images/mistral_client_newconnector.png" alt="Mistral New Connector" />
+</Frame>
+</Step>
+<Step>
+In **Chat**, click the enable tools icon and ensure that your new connector is selected.
+<Frame>
+  <img src="/images/mistral_client_tools.png" alt="Mistral Tools" />
+</Frame>
+</Step>
+<Step>
+You can run a discovery query such as *Get catalogs* or *Get tables* to see the available data sources and schemas connected through Connect AI.
+<Frame>
+  <img src="/images/mistral_client_catalogs.png" alt="Mistral Catalogs" />
+</Frame>
+</Step>
+<Step>
+You can now begin using natural language to query your data. Ask a question like "Compare the win rate of opportunities across different industries."
+<Frame>
+  <img src="/images/mistral_client_prompt.png" alt="Mistral Prompt" />
+</Frame>
+</Step>
+</Steps>
+

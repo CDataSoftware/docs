@@ -1,0 +1,170 @@
+---
+title: "NetSuite Custom Reports"
+description: "NetSuite users who connect with SuiteTalk can use RESTlets or saved searches to create custom reports in Connect AI."
+---
+
+
+<Note>
+**Note:** RESTlets and saved searches are not compatible with SuiteQL.
+</Note>
+## RESTlets
+
+This section shows how to use a RESTlet script to query saved searches.
+<Note>
+**Note:** Using RESTlets is the recommended way to query saved searches. Using RESTlets is different from the method described in [Saved Searches](#saved-searches). This older method relies on the SuiteTalk API, which is more limited in what saved searches can return.
+</Note>
+### Create a RESTlet Script
+
+Open a new file in a text editor. Then copy and paste the following RESTlet script and save it as `search_script.js`:
+
+```bash expandable
+/**
+ *@NApiVersion 2.x
+ *@NScriptType Restlet
+ */
+define(['N/search'],
+    function (search) {
+        // Get a standard NetSuite record
+        function _get(context) {
+            var myTransactionSearch = search.load({
+                id: context.searchid
+            });
+            var pagedData = myTransactionSearch.runPaged({
+                pageSize: 1000
+            });
+            if (pagedData.count == 0) {
+                return JSON.stringify({
+                    "pagedData": {
+                        "searchDefinition": {
+                            "count": [
+                                {"columnCount":0}
+                            ]
+                        }
+                    }
+                });
+            }
+            var results = pagedData.fetch({
+                index: context.index
+            })
+            return JSON.stringify(results);
+        }
+
+        return {
+            get: _get
+        };
+    });
+```
+
+### Using RESTlets to Query Saved Searches
+
+Follow the steps below to deploy the RESTlet script and execute the RESTlet.
+
+#### Enable SuiteScript
+
+Go to **Setup** > **Company** > **Enable Features**. Under the **SuiteCloud** tab, ensure the options for **Client SuiteScript**, **Server SuiteScript**, and **SuiteScript Server Pages** are all enabled.
+
+#### Upload the SuiteScript File
+
+Go to **Documents** > **Files** > **SuiteScripts**. Click the **Add File** button. Upload the `search_script.js` script that you created in [Create a RESTlet Script](#create-a-restlet-script).
+
+#### Create a Script Record
+
+Go to **Customization** > **Scripting** > **Scripts** > **New**. From the menu, find `search_script.js` and select it. Then click **Create Script Record**.
+
+#### Deploy the Script Record
+
+Give the script a name and under the **Deployments** tab add a title. Then click **Save**. This creates a deployment.
+<Note>
+**Note:** While the status of the Script Deployment is **Testing**, only the user that created the deployment returns results from any saved searches queried. To make the RESTlet available for other users, update the Status of the Script Deployment to **Released** and add supported roles in the **Audience** tab.
+</Note>
+#### Get the Deployment / Script Id
+
+You can find a link to the deployment in the Script Record. Follow the link to the deployment. Or, you can also go to **Customization** > **Scripting** > **Script Deployments** and use the filters to find the deployment you made. In the deployment record, you can see a URL and External URL. Copy the script number and deployment number from this URL.
+
+#### Get a Saved Search Id
+
+To execute `search_script.js`, you need to pass it the Id of a saved search: Go to **Lists** > **Search** > **Saved Searches** and copy in the Id of a saved search. We recommend you use a search that is ordered by a column that always gives the same ordering, such as the Date Created. This is because NetSuite does not cache results that can cause duplicates or missing data if data is changed while you are paging through the results.
+
+#### Add a Custom Report
+
+<Steps>
+<Step>
+In the Connections page of Connect AI, select your NetSuite connection.
+	If you do not yet have a NetSuite connection, follow the steps in the NetSuite [Setup Guide](/NetSuite#setup-guide).
+</Step>
+<Step>
+Click the **Custom Reports** tab and click **Add** to add a new report.
+	An **Add Custom Report** dialog appears.
+</Step>
+<Step>
+Select **RestletSchema** and click **Confirm**.
+</Step>
+<Step>
+Enter the following information:
+	- **Name**—the name of the custom report.
+	- **SearchId**—the Id of the saved search obtained in the NetSuite UI.
+	- **ScriptID**—the Script Id of the RESTlet to create a schema for.
+	- **DeploymentNum**—the deployment number of the RESTlet schema to execute. Typically, this number is 1.
+</Step>
+<Step>
+Select whether to **UseLabels**. This determines if the NetSuite connector should try to match column names to what would appear in the Saved Search results or just use the API name returned by the saved search itself. Note that even when UseLabels is set to true, names are converted to alphanumeric with underscores. Also, be aware that sometimes labels come back with identical names for saved searches. In these cases, a number is appended to the duplicate names to keep the names unique.
+</Step>
+<Step>
+Select whether to **FlattenSelects**. Set this parameter to false if your saved search includes multiselect columns. This parameter controls how the NetSuite connector models the data types of selects (such as an entity / customer reference). When FlattenSelects is set to false, multiselect data is returned as a JSON aggregate.
+	By default, the NetSuite connector exposes two columns for selects – one for the name and one for the value (often an Id). This does not work correctly if your saved search includes multiselect columns. There is nothing in the RESTlet metadata that distinguishes multiselect from single-select columns.
+</Step>
+<Step>
+Click **Save** to save the custom report.
+</Step>
+</Steps>
+
+### Limitations
+
+- Currently, the NetSuite connector only supports RESTlets that conform to a response in the format of the included `search_script.js` script.
+- The NetSuite connector does not support server side filtering on the results. To enable queries to execute faster, define all filters within the saved search itself.
+
+## Saved Searches
+
+Saved searches are supported with some limitations due to NetSuite restrictions.
+<Note>
+**Note:** We recommend taking a look at RESTlets instead of following this guide. While these steps still work, saved searches used from SuiteTalk API as detailed below are limited both in how metadata can be obtained and content available. RESTlets have fewer limitations and return accurate metadata from NetSuite.
+</Note>
+### SavedSearches View
+
+The SavedSearches view is a good way to retrieve a list of your available saved searches for a given search type. A SearchType must be specified to retrieve information from the SavedSearches view. For instance:
+
+`SELECT * FROM SavedSearches WHERE SearchType='Transaction'`
+
+### Add a Custom Report
+
+<Steps>
+<Step>
+In the Connections page of Connect AI, select your NetSuite connection.
+</Step>
+<Step>
+Click the **Custom Reports** tab and click **Add** to add a new report.
+	An **Add Custom Report** dialog appears.
+</Step>
+<Step>
+Select **SavedSearchSchema** and click **Confirm**.
+</Step>
+<Step>
+Enter the following information:
+	- **Name**—the name of the custom report.
+	- **SavedSearch**—the name of the saved search. This becomes the name of the resulting table.
+	- **SavedSearchId**—the Id of the saved search.
+	- **SearchType**—the type of search for the custom report. Click for a list of search types.
+	- **ResultsToSample**—(optional) an integer designating the number of results to sample.
+</Step>
+<Step>
+Click **Save** to save the custom report.
+</Step>
+</Steps>
+
+### Limitations
+
+NetSuite imposes a few limitations on saved searches. Calculated columns (formulas) cannot be retrieved via the NetSuite API. Only columns directly from the table can be retrieved. If you have a calculation in your saved search, you would need to return each individual column used in the calculation and perform the calculation client side. Ie:
+
+`SELECT (col1 / col2) AS calc FROM MySavedSearch`
+
+Saved searches that return an aggregation or summary (Group / Count / Sum / Minimum / Maximum / Average) cannot be returned at all. The NetSuite API throws an exception upon attempting to retrieve these saved searches. Due to this limitation, these saved searches are unavailable for our and any other third party tool.

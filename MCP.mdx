@@ -1,0 +1,31 @@
+---
+title: "MCP"
+sidebarTitle: "Overview"
+description: "Connect AI supports connectivity to the Model Context Protocol (MCP), the open-source standard for connecting AI applications to external systems. It was developed by Anthropic to bridge the gap between structured data and large language models (LLMs). MCP can be used from any client integration that supports it, such as [Claude](/Claude-Client), [Microsoft Copilot Studio](/MicrosoftCopilot-Client), and [n8n](/N8N-Client). See [AI Tools](/AITools) for a complete list of AI integrations."
+---
+
+
+To use MCP from a supported client tool, add the following URL to the **Remote MCP Server URL field**: *https://mcp.cloud.cdata.com/mcp*. Once you are connected to the MCP server, you can ask natural-language questions about your data.
+
+## Authentication
+
+Authentication to MCP depends on the client integration tool. Connect AI supports both OAuth and Basic Authentication. Basic Authentication requires the Connect AI User Id and the PAT generated on the Connect AI [Settings](/Settings#access-tokens) page.
+
+See [Authentication](/Authentication) for more details.
+
+## MCP Tools
+
+LLMs depend on the use of data resources to return data. The Connect AI MCP Server uses the following tools to provide data in response to natural-language questions:
+
+- **getCatalogs**—retrieve a list of available connections from Connect AI.
+- **getSchemas**—retrieve database schemas from Connect AI for a specific catalog. Schemas organize tables and stored procedures within a catalog.
+- **getTables**—retrieve database tables from Connect AI for a specific catalog and schema.
+- **getColumns**—retrieve a list of available database columns from Connect AI for a specific catalog, schema, and table. This resource examines the table structure and column definitions.
+- **queryData**—execute SQL queries against the connected data sources and retrieve results.
+- **getProcedures**—retrieve stored procedures from Connect AI for a specific catalog and schema. Stored procedures contain executable SQL logic within a schema.
+- **getProcedureParameters**—retrieve parameter metadata for stored procedures from Connect AI for a specific catalog, schema, and procedure. Parameter metadata includes names, data types, and directions required for proper procedure execution.
+- **executeProcedure**—execute the stored procedure for the chosen catalog and schema.
+
+## Suggested Prompts
+
+To get the most out of MCP integration tools, use specific, detailed prompts. If your prompts are ambiguous, the client tool, such as Microsoft Copilot Studio or Claude, may ask follow-up questions to clarify the data you want to retrieve. Refer to the CData [Prompt Library](https://www.cdata.com/solutions/mcp/prompt-library/) for examples of specific prompts.

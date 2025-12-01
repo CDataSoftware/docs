@@ -1,0 +1,82 @@
+---
+title: "n8n"
+description: "The Connect AI Remote MCP Service enables n8n to securely read and take action on your data in real time."
+---
+
+
+This page outlines the steps to install and configure the Connect AI connector for n8n. After installation, n8n can pull data from sources that you have connected to your Connect AI account.
+
+## Prerequisites
+
+Before you can configure and use n8n with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+Follow these steps to connect to Connect AI in n8n:
+
+<Steps>
+<Step>
+Sign in to [n8n.io](https://n8n.io/) or create a new account.
+</Step>
+<Step>
+Create a workflow in n8n that uses the MCP client tool. The example below acts as a chatbot. OpenAI was used as the Chat Model, and Simple Memory was used as the Memory.
+<Frame>
+  <img src="/images/n8n_client_workflow.png" alt="N8N Workflow" />
+</Frame>
+</Step>
+<Step>
+Configure the MCP Client node in the Workflow:
+- **Endpoint**–enter *https://mcp.cloud.cdata.com/mcp*.
+- **Server Transport**–select **HTTP Streamable**.
+- **Authentication**–select **Header Auth**.
+<Frame>
+  <img src="/images/n8n_client_mcp.png" alt="N8N MCP" />
+</Frame>
+
+</Step>
+<Step>
+Edit the **Header Auth account**. In the **Connection** tab, set the following properties to use Basic Authentication:
+- **Name**–enter *Authorization*.
+- **Value**–enter the value in the form *Basic EMAIL:PAT*, replacing EMAIL and PAT with your Connect AI email address and the PAT created in the prerequisites. For example: *Basic email@cdata.com:Uu90pt5vEO…*.
+<Frame>
+  <img src="/images/n8n_client_connection.png" alt="N8N Connection" />
+</Frame>
+</Step>
+<Step>
+(Optional) Give the AI Agent context. This establishes the AI Agent's role and provides context for the conversation through the System Message parameter in the AI Agent node. By providing a system message that explicitly informs the agent about its role as an MCP Server expert and lists the available tools, you can enhance the agent's understanding and response accuracy.
+The following is a example System Message:
+</Step>
+</Steps>
+
+
+
+```bash
+You are an expert at using the MCP Client tool connected which is the Connect AI MCP Server. Always search thoroughly and use the most relevant MCP Client tool for each query. Below are the available tools and a description of each:
+queryData: Execute SQL queries against connected data sources and retrieve results. When you use the queryData tool, ensure you use the following format for the table name: catalog.schema.tableName
+execData: Execute stored procedures against connected data sources
+getCatalogs: Retrieve a list of available connections from Connect AI. The connection names should be used as catalog names in other tools and in any queries to Connect AI. Use the \`getSchemas\` tool to get a list of available schemas for a specific catalog.
+getColumns: Retrieve a list of available database columns from Connect AI for a specific catalog, schema, and table.
+getExportedKeys: Retrieve a list of foreign key relationships from Connect AI for a specific catalog, schema, and table.
+getImportedKeys: Retrieve a list of foreign key relationships from Connect AI for a specific catalog, schema, and table.
+getIndexes: Retrieve a list of indexes from Connect AI for a specific catalog, schema, and table.
+getPrimaryKeys: Retrieve a list of primary keys from Connect AI for a specific catalog, schema, and table.
+getProcedures: Retrieve a list of stored procedures from Connect AI for a specific catalog and schema
+getProcedureParameters: Retrieve a list of stored procedure parameters from Connect AI for a specific catalog, schema, and procedure.
+getSchemas: Retrieve a list of available database schemas from Connect AI for a specific catalog. Use the \`getTables\` tool to get a list of available tables for a specific catalog and schema.
+getTables: Retrieve a list of available database tables from Connect AI for a specific catalog and schema. Use the \`getColumns\` tool to get a list of available columns for a specific table.
+```
+
+<Steps>
+<Step>
+Now that you created the Workflow in n8n and connected the MCP Client, you can interact with your data. The MCP Client node allows you to send queries and receive responses from the data source in real time.
+</Step>
+<Step>
+Open the Workflow in n8n and execute it to start interacting with your data. You can ask questions, retrieve data, and perform actions on your data using the MCP Client node:
+</Step>
+</Steps>
+
+<Frame>
+  <img src="/images/n8n_client_execute.png" alt="N8N Execute" />
+</Frame>

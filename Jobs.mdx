@@ -1,0 +1,30 @@
+---
+title: "Jobs"
+sidebarTitle: "Overview"
+description: "The ***Jobs*** page enables you to manage and run various Connect AI jobs. From this page, you can manage either [Caching](/Caching) or [Scheduled Queries](/Scheduled-Queries)."
+---
+
+<Frame>
+  <img src="/images/jobs.png" alt="Jobs" />
+</Frame>
+
+The Connect AI caching feature allows users to select tables to be cached, or saved to a database. Connect AI then fetches data for the selected tables on a scheduled basis, ensuring swift and reliable access to data whenever you need it.
+<Note>
+Note that when you enable caching of data, Connect AI runs database queries against the *cached* data, not the live data. The cached data is stored in a PostgreSQL database, which you must set up before using the caching feature. You can manage the cache connection by clicking **Manage Cache Connection** on the Jobs page. See [Caching](/Caching) for details.
+</Note>
+The Connect AI Scheduled Queries feature allows users to write queries in Data Explorer and schedule them to write data to a variety of supported destinations based on a set schedule. Before you use the Scheduled Queries feature, you must set up a connection that contains the destination tables for the scheduled queries. See [Scheduled Queries](/Scheduled-Queries) for details.
+
+The **Jobs** page contains the following information about each job:
+
+- **Name**—the name of the job. For cached jobs, the job name is the table name. For scheduled queries, the job name is user defined.
+- **Job Type**—The job type, which is either **Cache** or **Scheduled Query**.
+- **Last Run**—The last time the job was run, and the next scheduled run.
+- **Status**—The status of the job, which can be one of the following:
+	- **Success**—the job completed successfully.
+	- **Failed**—the job was unsuccessful. Click anywhere in the job to open the **Edit Job** page. **Edit Job** displays details about why the job failed.
+	- **Queued**—the job is queued to run at the time specified in Next Run.
+	The toggle switch in the **Status** column indicates whether the job is enabled or disabled. You can disable a job temporarily without deleting it.
+- **Job Actions**—The icons in the last column represent the various actions you can perform on a job.
+	- **Run (▷)**—Run the selected job immediately. You can run several jobs at once by selecting the jobs to run and clicking the **Run** button on the top of the page.
+	- **Edit (🖉)**—Edit the selected job in the **Edit Job** page.
+	- **Delete (🗙)**—Delete the selected job. You can delete several jobs at once by selecting the jobs to delete and clicking the **Delete** button at the top of the page.

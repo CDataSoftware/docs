@@ -1,0 +1,97 @@
+---
+title: "Microsoft Fabric"
+description: "You can connect Microsoft Fabric to Connect AI with the Connect AI plugin."
+---
+
+## Prerequisites
+
+Before you connect, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+## Connect to Connect AI
+
+To establish a connection from Microsoft Fabric to Connect AI, follow these steps.
+
+<Steps>
+<Step>
+Log in to Microsoft Fabric.
+</Step>
+<Step>
+In Microsoft Fabric, select a workspace in which to create the flow, or create a new workspace.
+</Step>
+<Step>
+Click **New item** and then click **Dataflow Gen2**.
+<Frame>
+  <img src="/images/fabric_client_new_item.png" alt="Fabric Client New Item" />
+</Frame>
+
+</Step>
+<Step>
+Once inside the data flow, click **Get Data**. Enter *Connect AI* in the search bar and select the **Connect AI** plugin.
+<Frame>
+  <img src="/images/fabric_client_choose_data.png" alt="Fabric Client Choose Data" />
+</Frame>
+
+</Step>
+<Step>
+In the **Get data** dialog, enter the following credentials:
+- **Connection**—select **Create new connection**.
+- **Connection name**—create a user-defined connection name.
+- **Data gateway**—select **(none)**.
+- **Authentication kind**—select **CData Connect account**.
+<Frame>
+  <img src="/images/fabric_client_sign_in.png" alt="Fabric Client Sign In" />
+</Frame>
+
+</Step>
+<Step>
+Click **Sign in**. You are redirected to our authentication page via OAuth, establishing a connection to Connect AI.
+</Step>
+<Step>
+Click **Next**. All your connections, derived views, and workspaces are now visible.
+<Frame>
+  <img src="/images/fabric_client_connections.png" alt="Fabric Client Connections" />
+</Frame>
+
+</Step>
+<Step>
+Select a table in your connection/schema hierarchy to load the desired table.
+<Frame>
+  <img src="/images/fabric_client_load_table.png" alt="Fabric Client Load Table" />
+</Frame>
+
+</Step>
+<Step>
+Click **Create** to launch the **Power Query** page.
+<Frame>
+  <img src="/images/fabric_client_power_query.png" alt="Fabric Client Power Query" />
+</Frame>
+
+</Step>
+<Step>
+To replicate your data to a destination, click **+** next to **Data destination**. A **Connect to data destination** dialog appears. In this example, we used SQL Server as a destination. Enter the destination settings and click **Next**.
+<Frame>
+  <img src="/images/fabric_client_data_destination.png" alt="Fabric Client Data Destination" />
+</Frame>
+</Step>
+<Step>
+Select a destination target. You can overwrite an existing table or create a new destination table. Click **Next**.
+<Frame>
+  <img src="/images/fabric_client_destination_target.png" alt="Fabric Client Destination Target" />
+</Frame>
+</Step>
+<Step>
+Map the data types for your destinations. Click **Save settings**.
+<Frame>
+  <img src="/images/fabric_client_destination_settings.png" alt="Fabric Client Destination Settings" />
+</Frame>
+
+</Step>
+<Step>
+When you run/refresh the data flow, your table is copied to the selected destination. You can also modify the content in the Power Query editor.
+
+<Frame>
+  <img src="/images/fabric_client_query_editor.png" alt="Fabric Client Query Editor" />
+</Frame>
+</Step>
+</Steps>
+

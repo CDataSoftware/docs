@@ -1,0 +1,118 @@
+---
+title: "Metabase"
+---
+
+## Prerequisites
+
+Before you connect Metabase to Connect AI, you must perform the following prerequisites.
+
+In Connect AI:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+To use the Open Source version of Metabase with Connect AI, you need to have a Java Runtime Environment installed on your system. Metabase recommends version 11 of JRE. See the [Metabase Documentation](https://www.metabase.com/latest/installation-and-operation/running-the-metabase-jar-file) for details.
+
+## Download and Install the Metabase JAR File
+
+<Steps>
+<Step>
+[Download the Metabase OSS JAR file](https://www.metabase.com/start/oss/jar).
+</Step>
+<Step>
+Create a new directory and move `metabase.jar` to the new directory.
+</Step>
+<Step>
+In the new directory, run the JAR file:
+
+
+
+```bash
+java -jar metabase.jar
+```
+Metabase logs its progress in the terminal as it starts up. Wait until you see the message `Metabase Initialization Complete` before you start Metabase.
+
+</Step>
+<Step>
+Visit `http://localhost:3000/setup` to start Metabase and complete your setup.
+<Frame>
+  <img src="/images/metabase_client_welcome.png" alt="Metabase Client Welcome" />
+</Frame>
+</Step>
+<Step>
+Follow the prompts to set up an admin account.
+</Step>
+</Steps>
+
+
+
+## Connect to Connect AI
+
+Step 4 of the Metabase setup is adding your data. To connect to Connect AI, do the following:
+
+<Steps>
+<Step>
+Click **SQL Server**.
+<Frame>
+  <img src="/images/metabase_client_add_data.png" alt="Metabase Client Add Data" />
+</Frame>
+
+</Step>
+<Step>
+Enter the following information:
+- **Display name**—the name of your data for display purposes.
+- **Host**—*tds.cdata.com*
+- **Port**—*14333*
+- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **Database Instance name**—N/A
+- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+<Frame>
+  <img src="/images/metabase_client_add_data_2.png" alt="Metabase Client Add Data 2" />
+</Frame>
+Leave the rest of the connection settings at their default values unless you need to modify them. You can change the database details later in Metabase Admin.
+</Step>
+<Step>
+Click **Next**.
+</Step>
+<Step>
+Click **Take me to Metabase**.
+</Step>
+</Steps>
+
+
+
+## Query Your Data
+
+<Steps>
+<Step>
+In the Home screen, click **New** > **SQL Query**.
+<Frame>
+  <img src="/images/metabase_client_sql_query.png" alt="Metabase Client SQL Query" />
+</Frame>
+
+</Step>
+<Step>
+Select the database you just added.
+<Frame>
+  <img src="/images/metabase_client_select_database.png" alt="Metabase Client Select Database" />
+</Frame>
+
+</Step>
+<Step>
+Create a SQL query for the data.
+<Frame>
+  <img src="/images/metabase_client_query.png" alt="Metabase Client Query" />
+</Frame>
+</Step>
+<Step>
+Click **Run query** to retrieve your data.
+<Frame>
+  <img src="/images/metabase_client_query_results.png" alt="Metabase Client Query Results" />
+</Frame>
+</Step>
+<Step>
+Click **Save** to save your query and add it to your collection.
+</Step>
+</Steps>
+

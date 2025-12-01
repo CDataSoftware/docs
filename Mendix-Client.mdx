@@ -1,0 +1,83 @@
+---
+title: "Mendix"
+description: "This page outlines the steps to connect Mendix to Connect AI using the [OData](/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/Workspaces) documentation for more information."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Mendix to Connect AI using the OData protocol, follow these steps.
+
+Then, download the OData metadata file according to the steps below.
+
+### Downloading the OData Metadata File
+
+When creating a connection in Mendix, the connection flow requires a Data Source Contract File. Follow these steps to download the OData metadata file for Connect AI using *curl*, a command line tool:
+
+<Steps>
+<Step>
+Open a command-line window for your operating system.
+	- On Windows, open the start menu, type *cmd*, and press the enter key to open a command prompt.
+	- On macOS and Linux, open a Terminal window.
+</Step>
+<Step>
+To check if curl is installed on your system, type *curl -help* and press the enter key. If it is not installed, install it from [the curl website](https://curl.se/).
+</Step>
+<Step>
+Issue the following curl command, replacing `[user]` with your Connect AI username and `[PAT]` with the PAT you generated above:
+```bash
+curl -u [user]:[PAT] https://cloud.cdata.com/api/odata/service/$metadata -o metadata.xml
+```
+</Step>
+<Step>
+Locate the metadata.xml file that the curl command created and move it to an accessible location.
+</Step>
+</Steps>
+
+## Connect to Connect AI in Mendix
+
+Follow these steps to establish a connection from Mendix to Connect AI:
+
+<Steps>
+<Step>
+Login to Mendix and open the **Data Hub** page.
+</Step>
+<Step>
+In the **Register a Data Source** section, select **OData**.
+</Step>
+<Step>
+Upload the metadata.xml file [from the steps above](#downloading-the-odata-metadata-file) and click **Next**.
+</Step>
+<Step>
+Enter your desired values for **Data Source Name** and **Data Source Version**.
+</Step>
+<Step>
+In the **Data Source Relative Path** field, enter */api/odata/service* and click **Next**.
+</Step>
+<Step>
+On the **Application information** page, click **Register a new application**.
+</Step>
+<Step>
+Enter a name in **Application Name** and select a technical owner (by default, this is the user who is currently logged in).
+</Step>
+<Step>
+Click **Next**. In the **Environment Name** field, enter a desired name (for example, *Connect AI*).
+</Step>
+<Step>
+In the **Environment Location** field, enter *https://cloud.cdata.com* and select **Non-Production** for the environment type.
+</Step>
+<Step>
+Click **Done!** to create your connection.
+</Step>
+</Steps>
+
+You can now use your connection in Mendix Studio Pro.

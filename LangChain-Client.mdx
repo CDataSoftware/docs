@@ -1,0 +1,105 @@
+---
+title: "LangChain"
+description: "LangChain is a framework for developing applications powered by large language models (LLMs)."
+---
+
+## Prerequisites
+
+Before you can configure and use LangChain with Connect AI, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Obtain an OpenAI API key: [https://platform.openai.com/](https://platform.openai.com/).
+- Make sure you have Python >= 3.10 in order to install the LangChain and LangGraph packages.
+
+## Create the Python Files
+
+<Steps>
+<Step>
+Create a folder for LangChain MCP.
+</Step>
+<Step>
+Create two Python files within the folder: `config.py` and `langchain.py`.
+</Step>
+<Step>
+In `config.py`, create a class `Config` to define your MCP server authentication and URL. You need to provide your Base64-encoded Connect AI username and PAT (obtained in the prerequisites):
+</Step>
+</Steps>
+
+```python
+class Config:
+      MCP_BASE_URL = "https://mcp.cloud.cdata.com/mcp"   #MCP Server URL
+      MCP_AUTH = "base64encoded(EMAIL:PAT)"   #Base64 encoded Connect AI Email:PAT
+```
+
+<Steps>
+<Step>
+In `langchain.py`, set up your MCP server and MCP client to call the tools and prompts:
+</Step>
+</Steps>
+
+```python expandable
+"""
+ Integrates a LangChain ReAct agent with CData Connect AI MCP server.
+ The script demonstrates fetching, filtering, and using tools with an LLM for agent-based reasoning.
+ """
+ import asyncio
+ from langchain_mcp_adapters.client import MultiServerMCPClient
+ from langchain_openai import ChatOpenAI
+ from langgraph.prebuilt import create_react_agent
+ from config import Config
+ async def main():
+     # Initialize MCP client with one or more server URLs    
+     mcp_client = MultiServerMCPClient(
+         connections={
+             "default": {  # you can name this anything
+             "transport": "streamable_http",
+             "url": Config.MCP_BASE_URL,
+             "headers": {"Authorization": f"Basic {Config.MCP_AUTH}"},
+         }
+     }
+ )
+     # Load remote MCP tools exposed by the server
+     all_mcp_tools = await mcp_client.get_tools()
+     print("Discovered MCP tools:", [tool.name for tool in all_mcp_tools])
+     # Create and run the ReAct style agent
+     llm = ChatOpenAI(
+         model="gpt-4o", 
+         temperature=0.2,
+         api_key="YOUR_OPEN_API_KEY"   #Use your OpenAPI Key here. This can be found here: https://platform.openai.com/.
+     )
+     agent = create_react_agent(llm, all_mcp_tools)
+     user_prompt = "Tell me how many sales I had in Q1 for the current fiscal year."   #Change prompts as per need
+     print(f"\nUser prompt: {user_prompt}")
+     # Send a prompt asking the agent to use the MCP tools
+     response = await agent.ainvoke(
+         { "messages": [{ "role": "user", "content": (user_prompt),}]}
+     )
+     # Print out the agent's final response
+     final_msg = response["messages"][-1].content
+     print("Agent final response:", final_msg)
+ if __name__ == "__main__":
+     asyncio.run(main())
+```
+
+## Install the LangChain and LangGraph Packages
+
+Run `pip install langchain-mcp-adapters langchain-openai langgraph` in your project terminal.
+
+## Run the Python Script
+
+<Steps>
+<Step>
+When the installation finishes, run `python langchain.py` to execute the script.
+</Step>
+<Step>
+The script discovers the Connect AI MCP tools needed for the LLM to query the connected data.
+</Step>
+<Step>
+Supply a prompt for the agent. The agent provides a response.
+</Step>
+</Steps>
+
+<Frame>
+  <img src="/images/langchain_client_terminal.png" alt="LangChain Terminal" />
+</Frame>

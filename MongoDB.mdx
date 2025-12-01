@@ -1,0 +1,96 @@
+---
+title: "MongoDB"
+---
+
+## Prerequisites
+
+#### Whitelist CData IPs
+
+To establish a connection to MongoDB, you need to allow access to MongoDB via CData’s IP. When hosting MongoDB behind a firewall, you must safelist these IP addresses in your firewall.
+
+- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
+- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+
+#### Ensure MongoDB Is Publicly Accessible
+
+Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## Setup Guide
+
+Follow these steps to connect MongoDB to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *MongoDB* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the host name or IP address of the MongoDB server in the **Server** field.
+</Step>
+<Step>
+Specify the port for connecting to the MongoDB server in the **Port** field. By default this is set to 27017.
+</Step>
+<Step>
+Enter the name of the MongoDB **Database**.
+</Step>
+<Step>
+Select the **Auth Scheme** you use to connect to MongoDB. Options are: `MONGODB-CR`, `SCRAM-SHA-1`, `SCRAM-SHA-256`, and `X509`.
+</Step>
+<Step>
+Enter the MongoDB username for authentication in the **User** field.
+</Step>
+<Step>
+In the **Password** field, enter the user password.
+</Step>
+<Step>
+(Optional) If the authentication database is different from the database to retreive data from, enter it into the **Auth Database** field.
+</Step>
+<Step>
+In MongoDB, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add MongoDB Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Connect to Replica Sets
+
+<Steps>
+<Step>
+To connect to a replica set, click on **Advanced Settings**.
+</Step>
+<Step>
+Set **Replica Set** to a list of comma-separated list of secondary servers, specified by address and port.
+</Step>
+<Step>
+Set **Slave OK** to `True`.
+</Step>
+<Step>
+Set **Read Preference** to determine how the provider reads from the secondary servers.
+
+	- `primary` executes all SELECT queries against the primary server.
+	- `primaryprefered` executes SELECT queries from a secondary server when the primary is not available.
+	- `secondary` executes SELECT queries on secondary servers only.
+	- `secondary prefered` executes SELECT queries on the primary server in the event no secondaries are available.
+	- `nearest` executes SELECT queries on whichever server has the least latency.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and MongoDB, see [this information page](https://cdn.cdata.com/help/DGK/cloud/default.htm#default).

@@ -1,0 +1,71 @@
+---
+title: "Looker Studio"
+description: "This page outlines the steps to install and configure the Connect AI connector for Looker Studio. After installation, Looker Studio will be able to pull data from sources that you have connected to your Connect AI account."
+---
+
+
+<Note>
+Before you can configure and use Looker Studio with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+<Steps>
+<Step>
+Sign in to [Looker Studio](https://datastudio.google.com/) using your Google account.
+</Step>
+<Step>
+[Click here](https://datastudio.google.com/data?search=CData%20Connect%20Cloud) to search for the Connect AI connector.  
+Alternatively, from the Looker Studio dashboard, click **\+ Create**, then click **Data Source** and search for *Connect AI*.
+</Step>
+<Step>
+Click **Connect AI** to install the connector.
+</Step>
+<Step>
+When prompted, click **Authorize** to allow Looker Studio to use the connector.
+</Step>
+<Step>
+Another **Authorize** button appears to connect to Connect AI. Click this to open a login window.
+</Step>
+<Step>
+Enter your Connect AI login credentials and click **Continue**.
+</Step>
+<Step>
+Close the authorization window when prompted.
+</Step>
+<Step>
+Open the *Connection* drop-down menu, select a connection, and click **Next**.
+<Frame>
+  <img src="/images/google_ds_connectionselect.png" alt="Google DS Connection Select" />
+</Frame>
+
+</Step>
+<Step>
+Use the Table drop-down menu to select the table you want to import.
+</Step>
+<Step>
+(Optional) By default, all data in the table will be imported. If you want to use a custom query for the data instead of retrieving all data, check the **Use custom query** box and enter the parameters in the Custom Query box.
+<Frame>
+  <img src="/images/google_table.png" alt="Google Table" />
+</Frame>
+</Step>
+<Step>
+(Optional) If you want to use the current user's email within a custom query, use the parameter token `@DS_USER_EMAIL` in the query, as follows:
+
+```bash
+Select * from Sales WHERE sales-rep-email = @DS_USER_EMAIL;
+```
+Connect AI replaces the parameter with the current user's email address.
+
+
+</Step>
+<Step>
+Click **Connect** in the top-right corner of the page. Looker Studio opens an overview of the imported data.
+<Frame>
+  <img src="/images/google_ds_imported.png" alt="Google DS Imported" />
+</Frame>
+</Step>
+</Steps>
+
+
+
+
+You can now sort, filter, and explore your data and generate reports. For more information about using Looker Studio, please see [Google’s help topics](https://support.google.com/looker-studio/).

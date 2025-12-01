@@ -1,0 +1,71 @@
+---
+title: "MoneyForward Expense"
+---
+
+## Prerequisites
+
+Before you can connect to Connect AI, you must create OAuth client credentials in MoneyForward Expense.
+
+Follow these steps:
+
+<Steps>
+<Step>
+Log in to your MoneyForward Expense account.
+</Step>
+<Step>
+In the **For Developers** section, click **API Linkage**.
+</Step>
+<Step>
+Click **Create Application**.
+</Step>
+<Step>
+Set the **Redirect URI** to *https://oauth.cdata.com/oauth/*.
+</Step>
+<Step>
+Set **Scopes** to *office\_setting:write user\_setting:write transaction:write report:write account:write public\_resource:read*.
+</Step>
+<Step>
+Save your changes. You will use the values for **OAuth Client Id** and **OAuth Client Secret** for your connection.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect MoneyForward Expense to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *MoneyForward Expense* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+In Connect AI, enter the following connection information:
+	- **OAuth Client Id**—the client Id generated in the prerequisites.
+	- **OAuth Client Secret**—the client secret generated in the prerequisites.
+	- **Office Id**—the Id of the office. This is required for most queries.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the MoneyForward Expense sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your MoneyForward Expense account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add MoneyForward Expense Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and MoneyForward Expense, see [this information page](https://cdn.cdata.com/help/EYK/cloud/default.htm#default).

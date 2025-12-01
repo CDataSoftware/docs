@@ -1,0 +1,55 @@
+---
+title: "List Connections"
+description: "List Connections requests a list of connections for a child account."
+api: GET https://cloud.cdata.com/api/poweredby/connection/list
+contentType: application/json
+---
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`
+
+<Expandable title="Response body">
+
+<ResponseField name="connections" type="array of objects" required>
+  <ResponseField name="id" type="string" required>
+    The internal Connect AI account Id.
+  </ResponseField>
+  <ResponseField name="name" type="string" required>
+    The catalog/connection name.
+  </ResponseField>
+  <ResponseField name="dataSource" type="string" required>
+    The data source name. Example: Snowflake, Salesforce, etc.
+  </ResponseField>
+  <ResponseField name="lastModified" type="string" required>
+    The time when the connection was last modified.
+  </ResponseField>
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+    "connections": [
+        {
+            "id": "880dc1a2-03c3-4288-9857-6f5c029d897c",
+            "name": "ExcelOnline1",
+            "dataSource": "ExcelOnline",
+            "lastModified": "2024-08-02T21:30:55.154Z"
+        },
+        {
+            "id": "eeef6211-5d6f-4347-b5bb-f99d574e75e5",
+            "name": "MailChimp1",
+            "dataSource": "MailChimp",
+            "lastModified": "2023-10-11T20:43:33.28Z"
+        }
+    ]
+}
+```
+
+</ResponseExample>

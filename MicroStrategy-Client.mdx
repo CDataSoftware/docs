@@ -1,0 +1,169 @@
+---
+title: "MicroStrategy"
+description: "This page outlines the steps to connect MicroStrategy to Connect AI. You can use either Connect AI Virtual SQL Server API or the Connect AI OData endpoint to connect. Note that the Virtual SQL Server API performs better for large datasets, while OData performs well with smaller datasets."
+---
+
+
+## Prerequisites for Connecting via Virtual SQL Server API
+
+Before you connect via Virtual SQL Server API, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via Virtual SQL Server API
+
+To establish a connection from MicroStrategy to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to MicroStrategy.
+</Step>
+<Step>
+Click **Add External Data** > **Databases**.
+</Step>
+<Step>
+Set the **Import Option** to **Select Tables**.
+</Step>
+<Step>
+In the **Import from Tables** wizard, click "+" to add a new data source.
+</Step>
+<Step>
+Set the connection properties.
+<Frame>
+  <img src="/images/microstrategy_client_01.png" alt="MicroStrategy Client 01" />
+</Frame>
+- **Database**—select **SQL Server**
+- **Version**—select **SQL Server 2017**
+- **Server Name**—enter *tds.cdata.com*
+- **Port Number**—enter *14333*
+- **Database Name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **User**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- **Data Source Name**—enter a name for the data source
+</Step>
+<Step>
+Click **Save**.
+</Step>
+<Step>
+Right-click on the new data source and choose **Edit Catalog Options**.
+<Frame>
+  <img src="/images/microstrategy_client_02.png" alt="MicroStrategy Client 02" />
+</Frame>
+</Step>
+<Step>
+Edit the SQL column retrieval query to include `TABLE_SCHEMA = '#?Schema_Name?#'` in the WHERE clause. The complete query is below.
+```bash
+SELECT DISTINCT 
+ TABLE_SCHEMA NAME_SPACE, 
+ TABLE_NAME TAB_NAME, 
+ COLUMN_NAME COL_NAME, 
+ (CASE 
+     WHEN 
+     (DATA_TYPE LIKE '%char' AND (CHARACTER_SET_NAME='utf8' OR CHARACTER_SET_NAME='usc2')) 
+     THEN 
+     CONCAT('a',DATA_TYPE) 
+     ELSE 
+     DATA_TYPE 
+ END) DATA_TYPE, 
+ CHARACTER_MAXIMUM_LENGTH DATA_LEN, 
+ NUMERIC_PRECISION DATA_PREC, 
+ NUMERIC_SCALE DATA_SCALE 
+ FROM 
+ INFORMATION_SCHEMA.COLUMNS 
+ WHERE 
+ TABLE_NAME 
+ IN 
+ (#TABLE_LIST#) AND TABLE_SCHEMA='#?Schema_Name?#' 
+ ORDER BY 
+ 1,2,3
+```
+</Step>
+<Step>
+Click **Apply** > **OK**.
+</Step>
+<Step>
+Select the new data source and select the Namespace that corresponds to your virtual database (like SharePoint1).
+<Frame>
+  <img src="/images/microstrategy_client_03.png" alt="MicroStrategy Client 03" />
+</Frame>
+
+
+</Step>
+<Step>
+Drag tables into the pane to insert them.
+</Step>
+<Step>
+Click **Finish** and choose the option to connect live.
+</Step>
+<Step>
+Click **Create Dossier**.
+<Frame>
+  <img src="/images/microstrategy_client_04.png" alt="MicroStrategy Client 04" />
+</Frame>
+</Step>
+<Step>
+You can now create a new visualization of your connected data.
+</Step>
+</Steps>
+
+
+
+
+
+
+## Prerequisites for Connecting via OData Endpoint
+
+Before you connect to Connect AI via the OData endpoint, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via OData Endpoint
+
+To connect to Connect AI using the OData protocol, follow these steps.
+
+<Steps>
+<Step>
+Log in to MicroStrategy.
+</Step>
+<Step>
+Click **Add Data**.
+</Step>
+<Step>
+In **Data Sources**, select **Data from URL**.
+<Frame>
+  <img src="/images/microstrategy_client_data_URL.png" alt="MicroStrategy Client Data URL" />
+</Frame>
+
+</Step>
+<Step>
+In the **Data from URL** dialog, set the connection properties.
+- In the text box, paste the **OData URL** copied from the **Endpoints** dialog of your workspace. The URL is in the following format: *https://cloud.cdata.com/api/odata/{workspace\_name}*.
+- Select **OData** from the drop-down list.
+<Frame>
+  <img src="/images/microstrategy_client_odata.png" alt="MicroStrategy Client OData" />
+</Frame>
+
+</Step>
+<Step>
+Click **Add** to add the new connector.
+</Step>
+<Step>
+Click **Prepare Data** to see a preview of your data.
+<Frame>
+  <img src="/images/microstrategy_client_preview.png" alt="MicroStrategy Client Preview" />
+</Frame>
+</Step>
+<Step>
+Click **Finish** when you are done adding your connector(s).
+</Step>
+<Step>
+You can now create a new visualization of your connected data.
+<Frame>
+  <img src="/images/microstrategy_client_visualization.png" alt="MicroStrategy Client Visualization" />
+</Frame>
+</Step>
+</Steps>
+

@@ -1,0 +1,61 @@
+---
+title: "Nintex"
+description: "This page outlines the steps to connect Nintex to the Connect AI Virtual SQL Server API."
+---
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Nintex to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Nintex Workflow Cloud.
+</Step>
+<Step>
+In the Connections tab, click **Add New**.
+</Step>
+<Step>
+Select **Microsoft SQL Server** as the **Connector** type.
+<Frame>
+![](/images/NintexClient01.png)
+</Frame>
+</Step>
+<Step>
+Click **Connect**. This opens the SQL Server connection wizard.
+<Frame>
+![](/images/NintexClient02.png)
+</Frame>
+</Step>
+<Step>
+In the wizard, enter a **Connection Name**, such as *Connect AI Connection*.
+</Step>
+<Step>
+Enter your Connect AI **Username**.
+</Step>
+<Step>
+Enter your Connect AI PAT in the **Password** field.
+</Step>
+<Step>
+Enter *tds.cdata.com:14333* in **Database Host**.
+</Step>
+<Step>
+Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Click **Connect**.
+<Frame>
+![](/images/NintexClient03.png)
+</Frame>
+</Step>
+<Step>
+Configure the Connect AI **Owner** and **User** permissions and click **Save Permissions** to complete the connection.
+</Step>
+</Steps>

@@ -1,0 +1,48 @@
+---
+title: "Looker"
+description: "This page outlines the steps to connect Looker to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Looker to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Looker.
+</Step>
+<Step>
+In the navigation pane, select **Admin**. Under the **Database** category, select **Connections**.
+</Step>
+<Step>
+On the **Connections** page, click **Add Connection**.
+</Step>
+<Step>
+Enter the connection settings:
+- **Name**—the name for the connection in models.
+- **Dialect**—select *Microsoft SQL Server 2017+*.
+- **SSH Server**—leave this disabled.
+- **Remote Host:Port**—enter *tds.cdata.com* in the first field and *14333* in the second field.
+- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+Leave the rest of the connection settings at their default values unless you need to modify them.
+</Step>
+<Step>
+At the bottom of the page, click **Test These Settings** to ensure that you can connect to Connect AI.
+</Step>
+<Step>
+Click **Add Connection** to create the connection and return to the **Connections** page.
+</Step>
+</Steps>
+
+Your connection is now available for use in Looker. To connect to additional data sources from your Connect AI account, repeat the setup steps above, changing the value for **Database** for each data source.
