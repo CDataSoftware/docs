@@ -1,0 +1,54 @@
+---
+title: "Paylocity"
+---
+
+## Prerequisites
+
+Before you can authenticate to Paylocity via OAuth, you must first obtain API access and register your desired callback URL with Paylocity. The callback URL for Connect AI is *https://oauth.cdata.com/oauth/*.
+
+To register, contact either service@paylocity.com or sales@paylocity.com.
+
+Once your access has been reviewed and approved, Paylocity provides you with OAuth credentials and access to either a Sandbox or a Production account. This access is necessary for authenticating your API requests.
+
+Paylocity provides the following OAuth credentials.
+
+- **client\_id**: The client\_id assigned to the registered OAuth application in the Paylocity developer portal. This value is used to set the **OAuthClientId**.
+- **secret**: The secret assigned to the registered OAuth application in the Paylocity developer portal. This value is used to set the **OAuthClientSecret**. Note that Paylocity requires secrets to be rotated every 365 days. They send an email reminder of your secret expiring at 10 days before expiration and again at 5 days before expiration.
+
+## Setup Guide
+
+Follow these steps to connect Paylocity to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Paylocity* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**–set to the client Id obtained in the prerequisites.
+	- **OAuth Client Secret**—set to the client secret obtained in the prerequisites.
+	- **RSA Public Key**—the RSA key associated with your Paylocity account. Only required if you want to execute Insert and Update statements.
+	- **Key**—set this to the Base64-encoded AES symmetric key to use when encrypting content. Only required if the IV is set.
+	- **IV**—set this to the Base64-encoded AES initialization vector (IV) to use when encrypting content. Only required if Key is also set.
+	- **Data Credentials**–select how you want other users to access the data to this data source, either with shared credentials or with individual credentials.
+</Step>
+<Step>
+At the top of the Connect AI **Add Paylocity Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Paylocity, see [this information page](https://cdn.cdata.com/help/KPK/cloud/default.htm#default).

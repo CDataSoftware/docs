@@ -1,0 +1,72 @@
+---
+title: "PayPal"
+---
+
+## Setup Guide
+
+Follow these steps to connect PayPal to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *PayPal* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the **Schema** from the drop down list, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+### REST
+
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your PayPal account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your PayPal account.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** only if you are using a sandbox account. Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add PayPal Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### SOAP
+
+<Steps>
+<Step>
+Enter the PayPal username for authentication in the **User** field.
+</Step>
+<Step>
+In the **Password** field, enter the user password.
+</Step>
+<Step>
+Enter your **Signature**. To create a signature, in your PayPal business account navigate to **Profile** > **My Setting Tools**. In the API Access section click **Update**, and then **Request API Credentials** on the following page.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** only if you are using a sandbox account. Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add PayPal Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and PayPal, see [this information page](https://cdn.cdata.com/help/BPK/cloud/default.htm#default).

@@ -1,0 +1,96 @@
+---
+title: "Power BI Desktop"
+description: "This page outlines the steps to connect Power BI Desktop to Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use Power BI Desktop with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Step 1: Connect to Connect AI
+
+<Steps>
+<Step>
+In Power BI Desktop, click **Get Data** to open the Get Data window. In the drop-down list, click **More**.
+</Step>
+<Step>
+Use the search field to find *Connect AI* and click **Connect**.
+</Step>
+<Step>
+Click **Sign in** on the prompt that appears. Depending on your setup, this button may be labelled **Sign in as different user**.
+</Step>
+<Step>
+In the Connect AI dialog, sign in to your Connect AI account.
+</Step>
+<Step>
+Return to Power BI Desktop and click **Connect** in the sign-in prompt. The **Navigator** dialog displays the three types of Connect AI connections: **Connections**, **Derived Views**, and **Workspaces**.
+</Step>
+</Steps>
+
+<Frame>
+  <img src="/images/pbidesktop_navigator.png" alt="Power BI Desktop Navigator" />
+</Frame>
+
+## Step 2: Import Data
+
+After you connect to Connect AI, follow these steps to import data to Power BI Desktop:
+
+<Steps>
+<Step>
+In the **Navigator** dialog, expand the **Connections**, **Derived Views**, or **Workspaces** folder to locate the data to load.
+The data is organized in the Navigator as follows:
+- **Connections** > **Schemas** > **Table/View/Stored Procedure**
+- **Derived Views** > **Derived View**
+- **Workspaces** > **Assets** > **Table/View/Stored Procedure**
+For example, to load a specific table within a connection, expand **Connections**, and then expand the connection name. Expand the appropriate schema and then select the table(s) to load, as shown below.
+<Frame>
+  <img src="/images/pbidesktop_navigator_hierarchy.png" alt="Power BI Desktop Navigator Hierarchy" />
+</Frame>
+</Step>
+<Step>
+Check the boxes next to the any data that you want to work with. You can view a preview of the data if you wish.
+</Step>
+<Step>
+Click **Load** or **Transform Data**.
+- **Load** instructs the connector to execute the underlying query to Connect AI.
+- **Transform Data** launches the Query Editor and displays a representative view of the table. To run a custom query through this interface, see [Running a Custom Query](#running-a-custom-query).
+</Step>
+<Step>
+Create Power BI visuals with the data you loaded.
+</Step>
+</Steps>
+
+
+
+### Running a Custom Query
+
+To run a custom query on your data, select **Transform Data** when you are importing from Connect AI and folllow these steps:
+
+<Steps>
+<Step>
+In the Power Query Editor window, select **Advanced Editor** in the **Home** tab of the navigation ribbon.
+<Frame>
+  <img src="/images/pbidesktop_advanced.png" alt="Power BI Desktop Advanced" />
+</Frame>
+</Step>
+<Step>
+In the Advanced Editor, enter the text in the following format, replacing the contents of the query with your custom query.
+</Step>
+</Steps>
+
+
+
+```bash
+let
+     Source = CDataConnectCloud.Contents([Query="SELECT ACCOUNTNUMBER, BILLINGSTREET, BILLINGCITY, BILLINGSTATE FROM [Snowflake3].[NORTHWIND].[ACCOUNT] LIMIT 100"])
+  in
+     Source
+```
+
+<Steps>
+<Step>
+Click **Done** to load your data into Power BI Desktop.
+</Step>
+</Steps>

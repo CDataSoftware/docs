@@ -1,0 +1,92 @@
+---
+title: "Python"
+description: "This page outlines the steps to use the Python Driver for Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use Python with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Install the Driver
+
+Follow these steps to download and install the driver:
+
+<Steps>
+<Step>
+Download and extract the setup archive for your operating system.
+	- [Mac Download](https://www.cdata.com/download/getfile.aspx?file=free/LFVK-X/setup_mac.zip&name=CData%20Connect%20Python%20Connector&tag=Download-connect)
+	- [Windows Download](https://www.cdata.com/download/getfile.aspx?file=free/LFVK-X/setup_win.zip&name=CData%20Connect%20Python%20Connector&tag=Download-connect)
+	- [Linux Download](https://www.cdata.com/download/getfile.aspx?file=free/LFVK-X/setup_unix.zip&name=CData%20Connect%20Python%20Connector&tag=Download-connect)
+</Step>
+<Step>
+Follow the steps below for your operating system.
+</Step>
+</Steps>
+
+### Windows Installation
+
+<Steps>
+<Step>
+In the extracted archive, open the `win` folder.
+</Step>
+<Step>
+Choose the folder for your Python version, and then the folder for your bitness. For example, if you have Python 3.9 and a 64-bit operating system, open the `win > Python39 > 64` folder.
+</Step>
+<Step>
+Open a command prompt and run `pip install` for the `.whl` setup file. For example, a 64-bit Python 3.9 install would be `pip install cdata_connect_connector-21.0.8049-cp39-cp39-win_amd64.whl`.
+</Step>
+</Steps>
+
+### Mac and Unix Installation
+
+<Steps>
+<Step>
+In the extracted archive, open the `mac` or `unix` folder.
+</Step>
+<Step>
+Open a Python terminal and run `pip install` for the appropriate `.tar.gz` setup file. For example, a Python 3.9 install would be `pip install cdata-connect-connector-21.0.8049-python39.tar.gz`.
+</Step>
+</Steps>
+
+## Connect to Connect AI
+
+Follow these steps for an example of how to connect to Connect AI from your Python code:
+
+<Steps>
+<Step>
+Import `cdata.connect`, create a connection object, and and pass the connection string as an argument, as in the example below:
+
+```python
+import cdata.connect as mod
+ conn = mod.connect("AuthScheme=OAuth;")
+```
+</Step>
+<Step>
+If you are not already logged into Connect AI, the OAuth login page opens in your default web browser. Log in to continue.
+</Step>
+<Step>
+You can execute SQL statements using this connection. For example, the commands below print all entries for **Id** in a MailChimp connection:
+
+```python
+cur = conn.execute("SELECT Id FROM MailChimp1.MailChimp.AuthorizedApps")
+ rs = cur.fetchall()
+ for row in rs:
+     print(row)
+```
+</Step>
+</Steps>
+
+## Connect to a Workspace
+
+You can connect the Python client to a specific [workspace](/Workspaces) as follows:
+
+```python
+import cdata.connect as mod
+   conn = mod.connect("AuthScheme=OAuth;Workspace=MyWorkspace")
+```
+
+## Learn More
+
+To learn more information about using Python for Connect AI, click [here](https://cdn.cdata.com/help/LFM/py/default.htm).

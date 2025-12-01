@@ -1,0 +1,164 @@
+openapi: 3.0.1
+info:
+  title: CData Connect AI OData API
+  version: v1
+
+servers:
+  - url: https://cloud.cdata.com/api/odata
+    description: Production base OData URL
+
+paths:
+  /{workspaceName}:
+    get:
+      tags:
+        - OData
+      summary: OData service URL
+      description: >
+        Each workspace has its own OData service URL. This endpoint returns the list of OData resources for a given workspace.
+
+        Connect AI supports OData version 4.0 and both JSON and Atom formats. 
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /{workspaceName}/$metadata:
+    get:
+      tags:
+        - OData
+      summary: OData metadata URL
+      description: >
+        This operation returns the OData metadata for a given workspace.  The metadata describes the resources available in the workspace.
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /{workspaceName}/{resourcePath}:
+    get:
+      tags:
+        - OData
+      summary: OData resource URL
+      description: >
+        This URL can query the OData resource with any applicable filters.
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resourcePath
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - OData
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resourcePath
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+        - OData
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resourcePath
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+        - OData
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resourcePath
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+        - OData
+      parameters:
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: resourcePath
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        "200":
+          description: OK
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    #OAuth2:
+    #  type: oauth2
+    #  flows:
+    #    authorizationCode:
+    #      authorizationUrl: https://cloud-login.clouddataos.com/authorize
+    #      tokenUrl: https://cloud-login.clouddataos.com/oauth/token
+    #      refreshUrl: https://cloud-login.clouddataos.com/oauth/refresh
+    #      scopes: []
+          # Optional tool-specific hint for PKCE
+          #x-usePkce: true
+security:
+  - Basic: []
+  #- OAuth2: []

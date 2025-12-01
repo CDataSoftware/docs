@@ -1,0 +1,124 @@
+---
+title: "OData"
+---
+
+## Setup Guide
+
+Follow these steps to connect OData to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *OData* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### None
+
+**None** is when no authentication is required.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **URL**—the root URL of the OData service (for example, `http://MySite/*MyOrganization*`).
+</Step>
+<Step>
+At the top of the Connect AI **Add OData Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+**AzureAD** is a form of OAuth that goes through Azure.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Azure Tenant**—the Microsoft Online tenant that you use to access data. If you leave this field blank, the account's default tenant is used.
+	- **OAuth Client Id**—assigned when you registered your OData account for OAuth.
+	- **OAuth Client Secret**—for your OData account for OAuth.
+	- **URL**—the root URL of the OData service (for example, `http://MySite/*MyOrganization*`).
+</Step>
+<Step>
+At the top of the Connect AI **Add OData Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic
+
+**Basic** is basic user name and password authentication.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the user name for the OData service.
+	- **Password**—the password for the OData service.
+	- **URL**—the root URL of the OData service (for example, `http://MySite/*MyOrganization*`).
+</Step>
+<Step>
+At the top of the Connect AI **Add OData Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—assigned when you registered your OData account for OAuth.
+	- **OAuthClient Secret**—for your OData account for OAuth.
+	- **OAuth Authorization URL**—(optional) the URL where the user logs into the service.
+	- **OAuth Access Token URL**—(optional) the URL where the request for the access token is made.
+	- **OAuth Refresh Token URL**—(optional) the URL where refresh tokens can be exchanged for access tokens when old access tokens expire.
+	- **URL**—the root URL of the OData service (for example, `http://MySite/*MyOrganization*`).
+</Step>
+<Step>
+At the top of the Connect AI **Add OData Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### SharePointOnline
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—your SharePoint Online user account.
+	- **Password**—your SharePoint password.
+	- **URL**—the root URL of the OData service (for example, `http://MySite/*MyOrganization*`).
+</Step>
+<Step>
+At the top of the Connect AI **Add OData Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and OData, see [this information page](https://cdn.cdata.com/help/RDK/cloud/default.htm#default).

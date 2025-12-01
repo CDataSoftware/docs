@@ -1,0 +1,38 @@
+---
+title: "Oracle"
+---
+
+## Setup Guide
+
+Follow these steps to connect Oracle to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Oracle* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **Connection String**. Copy one of the high, medium, or low connection strings available for your Oracle Autonomous Database, located in the **Database Connection** menu of the Oracle Autonomous Database. The string should be in the format shown. You can also connect to an Oracle self-hosted database.
+</Step>
+<Step>
+Enter the **User** and **Password** for the Oracle Autonomous Database.
+</Step>
+<Step>
+Click **Choose File** to upload the Oracle Wallet SSO file, `cwallet.sso`, found in the Oracle Wallet zip file. To download the Oracle Wallet zip file, go to the **Database Connection** menu in the Oracle Autonomous Database. This file is optional for an Oracle self-hosted database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Oracle Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>	

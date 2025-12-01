@@ -1,0 +1,207 @@
+---
+title: "Quick Start Guide"
+description: "Connect a data source, explore it, and use it from AI or BI tools—in minutes."
+---
+
+## Step 1: Sign In
+
+<Steps>
+<Step>
+Go to [https://cloud.cdata.com/](https://cloud.cdata.com/).
+</Step>
+<Step>
+Sign in with your CData account.
+</Step>
+</Steps>
+
+*No account? Click **Sign Up** for a free trial.*
+
+## Step 2: Connect Your First Source
+
+### Example: Salesforce (OAuth)
+
+<Steps>
+<Step>
+Open **Sources** > **Add Connection** > **Salesforce**.
+</Step>
+<Step>
+Select **OAuth** authentication (recommended).
+</Step>
+<Step>
+Provide:
+	- **Client ID** and **Client Secret** from Salesforce (*Setup > App Manager > Your Connected App*).
+	- **Callback URL** shown in Connect AI.
+</Step>
+<Step>
+Click **Authorize** and sign in with Salesforce.
+</Step>
+<Step>
+**Test** connection, and then **Save**.
+</Step>
+</Steps>
+
+***Done!*** *You can now query `Account`, `Opportunity`, `Contact`, and other objects in real time.*
+
+### Example: Google BigQuery (OAuth)
+
+<Steps>
+<Step>
+Open **Sources** > **Add Connection** > **Google BigQuery**.
+</Step>
+<Step>
+Sign in with your Google account.
+</Step>
+<Step>
+Select the project and dataset(s) to expose.
+</Step>
+<Step>
+Test connection, and Save.
+</Step>
+</Steps>
+	*Your BigQuery datasets are now queryable via SQL, OData, and REST.*
+
+*Other authentication options include Username/Password (legacy) and OAuth with Refresh Token for long-lived access.*
+
+## Step 3: Explore and Query Your Data
+
+<Steps>
+<Step>
+Open **Explorer** and select your source.
+</Step>
+<Step>
+Run a query:
+	```sql
+	SELECT Name, StageName, Amount
+	FROM Opportunity
+	WHERE CloseDate >= CURRENT_DATE - 90
+	ORDER BY Amount DESC;
+	```
+</Step>
+</Steps>
+
+*Save as a **\*Derived View*** to reuse and share.\*
+
+## Step 4: Create Derived Views
+
+Derived Views are saved SQL definitions you can permission like tables.
+
+```sql
+CREATE DERIVED VIEW Sales.TopOpportunities AS
+SELECT Name, StageName, Amount
+FROM Opportunity
+WHERE IsClosed = false AND CloseDate >= CURRENT_DATE - 90
+ORDER BY Amount DESC
+LIMIT 10;
+```
+
+*Use **\*Scheduled Queries*** under ***Jobs*** to refresh cached results for heavy workloads.\*
+
+## Step 5: Use Data in Your Tools
+
+### Power BI (SQL endpoint)
+
+<Steps>
+<Step>
+Open Power BI Desktop and then select **Get Data** > **SQL Server**.
+</Step>
+<Step>
+Enter your Connect Cloud SQL endpoint (*tds.cdata.com*).
+</Step>
+<Step>
+Authenticate with your CData credentials.
+</Step>
+<Step>
+Select tables or derived views and build visuals.
+</Step>
+</Steps>
+
+### Excel (OData)
+
+<Steps>
+<Step>
+In Excel, select **Data** > **Get Data** > **From Other Sources** > **From OData Feed**.
+</Step>
+<Step>
+Paste your Connect Cloud OData endpoint (*https://cloud.cdata.com/api/odata/{workspace\_name}*).
+</Step>
+<Step>
+Authenticate with your CData credentials and load data.
+</Step>
+</Steps>
+
+### Tableau (OData or SQL)
+
+<Steps>
+<Step>
+In Tableau, select **Connect** > **OData Server** (or **SQL Server**).
+</Step>
+<Step>
+Enter either the OData or SQL Server endpoint, authenticate, and start exploring.
+</Step>
+</Steps>
+
+### AI and Apps (Rest/OpenAPI)
+
+Expose any source as a secure API for custom apps and large language models (LLMs).
+
+- REST provides programmatic access from apps/agents:
+	```bash
+	GET https://cloud.cdata.com/api.rsc/Salesforce/Opportunity Authorization: Bearer <token>
+	```
+- OData v4 is used for BI tools and pagination/filtering:
+	```bash
+	GET https://cloud.cdata.com/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
+	```
+- OpenAPI generates clients and validates requests:
+	```bash
+	GET https://cloud.cdata.com/openapi/Salesforce
+	```
+
+## Step 6: Organize with Workspaces
+
+<Steps>
+<Step>
+In Workspaces, **Add Workspace** and name the workspace (for example, Sales).
+</Step>
+<Step>
+Add sources and derived views needed by the team.
+</Step>
+<Step>
+Share with groups to grant access.
+</Step>
+</Steps>
+
+## Step 7: Permissions by Need-to-Know
+
+Control access at source, schema, table, or view level
+
+| **Permission** | **What it allows** |
+|:- |:- |
+| SELECT | Read/query data |
+| INSERT/UPDATE/DELETE | Write changes back (if source allows) |
+| EXECUTE | Run procedures (such as refresh metadata) |
+
+## Security and Best Practices
+
+- **Rate limits**: 100 requests/user/minute.
+- **IP allowlist**: Restrict access to trusted networks.
+- **Logging & audit**: Enable detailed logs for governance.
+
+## Troubleshooting
+
+*Connection failed? Verify credentials, network/VPN, and source API status.*
+
+- **Missing tables?** Refresh metadata on the source.
+- **Slow queries?** Filter early, limit columns, and enable caching.
+- **Auth errors?** Re-authorize OAuth and confirm scopes.
+
+## Get Support
+
+For assistance with using *Connect AI*, there are two main resources available:
+
+- The [Status page](https://status.cdata.com/), which shows the current status and incident history for the application services.
+- [CData Technical Support](https://www.cdata.com/support/submit.aspx), which you can also access by clicking the **Support** link at the bottom of the dashboard.
+
+## What’s New
+
+See our [Release Notes](/ReleaseNotes) for new connectors, enhancements, and fixes.

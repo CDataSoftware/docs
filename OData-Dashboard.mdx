@@ -1,0 +1,62 @@
+---
+title: "OData"
+sidebarTitle: "Overview"
+description: "Connect AI workspaces allow you to connect OData-compatible integration tools to your data without installing any extra software or drivers. You must configure workspaces to access data from integration tools with the OData protocol."
+---
+
+
+## Configure Tables
+
+To configure tables, refer to the [Workspaces](/Workspaces) documentation.
+
+## Authentication
+
+Applications connect to the OData API through Basic Authentication (username and password). When configuring a connection, set the connection properties as follows:
+
+- Set the URL as the OData Service URL with a workspace name (`https://cloud.cdata.com/api/odata/{workspace_name}`).
+- For the Username, enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- For the Password, enter a Personal Access Token (PAT) that you generate on the [Settings](/Settings#access-tokens) page.
+
+## Connect from Client Applications
+
+The pages below provide instructions on connecting to the OData API from within popular client applications:
+
+- [PowerBI](/PowerBI.com-Client)
+- [Salesforce Lightning Connect](https://cloud.cdata.com/SF-Lightning-Connect.html)
+- [SAP Analytics Cloud](/SAPAnalyticsCloud-Client)
+
+The sections below outline how to connect from cURL and Postman.
+
+### cURL
+
+The [cURL command line tool](https://curl.se/) provides one of the simplest ways to retrieve OData tables. In your request, pass your username and PAT as Basic Auth credentials in the following format:
+
+```bash
+curl -u 'test@cdata.com:QpnquoIujrBNunK' https://cloud.cdata.com/api/odata/{workspace_name}/
+```
+
+With this request, cURL returns the OData response directly to the standard output.
+
+### Postman
+
+[Postman](https://www.postman.com/) is a testing utility tool that can easily connect to the Connect AI OData API. To use Postman, set the following settings:
+
+<Steps>
+<Step>
+Set the HTTP operation to **GET**
+</Step>
+<Step>
+Set the request URL to *https://cloud.cdata.com/api/odata/{workspace\_name}*. If desired, you can specify a resource name.
+</Step>
+<Step>
+In the Authorization tab, set the Auth type to **Basic Auth**
+</Step>
+<Step>
+Set the Username and password to the username and authentication token from the [Users](/Users) tab.
+</Step>
+<Step>
+Click **Send** to submit your request to Connect
+</Step>
+</Steps>
+
+Postman will display the OData results in the response section.

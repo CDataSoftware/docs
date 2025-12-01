@@ -1,0 +1,91 @@
+---
+title: "Outsystems"
+description: "This page outlines the steps to connect Outsystems to Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use Outsystems with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI in Outsystems
+
+<Steps>
+<Step>
+Open Outsystems Studio.
+</Step>
+<Step>
+Click the gear icon to open Environment Management.
+<Frame>
+![](/images/Outsystems01.png)
+</Frame>
+</Step>
+<Step>
+Click **Administration** and select **Database Connections**.
+</Step>
+<Step>
+Click **New Database Connection**.
+</Step>
+<Step>
+Enter the following information to configure the database connection:
+	- **Name**—A name for the connection, such as *Connect AI*.
+	- **DBMS**—SQL Server/ Azure SQL.
+	- **Username**—The Connect AI user email used during preparation, e.g. user@mydomain.com.
+	- **Password**—The PAT generated for the Connect AI user above.
+	- **Server**—tds.cdata.com,14333.
+	- **Schema**—The name of your connection e.g. OData1.
+<Frame>
+![](/images/Outsystems02.png)
+</Frame>
+</Step>
+<Step>
+Click **Test Connection**.
+</Step>
+<Step>
+Click **Create** to save the connection.
+</Step>
+</Steps>
+
+## Map Tables or Views to Entities in an Extension Module
+
+Once you create the dabatase connection, you can create an extension that maps tables or view to Outsystems entities. To do so, you must create an Entity in Outsystems Integration Studio.
+
+<Steps>
+<Step>
+In Integration Studios, right click **Entities** in the extension tree and click **Connect to External Table or View…**.
+<Frame>
+![](/images/Outsystems03.png)
+</Frame>
+</Step>
+<Step>
+A wizard will appear. Follow its steps to select the tables and views to work with. Complete the wizard and return to the integration studio view.
+</Step>
+<Step>
+Click **1-Click Publish**. This opens a 1-Click Publish wizard. Once the process completes, click **Configure**.
+</Step>
+<Step>
+In the Service Center, associate the name of the Logical Database to the Database Connection the Extension Module will use and click **Apply**.
+<Frame>
+![](/images/Outsystems04.png)
+</Frame>
+</Step>
+<Step>
+In the application, click **Manage Dependencies…**.
+</Step>
+<Step>
+Add the dependency to the Extension and select the Tables and Views to map to Entities to use in the application. Click **OK**.
+<Frame>
+![](/images/Outsystems05.png)
+</Frame>
+</Step>
+</Steps>
+
+You can now work with your data as if it was a standard Outsystems Entity.

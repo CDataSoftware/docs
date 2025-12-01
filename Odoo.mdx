@@ -1,0 +1,64 @@
+---
+title: "Odoo"
+---
+
+## Prerequisites
+
+Connect AI may be able to detect the Odoo database name automatically from the web address. However, we recommend that you specify the name of the Odoo database and enter it in the **Database** field.
+
+To find your Odoo database name:
+
+<Steps>
+<Step>
+Log into your Odoo Online account.
+</Step>
+<Step>
+Click your profile icon in the top-right corner and choose **My Databases**. Your database name is listed in the table.
+</Step>
+</Steps>
+
+Alternatively, you can often see the database name in the subdomain of your URL. If your URL is `https://mycompany.odoo.com`, your database name is likely `mycompany`.
+
+## Setup Guide
+
+Follow these steps to connect Odoo to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Odoo* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the base **URL** of the Odoo site to which you are connecting (for example, `http://my.odoo.com`).
+</Step>
+<Step>
+Enter the Odoo username for authentication in the **User** field.
+</Step>
+<Step>
+Enter the **API Token** used to authenticate the user.
+</Step>
+<Step>
+(Optional but recommended) Enter the name of the Odoo **Database** to which you are connecting. The prerequisites explain how to find the database name.
+</Step>
+<Step>
+(Optional) Set **Check Permissions** to `False` to allow a user without permission to `'ir.model.access` to access all models as tables.
+</Step>
+<Step>
+At the top of the Connect AI **Add Odoo Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Odoo, see [this information page](https://cdn.cdata.com/help/OEK/cloud/default.htm#default).

@@ -1,0 +1,89 @@
+---
+title: "PowerBI.com"
+description: "This page outlines the steps to connect PowerBI.com to Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use PowerBI.com with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Step 1: Create a Report in Power BI Desktop
+
+PowerBI.com does not support data import directly from Connect AI. Instead, you must first create a report of your data using Power BI Desktop, and then you can publish this report to PowerBI.com.
+
+Please see [Power BI Desktop](/PowerBIDesktop-Client) and follow the steps to connect to Connect AI and import your data. When you finish this process, save your report and continue with the steps below.
+
+## Step 2: Publish to PowerBI.com
+
+<Steps>
+<Step>
+With your report open in Power BI Desktop, click **Publish** in the **Home** tab of the navigation ribbon.
+<Frame>
+  <img src="/images/pbicom_publish.png" alt="PowerBI.com Publish" />
+</Frame>
+
+</Step>
+<Step>
+If you have not yet done so, save the `.pbix` file when prompted.
+</Step>
+<Step>
+If prompted, log in to your Microsoft Online account.
+</Step>
+<Step>
+Choose the workspace that you want to publish to and click **Select**.
+</Step>
+<Step>
+When the publishing task succeeds, click **Open \[filename\] in Power BI** to open your workspace or click **Got it** to close the prompt.
+</Step>
+</Steps>
+
+
+For more information about publishing and changing data this way, please see [Microsoft’s help article](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-upload-desktop-files).
+
+### Alternative Method
+
+If you encounter issues publishing directly through Power BI Desktop, you can follow these steps:
+
+<Steps>
+<Step>
+Save your Power BI Desktop file locally.
+</Step>
+<Step>
+Open PowerBI.com.
+</Step>
+<Step>
+In the navigation pane, open **My workspace**, then click **\+ New** > **Upload a file**.
+- Alternatively, at the bottom of the navigation pane, click **Get data**. In the **Files** card, click **Get**.
+</Step>
+<Step>
+Select **Local File** and upload your file.
+</Step>
+<Step>
+The **My workspace** page opens with your data split into Report, Dataset, and Dashboard files.
+</Step>
+</Steps>
+
+For information about refreshing data imported this way, please see [Microsoft’s help article](https://docs.microsoft.com/en-us/power-bi/connect-data/refresh-desktop-file-local-drive).
+
+## Step 3: Connecting Your PowerBI.com File to Connect AI
+
+After you publish your file on PowerBI.com, follow these steps to connect your file to Connect AI. When you finish, you will be able to refresh your data and access updated data from your connections directly in PowerBI.com.
+
+<Steps>
+<Step>
+Open the PowerBI.com workspace where you saved your report.
+</Step>
+<Step>
+Open the data-set associated with the report.
+</Step>
+<Step>
+Navigate to **File** > **Setings**. Under **Data Source**, click **Edit Credentials**.
+- For **Authentication**, select *OAuth2*.
+- Select the privacy level for your organization.
+</Step>
+<Step>
+Click **Sign in** and enter your Connect AI credentials when prompted.
+</Step>
+</Steps>

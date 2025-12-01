@@ -1,0 +1,127 @@
+---
+title: "Qlik Sense"
+description: "This page outlines the steps to connect Qlik Sense to Connect AI. You can use either Connect AI Virtual SQL Server API or the Connect AI OData endpoint to connect."
+---
+
+
+## Prerequisites for Connecting via Virtual SQL Server API
+
+Before you connect via Virtual SQL Server API, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via Virtual SQL Server API
+
+To establish a connection from Qlik Sense to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Qlik Sense.
+</Step>
+<Step>
+On the home dashboard, click **Create** > **Data connection**. Click **+** to create a new connection.
+<Frame>
+  <img src="/images/qlik_add_connection.png" alt="Qlik Add Connection" />
+</Frame>
+</Step>
+<Step>
+In the **Create data connection** dialog, enter *Microsoft SQL Server* in the search bar. Click the **Microsoft SQL Server** button that appears below.
+<Frame>
+  <img src="/images/qlik_create_sqlserver.png" alt="Qlik Create SQL Server" />
+</Frame>
+
+
+</Step>
+<Step>
+Enter the connection settings.
+- Database Properties
+	- **Server**—enter *tds.cdata.com*
+	- **Port**—enter *14333*
+	- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+	- **Encrypt**—check this box, but do not upload a certificate file.
+	- **Trust Server Certificate**—check this box.
+	- **Minimum TLS**—leave as **1.0**.
+- Authentication
+	- **Use Trusted Connection**—leave unchecked.
+	- **Use NTLM**—leave unchecked.
+- Account properties
+	- **User defined credentials**—set this according to your needs.
+	- **User name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- Leave the settings below Account Properties blank and unchecked.
+<Frame>
+  <img src="/images/qlik_create_sqlserver_detail.png" alt="Qlik Create SQL Server Detail" />
+</Frame>
+</Step>
+<Step>
+Click **Test connection** to test your entered credentials. If you receive an error, check all fields and try again.
+</Step>
+<Step>
+Click **Create** to create the connection.
+</Step>
+</Steps>
+
+
+
+
+
+Your connection is now available for data analysis.
+
+## Prerequisites for Connecting via OData Endpoint
+
+Before you connect to Connect AI via the OData endpoint, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via OData Endpoint
+
+To connect to Connect AI using the OData protocol, follow these steps.
+
+<Steps>
+<Step>
+Log in to Qlik Sense.
+</Step>
+<Step>
+On the home dashboard, click **Create** > **Data connection**. Click **+** to create a new connection.
+<Frame>
+  <img src="/images/qlik_add_connection.png" alt="Qlik Add Connection" />
+</Frame>
+
+
+</Step>
+<Step>
+In the **Create data connection** dialog, enter *OData* in the search bar. Click the **OData** connector that appears below.
+<Frame>
+  <img src="/images/qlik_create_odata.png" alt="Qlik Create OData" />
+</Frame>
+
+</Step>
+<Step>
+Enter the connection settings for OData.
+- Authentication
+	- **OData Service Root**—*https://cloud.cdata.com/api/odata/{workspace\_name}*
+	- **Authentication Type**—select **Basic**.
+- Account credentials
+	- **User defined credentials**—set this according to your needs.
+	- **Credentials name**—enter a user-defined name for your credentials, if necessary.
+	- **User name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **Auth header**—leave this blank.
+<Frame>
+  <img src="/images/qlik_create_odata_details.png" alt="Qlik Create OData Details" />
+</Frame>	
+</Step>
+<Step>
+Click **Test connection** to test your entered credentials. If you receive an error, check all fields and try again.
+</Step>
+<Step>
+Click **Create** to create the connection.
+</Step>
+</Steps>
+
+
+
+Your connection is now available for data analysis.
