@@ -1,0 +1,151 @@
+---
+title: "Settings"
+description: "You can access your *Settings* page by clicking the Gear Icon in the upper-right corner of the dashboard and selecting **Settings**."
+---
+
+<Frame>
+  <img src="/images/access_settings.png" alt="Access settings" />
+</Frame>
+
+The Settings page is divided into four tabs:
+
+- **Profile**
+- **Account**
+- **Access Tokens**
+- **Billing**
+
+<Frame>
+  <img src="/images/settings_tabs.png" alt="Settings tabs" />
+</Frame>
+
+The following sections describe these tabs.
+
+## Profile
+
+The **Profile** tab opens by default when you access Settings. This tab contains settings for the user that is currently logged in.
+
+<Frame>
+  <img src="/images/settings_profile.png" alt="Settings profile" />
+</Frame>
+
+In the **User Profile** section, you can edit the first name and last name for the current user. Your user role appears in the **Role** text box, but it cannot be edited on this page. See [Users](/Users) for more information about roles.
+
+If you want to reset your password, click **Reset Password**. This action sends a password reset email to the email address that appears in **Email**.
+
+In the **Grant Support Access** section, administrators can toggle support access on so that the CData support team can log on and help troubleshoot issues for the users in the administrator's account. Support access expires automatically on the date specified. However, administrators can revoke access at any time by disabling this setting. Click **Save Changes** to save the selection. Click **Accept** in the **Grant Support Access** dialog to agree to the terms and conditions of granting support access. <Note>This feature is enabled for administrators only. Query users can contact their administrator to grant support access to their accounts.</Note>
+
+## Account
+
+The **Account** tab provides access to account-wide settings and troubleshooting features.
+
+<Frame>
+  <img src="/images/settings_account.png" alt="Settings account" />
+</Frame>
+
+The sections of this page are described below.
+
+### Details
+
+The **Details** section lists the following global account information:
+
+- Organization Name
+- Country
+
+### Primary Contact Information
+
+This section contains the following fields that define the account’s primary contact for invoices, announcements, and other communication:
+
+- First name
+- Last name
+- Email
+- Phone Number
+- Country
+
+<Note>
+  These fields can only be edited by administrators.
+</Note>
+
+### Delete Account
+
+If you want to delete your Connect AI account and all of its data, click **Contact Sales** for assistance.
+
+<Note>
+  Account deletion is permanent. If you delete your account, you need to create a new account if you want to use Connect AI in the future.
+</Note>
+
+## Access Tokens
+
+Personal access tokens (PATs) are used when you connect to your data through [REST API](/REST-API), the [OData protocol](/OData), or [Virtual SQL Server](/SQL-Server). You can create and manage your PATs on this tab.
+
+<Frame>
+  <img src="/images/settings_accesstokens.png" alt="Access tokens" />
+</Frame>
+
+### Create a PAT
+
+Follow these steps to create a new PAT:
+
+<Steps>
+<Step>
+Click **Create PAT**.
+</Step>
+<Step>
+Enter a name for the PAT in the dialog that appears. It might be useful to enter a name that indicates its purpose.
+</Step>
+<Step>
+Click **Create** and a new dialog appears.
+</Step>
+<Step>
+Click the copy icon in that dialog to copy the PAT to your clipboard. The icon is to the right of the token field.
+	<Note>You cannot view the PAT again after you close this dialog.</Note>
+	<Frame>
+	  <img src="/images/pat_created.png" alt="PAT created" />
+	</Frame>
+</Step>
+<Step>
+Click **OK** to close the dialog.
+</Step>
+</Steps>
+
+### Regenerate a PAT
+
+If you need to regenerate a PAT, click the regeneration icon in the PAT list and follow the prompts that are displayed.
+
+<Frame>
+  <img src="/images/pat_regen.png" alt="Regenerate PAT" />
+</Frame>
+
+<Note>
+  Regenerating a PAT revokes access for any applications that use the PAT. Therefore, you must enter the newly generated PAT in any such applications.
+</Note>
+
+### Delete a PAT
+
+To delete a PAT that you no longer use, click the delete icon in the PAT list.
+
+<Frame>
+  <img src="/images/pat_delete.png" alt="Delete PAT" />
+</Frame>
+
+Click **Confirm** in the confirmation dialog that is displayed. Then, click **OK** in the success dialog.
+
+<Note>
+  Deleting a PAT revokes access for any applications that use the PAT. Therefore, you must create a new PAT and enter it into those applications to restore this access.
+</Note>
+
+## Billing
+
+The **Billing** tab provides information and controls for your account plan and usage.
+
+<Frame>
+  <img src="/images/settings_billing.png" alt="Settings billing" />
+</Frame>
+
+This tab consists of the following:
+
+- The **Billing** section displays your plan information and next billing date.
+	- CData Connect Spreadsheets users have a **Compare Plans** <a target="_self" href="https://www.cdata.com/spreadsheets/pricing">link</a> to compare upgrade plans.
+	- Click **Manage Payment Method** to open your account with Stripe. You can manage your billing settings, such as your payment method and billing address. If your subscription has lapsed, you need to reactivate your plan to continue using Connect AI.
+	- To the right is the **Update Plan** section, with information on calling the Connect AI sales team, or you can email sales at sales@cdata.com.
+	- If you are on a free trial account, this section displays your trial information.
+- The **Your Plan Details** section displays what is included in your current plan.

@@ -1,0 +1,178 @@
+---
+title: "SQL Server"
+---
+
+## Prerequisites
+
+#### Whitelist CData IPs
+
+To establish a connection to SQL Server, you need to allow access to SQL Server via CData’s IP. When hosting SQL Server behind a firewall, you must safelist these IP addresses in your firewall.
+
+- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
+- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+
+#### Ensure SQL Server Is Publicly Accessible
+
+Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## Setup Guide
+
+Follow these steps to connect SQL Server to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SQL Server* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the host name or IP address of the **Server** running SQL Server.
+</Step>
+<Step>
+Enter the port for connecting to the SQL Server server in the **Port** field.
+</Step>
+<Step>
+Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Select an encryption method in **Encrypt**. You can select **True** (optional encryption), **Strict** (required encryption), or no encryption.
+</Step>
+<Step>
+If your SQL Server connection is behind a firewall, enable the setting **Use SSH** and follow the instructions in [SSH Tunnel Instructions](#ssh-tunnel-instructions). Then, continue with the authentication instructions. Otherwise, leave **Use SSH** off.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Password
+
+<Steps>
+<Step>
+In the **User** field, enter the SQL Server username for authentication.
+</Step>
+<Step>
+In the **Password** field, enter the user password.
+</Step>
+<Step>
+At the top of the Connect AI **Add SQL Server Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzurePassword
+
+<Steps>
+<Step>
+In the **User** field, enter the SQL Server username for authentication.
+</Step>
+<Step>
+In the **Password** field, enter the user password.
+</Step>
+</Steps>
+
+### AzureAD
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id. This value is the directory Id in **Azure Portal** > **Azure Active Directory** > **Properties**. If not specified, the default tenant is used.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the SQL Server sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your SQL Server account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add SQL Server Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipal
+
+<Steps>
+<Step>
+Copy the client Id from SQL Server and paste it in the **OAuth Client Id** field in Connect AI.
+</Step>
+<Step>
+Copy the client secret from SQL Server and paste it in the **OAuth Client Secret** field in Connect AI.
+</Step>
+<Step>
+Enter the **Azure Tenant** Id. This value is the directory Id in **Azure Portal** > **Azure Active Directory** > **Properties**. If not specified, the default tenant is used.
+</Step>
+<Step>
+At the top of the Connect AI **Add SQL Server Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureServicePrincipalCert
+
+<Steps>
+<Step>
+Copy the OAuth JWT certificate store contents and paste it in the **OAuth JWT Cert** field. This is a multi-line key with the format shown.
+</Step>
+<Step>
+Enter the **Azure Tenant** Id. This value is the directory Id in **Azure Portal** > **Azure Active Directory** > **Properties**. If not specified, the default tenant is used.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Password** for your SQL Server account, if required.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Subject** for your SQL Server account. This is the subject of the OAuth JWT certificate. If omitted, the first certificate in the certificate store is used.
+</Step>
+<Step>
+Enter your **OAuth Client Id** assigned when you registered your SQL Server account.
+</Step>
+</Steps>
+
+## SSH Tunnel Instructions
+
+If your SQL Server data source is behind a firewall, follow these instructions.
+
+<Steps>
+<Step>
+Enable the setting **Use SSH**.
+</Step>
+<Step>
+Enter the following information:
+	- **SSH Server**–enter the name of the SSH server.
+	- **SSH Port**–enter the SSH port. The default value is 22.
+	- **SSH Server Fingerprint**–enter the fingerprint of the SSH server, which is the server's digital Id badge. The fingerprint looks similar to the following: `SHA256:WzAxzZkQ2d5G9V45T2x4FQncpJjUEwEvRQpz+sy9TxY`.
+	- **SSH Auth Mode**–enter the authentication mode of **Password** or **Public\_Key**.
+		- If **Password**, enter the **SSH User** name and **SSH Password**.
+		- If **Public\_Key**, enter the following:
+			- **SSH Client Cert**–enter a valid private key.
+			- **SSH Client Cert Type**–select the certificate type.
+			- **SSH Client Cert Password**–(optional) enter if the SSH client certificate has a password.
+			- **SSH Client Cert Subject**–(optional) enter the subject. If the certificate subject is omitted, the first certificate in the certificate store is used.
+</Step>
+<Step>
+Continue with the authentication instructions.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and SQL Server, see [this information page](https://cdn.cdata.com/help/RUK/cloud/default.htm#default).

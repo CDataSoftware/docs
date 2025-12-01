@@ -1,0 +1,171 @@
+---
+title: "Sage Intacct"
+---
+
+
+<Frame>
+<iframe
+    width="100%"
+    height="420"
+    src="https://www.youtube.com/embed/PpheNRlLpKg"
+    title="How to Get Started With Qdrant Cloud"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</Frame>
+## Prerequisites
+
+Before you attempt to connect to Sage Intacct, make sure to add the Sender ID ‘CData’ into your list of authorized Sender IDs for Web Services authorizations.
+
+To add the Sender ID, follow these steps:
+
+<Steps>
+  <Step>Log in to Sage Intacct as an administrator.</Step>
+  <Step>Navigate to **Company**.</Step>
+  <Step>
+    Under **Setup** select **Company**.
+    ![](/images/sage_intacct01.png)
+  </Step>
+  <Step>
+    Go to the **Security** section and add the CData Sender ID.
+    ![](/images/sage_intacct02.png)
+  </Step>
+  <Step>
+    If this does not work, utilize our Sender ID and Sender Password to select
+    another user with the right permissions from your Web Services
+    authorizations list.
+    ![](/images/sage_intacct03.png)
+  </Step>
+</Steps>
+
+If necessary, contact `support@cdata.com` for additional assistance.
+
+## Setup Guide
+
+Follow these steps to connect Sage Intacct to your Connect AI account:
+
+<Steps>
+  <Step>Open the **Connections** page of the Connect AI dashboard.</Step>
+  <Step>Click **\+ Add Connection** in the upper-right corner.</Step>
+  <Step>
+    Type *Sage Intacct* into the search field, then click the data source name.
+  </Step>
+  <Step>
+    On the **Basic Settings** tab of the new connection, enter a connection name
+    or keep the default name.
+  </Step>
+  <Step>
+    Enter your Company Id into the **Company ID** field. You can find this Id in
+    **Sage Intacct** under **Company > Company info**.
+  </Step>
+  <Step>
+    Select the Authentication method, then proceed to the relevant section and
+    follow those instructions.
+  </Step>
+</Steps>
+
+## Authentication Methods
+
+### BasicReadOnly
+
+<Steps>
+  <Step>
+    First make sure that you have *not* specified either a "SenderID" or
+    "SenderPassword" in Sage Intacct.
+  </Step>
+  <Step>
+    In the Sage Intacct Web Services dashboard, navigate to **Company > Company
+    Info > Security**.
+  </Step>
+  <Step>
+    Add CData to the Web Services authorizations by navigating to **Security >
+    Web Services Authorizations/ Edit**. Remember that this is case sensitive.
+  </Step>
+  <Step>
+    On the Connect AI connections page, add the embedded **User** and
+    **Password** provided by Sage Intacct.
+  </Step>
+  <Step>
+    At the top of the Connect AI **Add Sage Intacct Connection** page, click
+    **Save & Test**.
+
+- If the connection test succeeds, a **Connection successfully saved** message appears,
+indicating that your connection has been created. The **Status** on the **Edit Connection**
+page also changes to **Authenticated**. View the data model of your successful connection
+in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
+the connection test fails, ensure that you entered your login information correctly
+with no stray spaces or other characters. Connect AI displays error messages under
+the required fields with missing data. Some data sources require that you sign in
+directly to the source website. If you did not, an error message appears under the
+**Sign in** button. Correct the errors and try again. - Unsuccessful connections
+are saved as drafts and have a **Status** of **Not Authenticated**. You can return
+to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic
+
+<Steps>
+  <Step>
+    Enter the following information: - **User**—the Sage Intacct username for
+    authentication. - **Password**—the user password. - **Sender ID**—The Web
+    Services Sender Id assigned by Sage Intacct. Contact your Sage Intacct
+    representative for more details. - **Sender Password**— Your registered Web
+    Services password. Contact your Sage Intacct representative for more
+    details.
+  </Step>
+  <Step>
+    At the top of the Connect AI **Add Sage Intacct Connection** page, click
+    **Save & Test**.
+
+- If the connection test succeeds, a **Connection successfully saved** message appears,
+indicating that your connection has been created. The **Status** on the **Edit Connection**
+page also changes to **Authenticated**. View the data model of your successful connection
+in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
+the connection test fails, ensure that you entered your login information correctly
+with no stray spaces or other characters. Connect AI displays error messages under
+the required fields with missing data. Some data sources require that you sign in
+directly to the source website. If you did not, an error message appears under the
+**Sign in** button. Correct the errors and try again. - Unsuccessful connections
+are saved as drafts and have a **Status** of **Not Authenticated**. You can return
+to the connection and authenticate it later.
+</Step>
+</Steps>
+### OKTA
+
+<Steps>
+  <Step>
+    Enter the following information: - **User**—The Okta user account. -
+    **Password**—The password associated with the Okta account. - **SSO Login
+    URL**—Set to the URL used by the SSO provider. - **SSO Properties**—Add
+    property IntacctUserID, set to the Okta user specified in the User
+    connection property. Then add all desired properties. The following is an
+    example of a valid connection string: AuthScheme=Okta;
+    SSOLoginURL='https://example.okta.com/home/appType/0bg4ivz6cJRZgCz5d6/46';
+    User=oktaUserName; Password=oktaPassword;
+    SSOProperties='IntacctUserID=intacct\_user'; . - **Note**: If you add an
+    APIToken property, it must be set to the API Token that the customer created
+    from the Okta org. It should only be used when authenticating a user via a
+    trusted application or proxy that overrides Okta client request context.
+  </Step>
+  <Step>
+    At the top of the Connect AI **Add Sage Intacct Connection** page, click
+    **Save & Test**.
+
+- If the connection test succeeds, a **Connection successfully saved** message appears,
+indicating that your connection has been created. The **Status** on the **Edit Connection**
+page also changes to **Authenticated**. View the data model of your successful connection
+in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
+the connection test fails, ensure that you entered your login information correctly
+with no stray spaces or other characters. Connect AI displays error messages under
+the required fields with missing data. Some data sources require that you sign in
+directly to the source website. If you did not, an error message appears under the
+**Sign in** button. Correct the errors and try again. - Unsuccessful connections
+are saved as drafts and have a **Status** of **Not Authenticated**. You can return
+to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Sage Intacct, see [this information page](https://cdn.cdata.com/help/CTK/cloud/default.htm#default).

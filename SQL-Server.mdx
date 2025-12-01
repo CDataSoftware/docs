@@ -1,0 +1,31 @@
+---
+title: "Virtual SQL Server Endpoint"
+sidebarTitle: "Overview"
+description: "The Connect AI Virtual SQL Server allows you to establish a connection to your data from integration tools that support connections to SQL servers. The Virtual SQL Server mimics the behavior of a traditional SQL server, and it supports a range of query options."
+---
+
+
+## Authentication
+
+Applications connect to the Virtual SQL Server through SQL Server Authentication using a Username and Password. When configuring the connection, set the properties as follows:
+
+- The database server is **tds.cdata.com**.
+- The port is **14333**. If you are connecting from application that does not have a separate port field, append the port to the end of the database server with either a colon or comma (`tds.cdata.com:14333` or `tds.cdata.com,14333`).
+- Some applications require you to specify a database. For these applications, the database name is the name of the [Connection](/Sources) you want to access.
+- For the Username, enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- For the Password, enter a Personal Access Token (PAT) that you generate on the [Settings](/Settings#access-tokens) page.
+
+## Connect from Client Applications
+
+Virtual SQL Server supports connections from the following integration tools:
+
+- [Amazon QuickSight](/AmazonQuickSight-Client)
+- [Azure Analysis Services](/AAS-Client)
+- [Azure Data Factory](/AzureDataFactory-Client)
+- [Looker](/Looker-Client)
+- [Microsoft Power Apps](/MicrosoftPowerApps-Client)
+- [Microsoft PowerAutomate](/MicrosoftPowerAutomate-Client)
+- [Qlik Sense Cloud](/QlikSenseCloud-Client)
+- [Tableau Cloud](/TableauCloud-Client)
+
+After connecting to an integration tool, see [Query Syntax](/VSS-Query-Syntax) for examples of supported query syntax.

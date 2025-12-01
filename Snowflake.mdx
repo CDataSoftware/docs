@@ -1,0 +1,221 @@
+---
+title: "Snowflake"
+---
+
+## Prerequisites
+
+#### Whitelist CData IPs
+
+To establish a connection to Snowflake, you need to allow access to Snowflake via CData’s IP. When hosting Snowflake behind a firewall, you must safelist these IP addresses in your firewall.
+
+- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
+- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+
+#### Ensure Snowflake Is Publicly Accessible
+
+Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## Setup Guide
+
+Follow these steps to connect Snowflake to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Snowflake* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the Snowflake **Warehouse**.
+</Step>
+<Step>
+Enter the **URL** of the Snowflake database. Snowflake supports URLs in either the account name or connection name format.
+	- To use the account name, refer to [Finding the organization and account name for an account](https://docs.snowflake.com/en/user-guide/admin-account-identifier#label-account-name-find) in the Snowflake documentation.
+	- To use the connection name, use the [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) command.
+	The URL format depends on how you are connecting. Refer to the [Connecting with a URL](https://docs.snowflake.com/en/user-guide/organizations-connect#connecting-with-a-url) in the Snowflake documentation for help in entering the URL correctly.
+	The following are a few examples of formatting the URL:
+	- Standard URL with account name: `https://<orgname>-<account_name>.snowflakecomputing.com`.
+	- Standard URL with connection name: `https://<orgname>-<connectionname>.snowflakecomputing.com`.
+	- Okta SSO: `https://<orgname>-<account-name>.snowflakecomputing.com` (if your account name contains an underscore, change the underscore to a hyphen).
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+<Step>
+Under **Data Credentials**, determine if you want to allow shared credentials or to require users to use their own credentials.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+In the **User** field, enter your Snowflake user name.
+</Step>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your Snowflake account.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your Snowflake account for OAuth.
+</Step>
+<Step>
+Select the **OAuth Authenticator** that the OAuth application requests from Snowflake. If there is no authenticator, use the default **None**.
+</Step>
+<Step>
+(Optional) Enter the Snowflake **Database** and **Schema**. Selecting a schema may improve performance for some applications.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Snowflake sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Snowflake account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Snowflake Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Password
+<Info>
+**Important:** Any new Snowflake account starting with bundle "2024\_08" will no longer support Password authentication. Please use other authentication methods, such as OAuth or Private Key.
+</Info>
+<Steps>
+<Step>
+Enter your user name in the **User** field and password in the **Password** field.
+</Step>
+<Step>
+In the **Database** section, enter the name of the Snowflake database to connect to.
+</Step>
+<Step>
+(Optional) Enter the schemas of the Snowflake database to connect to. If this is left blank, the connector has access to all schemas in the database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Snowflake Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+<Step>
+In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+
+### Private Key
+
+Follow these steps to configure private key authentication:
+
+<Steps>
+<Step>
+Open your Snowflake keyfile (which ends in .p8) in a text editor.
+</Step>
+<Step>
+Copy the entire contents of the file.
+</Step>
+<Step>
+Enter the copied contents of your private key into the **Private Key** field.
+</Step>
+<Step>
+If your private key has a password, enter it in the **Private Key Password** field.
+</Step>
+<Step>
+Select the correct **Private Key Type** from the drop down.
+</Step>
+<Step>
+In the **Database** section, enter the name of the Snowflake database to connect to.
+</Step>
+<Step>
+(Optional) Enter the schemas of the Snowflake database to connect to. If this is left blank, the connector has access to all schemas in the database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Snowflake Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+<Step>
+In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+
+### Okta
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**— The Okta user account.
+	- **Password**— The password associated with the Okta account.
+	- **MFA Passcode**— Set this to the OTP code that was sent to your device. This property should be used only when Multi-Factor Authentication is required for Okta sign on.
+	- **SSO Properties**— are needed to authenticate to Okta:
+		- Domain: Set this to the OKTA org domain name.
+		- MFAType (optional): Set this to the multi-factor type. This property should be used only when the MFA is required for Okta sign on. This property accepts one of the following values:
+			- OKTAVerify
+			- Email
+			- SMS
+		- APIToken (optional): Set this to the API Token created by Okta. This is used when authenticating a user via a trusted application or proxy that overrides the Okta client request context.
+</Step>
+<Step>
+In the **Database** section, enter the name of the Snowflake database to connect to.
+</Step>
+<Step>
+(Optional) Enter the schemas of the Snowflake database to connect to. If this is left blank, the connector has access to all schemas in the database.
+</Step>
+<Step>
+At the top of the Connect AI **Add Snowflake Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+<Step>
+In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+
+### PingFederate
+
+<Steps>
+<Step>
+In the **User** field, enter the Snowflake username for authentication.
+</Step>
+<Step>
+In the **Password** field, enter the user password.
+</Step>
+<Step>
+(Optional) Enter the **Proof Key**. You must specify this if you want to connect to PingFederate without using a browser.
+</Step>
+<Step>
+(Optional) Enter the **External Token**. You must specify this if you want to connect to PingFederate without using a browser. For more information about the Proof Key and External Token, follow the steps [here](https://cdn.cdata.com/help/OWJ/cloud/default.htm#RSBSnowflake_p_AuthScheme).
+</Step>
+<Step>
+(Optional) Enter the **Database** and **Schema**. Selecting a schema may improve performance for some applications.
+</Step>
+<Step>
+At the top of the Connect AI **Add Snowflake Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and Snowflake, see [this information page](https://cdn.cdata.com/help/OWK/cloud/default.htm#default).

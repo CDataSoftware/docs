@@ -1,0 +1,53 @@
+---
+title: "Zapier"
+description: "This page outlines the steps to connect Zapier to Connect AI using the [OData](/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/Workspaces) documentation for more information."
+---
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Zapier to Connect AI using the OData protocol, follow these steps.
+
+<Steps>
+<Step>
+Log in to Zapier.
+</Step>
+<Step>
+Click **Create Zap**.
+</Step>
+<Step>
+In the dialog that appears, search for "Webhooks by Zapier", and click the option underneath.
+<Frame>
+![](/images/zapier_client_01.png)
+</Frame>
+</Step>
+<Step>
+Under Event, select **Retrieve Poll**.
+<Frame>
+![](/images/zapier_client_02.png)
+</Frame>
+</Step>
+<Step>
+Fill in the connection details:
+	- **URL**: Enter the OData URL.
+	- **Key**: Enter "value.name".
+	- Authentication details: Fill in **Basic Auth** or **Headers**. The basic option requires a user and password separated by a pipe (`|`) symbol. The headers option requires a request type header with encoded credentials.
+<Frame>
+![](/images/zapier_client_03.png)
+</Frame>
+</Step>
+<Step>
+Click **Test**. If the connection is set up properly, sample records will appear.
+<Frame>
+![](/images/zapier_client_04.png)
+</Frame>
+</Step>
+</Steps>

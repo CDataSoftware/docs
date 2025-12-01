@@ -1,0 +1,84 @@
+---
+title: "Twitter Ads"
+---
+
+## Prerequisites
+
+Before you can connect to Connect AI, you must create OAuth client credentials in Twitter Ads.
+
+<Steps>
+<Step>
+Log in to [https://developer.twitter.com/en/portal/projects-and-apps](https://developer.twitter.com/en/portal/projects-and-apps).
+</Step>
+<Step>
+Create a new Project in the Developer Portal.
+</Step>
+<Step>
+At the project you just created, click **Add App**.
+</Step>
+<Step>
+Set a name for the Application. Twitter Ads displays your keys and tokens.
+</Step>
+<Step>
+Record the values of your new keys and tokens. You will need them later for authentication.
+</Step>
+<Step>
+Navigate to the **User Application settings** and click **Set up**.
+</Step>
+<Step>
+Turn on the 'OAuth 1.0a' authentication.
+</Step>
+<Step>
+From the available Application permissions, select **Read and write and Direct message**.
+</Step>
+<Step>
+Specify the URL of the website and other optional information to be displayed to users when they connect.
+</Step>
+<Step>
+Set the Callback URL (also known as the Redirect URL) to *https://oauth.cdata.com/oauth/*.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect Twitter Ads to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Twitter Ads* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter your **OAuth Client Id** obtained from the prerequisites.
+</Step>
+<Step>
+Enter your **OAuth Client Secret** otained from the prerequisites.
+</Step>
+<Step>
+(Optional) Enter your **Account Id** if you want to restrict your connection to a specific account.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Twitter Ads sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Twitter Ads account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Twitter Ads Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Twitter Ads, see [this information page](https://cdn.cdata.com/help/HMK/cloud/default.htm#default).

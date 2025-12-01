@@ -1,0 +1,82 @@
+---
+title: "SAP Ariba Sourcing"
+---
+
+## Prerequisites
+
+Before you can connect SAP Ariba Sourcing, you must create a custom OAuth app as follows:
+
+<Steps>
+<Step>
+Go to the [SAP Developer Portal](https://developer.ariba.com/) and sign in.
+</Step>
+<Step>
+Click **Manage** (bottom icon on the left).
+</Step>
+<Step>
+Click the **+** button next to the search field.
+</Step>
+<Step>
+Fill in **Application Name** and **Description**, and then click **Submit**.
+</Step>
+<Step>
+Click **Actions** > **Request API Access**.
+</Step>
+<Step>
+Select the API you want to retrieve data from. This corresponds to the API connection property.
+</Step>
+<Step>
+Select your realm.
+</Step>
+<Step>
+Click **Submit**. Wait until the request is approved.
+</Step>
+<Step>
+Once approved, click **Actions** > **Generate OAuth Secret**.
+</Step>
+<Step>
+Save the values displayed for **API key**, **OAuth Client Id**, and **OAuth Client Secret**.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect SAP Ariba Sourcing to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SAP Ariba Sourcing* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **API Key**—the API key created in the prerequisites.
+	- **Realm**—the realm from which you want to access data.
+	- **API**—the API you want to retrieve data from.
+	- **Data Center**—the data center where your account's data is hosted.
+	- **Type Detection Scheme**—select whether to return all columns as the string type (None) or scan rows to determine the data type (RowScan).
+	- **Include Custom Fields**—toggle on to include custom fields from SAP Ariba tables.
+	- **OAuth Client Id**—the OAuth client Id from the prerequisites.
+	- **OAuth Client Secret**—the OAuth client secret from the prerequisites.
+	- **Max Threads**—the maximum number of concurrent requests the provider can execute to SAP Ariba.
+	- **Environment**—the environment to use when connecting to SAP Ariba, either PRODUCTION or TEST.
+</Step>
+<Step>
+At the top of the Connect AI **Add SAP Ariba Sourcing Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and SAP Ariba Sourcing, see [this information page](https://cdn.cdata.com/help/PBK/cloud/default.htm#default).

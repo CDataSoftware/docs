@@ -1,0 +1,94 @@
+---
+title: "SAP SuccessFactors"
+---
+
+## Prerequisites
+
+In order to connect to Connect AI, you need to know a few pieces of information from SAP SuccessFactors. The first is the URL of the server where the SAP SuccessFactors instance is hosted. The URL depends on your environment and location. See the [this SAP help article](https://help.sap.com/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/af2b8d5437494b12be88fe374eba75b6.html#api-servers) for more information.
+
+You also need to know your unique company Id. See [this SAP help article](https://userapps.support.sap.com/sap/support/knowledge/en/2655655) for more information.
+
+## Setup Guide
+
+Follow these steps to connect SAP SuccessFactors to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SAP SuccessFactors* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **URL** of the server where the SAP SuccessFactors instance is hosted. You located this information in the prerequisites.
+</Step>
+<Step>
+Enter the SAP SuccessFactors username for authentication in the **User** field.
+</Step>
+<Step>
+Enter your unique **Company Id** that you located in the prerequisites.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Basic
+
+<Steps>
+<Step>
+Enter the **Password** for the **User** entered above.
+</Step>
+<Step>
+At the top of the Connect AI **Add SAP SuccessFactors Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth Client
+
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your SAP SuccessFactors account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your SAP SuccessFactors account for OAuth.
+</Step>
+<Step>
+At the top of the Connect AI **Add SAP SuccessFactors Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthSAML2
+
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your SAP SuccessFactors account for OAuth.
+</Step>
+<Step>
+Enter the PEM **Private Key** certificate downloaded upon registering your OAuth Client Application.
+</Step>
+<Step>
+At the top of the Connect AI **Add SAP SuccessFactors Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and SAP SuccessFactors, see [this information page](https://cdn.cdata.com/help/GBK/cloud/default.htm#default).

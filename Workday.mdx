@@ -1,0 +1,196 @@
+---
+title: "Workday"
+---
+
+## Setup Guide
+
+Follow these steps to connect Workday to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Workday* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Set your **Connection Type** from the drop-down list.
+	- **WQL**—this connection exposes Workday data sources as read-only views using the Workday Query Language (WQL) service.
+	- **Reports**—this connection exposes Workday reports as views using Reports as a Service (RaaS). The Reports connection has an additional **Custom Report URL** field. Enter the URL of the report that shows all Reports as a Service (RaaS) reports.
+	- **REST**—this connection exposes Workday data as tables and views using the REST API.
+	- **SOAP**—this connection exposes Workday data as views using the SOAP API.
+</Step>
+<Step>
+Choose an **Auth Scheme** for your connection type and follow the instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+To connect Workday to Connect AI using OAuth, you must first create an OAuth app in Workday. [Create an OAuth app in Workday](#create-an-oauth-app-in-workday) shows how to create a standard OAuth app. For other types of OAuth custom apps, refer to [this information page](https://cdn.cdata.com/help/JWK/cloud/default.htm#pg_connectiondatahubh).
+
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you register your application with an OAuth authorization server.
+	- **OAuth Client Secret**—the client secret assigned when you register your application with an OAuth authorization server.
+	- **Base URL**—the base URL for the Workday connection. To obtain the Base URL, log in to Workday and search for View API Clients. In the listed values, find the Workday REST API Endpoint. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `https://wd3-impl-services1.workday.com` is the Base URL.
+	- **Tenant**—the tenant for the account. The tenant is found in your Tenant Setup page in Workday. It is used when constructing a URL to retrieve data from Workday. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `mycompany_gms1` is the tenant.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Workday sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Workday account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Workday Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthISU
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you register your application with an OAuth authorization server.
+	- **OAuth Client Secret**—the client secret assigned when you register your application with an OAuth authorization server.
+	- **OAuth Refresh Token**—the refresh token for the corresponding OAuth access token. Set up an OAuth Refresh Token if authenticating with Integration System Users (ISUs).
+	- **Base URL**—the base URL for the Workday connection. To obtain the Base URL, log in to Workday and search for View API Clients. In the listed values, find the Workday REST API Endpoint. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `https://wd3-impl-services1.workday.com` is the Base URL.
+	- **Tenant**—the tenant for the account. The tenant is found in your Tenant Setup page in Workday. It is used when constructing a URL to retrieve data from Workday. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `mycompany_gms1` is the tenant.
+</Step>
+<Step>
+At the top of the Connect AI **Add Workday Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthJWT
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you register your application with an OAuth authorization server.
+	- **OAuth Client Secret**—the client secret assigned when you register your application with an OAuth authorization server.
+	- **OAuth JWT Cert**—the contents of the JWT certificate file. An sample format is provided.
+	- **OAuth JWT Cert Type**—the type of key store containing the JWT Certificate. Select the type from the drop-down list.
+	- **OAuth JWT Issuer**—the issuer of the Java Web Token. This is typically either the client Id or the email address of the OAuth application.
+	- **OAuth JWT Subject**—the user subject for which the application is requesting delegated access. This is typically either the user account name or email address.
+	- **OAuth JWT Cert Password**—(optional) the password for the OAuth JWT certificate. Enter a password if the certificate store requires it.
+	- **OAuth JWT Cert Subject**—(optional) the subject of the OAuth JWT certificate. If omitted, the first certificate in the certificate store is used.
+	- **Base URL**—the base URL for the Workday connection. To obtain the Base URL, log in to Workday and search for View API Clients. In the listed values, find the Workday REST API Endpoint. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `https://wd3-impl-services1.workday.com` is the Base URL.
+	- **Tenant**—the tenant for the account. The tenant is found in your Tenant Setup page in Workday. It is used when constructing a URL to retrieve data from Workday. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `mycompany_gms1` is the tenant.
+</Step>
+<Step>
+At the top of the Connect AI **Add Workday Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+
+<Steps>
+<Step>
+Enter the following information:
+	- **SSO Properties**—additional properties required to connect to the identity provider in a semicolon-separated list.
+	- **OAuth Client Id**—the client Id assigned when you register your application with an OAuth authorization server.
+	- **Base URL**—the base URL for the Workday connection. To obtain the Base URL, log in to Workday and search for View API Clients. In the listed values, find the Workday REST API Endpoint. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `https://wd3-impl-services1.workday.com` is the Base URL.
+	- **Tenant**—the tenant for the account. The tenant is found in your Tenant Setup page in Workday. It is used when constructing a URL to retrieve data from Workday. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `mycompany_gms1` is the tenant.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Workday sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Workday account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Workday Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic (SOAP Connection Type Only)
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the Workday username for authentication
+	- **Password**—the user password
+	- **Base URL**—the base URL for the Workday connection. To obtain the Base URL, log in to Workday and search for View API Clients. In the listed values, find the Workday REST API Endpoint. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `https://wd3-impl-services1.workday.com` is the Base URL.
+	- **Tenant**—the tenant for the account. The tenant is found in your Tenant Setup page in Workday. It is used when constructing a URL to retrieve data from Workday. For example, in the URL `https://wd3-impl-services1.workday.com/ccx/service/mycompany_gms1/Human_Resources`, `mycompany_gms1` is the tenant.
+</Step>
+<Step>
+At the top of the Connect AI **Add Workday Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## Create an OAuth App in Workday
+
+OAuth connections to Workday require a custom OAuth application. Follow these steps to create a standard OAuth app:
+
+<Steps>
+<Step>
+Login to your Workday account. In the search box at the top of the page, enter *Register API Client*.
+</Step>
+<Step>
+Select the **Register API Client** form.
+</Step>
+<Step>
+Enter a name for the app in the **Client Name** field.
+</Step>
+<Step>
+For the grant type, select **Authorization Code**.
+</Step>
+<Step>
+For the access token type, select **Bearer**.
+</Step>
+<Step>
+In the **Redirection URI** field, enter *https://oauth.cdata.com/oauth/*
+</Step>
+<Step>
+In the **Scope** section, enable following scopes:
+	- **Custom Objects** > **System**
+	- **Custom Objects** > **Integration**
+	- **Workday REST API** > **Tenant Non-Configurable**
+</Step>
+<Step>
+Enable any additional scopes that you require. If you are uncertain about which scopes to include, you can enable every scope under each subsection.
+</Step>
+<Step>
+Select the **Include Workday Owned Scope** checkbox.
+</Step>
+<Step>
+Click **OK** to save the app.
+</Step>
+<Step>
+Workday loads the View API Client page that contains information about the new app. Copy the **Client ID** and **Client Secret** for use in Connect AI.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and Workday, see [this information page](https://cdn.cdata.com/help/JWK/cloud/default.htm#default).

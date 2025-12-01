@@ -1,0 +1,76 @@
+---
+title: "SQL Functions"
+sidebarTitle: "Overview"
+description: "SQL functions are implemented in the Connect AI query API. As a result, these functions are available across all data sources with the same consistent API. Three categories of functions are available: string, date, and math."
+---
+
+
+The API interprets all SQL function inputs as either strings or column identifiers. All literals must be escaped as strings with single quotes. For example, contrast the SQL Server syntax and provider syntax for the **DATENAME** function:
+
+- **SQL Server:**
+
+```bash
+SELECT DATENAME(yy,GETDATE())
+```
+
+- **Connect AI:**
+
+```bash
+SELECT DATENAME('yy',GETDATE())
+```
+
+### [STRING Functions](/STRING-Functions)
+
+String functions perform string manipulations and return a string value. See [STRING Functions](/STRING-Functions) for more details.
+
+```bash
+SELECT CONCAT(firstname, space(4), lastname) FROM Account WHERE Industry = 'Floppy Disks'
+```
+
+### [DATE Functions](/DATE-Functions)
+
+These functions perform date and date time manipulations. See [DATE Functions](/DATE-Functions) for more details.
+
+```bash
+SELECT CURRENT_TIMESTAMP() FROM Account
+```
+
+### [Math Functions](/MATH-Functions)
+
+These functions provide mathematical operations. See [MATH Functions](/MATH-Functions) for more details.
+
+```bash
+SELECT RAND() FROM Account
+```
+
+### Aggregate Functions
+
+Aggregate functions return data from across multiple rows. See [Aggregate Functions](/Aggregate-Functions) for more details.
+
+```bash
+SELECT MIN(AnnualRevenue), Name FROM Account WHERE Industry = 'Floppy Disks' GROUP BY Name
+```
+
+### Window Functions
+
+Window functions allow you to create computed fields from a group of rows (a window) that return a result for each row, as opposed to one computed result for a set of rows, as is the case with aggregate functions.
+
+```bash
+SELECT Name, Role, Earnings, COUNT() OVER (PARTITION BY Role) FROM Employees
+```
+
+### Table-Valued Functions
+
+Table-valued functions are functions that return a table (rowset).
+
+```bash
+SELECT A.ID, X.name FROM [TableWithXMLField] A CROSS APPLY XMLTABLE(A.XMLContent,'//*/item') WITH (name VARCHAR(255)) AS X
+```
+
+### Function Parameters and Nesting SQL Functions
+
+The provider supports column names, constants, and results of other functions as parameters to functions. The following are all valid uses of SQL functions:
+
+```bash
+SELECT CONCAT('Mr.', SPACE(2), firstname, SPACE(4), lastname) FROM Account
+```

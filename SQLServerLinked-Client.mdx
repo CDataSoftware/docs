@@ -1,0 +1,55 @@
+---
+title: "SQL Server Linked Server"
+description: "This page outlines the steps to connect SQL Server Linked Server to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from SQL Server Linked Server to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Open Microsoft SQL Server Management Studio.
+</Step>
+<Step>
+In the **Object Explorer** pane, open **Server Objects**, right-click **Linked Servers**, and select **New Linked Server**.
+
+<Frame>
+![](/images/sql_client_1.png)
+</Frame>
+</Step>
+<Step>
+The **New Linked Server** dialogue opens. On the **General** page, enter the following information:
+	- Enter a memorable name for the server in the **Linked server** field.
+	- Select the radio button **Other data source** and select **Microsoft OLE DB Driver for SQL Server** as the provider.
+	- In the **Data source** field, enter *tds.cdata.com*,*14333*
+	- Leave the other fields empty.
+
+<Frame>
+![](/images/sql_client_2.png)
+</Frame>
+</Step>
+<Step>
+Select the **Security** page. At the bottom, select the radio button labelled **Be made using this security context** and enter the following information:
+	- **Remote login**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **With password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+
+<Frame>
+![](/images/sql_client_3.png)
+</Frame>
+</Step>
+<Step>
+Click **OK** to create the server.
+</Step>
+</Steps>
+
+Your linked server can now be used to access the data in the data source you specified. If you need to access data from more sources, create another linked server for each one.

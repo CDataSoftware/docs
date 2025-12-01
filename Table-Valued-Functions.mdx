@@ -1,0 +1,270 @@
+---
+title: "Table-Valued"
+description: "Table-valued functions are functions that return a table (rowset)."
+---
+
+
+
+<Note>
+Table-valued function support is an experimental feature of the driver. This functionality extends beyond the driver's core scope of being SQL-92 compliant. As such, performance with these functions may not be optimal.
+</Note>
+
+## Table-Valued Function Clauses
+
+### CROSS APPLY
+
+The CROSS APPLY operator is used to perform a subquery on each row of a table or resultset produced by a preceding table expression.
+
+#### Syntax
+
+```bash
+<table_expression_1> CROSS APPLY <table_expression_2>
+```
+
+The second table expression can reference results from the first table expression to create derived columns or an altered recordset via a table-valued function.
+
+Each resulting record is an instance of the record it’s splitting, with all the same column values, except for the column(s) containing the value split by the function.
+
+### WITH
+
+The WITH clause is used alongside certain table-valued functions to match against constructs within the structure being split (keys, element names, attribute names, etc.) and/or to specify metadata for the columns generated from the function.
+
+#### Example(s)
+
+```bash
+SELECT A.ColumnName, X.DerivedColumnName FROM TableName A CROSS APPLY <table-valued function> WITH (DerivedColumnName varchar(255)) AS X
+```
+
+## Table-Valued Functions
+
+### STRING\_SPLIT
+
+Takes each record in the recordset of the preceding table expression, splits the column containing delimiters (input\_text) into substrings separated by the delimiter, and returns one record per substring.
+
+#### Syntax
+
+```bash
+STRING_SPLIT(input_text,delimiter)
+```
+
+#### Parameters
+
+- **input\_text** A column whose value you want to parse.
+- **delimiter** The character used to split the value of the column specified in input\_text.
+
+#### Example(s)
+
+Suppose there is a column called “SplitColumn” with the following content:
+
+```bash
+One-Two-Three
+```
+
+To unpack this value across multiple records:
+
+```bash
+SELECT A.ID, X.Value FROM [TableWithDelimitedStringField] A CROSS APPLY STRING_SPLIT(A.SplitColumn,'-') WITH (Value VARCHAR(255)) AS X
+ 
+-- Results:
+-----------
+|ID|Value|
+|1|One|
+|1|Two|
+|1|Three|
+```
+
+### JSONTABLE
+
+For each record in the recordset of the preceding table expression, returns one record for each instance of a key in a JSON array (json\_content) that matches the key(s) specified in the WITH clause, at the scope specified by the “jsonpath” input.
+
+#### Syntax
+
+```bash
+JSONTABLE(json_content,[jsonpath])
+```
+
+#### Parameters
+
+- **json\_content** A JSON “table” (array of objects). The contents can nest, but this must be a single JSON array, not any other JSON structure, at the root level. The values of every instance of the key(s) provided in the WITH clause are retrievable only for substructures which are immediate children of the root-level JSON array.
+- **jsonpath** An optional JSONPath query defining the scope, within the json\_content array, that you want to pull content from. The JSON key(s) identified in the WITH clause must exist at the scope defined in this parameter. This defaults to the JSON root ($). Consider a sample table with a single record, including an ID column and column with JSON content called “JSONColumn” with the following content:
+
+#### Example(s)
+
+```bash
+[
+    {
+        "name": "Samuel",
+        "email": "sam@gmail.com",
+        "extrainfo": {
+            "city": "Seattle"
+        }
+    },
+    {
+        "name": "Katherine",
+        "email": "kat@gmail.com",
+    },
+    {
+        "name": "George",
+        "email": "george23@gmail.com",
+    },
+    {
+        "name": "Carlos",
+        "email": "carlos32@gmail.com",
+    }
+]
+```
+
+To extract all values for a certain key, specify the scope in the JSONTABLE function and provide the desired key(s) in the WITH clause.
+
+```bash
+SELECT A.ID, X.name FROM [TableWithJSONField] A CROSS APPLY JSONTABLE(A.JSONColumn) WITH (name VARCHAR(255)) AS X
+ 
+-- Results:
+|ID|name|
+---------
+|1 |Samuel|
+|1 |Katherine|
+|1 |George|
+|1 |Carlos|
+```
+
+### XMLTABLE
+
+For each record in the resultset of the preceding table expression, returns one record for each of the elements and/or attributes in an XML structure (xml\_content) that match the tag name(s) and/or attribute name(s) specified in the WITH clause, at the scope specified in the “xpath” input.
+
+#### Syntax
+
+```bash
+XMLTABLE(xml_content,[xpath,child_type])
+```
+
+#### Parameters
+
+- **xml\_content** A column containing an XML structure.
+- **xpath** An optional XPath that specifies the scope within the XML structure at which the driver extracts content matching the tag/attribute name(s) specified in the WITH clause. When extracting the content of sub-elements, the driver can retrieve all content from tags at the root level, (depth 0) immediate children of the root (depth 1), and children of those children (depth 2). When extracting element attribute content, the driver can retrieve all content from tags containing the specified attribute at the root level (depth 0) and from immediate children of root-level elements (depth 1).
+- **child\_type** An optional parameter that specifies the part(s) of the parent element (specified in the xpath input) that the column(s) provided in the WITH clause are checked against to identify content. You can supply the following values:
+	- 0: The column(s) in the WITH clause are checked for matches against the parent element’s attribute names and sub-element tag names.
+	- 1: The column(s) in the WITH clause are checked for matches against the parent element’s attribute names.
+	- 2: The column(s) in the WITH clause are checked for matches against the parent element’s sub-element tag names. When not supplied, this defaults to 0.
+
+#### Example(s)
+
+Consider a sample table with a single record, including an ID column and a column with XML content called “XMLContent” with the following content:
+
+```bash expandable
+<shoppingList>
+    <item>
+        <name>Apples</name>
+        <quantity>3</quantity>
+        <unit>Kg</unit>
+    </item>
+    <item>
+        <name>Bread</name>
+        <quantity>2</quantity>
+        <unit>Loaf</unit>
+        <extrainfo>
+            <Type>Whole-Grain</Type>
+        </extrainfo>
+    </item>
+    <item>
+        <name>Milk</name>
+        <quantity>1</quantity>
+        <unit>Carton</unit>
+    </item>
+    <item>
+        <name>Eggs</name>
+        <quantity>12</quantity>
+        <unit></unit>
+    </item>
+</shoppingList>
+```
+
+To extract sub-element content, specify the scope in the XMLTABLE function and provide the desired element name(s) in the WITH clause. Note that this will not work if the XMLTABLE function’s child\_type input is set to 1.
+
+```bash
+SELECT A.ID, X.name FROM [TableWithXMLField] A CROSS APPLY XMLTABLE(A.XMLContent,'//*/item') WITH (name VARCHAR(255)) AS X
+ 
+-- Results:
+|ID|name|
+---------
+|1|Apples|
+|1|Bread|
+|1|Milk|
+|1|Eggs|
+```
+
+Suppose you have this sample table with a single record, including an ID column and a column with XML content called “XMLContent” with the following content:
+
+```bash expandable
+<restaurant>
+  <dish type="appetizer">
+    <name lang="en">Caprese Salad</name>
+    <chef>Chef Giovanni</chef>
+    <price currency="USD">9.99</price>
+  </dish>
+  <dish type="main-course">
+    <name lang="fr">Boeuf Bourguignon</name>
+    <chef>Chef Marie</chef>
+    <price currency="EUR">19.99</price>
+  </dish>
+  <dish type="dessert">
+    <name lang="es">Tres Leches Cake</name>
+    <chef>Chef Alejandro</chef>
+    <price currency="MXN">89.99</price>
+  </dish>
+</restaurant>
+```
+
+To extract attribute content, specify the scope in the XMLTABLE function and provide the desired attribute name(s) in the WITH clause. Note that this will not work if the XMLTABLE function’s child\_type input is set to 2.
+
+```bash
+SELECT A.ID, X.type FROM [TableWithXMLField] A CROSS APPLY XMLTABLE(A.XMLContent,'//*/dish') WITH (type VARCHAR(255)) AS X
+ 
+-- Results:
+|ID|type|
+---------
+|1|appetizer|
+|1|main-course|
+|1|dessert|
+```
+
+### CSVTABLE
+
+For each record in the resultset of the preceding table expression, reads from a column that contains a CSV table (csv\_content) and for each record in that CSV table, returns one record containing the value of the CSV column(s) specified in the WITH clause.
+
+#### Syntax
+
+```bash
+CSVTABLE(csv_content,[delimiter])
+```
+
+#### Parameters
+
+- **csv\_content** A column containing a CSV table.
+- **delimiter** An optional custom delimiter (instead of a comma) which splits the CSV content contained in the csv\_content input.
+
+#### Example(s)
+
+Consider a sample table with a single record, including an ID column and a column containing CSV table called “CSVContent” with the following content:
+
+```bash
+Name;Category;Price
+Apple;Fruit;0.99
+Spaghetti;Pasta;5.49
+Chicken Breast;Meat;8.99
+Broccoli;Vegetable;2.49
+```
+
+To select every value in the “Name” column and account for the custom delimiter (;):
+
+```bash
+SELECT A.ID, X.Name FROM [TableWithCSVField] A CROSS APPLY CSVTABLE(A.CSVContent,';') WITH (Name VARCHAR(255)) AS X
+ 
+-- Results:
+|ID|Name|
+-----------
+|1|Apple|
+|1|Spaghetti|
+|1|Chicken Breast|
+|1|Broccoli|
+```

@@ -1,0 +1,44 @@
+---
+title: "SAP Fieldglass"
+---
+
+## Prerequisites
+
+Please contact your SAP Fieldglass representative to obtain an Environment URL, OAuth Client Id, and OAuth Client Secret.
+
+## Setup Guide
+
+Follow these steps to connect SAP Fieldglass to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SAP Fieldglass* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **Environment URL**–the instance where SAP Fieldglass is located, for example, `https://myinstance.com`.
+	- **OAuth Client Id**–the client Id assigned to your custom OAuth application.
+	- **OAuth Client Secret**–the confidential client secret assigned to your custom OAuth Application.
+	- **Connector Data Format**–the data format for downloaded data: CSV or JSON.
+	- **APIKey**–(optional) the API key used to authenticate to SAP Fieldglass. If you encounter an error indicating that an API key is required, you can request one from SAP Fieldglass administration or log in to the SAP Fieldglass Integration Tools and click **Create API Application**.
+</Step>
+<Step>
+At the top of the Connect AI **Add SAP Fieldglass Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and SAP Fieldglass, see [this information page](https://cdn.cdata.com/help/UFK/cloud/default.htm#default).

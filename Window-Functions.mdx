@@ -1,0 +1,374 @@
+---
+title: "Window"
+description: "Window functions allow you to create computed fields from a group of rows (a window) that return a result for each row, as opposed to one computed result for a set of rows, as is the case with [aggregate functions](https://cloud.cdata.com/Aggregate-Functions.html). The driver supports the following window function syntax."
+---
+
+
+<Note>
+Window function support is an experimental feature of the driver. This functionality extends beyond the driver's core scope of being SQL-92 compliant. As such, performance with window functions may not be optimal.
+</Note>
+
+## Window Function Clauses
+
+### OVER
+
+The OVER clause defines the window over which window functions are performed.
+
+```bash
+SELECT A, B, <window function> OVER (<window frame>) FROM TableName
+```
+
+The refers to any supported window function clause, and the refers to one or more clauses that specify the logic by which the window is defined.
+
+### PARTITION BY
+
+The PARTITION BY clause subdivides a window into sub-windows called partitions. For each unique value in the column specified in the PARTITION BY clause, every record with that value collectively forms an individual partition.
+
+SELECT A, B, OVER (PARTITION BY A ORDER BY B) From Lead The refers to any supported window function clause.
+
+## Math Functions
+
+These window functions perform mathematical operations on the records within the window.
+
+### COUNT
+
+Calculates the number of records in each partition. The calculated column is of the data type “int”.
+
+#### Syntax
+
+```bash
+COUNT()
+```
+
+#### Example(s)
+
+In each partition, every record will display the total number of records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, COUNT() OVER (PARTITION BY Role) FROM Employees
+```
+
+### COUNT\_BIG
+
+Calculates the number of records in each partition. The calculated column is of the data type “bigint”.
+
+#### Syntax
+
+```bash
+COUNT_BIG()
+```
+
+#### Example(s)
+
+In each partition, every record will display the total number of records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, COUNT_BIG() OVER (PARTITION BY Role) FROM Employees
+```
+
+### MIN
+
+Calculates the minimum value of a numerical column per partition.
+
+#### Syntax
+
+```bash
+MIN(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the minimum value of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, MIN(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### MAX
+
+Calculates the maximum value of a numerical column per partition.
+
+#### Syntax
+
+```bash
+MAX(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the maximum value of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, MAX(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### SUM
+
+Calculates the sum of a numerical column per partition.
+
+#### Syntax
+
+```bash
+SUM(numeric_column)
+```
+
+#### Exaqmple(s)
+
+In each partition, every record will display the sum of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, SUM(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### AVG
+
+Calculates the average value of a numerical column per partition.
+
+#### Syntax
+
+```bash
+AVG(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the average value of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, AVG(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### MEDIAN
+
+Calculates the median value of a numerical column per partition.
+
+#### Syntax
+
+```bash
+MEDIAN(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the median value of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, MEDIAN(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### STDEV
+
+Calculates the standard deviation of a numerical column per partition.
+
+#### Syntax
+
+```bash
+STDEV(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the standard deviation of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, STDEV(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### STDEVP
+
+Calculates the population standard deviation of a numerical column per partition.
+
+#### Syntax
+
+```bash
+STDEVP(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the population standard deviation of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, STDEVP(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### VAR
+
+Calculates the statistical standard variance of a numerical column per partition.
+
+#### Syntax
+
+```bash
+VAR(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the statistical standard variance of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, VAR(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+### VARP
+
+Calculates the variance population of a numerical column per partition.
+
+#### Syntax
+
+```bash
+VARP(numeric_column)
+```
+
+#### Example(s)
+
+In each partition, every record will display the variance population of numeric\_column across the records in that partition.
+
+```bash
+SELECT Name, Role, Earnings, VARP(Earnings) OVER (PARTITION BY Role) FROM Employees
+```
+
+## Ranking Functions
+
+These window functions rank records that fall within the window and its partitions.
+
+### RANK
+
+Assigns a rank number to each record in a window based on the value of the column specified in the required ORDER BY clause.
+
+If two or more records have an equal value in the in ranked column, they all receive the same rank number and the rank count increments internally, skipping ahead one rank number for each record with a duplicate value in the ORDER BY column.
+
+#### Syntax
+
+```bash
+RANK()
+```
+
+#### Example(s)
+
+```bash
+SELECT Id, FullName, RANK() OVER (ORDER BY FullName) AS Rank FROM Lead
+```
+
+If you add a PARTITION BY clause, a separate set of ranks is calculated for each partition.
+
+```bash
+SELECT Id, FullName, RANK() OVER (PARTITION BY Id ORDER BY FullName) AS Rank FROM Lead
+```
+
+### DENSE\_RANK
+
+Operates like the RANK() function, but it doesn’t increment the internal rank counter for each record with a duplicate value in the ranked column.
+
+This means that, while records with identical values in the ORDER BY column still share a rank number, the function never skips a rank number.
+
+#### Syntax
+
+```bash
+DENSE_RANK()
+```
+
+#### Example(s)
+
+```bash
+SELECT Id, FullName, DENSE_RANK() OVER (PARTITION BY Id ORDER BY FullName) AS Rank FROM Lead
+```
+
+If you add a PARTITION BY clause, a separate set of ranks is calculated for each partition.
+
+```bash
+SELECT Id, FullName, DENSE_RANK() OVER (PARTITION BY Id ORDER BY FullName) AS Rank FROM Lead
+```
+
+### ROW\_NUMBER
+
+Calculates a row number for each record. An ORDER BY clause in the OVER clause is required.
+
+#### Syntax
+
+```bash
+ROW_NUMBER()
+```
+
+#### Example(s)
+
+```bash
+SELECT Name, Role, Earnings, ROW_NUMBER() OVER (ORDER BY Role) FROM Employees
+```
+
+If you define multiple partitions with PARTITION BY, a new set of row numbers are calculated for each partition.
+
+```bash
+SELECT Name, Role, Earnings, ROW_NUMBER() OVER (PARTITION BY Role ORDER BY Earnings) FROM Employees
+```
+
+### NTILE
+
+Distributes rows of an ordered partition into a specified number of approximately equal groups, or buckets. It assigns each group a bucket number starting from one. For each row in a group, the NTILE() function assigns a bucket number representing the group to which the row belongs.
+
+#### Syntax
+
+```bash
+NTILE(buckets) OVER (
+    [PARTITION BY partition_expression, ... ]
+    ORDER BY sort_expression [ASC | DESC], ...
+)
+```
+
+#### Parameters
+
+- **buckets** The number of buckets into which the rows are divided. The buckets can be an expression or subquery that evaluates to a positive integer. It cannot be a window function.
+- **PARTITION BY** Distributes rows of a result set into partitions to which the NTILE() function is applied.
+- **ORDER BY** Clause that specifies the logical order of rows in each partition to which the NTILE() is applied.
+
+If the number of rows is not divisible by the buckets, the NTILE() function returns groups of two sizes with the difference by one. The larger groups always precede the smaller group in the order set by ORDER BY in the OVER() clause.
+
+If the total of rows is divisible by the number of buckets, the function divides the rows evenly among buckets.
+
+#### Example(s)
+
+The following statement creates a new table named ntile\_demo that stores 10 integers:
+
+```bash
+CREATE TABLE sales.ntile_demo (
+    v INT NOT NULL
+);
+     
+INSERT INTO sales.ntile_demo(v)
+VALUES(1),(2),(3),(4),(5),(6),(7),(8),(9),(10);
+     
+SELECT * FROM sales.ntile_demo;
+```
+
+```bash
+This statement uses the NTILE() function to divide ten rows into three groups:
+SELECT
+    v,
+    NTILE (3) OVER (
+        ORDER BY v
+    ) buckets
+FROM
+    sales.ntile_demo;
+```
+
+## Analytical Functions
+
+These window functions perform analytical operations on the records within the window.
+
+### PERCENT\_RANK
+
+Calculates the relative rank SQL Percentile of each row. It returns values greater than zero, but the maximum value is one. It does not count any NULL values. This function is nondeterministic.
+
+#### Syntax
+
+```bash
+PERCENT_RANK() OVER (
+      [PARTITION BY partition_expression, ... ]
+      ORDER BY sort_expression [ASC | DESC], ...
+  )
+```
+
+#### Parameters
+
+- **PARTITION BY** By default, SQL Server treats the whole data set as a single set. You can specify the PARTITION BY clause to divide data into multiple sets. The Percent\_Rank function performs the analytical calculations on each set. This parameter is optional.
+- **ORDER BY** Sorts the data in either ascending or descending order. This parameter is required.

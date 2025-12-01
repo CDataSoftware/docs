@@ -1,0 +1,124 @@
+---
+title: "Salesforce Pardot"
+---
+
+## Setup Guide
+
+Follow these steps to connect Salesforce Pardot to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Salesforce Pardot* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+On a separate browser tab, log in to your Salesforce account. Open the **Setup** page, expand the **Pardot** section, and click **Pardot Account Setup**.
+</Step>
+<Step>
+Copy the business unit Id for the business unit that you want to connect.
+</Step>
+<Step>
+Return to Connect AI and enter the copied value into the **Business Unit ID** field.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Select your schema version.
+</Step>
+<Step>
+If you are using a demo account, set **Is Demo Account** to True. Otherwise, leave it false.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Salesforce Pardot sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Salesforce Pardot account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Pardot Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth Password
+
+<Steps>
+<Step>
+Enter the Salesforce Pardot username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<Step>
+Enter a **Security Token**. This step is mandatory unless your IP has been added to 'Trusted IP Addresses' in Salesforce already.
+</Step>
+<Step>
+Select your schema version.
+</Step>
+<Step>
+If you are using a demo account, set **Is Demo Account** to True. Otherwise, leave it false.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Pardot Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth JWT
+
+<Steps>
+<Step>
+Enter your **OAuth JWT Certificate**. This is multi-line and in PEM format.
+</Step>
+<Step>
+Select the **OAuth JWT Certification type**.
+</Step>
+<Step>
+Enter the **OAuth JWT Issuer**. This must include the client\_id or connected app for the which the certificate is registered.
+</Step>
+<Step>
+(Optional) Enter a **OAuth JWT Cert Password** if the certificate. This only needs to be done if the certificate is encrypted.
+</Step>
+<Step>
+(Optional) If required, add an **OAuth JWT Cert Subject**.
+</Step>
+<Step>
+(Optional) If necessary, enter a **OAuth JWT Subject**, formatted as an email.
+</Step>
+<Step>
+Select your schema version.
+</Step>
+<Step>
+If you are using a demo account, set **Is Demo Account** to True. Otherwise, leave it false.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Pardot Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Salesforce Pardot, see [this information page](https://cdn.cdata.com/help/GPK/cloud/default.htm#default).

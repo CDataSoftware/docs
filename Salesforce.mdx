@@ -1,0 +1,279 @@
+---
+title: "Salesforce"
+---
+
+## Required Prerequisites (Salesforce Admin Only)
+
+<Steps>
+<Step>
+In Salesforce Setup, navigate to **Apps** > **Connected Apps** > **Connected Apps OAuth Usage**.
+</Step>
+<Step>
+For the CData Connector, click **Install**. Salesforce displays an installation page.
+</Step>
+<Step>
+Click **Install** again to complete the process.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect Salesforce to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Salesforce* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Basic
+
+<Steps>
+<Step>
+Enter the Salesforce username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<Step>
+Enter a security token. This step is mandatory unless your IP has been added to 'Trusted IP Addresses' in Salesforce already.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth
+
+<Steps>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Salesforce sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Salesforce account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthPassword
+
+<Steps>
+<Step>
+Enter the Salesforce username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<Step>
+Enter a **Security Token**. This step is mandatory unless your IP has been added to 'Trusted IP Addresses' in Salesforce already.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthJWT
+
+<Steps>
+<Step>
+Enter your **OAuth JWT Certificate**. This is multi-line and in PEM format.
+</Step>
+<Step>
+Select the **OAuth JWT Certification type**.
+</Step>
+<Step>
+Enter the **OAuth JWT Issuer**. This must include the client\_id or connected app for the which the certificate is registered.
+</Step>
+<Step>
+(Optional) Enter an **OAuth JWT Cert Password** if the certificate. This only needs to be done if the certificate is encrypted.
+</Step>
+<Step>
+(Optional) If required, add an **OAuth JWT Cert Subject**.
+</Step>
+<Step>
+(Optional) If implementing for an Experience Cloud Site, an **OAuth JWT Subject** is required. It must be formatted as an email.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OneLogin
+
+<Steps>
+<Step>
+Enter the OneLogin **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL** You can find this in the Salesforce account settings by navigating to **Administration Setup > SAML Single Sign-On Settings** and locating the OAuth 2.0 Token endpoint.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### PingFederate
+
+<Steps>
+<Step>
+Enter the PingFederate **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL** You can find this in the Salesforce account settings by navigating to **Administration Setup > SAML Single Sign-On Settings** and locating the OAuth 2.0 Token endpoint.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OKTA
+
+<Steps>
+<Step>
+Enter the OKTA **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL** You can find this in the Salesforce account settings by navigating to **Administration Setup > SAML Single Sign-On Settings** and locating the OAuth 2.0 Token endpoint.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### ADFS
+
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL** You can find this in the Salesforce account settings by navigating to **Administration Setup > SAML Single Sign-On Settings** and locating the OAuth 2.0 Token endpoint.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+<Steps>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Add the **SSO Exchange URL** You can find this in the Salesforce account settings by navigating to **Administration Setup > SAML Single Sign-On Settings** and locating the OAuth 2.0 Token endpoint.
+</Step>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your Salesforce account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your Salesforce account for OAuth.
+</Step>
+<Step>
+Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Salesforce sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Salesforce account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Salesforce Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Salesforce, see [this information page](https://cdn.cdata.com/help/RFK/cloud/default.htm#default).

@@ -1,0 +1,117 @@
+---
+title: "Shopify"
+---
+
+## Setup Guide
+
+Follow these steps to connect Shopify to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Shopify* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the the full URL of your shop into the **Shop URL** field (for example, `https://yourshopname.myshopify.com`).
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+<Note>
+**Note:**
+
+- You can only use OAuth if you have a Partner app published on the Shopify store.
+- The Partner app must have *https://oauth.cdata.com/oauth/* registered as a redirect URI.
+- If you do not have a Partner app, you must create a custom app and authenticate with an access token.
+</Note>
+Follow these steps in Connect AI:
+
+<Steps>
+<Step>
+In **OAuthClientId**, enter the Client Id from your Partner app.
+</Step>
+<Step>
+In **OAuthClientSecret**, enter your Client Secret from your Partner app.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop down.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Shopify sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Shopify account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Shopify Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Access Token
+
+For authentication with an access token, follow the steps below to create a custom app:
+
+<Steps>
+<Step>
+In a separate browser window, log in to your Shopify account and open the **Apps** page.
+</Step>
+<Step>
+Select **Develop apps** and then **Create an app**.
+</Step>
+<Step>
+Enter the App name and select the App developer, then click **Create app**.
+</Step>
+<Step>
+In the new app, click **Configure Admin API scopes**. Enable the following permissions:
+	| read\_customers | write\_customers | read\_draft\_orders | write\_draft\_orders |
+	| --- | --- | --- | --- |
+	| read\_fulfillments | write\_fulfillments | read\_inventory | write\_inventory |
+	| read\_marketing\_events | write\_marketing\_events | read\_orders | write\_orders |
+	| read\_price\_rules | write\_price\_rules | read\_product\_listings | write\_product\_listings |
+	| read\_products | write\_products | read\_shopify\_payments\_payouts |  |
+</Step>
+<Step>
+Click **Save** to save the permission settings.
+</Step>
+<Step>
+Select the **API Credentials** tab. Click **Install app**, then **Install** on the confirmation prompt.
+</Step>
+<Step>
+Click **Reveal token once** and copy down the value. This acts as your access token for authentication.
+</Step>
+<Step>
+Return to Connect AI.
+</Step>
+<Step>
+In **Access Token**, enter your access token.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop down.
+</Step>
+<Step>
+At the top of the Connect AI **Add Shopify Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Shopify, see [this information page](https://cdn.cdata.com/help/FOK/cloud/default.htm#default).

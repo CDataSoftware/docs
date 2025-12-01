@@ -1,0 +1,18 @@
+---
+title: "UPSERT Statements"
+sidebarTitle: "UPSERT"
+description: "An UPSERT statement updates an existing record or creates a new record if an existing record is not identified."
+---
+
+
+
+## Configuring Upserts
+
+The UPSERT syntax is the same as INSERT. Connect AI will often use the primary key of the table to identify if the record exists when upserting data. However, when the data source itself supports upsert, then the data source’s upsert logic will be used.
+
+Below is an example of upserting a Lead into Salesforce. In this example, Salesforce uses ExternalIdColumn as the key when upserting Leads.
+
+```bash
+UPSERT INTO Lead (FirstName, LastName, Company, External_Id_Column__c, ExternalIdColumn)
+VALUES ('Bob', 'Thorton', 'Universal Pictures', 12345, 'External_Id_Column__c')
+```

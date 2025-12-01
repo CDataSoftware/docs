@@ -1,0 +1,20 @@
+---
+title: "UPDATE Statements"
+sidebarTitle: "UPDATE"
+description: "To modify existing records, use UPDATE statements."
+---
+
+
+
+## Update Syntax
+
+The UPDATE statement takes as input a comma-separated list of columns and new column values as name-value pairs in the SET clause, as shown in the following example:
+
+```bash
+UPDATE <table_name> SET { <column_reference> = <expression> } [ , ... ] WHERE { Id = <expression>  } [ { AND | OR } ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```

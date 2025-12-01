@@ -1,0 +1,85 @@
+---
+title: "SQL Reference"
+sidebarTitle: "Overview"
+description: "Connect AI supports a wide range of standard [DDL Commands](/DDL), [SQL Commands](/SQL-Commands), and [SQL Functions](/SQL-Functions) for querying data sources. This page outlines the Connect AI data model, supported data types, and naming requirements."
+---
+
+
+## Data Model
+
+When you issue a SQL query to a data source, it follows a `Catalog.Schema.Table` pattern:
+
+- `Catalog` is the name you assign to the data source when you create it.
+- For data sources that support multiple schemas, `Schema` is the name of the schema you want to target. For data sources that do not support multiple schemas, `Schema` is the generic name of the data source, like `GoogleSheets`.
+- `Table` is the name of the table you want to query.
+
+For example, Salesforce is a data source that does not support multiple schemas. If you have a connection to Salesforce called Salesforce1, and you want to issue a query to return all results from the Account table, the query would be `SELECT * FROM Salesforce1.Salesforce.Account`.
+
+## Data Types
+
+Connect AI supports the following data types:
+
+- BINARY
+- VARCHAR
+- TINYINT
+- SMALLINT
+- INTEGER
+- BIGINT
+- FLOAT
+- DOUBLE
+- DECIMAL
+- NUMERIC
+- BOOLEAN
+- DATE
+- TIME
+- TIMESTAMP
+- UUID
+
+### Timestamp Queries
+
+Timestamp values can be input in any time zone, provided that they are written in ISO 8601 format and include the time zone specifier. Connect AI automatically converts timestamps to UTC. When integration tools access this data, Connect AI supplies it in UTC format.
+
+## Names and Quoting
+
+- Table and column names are considered identifier names. As a result, they are restricted to the following characters:
+	- `A-Z`
+	- `a-z`
+	- `0-9`
+	- `_:@]`
+- To use a table or column name with characters that are not listed above, you must quote the name using square brackets in any SQL statement: `[name]`
+- Parameter names can optionally start with the @ symbol (for example, `@p1` or `@CustomerName`) and cannot be quoted.
+- Strings must be quoted using single quotes (for example, `'John Doe'`).
+
+## Federated Queries
+
+Connect AI supports federated queries to return data from multiple connected Data Sources at once. This feature provides a convenient way to combine data without manually copying or moving data between sources.
+
+### Example Query
+
+For an example of how issuing a federated query can be useful, consider the following situation:
+
+- You have Connections to Salesforce and Snowflake, called Salesforce1 and Snowflake1 respectively.
+- Salesforce has an `Account` table that contains information about your Salesforce accounts.
+- Snowflake is a data warehouse. It contains a `LoginHistory` table that contains login history from your company’s website.
+- You want to view the last time each Salesforce account logged into your website.
+
+You can issue a federated query like the one below to do this:
+
+```sql
+SELECT [Salesforce1].[Salesforce].[Account].[Name], [Snowflake1].[Website].[LoginHistory].[LastLogin]
+  FROM [Salesforce1].[Salesforce].[Account]
+  JOIN [Snowflake1].[Website].[LoginHistory]
+  ON [Salesforce1].[Salesforce].[Account].[Id] = [Snowflake1].[Website].[LoginHistory].[SFAccountId]
+```
+
+This command returns a table with two columns—one for the name of the Salesforce account, and one for the date and time of the last login time from your website.
+
+### Limitations
+<Note>
+**Please note that federated queries are subject to the following limitations:**
+
+- Large federated queries can take longer to execute than single-source queries because Connect AI must receive the data from each source individually.
+- Federated queries act as individual queries to each data source. If a data source has query limits, please be mindful of this behavior.
+- You cannot modify data using federated queries because they are read-only. Therefore, SQL commands like UPSERT and DELETE are not supported.
+
+</Note>

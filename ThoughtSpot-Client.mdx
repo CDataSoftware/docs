@@ -1,0 +1,68 @@
+---
+title: "ThoughtSpot"
+description: "This page outlines the steps to connect ThoughtSpot to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from ThoughtSpot to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to ThoughtSpot.
+</Step>
+<Step>
+On the top navigation bar, click **Data**.
+</Step>
+<Step>
+Click **Create new** > **Connection**.
+<Frame>
+  <img src="/images/thoughtspot_client_01.png" alt="ThoughtSpot Client 01" />
+</Frame>
+</Step>
+<Step>
+Name the connection and click "SQL Server".
+
+<Frame>
+  <img src="/images/thoughtspot_client_02.png" alt="ThoughtSpot Client 02" />
+</Frame>
+</Step>
+<Step>
+Click **Continue** on the top right.
+</Step>
+<Step>
+Enter the connection settings.
+- **Host**—*tds.cdata.com*
+- **Port**—*14333*
+- **User**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+
+<Frame>
+  <img src="/images/thoughtspot_client_03.png" alt="ThoughtSpot Client 03" />
+</Frame>
+</Step>
+<Step>
+Click **Continue**.
+</Step>
+<Step>
+If the connection succeeds, a list of tables is displayed as shown below.
+<Frame>
+  <img src="/images/thoughtspot_client_04.png" alt="ThoughtSpot Client 04" />
+</Frame>
+</Step>
+<Step>
+Click **Create Connection**.
+</Step>
+</Steps>
+
+

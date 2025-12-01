@@ -1,0 +1,198 @@
+---
+title: "SharePoint"
+---
+
+## Setup Guide
+
+Follow these steps to connect SharePoint to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SharePoint* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the base **URL** for the SharePoint site (for example, `https://teams.contoso.com`).
+</Step>
+<Step>
+Select the **Share Point Edition** from the drop down.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+### AzureAD
+
+<Steps>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the SharePoint sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your SharePoint account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzurePassword
+
+<Steps>
+<Step>
+Enter your **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **Azure Tenant** Id found on the Overview page of the OAuth app used to authenticate to Microsoft SharePoint on Azure.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## Authentication Methods
+
+### OAuth JWT
+
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id found on the Overview page of the OAuth app used to authenticate to Microsoft SharePoint on Azure.
+</Step>
+<Step>
+Enter your **OAuth JWT Certificate**. This is multi-line and in PEM format.
+</Step>
+<Step>
+Select the **OAuth JWT Cert type**.
+</Step>
+<Step>
+Enter the **OAuth JWT Issuer**. This should be set to the OAuth client Id.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### PingFederate
+
+<Steps>
+<Step>
+Enter the PingFederate **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Domain** to connect to.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### ADFS
+
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Domain** to connect to.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OneLogin
+
+<Steps>
+<Step>
+Enter the OneLogin **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Domain** to connect to.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OKTA
+
+<Steps>
+<Step>
+Enter the OKTA **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Domain** to connect to.
+</Step>
+<Step>
+Choose REST or SOAP from the **Schema** drop-down list.
+</Step>
+<Step>
+At the top of the Connect AI **Add SharePoint Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and SharePoint, see [this information page](https://cdn.cdata.com/help/RSK/cloud/default.htm#default).

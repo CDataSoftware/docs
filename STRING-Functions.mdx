@@ -1,0 +1,1150 @@
+---
+title: "STRING"
+---
+
+## ASCII
+
+Returns the ASCII code value of the left-most character of the character expression.
+
+#### Syntax
+
+```bash
+ASCII(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+
+#### Example(s)
+
+```bash
+SELECT ASCII('0');
+--  Result: 48
+```
+
+## CHAR
+
+Converts the integer ASCII code to the corresponding character.
+
+#### Syntax
+
+```bash
+CHAR(character_expression)
+```
+
+#### Parameters
+
+- **integer\_expression** The integer from 0 through 255.
+
+#### Example(s)
+
+```bash
+SELECT CHAR(48);
+-- Result: '0'
+```
+
+## CHARINDEX
+
+Returns the starting position of the specified expression in the character string.
+
+#### Syntax
+
+```bash
+CHARINDEX(expressionToFind ,expressionToSearch [,start_location ])
+```
+
+#### Parameters
+
+- **expressionToFind** The character expression to find.
+- **expressionToSearch** The character expression, typically a column, to search.
+- **start\_location** The optional character position to start searching for expressionToFind in expressionToSearch.
+
+#### Example(s)
+
+```bash
+SELECT CHARINDEX('456', '0123456');
+-- Result: 4
+
+SELECT CHARINDEX('456', '0123456', 5);
+-- Result: -1
+```
+
+## CHAR\_LENGTH
+
+Returns the number of UTF-8 characters present in the expression.
+
+#### Syntax
+
+```bash
+CHAR_LENGTH(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The set of characters to be be evaluated for length.
+
+#### Example(s)
+
+```bash
+SELECT CHAR_LENGTH('sample text') FROM Account LIMIT 1
+-- Result: 11
+```
+
+## CONCAT
+
+Returns the string that is the concatenation of two or more string values.
+
+#### Syntax
+
+```bash
+CONCAT(string_value1, string_value2 [, string_valueN])
+```
+
+#### Parameters
+
+- **string\_value1** The first string to be concatenated.
+- **string\_value2** The second string to be concatenated.
+- **string\_valueN** The optional additional strings to be concatenated.
+
+#### Example(s)
+
+```bash
+SELECT CONCAT('Hello, ', 'world!');
+-- Result: 'Hello, world!'
+```
+
+## CONTAINS
+
+Returns 1 if expressionToFind is found within expressionToSearch; otherwise, 0.
+
+#### Syntax
+
+```bash
+CONTAINS(expressionToSearch, expressionToFind)
+```
+
+#### Parameters
+
+- **expressionToSearch** The character expression, typically a column, to search.
+- **expressionToFind** The character expression to find.
+
+#### Example(s)
+
+```bash
+SELECT CONTAINS('0123456', '456');
+-- Result: 1
+
+SELECT CONTAINS('0123456', 'Not a number');
+-- Result: 0
+```
+
+## ENDSWITH
+
+Returns 1 if character\_expression ends with character\_suffix; otherwise, 0.
+
+#### Syntax
+
+```bash
+ENDSWITH(character_expression, character_suffix)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+- **character\_suffix** The character suffix to search for.
+
+#### Example(s)
+
+```bash
+SELECT ENDSWITH('0123456', '456');
+-- Result: 1
+
+SELECT ENDSWITH('0123456', '012');
+-- Result: 0
+```
+
+## FILESIZE
+
+Returns the number of bytes present in the file at the specified file path.
+
+#### Syntax
+
+```bash
+FILESIZE(uri)
+```
+
+#### Parameters
+
+- **uri** The path of the file to read the size from.
+
+#### Example(s)
+
+```bash
+SELECT FILESIZE('C:/Users/User1/Desktop/myfile.txt');
+-- Result: 23684
+```
+
+## FORMAT
+
+Returns the value formatted with the specified format.
+
+#### Syntax
+
+```bash
+FORMAT(value [, parseFormat], format )
+```
+
+#### Parameters
+
+- **value** The string to format.
+- **parseFormat** The string specifying the input syntax of the date value. Not applicable to numeric types.
+- **format** The string specifying the output syntax of the date or numeric format.
+
+#### Example(s)
+
+```bash
+SELECT FORMAT(12.34, '#');
+-- Result: 12
+
+SELECT FORMAT(12.34, '#.###');
+-- Result: 12.34
+
+SELECT FORMAT(1234, '0.000E0');
+-- Result: 1.234E3
+
+SELECT FORMAT('2019/01/01', 'yyyy-MM-dd');
+-- Result: 2019-01-01
+
+SELECT FORMAT('20190101', 'yyyyMMdd', 'yyyy-MM-dd');
+-- Result: '2019-01-01'
+```
+
+## FROM\_UNIXTIME
+
+Returns a representation of the unix\_timestamp argument as a value in YYYY-MM-DD HH:MM:SS expressed in the current time zone.
+
+#### Syntax
+
+```bash
+FROM_UNIXTIME(time, issecond)
+```
+
+#### Parameters
+
+- **time** The time stamp value from epoch time. Milliseconds are accepted.
+- **issecond** Indicates the time stamp value is milliseconds to epoch time.
+
+#### Example(s)
+
+```bash
+SELECT FROM_UNIXTIME(1540495231, 1);
+-- Result: 2018-10-25 19:20:31
+
+SELECT FROM_UNIXTIME(1540495357385, 0);
+-- Result: 2018-10-25 19:22:37
+```
+
+## HASHBYTES
+
+Returns the hash of the input value as a byte array using the given algorithm. The support algorithms are MD5, SHA1, SHA2\_256, and SHA2\_512.
+
+#### Syntax
+
+```bash
+HASHBYTES(algorithm, value)
+```
+
+#### Parameters
+
+- **algorithm** The algorithm to use for hashing. Must be one of MD5, SHA1, SHA2\_256, or SHA2\_512.
+- **value** The value to hash. Must be either a string or byte array.
+
+#### Example(s)
+
+```bash
+SELECT HASHBYTES('MD5', 'Test');
+-- Result (byte array): 0x0CBC6611F5540BD0809A388DC95A615B
+```
+
+## INDEXOF
+
+Returns the starting position of the specified expression in the character string.
+
+#### Syntax
+
+```bash
+INDEXOF(expressionToSearch, expressionToFind [,start_location ])
+```
+
+#### Parameters
+
+- **expressionToSearch** The character expression, typically a column, to search.
+- **expressionToFind** The character expression to find.
+- **start\_location** The optional character position to start searching for expressionToFind in expressionToSearch.
+
+#### Example(s)
+
+```bash
+SELECT INDEXOF('0123456', '456');
+-- Result: 4
+
+SELECT INDEXOF('0123456', '456', 5);
+-- Result: -1
+```
+
+## ISNULL
+
+Replaces null with the specified replacement value.
+
+#### Syntax
+
+```bash
+ISNULL ( check_expression , replacement_value )
+```
+
+#### Parameters
+
+- **check\_expression** The expression to be checked for null.
+- **replacement\_value** The expression to be returned if check\_expression is null.
+
+#### Example(s)
+
+```bash
+SELECT ISNULL(42, 'Was NULL');
+-- Result: 42
+
+SELECT ISNULL(NULL, 'Was NULL');
+-- Result: 'Was NULL'
+```
+
+## JSON\_AVG
+
+Computes the average value of a JSON array within a JSON object. The path to the array is specified in the jsonpath argument. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_AVG(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to compute.
+- **jsonpath** The JSONPath used to select the nodes. \[x\], \[2..\], \[..8\], or \[1..12\] are accepted. \[x\] selects all nodes.
+
+#### Example(s)
+
+```bash
+SELECT JSON_AVG('[1,2,3,4,5]', '$[x]');
+-- Result: 3
+
+SELECT JSON_AVG('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[x]');
+-- Result: 3
+
+SELECT JSON_AVG('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[3..]');
+-- Result: 4.5
+```
+
+## JSON\_COUNT
+
+Returns the number of elements in a JSON array within a JSON object. The path to the array is specified in the jsonpath argument. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_COUNT(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to compute.
+- **jsonpath** The JSONPath used to select the nodes. \[x\], \[2..\], \[..8\], or \[1..12\] are accepted. \[x\] selects all nodes.
+
+#### Example(s)
+
+```bash
+SELECT JSON_COUNT('[1,2,3,4,5]', '$[x]');
+-- Result: 5
+
+SELECT JSON_COUNT('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[x]');
+-- Result: 5
+
+SELECT JSON_COUNT('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[3..]');
+-- Result: 2
+```
+
+## JSON\_EXTRACT
+
+Selects any value in a JSON array or object. The path to the array is specified in the jsonpath argument. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_EXTRACT(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to extract.
+- **jsonpath** The XPath used to select the nodes. The JSONPath must be a string constant. The values of the nodes selected will be returned in a token-separated list.
+
+#### Example(s)
+
+```bash
+SELECT JSON_EXTRACT('{"test": {"data": 1}}', '$.test');
+-- Result: '{"data":1}'
+
+SELECT JSON_EXTRACT('{"test": {"data": 1}}', '$.test.data');
+-- Result: 1
+
+SELECT JSON_EXTRACT('{"test": {"data": [1, 2, 3]}}', '$.test.data[1]');
+-- Result: 2
+```
+
+## JSON\_MAX
+
+Gets the maximum value in a JSON array within a JSON object. The path to the array is specified in the jsonpath argument. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_MAX(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to compute.
+- **jsonpath** The JSONPath used to select the nodes. \[x\], \[2..\], \[..8\], or \[1..12\] are accepted. \[x\] selects all nodes.
+
+#### Example(s)
+
+```bash
+SELECT JSON_MAX('[1,2,3,4,5]', '$[x]');
+-- Result: 5
+
+SELECT JSON_MAX('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[x]');
+-- Result: 5
+
+SELECT JSON_MAX('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[..3]');
+-- Result: 4
+```
+
+## JSON\_MIN
+
+Gets the minimum value in a JSON array within a JSON object. The path to the array is specified in the jsonpath argument. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_MIN(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to compute.
+- **jsonpath** The JSONPath used to select the nodes. \[x\], \[2..\], \[..8\], or \[1..12\] are accepted. \[x\] selects all nodes.
+
+#### Example(s)
+
+```bash
+SELECT JSON_MIN('[1,2,3,4,5]', '$[x]');
+-- Result: 1
+
+SELECT JSON_MIN('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[x]');
+-- Result: 1
+
+SELECT JSON_MIN('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[3..]');
+-- Result: 4
+```
+
+## JSON\_SUM
+
+Computes the summary value in JSON according to the JSONPath expression. Return value is numeric or null.
+
+#### Syntax
+
+```bash
+JSON_SUM(json, jsonpath)
+```
+
+#### Parameters
+
+- **json** The JSON document to compute.
+- **jsonpath** The JSONPath used to select the nodes. \[x\], \[2..\], \[..8\], or \[1..12\] are accepted. \[x\] selects all nodes.
+
+#### Example(s)
+
+```bash
+SELECT JSON_SUM('[1,2,3,4,5]', '$[x]');
+-- Result: 15
+
+SELECT JSON_SUM('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[x]');
+-- Result: 15
+
+SELECT JSON_SUM('{"test": {"data": [1,2,3,4,5]}}', '$.test.data[3..]');
+-- Result: 9
+```
+
+## LEFT
+
+Returns the specified number of characters counting from the left of the specified string.
+
+#### Syntax
+
+```bash
+LEFT(character_expression , integer_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+- **integer\_expression** The positive integer that specifies how many characters will be returned counting from the left of character\_expression.
+
+#### Example(s)
+
+```bash
+SELECT LEFT('1234567890', 3);
+-- Result: '123'
+```
+
+## LEN
+
+Returns the number of characters of the specified string expression.
+
+#### Syntax
+
+```bash
+LEN(string_expression)
+```
+
+#### Parameters
+
+- **string\_expression** The string expression.
+
+#### Example(s)
+
+```bash
+SELECT LEN('12345');
+-- Result: 5
+```
+
+## LOCATE
+
+Returns an integer representing how many characters into the string the substring appears.
+
+#### Syntax
+
+```bash
+LOCATE(substring,string)
+```
+
+#### Parameters
+
+- **substring** The substring to find inside larger string.
+- **string** The larger string that will be searched for the substring.
+
+#### Example(s)
+
+```bash
+SELECT LOCATE('sample','XXXXXsampleXXXXX');
+-- Result: 6
+```
+
+## LOWER
+
+Returns the character expression with the uppercase character data converted to lowercase.
+
+#### Syntax
+
+```bash
+LOWER(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+
+#### Example(s)
+
+```bash
+SELECT LOWER('MIXED case');
+-- Result: 'mixed case'
+```
+
+## LTRIM
+
+Returns the character expression with leading blanks removed.
+
+#### Syntax
+
+```bash
+LTRIM(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+
+#### Example(s)
+
+```bash
+SELECT LTRIM('   trimmed');
+-- Result: 'trimmed'
+```
+
+## MASK
+
+Replaces the characters between start\_index and end\_index with the mask\_character within the string.
+
+#### Syntax
+
+```bash
+MASK(string_expression, mask_character [, start_index [, end_index ]])
+```
+
+#### Parameters
+
+- **string\_expression** The string expression to be searched.
+- **mask\_character** The character to mask with.
+- **start\_index** The optional number of characters to leave unmasked at beginning of string. Defaults to 0.
+- **end\_index** The optional number of characters to leave unmasked at end of string. Defaults to 0.
+
+#### Example(s)
+
+```bash
+SELECT MASK('1234567890','*',);
+-- Result: '**********'
+
+SELECT MASK('1234567890','*', 4);
+-- Result: '1234******'
+
+SELECT MASK('1234567890','*', 4, 2);
+-- Result: '1234****90'
+```
+
+## NCHAR
+
+Returns the Unicode character with the specified integer code as defined by the Unicode standard.
+
+#### Syntax
+
+```bash
+NCHAR(integer_expression)
+```
+
+#### Parameters
+
+- **integer\_expression** The integer from 0 through 255.
+
+## OCTET\_LENGTH
+
+Returns the number of bytes present in the expression.
+
+#### Syntax
+
+```bash
+OCTET_LENGTH(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The set of characters to be be evaluated.
+
+#### Example(s)
+
+```bash
+SELECT OCTET_LENGTH('text') FROM Account LIMIT 1
+-- Result: 4
+```
+
+## PATINDEX
+
+Returns the starting position of the first occurrence of the pattern in the expression. Returns 0 if the pattern is not found.
+
+#### Syntax
+
+```bash
+PATINDEX(pattern, expression)
+```
+
+#### Parameters
+
+- **pattern** The character expression that contains the sequence to be found. The wild-card character % can be used only at the start or end of the expression.
+- **expression** The expression, typically a column, to search for the pattern.
+
+#### Example(s)
+
+```bash
+SELECT PATINDEX('123%', '1234567890');
+-- Result: 1
+
+SELECT PATINDEX('%890', '1234567890');
+-- Result: 8
+
+SELECT PATINDEX('%456%', '1234567890');
+-- Result: 4
+```
+
+## POSITION
+
+Returns the starting position of the specified expression in the character string.
+
+#### Syntax
+
+```bash
+POSITION(expressionToFind IN expressionToSearch)
+```
+
+#### Parameters
+
+- **expressionToFind** The character expression to find.
+- **expressionToSearch** The character expression, typically a column, to search.
+
+#### Example(s)
+
+```bash
+SELECT POSITION('456'\` \`IN '123456');
+-- Result: 4
+
+SELECT POSITION('x'\` \`IN '123456');
+-- Result: 0
+```
+
+## QUOTENAME
+
+Returns a valid SQL Server-delimited identifier by adding the necessary delimiters to the specified Unicode string.
+
+#### Syntax
+
+```bash
+QUOTENAME(character_string [, quote_character])
+```
+
+#### Parameters
+
+- **character\_string** The string of Unicode character data. The string is limited to 128 characters. Inputs greater than 128 characters return null.
+- **quote\_character** The optional single character to be used as the delimiter. Can be a single quotation mark, a left or right bracket, or a double quotation mark. If quote\_character is not specified brackets are used.
+
+#### Example(s)
+
+```bash
+SELECT QUOTENAME('table_name');
+-- Result: '[table_name]'
+
+SELECT QUOTENAME('table_name', '"');
+-- Result: '"table_name"'
+
+SELECT QUOTENAME('table_name', '[');
+-- Result: '[table_name]'
+```
+
+## REPLACE
+
+Replaces all occurrences of a string with another string.
+
+#### Syntax
+
+```bash
+REPLACE(string_expression, string_pattern, string_replacement)
+```
+
+#### Parameters
+
+- **string\_expression** The string expression to be searched. Can be a character or binary data type.
+- **string\_pattern** The substring to be found. Cannot be an empty string.
+- **string\_replacement** The replacement string.
+
+#### Example(s)
+
+```bash
+SELECT REPLACE('1234567890', '456', '|');
+-- Result: '123|7890'
+
+SELECT REPLACE('123123123', '123', '.');
+-- Result: '...'
+
+SELECT REPLACE('1234567890', 'a', 'b');
+-- Result: '1234567890'
+```
+
+## REPLICATE
+
+Repeats the string value the specified number of times.
+
+#### Syntax
+
+```bash
+REPLICATE(string_expression ,integer_expression)
+```
+
+#### Parameters
+
+- **string\_expression** The string to replicate.
+- **integer\_expression** The repeat count.
+
+#### Example(s)
+
+```bash
+SELECT REPLACE('x', 5);
+-- Result: 'xxxxx'
+```
+
+## REVERSE
+
+Returns the reverse order of the string expression.
+
+#### Syntax
+
+```bash
+REVERSE(string_expression)
+```
+
+#### Parameters
+
+- **string\_expression** The string.
+
+#### Example(s)
+
+```bash
+SELECT REVERSE('1234567890');
+-- Result: '0987654321'
+```
+
+## RIGHT
+
+Returns the right part of the string with the specified number of characters.
+
+#### Syntax
+
+```bash
+RIGHT ( character_expression , integer_expression )
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+- **integer\_expression** The positive integer that specifies how many characters of the character expression will be returned.
+
+#### Example(s)
+
+```bash
+SELECT RIGHT('1234567890', 3);
+-- Result: '890'
+```
+
+## RTRIM
+
+Returns the character expression after it removes trailing blanks.
+
+#### Syntax
+
+```bash
+RTRIM(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+
+#### Example(s)
+
+```bash
+SELECT RTRIM('trimmed   ');
+-- Result: 'trimmed'
+```
+
+## SOUNDEX
+
+Returns the four-character Soundex code, based on how the string sounds when spoken.
+
+#### Syntax
+
+```bash
+SOUNDEX(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The alphanumeric expression of character data.
+
+#### Example(s)
+
+```bash
+SELECT SOUNDEX('smith');
+-- Result: 'S530'
+```
+
+## SPACE
+
+Returns the string that consists of repeated spaces.
+
+#### Syntax
+
+```bash
+SPACE(repeatcount)
+```
+
+#### Parameters
+
+- **repeatcount** The number of spaces.
+
+#### Example(s)
+
+```bash
+SELECT SPACE(5);
+-- Result: '   '
+```
+
+## SPLIT
+
+Returns a section of the string between to delimiters.
+
+#### Syntax
+
+```bash
+SPLIT(string, delimiter, offset)
+```
+
+#### Parameters
+
+- **string** The string to split.
+- **delimiter** The character to split the string with.
+- **offset** The number of the split to return. Positive numbers are treated as offsets from the left, and negative numbers are treated as offsets from the right.
+
+#### Example(s)
+
+```bash
+SELECT SPLIT('a/b/c/d', '/', 1);
+-- Result: 'a'
+
+SELECT SPLIT('a/b/c/d', '/', -2);
+-- Result: 'c'
+```
+
+## STARTSWITH
+
+Returns 1 if character\_expression starts with character\_prefix; otherwise, 0.
+
+#### Syntax
+
+```bash
+STARTSWITH(character_expression, character_prefix)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+- **character\_prefix** The character prefix to search for.
+
+#### Example(s)
+
+```bash
+SELECT STARTSWITH('0123456', '012');
+-- Result: 1
+
+SELECT STARTSWITH('0123456', '456');
+-- Result: 0
+```
+
+## STR
+
+Returns the character data converted from the numeric data. For example, STR(123.45, 6, 1) returns 123.5.
+
+#### Syntax
+
+```bash
+STR(float_expression [ , integer_length [ , integer_decimal ] ])
+```
+
+#### Parameters
+
+- **float\_expression** The float expression.
+- **length** The optional total length to return. This includes decimal point, sign, digits, and spaces. The default is 10.
+- **decimal** The optional number of places to the right of the decimal point. The decimal must be less than or equal to 16.
+
+#### Example(s)
+
+```bash
+SELECT STR('123.456');
+-- Result: '123'
+
+SELECT STR('123.456', 2);
+-- Result: '**'
+
+SELECT STR('123.456', 10, 2);
+-- Result: '123.46'
+```
+
+## STUFF
+
+Inserts a string into another string. It deletes the specified length of characters in the first string at the start position and then inserts the second string into the first string at the start position.
+
+#### Syntax
+
+```bash
+STUFF(character_expression , integer_start , integer_length , replaceWith_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The string expression.
+- **start** The integer value that specifies the location to start deletion and insertion. If start or length is negative, null is returned. If start is longer than the string to be modified, character\_expression, null is returned.
+- **length** The integer that specifies the number of characters to delete. If length is longer than character\_expression, deletion occurs up to the last character in replaceWith\_expression.
+- **replaceWith\_expression** The expression of character data that will replace length characters of character\_expression beginning at the start value.
+
+#### Example(s)
+
+```bash
+SELECT STUFF('1234567890', 3, 2, 'xx');
+-- Result: '12xx567890'
+```
+
+## SUBSTRING
+
+Returns the part of the string with the specified length; starts at the specified index.
+
+#### Syntax
+
+```bash
+SUBSTRING(string_value FROM start FOR length)
+```
+
+#### Parameters
+
+- **string\_value** The character string.
+- **start** The positive integer that specifies the start index of characters to return.
+- **length** Optional. The positive integer that specifies how many characters will be returned.
+
+#### Example(s)
+
+```bash
+SELECT SUBSTRING('1234567890' FROM 3 FOR 2);
+-- Result: '34'
+
+SELECT SUBSTRING('1234567890' FROM 3);
+-- Result: '34567890'
+```
+
+## TOSTRING
+
+Converts the value of this instance to its equivalent string representation.
+
+#### Syntax
+
+```bash
+TOSTRING(string_value1)
+```
+
+#### Parameters
+
+- **string\_value1** The string to be converted.
+
+#### Example(s)
+
+```bash
+SELECT TOSTRING(123);
+-- Result: '123'
+
+SELECT TOSTRING(123.456);
+-- Result: '123.456'
+
+SELECT TOSTRING(null);
+-- Result: ''
+```
+
+## TRIM
+
+Returns the character expression with leading and/or trailing blanks removed.
+
+#### Syntax
+
+```bash
+TRIM(trimspec trimchar FROM string_value)
+```
+
+#### Parameters
+
+- **trimspec** Optional. If included must be one of the keywords **BOTH**, **LEADING** or **TRAILING**.
+- **trimchar** Optional. If included should be a one-character string value.
+- **string\_value** The string value to trim.
+
+#### Example(s)
+
+```bash
+SELECT TRIM('   trimmed   ');
+-- Result: 'trimmed'
+
+SELECT TRIM(LEADING FROM '   trimmed   ');
+-- Result: 'trimmed   '
+
+SELECT TRIM('-'\` \`FROM '-----trimmed-----');
+-- Result: 'trimmed'
+
+SELECT TRIM(BOTH '-'\` \`FROM '-----trimmed-----');
+-- Result: 'trimmed'
+
+SELECT TRIM(TRAILING '-'\` \`FROM '-----trimmed-----');
+-- Result: '-----trimmed'
+```
+
+## UNICODE
+
+Returns the integer value defined by the Unicode standard of the first character of the input expression.
+
+#### Syntax
+
+```bash
+UNICODE(ncharacter_expression)
+```
+
+#### Parameters
+
+- **ncharacter\_expression** The Unicode character expression.
+
+## UPPER
+
+Returns the character expression with lowercase character data converted to uppercase.
+
+#### Syntax
+
+```bash
+UPPER(character_expression)
+```
+
+#### Parameters
+
+- **character\_expression** The character expression.
+
+#### Example(s)
+
+```bash
+SELECT UPPER('MIXED case');
+-- Result: 'MIXED CASE'
+```
+
+## XML\_EXTRACT
+
+Extracts an XML document using the specified XPath to flatten the XML. A comma is used to separate the outputs by default, but this can be changed by specifying the third parameter.
+
+#### Syntax
+
+```bash
+XML_EXTRACT(xml, xpath [, separator])
+```
+
+#### Parameters
+
+- **xml** The XML document to extract.
+- **xpath** The XPath used to select the nodes. The nodes selected will be returned in a token-separated list.
+- **separator** The optional token used to separate the items in the flattened response. If this is not specified, the separator will be a comma.
+
+#### Example(s)
+
+```bash
+SELECT XML_EXTRACT('<vowels><ch>a</ch><ch>e</ch><ch>i</ch><ch>o</ch><ch>u</ch></vowels>', '/vowels/ch');
+-- Result: 'a,e,i,o,u'
+
+SELECT XML_EXTRACT('<vowels><ch>a</ch><ch>e</ch><ch>i</ch><ch>o</ch><ch>u</ch></vowels>', '/vowels/ch', ';');
+-- Result: 'a;e;i;o;u'
+```

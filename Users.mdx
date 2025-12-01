@@ -1,0 +1,115 @@
+---
+title: "Users"
+description: "The ***Users*** page enables you to manage the users on your Connect AI account."
+---
+
+## About Users
+
+A ***user*** is an account that can log in and use your account. Two types of Connect AI users are available:
+
+- **Administrators** have full access to all Connect AI functions, including adding and managing users.
+- **Query users** can issue queries to established connections through the [Data Explorer](/Data-Explorer) page and through [integration tools](/Integrations). They cannot access administrative functions, including [Sources](/Sources) and user management.
+
+Every account must have at least one active administrator.
+
+<Note>
+  By default, all CData Connect Spreadsheets users have Administrator privileges. They have full Select, Insert, Update, Delete, and Execute permissions.
+</Note>
+
+## Users List
+
+The **Users** list displays the following information:
+
+- A button to [invite users](#invite-users).
+- The number of **user seats** that are available on your account and a **[Manage Subscription](/Settings#billing)** link.
+- A row for every user on your account:
+	- **User** displays the email address that is associated with the user.
+	- **Role** indicates the user’s role (Administrator or Query).
+	- **Status** shows the state of the user’s account (**Active**, **Inactive**, or **Invited**).
+	- Buttons to edit and delete the user. If the user's status is **Invited**, there is also a button to resend their invitation.
+	<Frame>
+	  <img src="/images/users.png" alt="Users list" />
+	</Frame>
+
+## Invite Users
+
+To add users to your Connect AI account, follow these steps:
+
+<Steps>
+<Step>
+Click **Invite Users** to open the user invitation dialog.
+</Step>
+<Step>
+Enter the email address of the user that you want to invite. To send multiple invitations at the same time, add a space between each email address.
+	<Frame>
+	  <img src="/images/user_invite.png" alt="Invite users" />
+	</Frame>
+</Step>
+<Step>
+Click **Send**. If a user is registered already to an email address that you enter, the dialog prompts you to enter a different email address.
+</Step>
+</Steps>
+
+### Accepting an Invitation
+
+Follow these steps to set up access after receiving an invitation email:
+
+<Steps>
+<Step>
+Click **Accept Invite** in the invitation email to open the password creation page.
+</Step>
+<Step>
+Create a password that meets the provided criteria. After you create a password, the login page appears.
+</Step>
+<Step>
+Log in with your email address and your new password. After you log in, the sign-up page appears.
+</Step>
+<Step>
+Enter your first name and the contact last name.
+</Step>
+<Step>
+Enter the account name and the invite code from the invitation email. Then, click **Complete Sign Up**.
+	<Frame>
+	  <img src="/images/users_signup.png" alt="User signup" />
+	</Frame>
+</Step>
+</Steps>
+
+<Note>
+  Connect AI supports Single Sign-On (SSO) through popular SSO providers. If SSO is enabled on your account, the invitation flow uses your SSO provider instead of the manual password process.
+</Note>
+
+### Managing Invitations
+
+If a user has a pending invitation that they have not accepted, their status displays as **Invited**. Click a pending user to view and manage their invitation.
+
+<Frame>
+  <img src="/images/user_pending.png" alt="Pending user" />
+</Frame>
+
+On this page, you can view the pending user’s email address, the expiration time for the invitation, and the invite code. You can also manage the user’s invitation, as follows:
+
+- To revoke the invitation and delete the user, click **Delete User**.
+- To resend the invitation email to the entered email address, click **Resend Invite**.
+
+## Edit User
+
+Click a user in the list to open the **Edit User** page.
+
+<Frame>
+  <img src="/images/edit_user.png" alt="Edit user" />
+</Frame>
+
+This page contains the following information:
+
+- Editable **First Name** and **Last Name** fields.
+- A non-editable **Email** field.
+- A drop-down menu to select the user’s **Role** (**Administrator** or **Query User**)
+- A toggle for enabling or disabling **Support Access Privileges** (query users only). If selected, the query user can grant account access to the CData support team.
+- Check boxes for toggling the user’s permissions for each data source. (Note that CData Connect Spreadsheets users do not have a permissions section, because they have full permissions.)
+
+To save changes to the user, click **Save Changes**. To delete the user, click **Delete User**.
+
+<Note>
+  If the user is the last remaining Administrator on your account, they cannot be deleted.
+</Note>
