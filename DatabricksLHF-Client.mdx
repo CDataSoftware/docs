@@ -1,0 +1,96 @@
+---
+title: "Databricks Lakehouse Federation"
+description: "Databricks Lakehouse Federation allows for data virtualization without importing data into Databricks. Although Connect AI allows for data virtualization, there are some features, such as data lineage and fine-grained access control, that can benefit from being virtualized on Databricks. For more information on Databricks Lakehouse Federation, see the [Databricks documentation](https://www.databricks.com/blog/announcing-general-availability-lakehouse-federation)."
+---
+
+
+Databricks Lakehouse Federation can pull data from sources that you have connected to your Connect AI account. This page outlines the steps to connect Databricks Lakehouse Federation to the Connect AI Virtual SQL Server API.
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Databricks Lakehouse Federation to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Databricks.
+</Step>
+<Step>
+In the navigation pane, select **Catalog**. Click **+** and select **Add a connection**.
+
+<Frame>
+![](/images/databrickslhf_client_add_connection.png)
+</Frame>
+</Step>
+<Step>
+In **Create Connection**, enter the following:
+	- **Connection name**—the user-defined connection name.
+	- **Connection type**—select **SQL Server** from the drop-down list.
+	- **Auth type**—select **Username and password**.
+	- **Host**—*tds.cdata.com*
+	- **Port**—*14333*
+	- **User**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+
+<Frame>
+![](/images/databrickslhf_client_connection_details.png)
+</Frame>
+</Step>
+<Step>
+Click **Test connection**. If the connection succeeds, a confirmation dialog appears.
+</Step>
+<Step>
+You now need to add the target database to the Catalog. In the navigation pane, select the connection you just created and click **Create catalog**.
+
+<Frame>
+![](/images/databrickslhf_client_create_catalog.png)
+</Frame>
+</Step>
+<Step>
+In the **Create a new catalog** dialog, enter the following information,
+	- **Catalog name**—enter a user-defined catalog name.
+	- **Connection**—this is the Databricks connection you defined earlier and selected.
+	- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+
+<Frame>
+![](/images/databrickslhf_client_catalog_details.png)
+</Frame>
+</Step>
+<Step>
+Click **Create**. If the catalog creation succeeds, a confirmation dialog appears. Click **View catalog** to view your new catalog.
+</Step>
+<Step>
+You can also return to **Catalog** in the navigation pane and find the catalog you just added. Expand the catalog to view the objects in the catalog.
+
+<Frame>
+![](/images/databrickslhf_client_view_catalog.png)
+</Frame>
+</Step>
+<Step>
+Select a table and click the **Overview** tab to view table metadata.
+
+<Frame>
+![](/images/databrickslhf_client_table_metadata.png)
+</Frame>
+</Step>
+<Step>
+Click the **Sample Data** tab to view the real-time data in the table.
+
+<Frame>
+![](/images/databrickslhf_client_table_data.png)
+</Frame>
+</Step>
+<Step>
+Go to **Dashboards** in the navigation pane to visualize the data.
+
+<Frame>
+![](/images/databrickslhf_client_dashboards.png)
+</Frame>
+</Step>
+</Steps>

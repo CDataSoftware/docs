@@ -1,0 +1,59 @@
+---
+title: "GitHub Copilot"
+---
+
+## Prerequisites
+
+Before you can configure and use GitHub Copilot with Connect AI, you must do the following:
+<Steps>
+<Step>
+ Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Step>
+<Step>
+Install and enable GitHub Copilot in Visual Studio Code (or any IDE supporting GitHub Copilot).
+</Step>
+<Step>
+Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+</Step>
+</Steps>
+## Create the Configuration File
+<Steps>
+<Step>
+Create a folder named `.vscode` in your project repository. Within this folder, create a file named `mcp.json` and add the following configuration. Replace `Basic <your_base64_encoded_email_PAT>` with `Basic` and the Base64-encoded value of `username:PAT` (the PAT was generated in the prerequisites).
+	```bash
+	{
+	  "servers": {
+	      "cdata-mcp": {
+	      "type": "http",
+	      "url": "https://mcp.cloud.cdata.com/mcp",
+	      "headers": {
+	         "Authorization": "Basic <your_base64_encoded_email_PAT>"
+	     }
+	   }
+	  },
+	 "inputs": []
+	}
+	```
+</Step>
+</Steps>
+## Start the MCP Server
+<Steps>
+<Step>
+ Click **Start** within your IDE to start the MCP server. If the MCP server starts without error, it displays **Running**.
+	<Frame>![](/images/githubcopilot_client_config.png)</Frame>
+</Step>
+<Step>
+ Toggle **Chat** in the title bar to display the **Chat** pane on the right.
+	<Frame>![](/images/githubcopilot_client_chat.png)</Frame>
+</Step>
+<Step>
+ Click **Add Context** in the bottom of the **Chat** pane. In the search bar, select **Tools**. Then search for *CData*. Add **cdata-mcp All Tools**.
+	<Frame>![](/images/githubcopilot_client_tools.png)</Frame>
+</Step>
+</Steps>
+## Chat with GitHub Copilot
+
+You can now chat with GitHub Copilot and issue contextual prompts. As a test, you can provide the MCP server with a simple prompt, such as a list of tables for a particular connection. GitHub Copilot uses the Connect AI tools such as `getCatalogs`, `getSchemas`, and `getTables` to retrieve data from the connected data source.
+<Frame>
+![](/images/githubcopilot_client_results.png)
+</Frame>

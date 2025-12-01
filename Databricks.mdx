@@ -1,0 +1,156 @@
+---
+title: "Databricks"
+---
+
+## Setup Guide
+
+Follow these steps to connect Databricks to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Databricks* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### PersonalAccessToken
+
+<Steps>
+<Step>
+Enter your Databricks access token into the **Token** field. To obtain the token, navigate to the **User Settings** page of your Databricks instance and open the **Access Tokens** tab.
+</Step>
+<Step>
+Enter the Databricks **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+In Databricks, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Databricks Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### Basic
+
+<Steps>
+<Step>
+Enter the **User** name for Databricks.
+</Step>
+<Step>
+Enter your Databricks access token into the **Token** field. To obtain the token, navigate to the **User Settings** page of your Databricks instance and open the **Access Tokens** tab.
+</Step>
+<Step>
+Enter the Databricks **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+</Steps>
+
+### AzureServicePrincipal
+
+<Steps>
+<Step>
+Enter the **Azure Tenant Id** of your Azure application.
+</Step>
+<Step>
+Enter the **Azure Client Id** for your Azure application.
+</Step>
+<Step>
+Enter the **Azure Client Secret** corresponding to the above Azure Client Id.
+</Step>
+<Step>
+Enter the **Azure Subscription Id** of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Azure Resource Group** name of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Azure Workspace** of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+In Databricks, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Databricks Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AzureAD
+
+<Steps>
+<Step>
+Enter the **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Databricks sign-in page in a new tab.
+</Step>
+<Step>
+In Databricks, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+<Step>
+At the top of the Connect AI **Add Databricks Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Databricks, see [this information page](https://cdn.cdata.com/help/LKK/cloud/default.htm#default).

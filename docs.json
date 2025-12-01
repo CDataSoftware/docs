@@ -1,0 +1,785 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "CData",
+  "colors": {
+    "primary": "#00A0FF",
+    "light": "#00A0FF",
+    "dark": "#00A0FF"
+  },
+  "favicon": "/favicon.ico",
+
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "decoration": "gradient"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Verdana",
+      "weight": 400
+    },
+    "body": {
+      "family": "Roboto",
+      "weight": 400
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Home",
+        "icon": "house",
+        "pages": ["index"]
+      },
+      {
+        "tab": "Connect AI",
+        "icon": "book",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "docs",
+              "Quick-Start-Guide",
+              {
+                "group": "Navigation Menu",
+                "pages": [
+                  "Navigation-Menu",
+                  "Dashboard",
+                  "Sources",
+                  "Integrations",
+                  "Workspaces",
+                  {
+                    "group": "Explorer",
+                    "pages": ["Data-Explorer", "QueryBuilder", "AIGenerator"]
+                  },
+                  {
+                    "group": "Jobs",
+                    "pages": ["Jobs", "Caching", "Scheduled-Queries"]
+                  },
+                  "Users",
+                  "Logs",
+                  "Settings"
+                ]
+              },
+              "Features",
+              "Technology",
+              "FAQs",
+              "Glossary"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "Integrations",
+              {
+                "group": "AI Tools",
+                "pages": [
+                  "AITools",
+                  "AgentBricks-Client",
+                  "ChatGPT-Client",
+                  "Claude-Client",
+                  "ClaudeCode-Client",
+                  "CrewAI-Client",
+                  "Gemini-Client",
+                  "LangChain-Client",
+                  "LlamaIndex-Client",
+                  "Mistral-Client",
+                  "MicrosoftCopilot-Client",
+                  "N8N-Client"
+                ]
+              },
+              {
+                "group": "BI and Reporting Tools",
+                "pages": [
+                  "BIReportingTools",
+                  "Alteryx-Client",
+                  "AmazonQuickSight-Client",
+                  "AAS-Client",
+                  "APOS-Client",
+                  "CrystalReports-Client",
+                  {
+                    "group": "Excel",
+                    "pages": ["Excel365-Client", "Excel-Client-Functions"]
+                  },
+                  "Geckoboard-Client",
+                  "GoogleSheets-Client",
+                  "IBMCognos-Client",
+                  "Looker-Client",
+                  "LookerStudio-Client",
+                  "Metabase-Client",
+                  "MicrosoftFabric-Client",
+                  "MicroStrategy-Client",
+                  "Mode-Client",
+                  "PowerBI.com-Client",
+                  "PowerBIDesktop-Client",
+                  "QlikSenseCloud-Client",
+                  "Redash-Client",
+                  "SAPAnalyticsCloud-Client",
+                  "SASViya-Client",
+                  "TableauCloud-Client",
+                  "TableauDesktop-Client",
+                  "ThoughtSpot-Client",
+                  "ZohoAnalytics-Client"
+                ]
+              },
+              {
+                "group": "No-Code Tools",
+                "pages": [
+                  "NoCodeTools",
+                  "AppSheet-Client",
+                  "AWSAppStudio-Client",
+                  "AzureLogicApps-Client",
+                  "Bubble-Client",
+                  "Claris-Client",
+                  "Mendix-Client",
+                  "MicrosoftPowerApps-Client",
+                  "MicrosoftPowerAutomate-Client",
+                  "Nintex-Client",
+                  "Outsystems-Client",
+                  "Retool-Client",
+                  "SalesforceExternal-Client",
+                  "SFLC-Client",
+                  "Workato-Client",
+                  "Zapier-Client"
+                ]
+              },
+              {
+                "group": "ETL Tools",
+                "pages": [
+                  "ETLTools",
+                  "Airbyte-Client",
+                  "AWSGlue-Client",
+                  "AzureDataFactory-Client",
+                  "CDataSync-Client",
+                  "CloudDataFusion-Client"
+                ]
+              },
+              {
+                "group": "Dev Tools",
+                "pages": [
+                  "DevTools",
+                  "ADO.NET-Client",
+                  "AppsScript-Client",
+                  "Axios-Client",
+                  "Choreo-Client",
+                  "Databricks-Client",
+                  "DatabricksLHF-Client",
+                  "Grafana-Client",
+                  "JDBC-Client",
+                  "Nodejs-Client",
+                  "ODBC-Client",
+                  "Polybase-Client",
+                  "Python-Client",
+                  "SSIS-Client",
+                  "SQLServerLinked-Client"
+                ]
+              },
+              {
+                "group": "iPaaS Tools",
+                "pages": [
+                  "iPaaSTools",
+                  "Jitterbit-Client",
+                  "Mulesoft-Client",
+                  "SnapLogic-Client"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Virtual Databases",
+            "pages": [
+              "Virtual-Databases",
+              {
+                "group": "SQL Server",
+                "pages": ["SQL-Server", "VSS-Query-Syntax"]
+              }
+            ]
+          },
+          "ReleaseNotes",
+          "terms-of-service"
+        ]
+      },
+      {
+        "tab": "Embedded Cloud",
+        "icon": "cloud",
+        "pages": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "docs-embedded-cloud",
+              {
+                "group": "Quick Start Guide",
+                "pages": ["Embedded-Cloud", "Connection-Flow"]
+              },
+              {
+                "group": "Navigation",
+                "pages": [
+                  "Navigation-Embedded",
+                  "Dashboard-Embedded",
+                  "Sources",
+                  "Logs"
+                ]
+              },
+              "Settings-Embedded",
+              "Features",
+              "Technology",
+              "FAQs",
+              "Glossary"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "Integrations-Embedded",
+              {
+                "group": "AI Tools",
+                "pages": [
+                  "CrewAI-Client",
+                  "Gemini-Client",
+                  "LangChain-Client",
+                  "LlamaIndex-Client",
+                  "Mistral-Client",
+                  "MicrosoftCopilot-Client",
+                  "N8N-Client"
+                ]
+              },
+              {
+                "group": "Dev Tools",
+                "pages": [
+                  "DevTools",
+                  "ADO.NET-Client",
+                  "JDBC-Client",
+                  "ODBC-Client",
+                  "Polybase-Client"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Data Sources",
+        "icon":"server",
+        "dropdowns": [
+          {
+            "dropdown": "Salesforce",
+            "icon": "salesforce",
+            "pages": [
+              {
+                "group": "Data Sources",
+                "pages": [ "Salesforce"]
+              }
+            ]
+          },
+          {
+            "dropdown": "Google Big Query",
+            "icon": "google",
+            "pages": [
+              {
+                "group": "Data Sources",
+                "pages": ["GoogleBigQuery"]
+              }
+            ]
+          },
+          {
+            "dropdown": "More",
+            "icon": "ellipsis",
+            "pages": [
+              {
+                "group": "Data Sources",
+                "pages": [
+                  "Data-Sources",
+                  "ActCRM",
+                  "ActiveCampaign",
+                  "ActiveDirectory",
+                  "Acumatica",
+                  "ActOn",
+                  "AdobeAnalytics",
+                  "AdobeCommerce",
+                  "ADP",
+                  "Airtable",
+                  "AlloyDB",
+                  "AmazonAthena",
+                  "AmazonDynamoDB",
+                  "AmazonMarketplace",
+                  "Redshift",
+                  "AmazonS3Sync",
+                  "ApacheHive",
+                  "ApacheImpala",
+                  {
+                    "group": "API",
+                    "pages": [
+                      "APIConnector",
+                      "APIGlobalSettings",
+                      "APICreateTable",
+                      "APIPermissions",
+                      "APIExample"
+                    ]
+                  },
+                  "Asana",
+                  "Avalara",
+                  "AzureAD",
+                  "AAS",
+                  "ADLSSync",
+                  "AzureDevOps",
+                  "AzureSynapse",
+                  "AzureTables",
+                  "Backlog",
+                  "BCart",
+                  "BigCommerce",
+                  "BingAds",
+                  "Bing",
+                  "FinancialEdgeNXT",
+                  "RaiserEdgeNXT",
+                  "BullhornCRM",
+                  "Cloudant",
+                  "CockroachDB",
+                  "Confluence",
+                  "CosmosDB",
+                  "Couchbase",
+                  "TableauCRM",
+                  "Cvent",
+                  "Databricks",
+                  "Lakebase",
+                  "CDS",
+                  "DB2",
+                  "DocuSign",
+                  "Domino",
+                  "Dynamics365",
+                  "D365BusinessCentral",
+                  "DynamicsCRM",
+                  "Ebay",
+                  "Elasticsearch",
+                  "EpicorERP",
+                  "ExactOnline",
+                  "ExcelOnline",
+                  "Exchange",
+                  "Facebook",
+                  "FacebookAds",
+                  "FHIR",
+                  "FreshDesk",
+                  "Garoon",
+                  "GitHub",
+                  "Gmail",
+                  "GMOMakeShop",
+                  "GoogleAdsManager",
+                  "GoogleAds",
+                  "GoogleAnalytics",
+                  "GoogleCalendar",
+                  "GoogleCM",
+                  "GoogleContacts",
+                  "GoogleDirectory",
+                  "GoogleDrive",
+                  "GoogleSearch",
+                  "GoogleSheets",
+                  "GoogleSpanner",
+                  "GraphQL",
+                  "Greenhouse",
+                  "Greenplum",
+                  "Highrise",
+                  "HubSpot",
+                  "Informix",
+                  "Instagram",
+                  "JIRA",
+                  "JiraAssets",
+                  "JiraServiceDesk",
+                  "Kintone",
+                  "LinkedIn",
+                  "LinkedInAds",
+                  "MailChimp",
+                  "Marketo",
+                  "MariaDB",
+                  "OneNote",
+                  "MicrosoftPlanner",
+                  "MicrosoftProject",
+                  "MSTeams",
+                  "Monday",
+                  "MFExpense",
+                  "MongoDB",
+                  "MYOB",
+                  "MySQL",
+                  "Neo4j",
+                  {
+                    "group": "NetSuite",
+                    "pages": ["NetSuite", "NetSuiteRESTlet"]
+                  },
+                  "NetSuiteSuiteAnalytics",
+                  "OData",
+                  "Odoo",
+                  "Office365",
+                  "Okta",
+                  "OracleOci",
+                  "OracleEloqua",
+                  "OracleERP",
+                  "OracleHCM",
+                  "OracleSalesCloud",
+                  "OracleSCM",
+                  "OracleServiceCloud",
+                  "Outreach",
+                  "Paylocity",
+                  "PayPal",
+                  "PCASales",
+                  "Pipedrive",
+                  "PostgreSQL",
+                  "PowerBIXMLA",
+                  "Presto",
+                  "QuickBase",
+                  "QuickBooksOnline",
+                  "ReckonAccountsHosted",
+                  "Redis",
+                  "Sage200",
+                  "SageBCAccounting",
+                  "SageIntacct",
+                  "SFMarketingCloud",
+                  "SalesforcePardot",
+                  "Sansan",
+                  "SAPAribaProcurement",
+                  "SAPAribaSource",
+                  "SAPBusinessObjectsBI",
+                  "SAPBusinessOne",
+                  "SAPByDesign",
+                  "SAPConcur",
+                  "SAPFieldglass",
+                  "SAPHANA",
+                  "SAPHybrisC4C",
+                  "SAPSuccessFactors",
+                  "SendGrid",
+                  "ServiceNow",
+                  "SharePoint",
+                  "ShipStation",
+                  "Shopify",
+                  "SingleStore",
+                  "Slack",
+                  "Smaregi",
+                  "Smartsheet",
+                  "SnapchatAds",
+                  "Snowflake",
+                  "SparkSQL",
+                  "Splunk",
+                  "SQL",
+                  "Square",
+                  "Stripe",
+                  "SugarCRM",
+                  "SurveyMonkey",
+                  "Trello",
+                  "TSheets",
+                  "Twilio",
+                  "TwitterAds",
+                  "VeevaVault",
+                  "WooCommerce",
+                  "WordPress",
+                  "Workday",
+                  "Xero",
+                  "YahooAds",
+                  "YahooDS",
+                  "YouTubeAnalytics",
+                  "Zendesk",
+                  "ZohoBooks",
+                  "ZohoCreator",
+                  "ZohoCRM",
+                  "ZohoInventory",
+                  "ZohoProjects",
+                  "Zuora"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SQL Reference",
+        "icon": "code",
+        "pages": [
+          {
+            "group": "SQL Reference",
+            "pages": [
+              "SQL-Reference",
+              {
+                "group": "DDL Commands",
+                "pages": [
+                  "DDL",
+                  "CREATE-DERIVED-VIEW",
+                  "DROP-DERIVED-VIEW",
+                  "ALTER-DERIVED-VIEW"
+                ]
+              },
+              {
+                "group": "SQL Commands",
+                "pages": [
+                  "SQL-Commands",
+                  "SELECT",
+                  "INSERT",
+                  "UPDATE",
+                  "UPSERT",
+                  "DELETE",
+                  "GETDELETED",
+                  "EXECUTE",
+                  "INSERT-INTO-SELECT",
+                  "UPDATE-SELECT",
+                  "DELETE-SELECT"
+                ]
+              },
+              {
+                "group": "SQL Functions",
+                "pages": [
+                  "SQL-Functions",
+                  "STRING-Functions",
+                  "DATE-Functions",
+                  "MATH-Functions",
+                  "Conversion-Functions",
+                  "Aggregate-Functions",
+                  "Window-Functions",
+                  "Table-Valued-Functions"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "terminal",
+        "pages": [
+          {
+            "group": "Connect AI API",
+            "pages": [
+              {
+                "group": "API",
+                "pages": [
+                  "API",
+                  "Authentication",
+                  {
+                    "group": "MCP",
+                    "pages": [
+                      "MCP",
+                      "list-available-mcp-tools",
+                      "invoke-a-tool"
+                    ]
+                  },
+                  {
+                    "group": "REST API",
+                    "pages": [
+                      "REST-API",
+                      "Audit-API",
+                      {
+                        "group": "Log API",
+                        "pages": [
+                          "Log-API",
+                          "download-query-log",
+                          "list-audit-log"
+                        ]
+                      },
+                      {
+                        "group": "Metadata",
+                        "pages": [
+                          "Metadata-API",
+                          "Catalogs",
+                          "Columns",
+                          "Exported-Keys",
+                          "Imported-Keys",
+                          "Indexes",
+                          "Primary-Keys",
+                          "Procedure-Parameters",
+                          "Procedures",
+                          "Schemas",
+                          "Tables"
+                        ]
+                      },
+                      {
+                        "group": "SQL API",
+                        "pages": [
+                          "SQL-API",
+                          "Query-Operation",
+                          "Batch-Operation",
+                          "Execute-Procedures"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "OData",
+                    "pages": [
+                      "OData-Dashboard",
+                      {
+                        "group": "Metadata",
+                        "pages": [
+                          "OData-Metadata",
+                          "odata-service-url",
+                          "odata-metadata-url",
+                          "odata-resource-url"
+                        ]
+                      },
+                      {
+                        "group": "OData Operations",
+                        "pages": [
+                          "OData-Operations",
+                          "put--",
+                          "post--",
+                          "delete--",
+                          "patch--"
+                        ]
+                      },
+
+                      "OData-Query-Options"
+                    ]
+                  },
+                  {
+                    "group": "OpenAPI",
+                    "pages": ["OpenAPI", "openapi-url"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Embedded Cloud",
+            "pages": [
+              {
+                "group": "API",
+                "pages": [
+                  "API-Embedded",
+                  "Authentication-Embedded",
+                  {
+                    "group": "MCP",
+                    "pages": [
+                      "MCP",
+                      "list-available-mcp-tools",
+                      "invoke-a-tool"
+                    ]
+                  },
+                  {
+                    "group": "REST API",
+                    "pages": [
+                      "REST-API",
+                      {
+                        "group": "Account API",
+                        "pages": [
+                          "Account-API",
+                          "List-Accounts",
+                          "Delete-Account"
+                        ]
+                      },
+                      "Audit-API",
+                      {
+                        "group": "Connection API",
+                        "pages": [
+                          "Connection-API",
+                          "Edit-Connection",
+                          "List-Connections",
+                          "Delete-Connection",
+                          "Clear-Connection-Metadata"
+                        ]
+                      },
+                      {
+                        "group": "Job API",
+                        "pages": [
+                          "Job-API",
+                          "Create-Cache-Connection",
+                          "List-Jobs",
+                          "Describe-Job",
+                          "Create-Job",
+                          "Update-Job",
+                          "Delete-Job",
+                          "Run-Job",
+                          "Stop-Job"
+                        ]
+                      },
+                      {
+                        "group": "Log API",
+                        "pages": [
+                          "Log-API",
+                          "download-query-log",
+                          "list-audit-log"
+                        ]
+                      },
+                      {
+                        "group": "Metadata API",
+                        "pages": [
+                          "Metadata-API",
+                          "Catalogs",
+                          "Columns",
+                          "Data-Sources-API",
+                          "Exported-Keys",
+                          "Imported-Keys",
+                          "Indexes",
+                          "Primary-Keys",
+                          "Procedure-Parameters",
+                          "Procedures",
+                          "Schemas",
+                          "Tables"
+                        ]
+                      },
+                      {
+                        "group": "SQL API",
+                        "pages": [
+                          "SQL-API",
+                          "Query-Operation",
+                          "Batch-Operation",
+                          "Execute-Procedures"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Community",
+          "href": "https://community.cdata.com/?utm_source=cdata&utm_medium=referral",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.cdata.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.cdata.com"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "CData for AI",
+        "href": "https://www.cdata.com/ai"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Contact Us",
+      "href": "https://www.cdata.com/company/contact.aspx"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/cdatasoftware",
+      "youtube": "https://www.youtube.com/c/CDataSoftware",
+      "linkedin": "https://www.linkedin.com/company/cdatasoftware",
+      "facebook": "https://www.facebook.com/cdatasoftware",
+      "instagram": "https://www.instagram.com/cdatasoftware"
+    }
+  }
+}

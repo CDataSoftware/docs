@@ -1,0 +1,70 @@
+---
+title: "Blackbaud Financial Edge NXT"
+---
+
+## Prerequisites
+
+Before you use the Blackbaud Financial Edge NXT connector, you must configure your own custom OAuth application via the Blackbaud SKY Developer Portal.
+
+In your [SKY API Developer account](https://developer.blackbaud.com/):
+
+<Steps>
+<Step>
+On the **My subscriptions** page, locate your subscription Id (primary access key).
+	<Frame>
+	  <img src="/images/blackbaud_oauth_setup.png" alt="Blackbaud OAuth setup" />
+	</Frame>
+</Step>
+<Step>
+On the **My applications** page, click **+New application** to configure a new OAuth application.
+</Step>
+<Step>
+In the **Add application** dialog, enter the information about the OAuth application as needed for your organization and click **Save**.
+	<Frame>
+	  <img src="/images/blackbaud_add_application.png" alt="Blackbaud add application" />
+	</Frame>
+</Step>
+<Step>
+On the next page, do the following:
+	- Add the CData redirect URI (https://oauth.cdata.com/oauth/).
+	- Copy the OAuth **Client Id** and **Client Secret** to paste into Connect AI.
+	- Edit **Scopes** to the desired level of data access.
+</Step>
+</Steps>
+
+## Setup Guide
+
+Follow these steps to connect Blackbaud Financial Edge NXT to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Blackbaud Financial Edge NXT* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter your **Subscription Key**. Your subscription key can be found in your Blackbaud Financial Edge NXT profile.
+</Step>
+<Step>
+Paste the **Client Id** and **Client Secret** that you created in the prerequisites.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Blackbaud Financial Edge NXT sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Blackbaud Financial Edge NXT account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Blackbaud Financial Edge NXT Connection** page, click **Save & Test**.
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>

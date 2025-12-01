@@ -1,0 +1,103 @@
+---
+title: "Google Sheets"
+---
+
+## Setup Guide
+
+Follow these steps to connect Google Sheets to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Sheets* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Token
+
+<Steps>
+<Step>
+Enter the **API Key** for your Google Cloud account. You can create an API key in the Google Cloud Console by clicking **Create credentials > API key**.
+</Step>
+<Step>
+(Optional) To improve performance, fill out either the **Spreadsheet** field with a comma separated list of sheet names or Ids or enter a **Folder Name**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Sheets Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth
+
+<Steps>
+<Step>
+(Optional) To improve performance, fill out either the **Spreadsheet** field with a comma separated list of sheet names or Ids or enter a **Folder Name**.
+</Step>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Sheets sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Sheets account.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Sheets Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthJWT
+
+<Steps>
+<Step>
+Enter the OAuth JWT Cert. This is multi-line and should be in the following format:
+
+```json
+{
+  "type": "service_account",
+  "project_id": "...",
+  "private_key_id": "...",
+  "private_key": "...",
+  "client_email": "...",
+  "client_id": "...",
+  "auth_uri": ...",
+  "token_uri": "...",
+  "auth_provider_x509_cert_url": "...",
+  "client_x509_cert_url": "..."
+}
+```
+</Step>
+<Step>
+(optional) Set the **OAuthJWT Cert Subject**. Only set this value if the service account is part of a GSuite domain and you want to enable delegation. The value of this property should be the email address of the user whose data you want to access.
+</Step>
+<Step>
+(Optional) To improve performance, fill out either the **Spreadsheet** field with a comma separated list of sheet names or Ids or enter a **Folder Name**.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Sheets Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Google Sheets, see [this information page](https://cdn.cdata.com/help/RLK/cloud/default.htm#default).

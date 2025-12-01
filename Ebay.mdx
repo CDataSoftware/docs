@@ -1,0 +1,76 @@
+---
+title: "eBay"
+---
+
+## Setup Guide
+
+Follow these steps to connect eBay to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *eBay* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+If you have not already, join the eBay Developers Program. On the eBay Developers Program dashboard, navigate to **My Account** > **Application Access Keys**.
+	1. Copy down the values for **App ID**, **DevID**, and **Cert ID**.
+	2. Click **Get a User Token Here** to generate an access token. Set the Redirect URI to *https://oauth.cdata.com/oauth/* and copy down your token.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the App ID you obtained from the Application Access Keys page.
+	- **OAuth Client Secret**—the Cert ID you obtained from the Application Access Keys page.
+	- **Ru Name**—(optional) the Redirect URL name used for validation. This property is only needed if you are using the provider to allow other users to access their own data.
+	- **Use Sandbox**—set only if you are using a sandbox account.
+	- **Site ID**—the Id of the eBay site that you want to connect to. The default value of 0 is for eBay U.S.
+</Step>
+<Step>
+At the top of the Connect AI **Add eBay Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### AuthNAuth
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Dev ID**—the DevID you obtained from the Application Access Keys page.
+	- **OAuth Client Id**—the App ID you obtained from the Application Access Keys page.
+	- **OAuth Client Secret**—the Cert ID you obtained from the Application Access Keys page.
+	- **OAuth Access Token**—the access token you generated above.
+	- **Ru Name**—(optional) the Redirect URL name used for validation. This property is only needed if you are using the provider to allow other users to access their own data.
+	- **Use Sandbox**—set only if you are using a sandbox account.
+	- **Site ID**—the Id of the eBay site that you want to connect to. The default value of 0 is for eBay U.S.
+</Step>
+<Step>
+At the top of the Connect AI **Add eBay Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and eBay, see [this information page](https://cdn.cdata.com/help/BEK/cloud/default.htm#default).

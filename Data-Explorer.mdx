@@ -1,0 +1,197 @@
+---
+title: "Data Explorer"
+sidebarTitle: "Overview"
+description: "The ***Data Explorer*** page enables you to execute basic queries on your connected data sources, browse your data models, and create derived views."
+---
+
+Data Explorer can be useful to:
+
+- Verify that your data sources are connected correctly
+- Explore the columns and data types that are available in your data sources
+- Search for specific data in your data sources using the SQL Editor, the [Query Builder](/QueryBuilder), or the [AI Generator](/AIGenerator).
+
+When you open Data Explorer, the interface displays a navigation pane on the left and the query editor on the right. Select whether you want to build your query in the Query Builder or the SQL Editor. If you click **Build Query**, the Query Builder guides you through the steps of creating a query. If you click **SQL Editor**, a simple SQL editor appears.
+
+<Frame>
+  <img src="/images/data_explorer_empty.png" alt="Data Explorer" />
+</Frame>
+
+At any time in the Data Explorer, you can click the **Home** tab on the right side to choose between Query Builder and SQL Editor. You can also click the plus button to add a new tab of your choice (Query Builder or SQL Editor). The tab titles display whether the query is a Query Builder query or a SQL Editor query.
+
+## Use the SQL Editor
+
+The SQL Editor allows you to create, modify, and save queries.
+
+<Note>
+  For instructions on using the Query Builder to build queries, refer to [Query Builder](/QueryBuilder).
+</Note>
+
+Click the arrow to the right to view the list of schema for the connection. If there is only one schema in a connection, the schema is already open to a list of tables in the schema. If there are multiple schemas, open the desired schema to view the list of tables.
+
+You can use the search bar to search for connections. Once you are within a connection, you can use the search bar to search for schemas and tables.
+
+### Create a Query in the SQL Editor
+
+Follow these steps to execute a query using the SQL Editor in the Data Explorer:
+
+<Steps>
+<Step>
+Click **Select a Connection** to open a drop-down menu of your connections.
+</Step>
+<Step>
+Select a connection. All available items appear in the left column.
+	- The solid table icon indicates a table.
+	- The dashed square icon indicates a view.
+	- The blue double document icon to the right of the item indicates that the item is being cached. See [Caching](/Caching) for more information.
+</Step>
+<Step>
+Choose the data that you want to query. If you want to use the AI query generator, refer to the [AI Generator](/AIGenerator) documentation.
+	- To create a query that selects an entire table or view, drag the item from the left column to the query editor. Alternatively, click the three dots next to the table or view and select **Query** for results or **View Details** for metadata information.
+	- To select a specific column, click the expansion arrow next to the item that you want to query. Then, drag the column to the query editor.
+	- Some data source types contain SQL templates for commonly-used queries. These queries appear under **Common Queries** when you expand the connection name. Click the three dots next to the query name and click **Query** to view the query. You can edit the query if needed. Click **Execute** to run the common query.
+	Alternatively, you can enter a query manually by using SQL syntax in the SQL Editor. Connect AI has an autocomplete feature to assist you with SQL syntax.
+	<Frame>
+	  <img src="/images/data_explorer_syntax_help.png" alt="SQL syntax help" />
+	</Frame>
+	The SQL Editor also autocompletes connection, schema, and table names. Once you pick a connection, autocomplete lets you select a schema from a drop-down list. You can then select a table within the schema.
+	<Frame>
+	  <img src="/images/data_explorer_autocomplete.png" alt="Autocomplete" />
+	</Frame>
+</Step>
+<Step>
+Set the **Limit** field to the number of results that you want to return. By default, the limit is 100. You can set any limit, but you MUST enter a value in this field. (Do not use the SQL LIMIT clause.)
+</Step>
+<Step>
+Click **Execute** to run the query.
+</Step>
+</Steps>
+
+When you execute the query, a loading icon appears in the **Results** section, along with a time elapsed notification. The loading icon also appears in the query's tab.
+
+<Frame>
+  <img src="/images/data_explorer_processing.png" alt="Processing query" />
+</Frame>
+
+If your time elapsed exceeds five minutes, please contact [CData support](https://www.cdata.com/support/submit.aspx) for assistance.
+
+When the query is finished executing, your results appear under the query editor. The **Details** section displays metadata returned by the query, and the **Results** section displays the data returned by the query. You can scroll through pages and adjust the number of results per page by using the fields at the bottom of the page. You can also adjust the column widths of the table details and results.
+
+If your query returns an error, an error message appears above the query. An error icon also appears in the query's tab. Click **Learn More** for more details about the error.
+
+<Frame>
+  <img src="/images/data_explorer_error.png" alt="Query error" />
+</Frame>
+
+### Modifying a Query
+
+After a query executes, you can perform the following actions:
+
+- Modify the query manually by entering query parameters into the query editor.
+- Clear the query editor by selecting **Clear** and then clicking **OK** in the prompt that is displayed.
+- Generate a new query by dragging a new table or column into the query editor and clicking **OK** in the prompt that is displayed.
+
+### Saving a Query
+
+Data Explorer provides the ability to save queries and return to them later without the need to re-enter the query parameters each time.
+
+After you create and successfully execute a query, the **Save** button at the top of the Data Explorer pane becomes available. Follow these steps to save a query and access it later:
+
+<Steps>
+<Step>
+Click **Save** > **Save as Saved Query**. The **Save Query** dialog appears.
+</Step>
+<Step>
+Enter a name for the query and click **Confirm**.
+</Step>
+<Step>
+The Data Explorer Saved Queries menu opens, and your newly-saved query appears in the list.
+</Step>
+</Steps>
+
+#### Use Saved Queries
+
+Saved queries are available in the **Saved Queries** folder in the Data Explorer navigation pane, and saved derived views are available in the **Derived Views** folder. To execute a saved query, click the three dots next to the saved query name and select **Query**. The contents of the saved query populate in the Query Editor, and you can click **Execute** to retrieve the results.
+
+<Note>
+  The **Details** tab, which contains metadata, is not available when executing saved queries.
+</Note>
+
+You can also rename and delete saved queries when you click the three dots.
+
+## Configure Derived Views
+
+The *derived views* feature of Data Explorer allows you to create and save queries that return dynamically populated data results from your connections. You can query your saved derived views from [Integrations](/Integrations), and the results automatically update when the data in your connections change.
+
+<Note>
+  Only administrators of Connect AI can create or modify derived views. Query users can query saved derived views created by an administrator.
+</Note>
+
+### Create a Derived View
+
+To create a new derived view, follow these steps:
+
+<Steps>
+<Step>
+Create the query in the Query Builder or SQL Editor. After you execute the query, the **Save** button appears. Click **Save** > **Save as Derived View**. The **Create Derived View** dialog appears.
+</Step>
+<Step>
+Enter a name for the derived view in the **View Name** field. This is the name that appears in the list of saved derived views.
+</Step>
+<Step>
+Click **Confirm** to save the derived view.
+</Step>
+</Steps>
+
+### Accessing a Derived View in Integrations
+
+When issuing queries to a derived view from within an integration tool, set the Connection or Database value to *CData*. The following syntax shows the correct fully-qualified syntax for accessing a derived view:
+
+```sql
+SELECT * FROM [CData].[DerivedViews].[SampleDerivedView]
+```
+
+Substitute the name of your derived view for the \[SampleDerivedView\] value in the example above.
+
+### Accessing a Derived View in Data Explorer
+
+After you create a derived view, it appears in the list of derived views in Data Explorer. You can click the three dots next to the entry in the list to open a list of options.
+
+<Frame>
+  <img src="/images/dataExplorer_queryDerivedView.png" alt="Query derived view" />
+</Frame>
+
+- To execute the query, click **Query**. The contents of the derived view appear in the Data Explorer query view, and you can then click **Execute** to view the query results.
+- To return metadata, click **View Details**. This action automatically executes, and the results populate under the **Details** tab.
+- You can click **Rename** to change the name of the derived view, or you can click **Delete** to remove it from the list.
+
+### Modify a Derived View
+
+To modify the query of a derived view, use one of the methods outlined above to access it. With the derived view open, modify the text in the query field as needed and click **Save Changes** at the top of the Data Explorer.
+
+To rename a derived view, click the three dots next to the entry in the list and select **Rename**. Enter the new name in the dialog that appears and click **Confirm**.
+
+### Delete a Derived View
+
+To delete a derived view, click the three dots next to the entry in the list and select **Delete**. In the confirmation dialog that appears, click **Delete** again.
+
+<Note>
+  Deleting a derived view does not affect data in the source.
+</Note>
+
+## Create Scheduled Queries
+
+You can save a query as a scheduled query. A scheduled query runs at user-defined intervals.
+
+To create a scheduled query:
+
+<Steps>
+<Step>
+Create your query using the Query Builder or the SQL Editor.
+</Step>
+<Step>
+Click **Save** > **Save as Scheduled Query**.
+</Step>
+<Step>
+You then enter the details about the scheduled query, such as how often it runs. See [Scheduled Queries](/Scheduled-Queries) for details.
+</Step>
+</Steps>

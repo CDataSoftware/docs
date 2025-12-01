@@ -1,0 +1,42 @@
+---
+title: "Data Sources"
+sidebarTitle: "Overview"
+description: "*Data sources* form the foundation of your Connect AI experience. When you create a connection to a data source to your Connect AI account, you make the data from that source available to integration tools of your choosing."
+---
+
+
+
+## Manage Data Sources
+
+You can add and manage connections to data sources on the **Sources** page of your Connect AI dashboard.
+
+<Frame>
+  <img src="/images/sources.png" alt="Data sources page showing available connections" />
+</Frame>
+
+Generally, you can connect data sources to Connect AI in one of two ways:
+
+- OAuth, which enables you to sign in directly through the data source’s website, using that data source’s interface.
+- Manual credential entry, where you enter your connection information (such as username, password, and URL) in the Connect AI interface. Then your information is transmitted securely to connect to your data source.
+
+Click the name of a data source in the navigation pane of this documentation to open setup instructions for that data source.
+
+## Logging Verbosity
+
+On the **Advanced Settings** tab for each connection, there is a setting in the **Logging** section labelled **Verbosity**. This value determines how much information Connect AI includes in the logs for that data source on the [Logs](/Logs) page.
+
+The value for verbosity can range from 1 to 5, where 1 includes the smallest amount of information and 5 includes the largest amount of information. By default, each data source logs at verbosity level 2. Please note that higher verbosity levels negatively impact query performance. For maximum performance, be sure to only increase the verbosity level for troubleshooting purposes.
+
+### Protecting Sensitive Information in Logs
+
+Verbosity levels 3 and up include sensitive information from the connection, as outlined below:
+
+- Level 3 includes the bodies of requests and responses to requests.
+- Level 4 includes SSL certificates.
+- Level 5 includes extra low-level transfer data not included at the previous levels.
+
+<Note>
+Regardless of the verbosity level, sensitive connection properties—including passwords—are always masked in connection strings and any requests/responses.
+</Note>
+
+To ensure the security and safety of your sensitive information, be sure that you only increase logging verbosity when necessary. When logging verbosity is set to 3 or higher, be sure to open and review log files before sharing them outside of your organization.

@@ -1,0 +1,36 @@
+---
+title: "DELETE SELECT Statements"
+sidebarTitle: "DELETE SELECT"
+description: "To perform multiple deletes in a single request, use the DELETE … SELECT syntax to delete from a temporary table of data. This works by first populating a temporary table with the data you are going to submit. Once you have all of the data you want to delete, the temporary table is then passed into the table where you are performing the deletion."
+---
+
+
+## Populate the Temporary Table
+
+The temporary table you are populating is dynamic and is created at run time the first time you insert to it. Temporary tables are denoted by a `#` in their name. When using a temporary table to delete, the temporary table must be named in the format \[TableName\]#TEMP, where TableName is the name of the table you are inserting to. For example:
+
+```bash
+INSERT INTO Orders#TEMP (Id) VALUES ('AX1000001');
+INSERT INTO Orders#TEMP (Id) VALUES ('AX1000002');
+INSERT INTO Orders#TEMP (Id) VALUES ('AX1000003');
+```
+
+This creates a temporary table called Orders#TEMP with one column and three rows of data. Since type cannot be determined on the temporary table itself, all values are stored in memory as strings. They are later converted to the proper type when they are submitted to the Orders table.
+
+## Delete from the Actual Table
+
+Once your temporary table is populated, it is now time to delete from the actual table. You can do this by performing a DELETE from the actual table and selecting the input data from the temporary table. For example:
+
+```bash
+DELETE FROM Orders WHERE EXISTS SELECT Id FROM Orders#TEMP
+```
+
+In this example, the full contents of the Orders#TEMP table are passed into the Orders table. Multiple deletes can be submitted with each request, which results in fewer requests being submitted to the data source. These consolidated requests improve performance when deleting many records at once.
+
+## Results
+
+The results of the query are stored in the LastResultInfo#TEMP temporary table. This table is cleared and repopulated the next time data is modified by passing in a temporary table. Please be aware that the LastResultInfo#TEMP table has no predefined schema. You need to check its metadata at run time before reading data.
+
+## Temporary Table Life Span
+
+Temporary tables only last as long as the connection remains opened. When the connection is closed, all temporary tables are cleared, including the LastResultInfo#TEMP table.

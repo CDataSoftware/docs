@@ -1,0 +1,89 @@
+---
+title: "Dynamics CRM"
+---
+
+## Prerequisites
+
+In Dynamics CRM, [create a custom OAuth application](#creating-a-custom-oauth-application).
+
+## Setup Guide
+
+Follow these steps to connect Dynamics CRM to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Dynamics CRM* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **CRM Version**—the CRM version. Choose either **CRM2011+** or **CRMOnline** from the drop-down list.
+	- **URL**—the root URL of the organization. The formatting of this URL depends on the version of CRM that you use.
+	- **OAuth Client Id**—the Application (client) Id from your OAuth application.
+	- **OAuth Client Secret**—the Client Secret from your OAuth application.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Dynamics CRM sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Dynamics CRM account and provide the requested permissions (if applicable).
+</Step>
+<Step>
+At the top of the Connect AI **Add Dynamics CRM Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## Create a Custom OAuth Application
+
+Follow these steps to create a custom OAuth Application in Dynamics CRM:
+
+<Steps>
+<Step>
+Open your Azure portal and open the navigation pane. Select **Azure Active Directory**, then **App Registrations**.
+</Step>
+<Step>
+Click **New Registration**.
+</Step>
+<Step>
+Enter the following information:
+	- **Name**—a name for the application (for example, *Connect AI*).
+	- **Supported account types**—select **Accounts in any organization directory**.
+	- **Redirect URI**—select **Web** and enter *https://oauth.cdata.com/oauth/*
+</Step>
+<Step>
+Click **Register** to create the application.
+</Step>
+<Step>
+In the application view, select **Certificates & Secrets**.
+</Step>
+<Step>
+Select **New Client Secret**, set a duration, and save it. When the key value appears, copy it down to use when establishing the connection.
+</Step>
+<Step>
+Select **API permissions** and click **Add a permission**.
+</Step>
+<Step>
+Select **Dynamics CRM** and choose **Delegated permissions**. Select **user\_impersonation** in the permissions list.
+</Step>
+<Step>
+Click **Add permissions** to save your changes.
+</Step>
+<Step>
+Select **Overview** and copy down the value for **Application (client) ID**.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about interactions between Connect AI and Dynamics CRM, see [this information page](https://cdn.cdata.com/help/RMK/cloud/default.htm#default).

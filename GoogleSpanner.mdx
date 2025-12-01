@@ -1,0 +1,76 @@
+---
+title: "Google Spanner"
+---
+
+## Setup Guide
+
+Follow these steps to connect Google Spanner to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Spanner* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select a **Database Dialect**. This is the dialect type of the connected database. The default value is correct for most connections.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Project Id**—the ID of the project where your Google Spanner instance resides.
+	- **Database**—the name of the database.
+	- **Instance Id**—the ID of the Google Spanner instance to which you are connecting.
+</Step>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Spanner sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Spanner account.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Spanner Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuthJWT
+
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuthJWT Cert**—the content of the JSON certificate provided by Google.
+	- **OAuthJWT Subject**—(optional) a subject value is required if the service account is part of a GSuite domain and you want to enable delegation.
+	- **Project Id**—the ID of the project where your Google Spanner instance resides.
+	- **Database**—the name of the database.
+	- **Instance Id**—the ID of the Google Spanner instance to which you are connecting.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Spanner Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Google Spanner, see [this information page](https://cdn.cdata.com/help/OGK/cloud/default.htm#default).

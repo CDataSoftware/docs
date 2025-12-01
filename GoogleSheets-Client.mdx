@@ -1,0 +1,316 @@
+---
+title: "Google Sheets"
+description: "This page outlines the steps to install and configure the CData Connect Spreadsheets add-on for Google Sheets. After installation, Google Sheets is able to pull data from sources that you have connected to your CData Connect Spreadsheets account."
+---
+
+
+<Note>
+Before you can configure and use Google Sheets with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+**Connect AI Customers Only:** You can also import Workspaces and Derived Views. To create a workspace, follow the instructions in [Workspaces](/Workspaces). To create a derived view (administrators only), follow the instructions in [Creating a Derived View](https://cloud.cdata.com/Data-Explorer.html#creating-a-derived-view).
+
+## Installation and Setup
+
+<Steps>
+<Step>
+Sign in to [Google Sheets](https://docs.google.com/spreadsheets/) and either open a spreadsheet or create a new spreadsheet.
+</Step>
+<Step>
+With a spreadsheet open, select **Extensions** > **Add-ons** > **Get add-ons**.
+<Frame>
+  <img src="/images/sheets_getaddon.png" alt="Sheets Get Add-on" />
+</Frame>
+</Step>
+<Step>
+Search for *CData* in the search bar and click the **CData Connect Spreadsheets** add-on.
+
+<Frame>
+  <img src="/images/google_sheets_marketplace.png" alt="Google Sheets Marketplace" />
+</Frame>
+</Step>
+<Step>
+Click **Install** and then **Continue** on the pop-up.
+</Step>
+<Step>
+Select your Google account and sign in if needed. When prompted to approve the connection, click **Allow**.
+</Step>
+<Step>
+Return to the spreadsheet. Select **Extensions** > **CData Connect Spreadsheets** > **Open**.
+</Step>
+<Step>
+The configuration pane appears to the right of your spreadsheet. Click **Authorize** to sign in to CData Connect Spreadsheets.
+</Step>
+<Step>
+Enter your CData Connect Spreadsheets credentials and click **Continue**.
+</Step>
+<Step>
+When a success message appears, close the tab and return to Google Sheets.
+</Step>
+</Steps>
+
+
+
+After you establish a connection, the CData Connect Spreadsheets navigation menu appears:
+
+<Frame>
+  <img src="/images/connect_spreadsheets_full.png" alt="Connect Spreadsheets Full" />
+</Frame>
+
+## Set Up Connection
+
+If you do not yet have the data connection you need for CData Connect Spreadsheets, you need to set one up.
+
+<Steps>
+<Step>
+In the add-in pane, click **Connections**. Click **Add Connection**.
+</Step>
+<Step>
+Select the connector for the data you want to connect to Google Sheets.
+</Step>
+<Step>
+Enter your data connection settings. Save and test your connection.
+After you have a successful connection, you can [Import Data](#import-data).
+</Step>
+</Steps>
+
+## Import Data
+
+To import data from a data connection, follow these steps:
+
+<Steps>
+<Step>
+Click **Import**.
+</Step>
+<Step>
+Select an option from the drop-down menu: **Connections**, **Workspaces**, or **Derived Views**. Then follow the directions for the option you selected.
+</Step>
+</Steps>
+
+<Note>
+Only Connect AI customers can access workspaces and derived views.
+</Note>
+
+### Import Connections
+
+<Steps>
+<Step>
+Select a **Connection** from the drop-down list.
+</Step>
+<Step>
+Select either **Query Builder** or **Custom SQL**.
+- For Query Builder, select a schema (if there are multiple schemas), table, and columns. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
+- For Custom SQL, enter the SQL Statement in the provided field.
+</Step>
+<Step>
+Click **Execute**.
+<Frame>
+  <img src="/images/sheets_querybuilder.png" alt="Sheets Query Builder" />
+</Frame>
+</Step>
+<Step>
+When prompted, choose to output the data in either the current spreadsheet or a new one.
+</Step>
+</Steps>
+
+
+
+### Import [Workspaces](/Workspaces) (Connect AI Customers Only)
+
+<Steps>
+<Step>
+Select a workspace from the drop-down list.
+</Step>
+<Step>
+Select either **Query Builder** or **Custom SQL**.
+- For Query Builder, select a workspace and the columns to display. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
+- For Custom SQL, enter the SQL Statement in the provided field.
+</Step>
+<Step>
+Click **Execute**.
+</Step>
+<Step>
+When prompted, choose to output the data in either the current spreadsheet or a new one.
+</Step>
+</Steps>
+
+### Import [Derived Views](/Data-Explorer#configuring-derived-views) (Connect AI Customers Only)
+
+<Steps>
+<Step>
+Select either **Query Builder** or **Custom SQL**.
+- For Query Builder, select a derived view and the columns to display. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
+- For Custom SQL, enter the SQL Statement in the provided field.
+</Step>
+<Step>
+Click **Execute**.
+</Step>
+<Step>
+When prompted, choose to output the data in either the current spreadsheet or a new one.
+</Step>
+</Steps>
+
+## Refresh Data
+
+To update the imported data in your spreadsheets from the originating source, click **Refresh** in the main menu of the CData Connect Spreadsheets add-on. (Click the back arrow to return to the main menu of the add-on, if necessary.) Then follow these steps:
+
+<Steps>
+<Step>
+Select the checkboxes next to the Google Sheets spreadsheets that you want to update.
+<Frame>
+  <img src="/images/sheets_refresh.png" alt="Sheets Refresh" />
+</Frame>
+</Step>
+<Step>
+Select a refresh option:
+- Click **Refresh Now** to manually refresh the data as soon as possible.
+- Click **Auto Refresh** to open a dialog where you can select the auto-refresh interval in hours. Please note that this interval applies to all spreadsheets that use Auto Refresh.
+</Step>
+<Step>
+The data in the selected Google Sheets spreadsheets update with new data.
+</Step>
+</Steps>
+
+
+
+<Note>
+If Auto Refresh is selected, a new Auto Refresh Status field appears. It lists the refresh interval and the affected spreadsheets. A **Reset Auto Refresh** button allows you to stop the auto refresh and set up a new one.
+</Note>
+
+<Frame>
+  <img src="/images/sheets_autorefresh.png" alt="Sheets Auto Refresh" />
+</Frame>
+
+## Update Data
+
+You can push changes from the Google Sheets spreadsheet to the originating data connection. Note that in order to update a spreadsheet, the data must contain at least one primary key. You must also have the proper permissions to update the source data. You cannot update read-only fields in the originating data connection.
+
+Be sure to update your data frequently if you are using the auto refresh feature, or your changes may be overwritten by the originating data connection.
+
+<Note>
+CData Connect Spreadsheets does not support updates for views (only tables).
+</Note>
+
+To update data in your spreadsheet, follow these steps:
+
+<Steps>
+<Step>
+Make your changes to the Google Sheets spreadsheet. When you update data, the data is highlighted in red to signify that it is not yet updated to the originating data connection.
+</Step>
+<Step>
+If you want to update only select rows, highlight the cells or rows to be updated.
+</Step>
+<Step>
+On the **CData Connect Spreadsheets** add-on pane, click **Update**.
+</Step>
+<Step>
+Determine whether you want to **Update Selected** rows or **Update All**.
+</Step>
+<Step>
+Click **Execute**. Click **Confirm** to continue. This action updates the originating data connection and cannot be undone.
+</Step>
+<Step>
+CData Connect Spreadsheets returns a message whether the update was successful. If unsuccessful, CData Connect Spreadsheets displays the reason the update failed.
+</Step>
+<Step>
+If the update is successful, the data in red turns black. This indicates that the data is updated in the originating data connection.
+</Step>
+</Steps>
+
+## Insert Data
+
+To insert a row or rows in a spreadsheet, follow these steps:
+
+<Steps>
+<Step>
+If necessary, return to the main menu of the CData Connect Spreadsheets add-on.
+</Step>
+<Step>
+Use the Google Sheets function to insert rows in your spreadsheet (**Insert** > **Rows**).
+</Step>
+<Step>
+Enter the information into the row or rows. When you add data, the data is highlighted in red to signify that it is not yet updated to the originating data connection.
+</Step>
+<Step>
+If you want to update only the inserted row(s), highlight the row(s).
+</Step>
+<Step>
+On the **CData Connect Spreadsheets** add-on pane, click **Update**.
+</Step>
+<Step>
+Determine whether you want to **Update Selected** rows or **Update All**.
+</Step>
+<Step>
+Click **Execute**. Click **Confirm** to continue. This action inserts the data into the originating data connection and cannot be undone.
+</Step>
+<Step>
+CData Connect Spreadsheets returns a message whether the insertion was successful. If unsuccessful, CData Connect Spreadsheets displays the reason the insertion failed.
+</Step>
+<Step>
+If the insertion is successful, the data in red turns black. This indicates that the data is updated in the originating data connection.
+</Step>
+</Steps>
+
+## Delete Data
+
+To delete rows from a spreadsheet, follow these steps:
+
+<Steps>
+<Step>
+If necessary, return to the main menu of the CData Connect Spreadsheets add-on.
+</Step>
+<Step>
+Select the rows you want to delete and click **Delete**. You can select any cell(s) in the row and CData Connect Spreadsheets deletes the entire row. CData Connect Spreadsheets prompts if you are sure you want to delete the given number of rows.
+</Step>
+<Step>
+Click **Confirm** to continue with the deletion. CData Connect Spreadsheets displays whether it deleted the rows successfully.
+</Step>
+</Steps>
+
+<Note>
+You cannot undo the row deletion.
+</Note>
+
+## Logs
+
+Click **Logs** to open a dialog that lists the three most recent queries, including:
+
+- The time and date they occurred
+- Their results (success or failure)
+- The contents and parameters of the queries
+
+See [Logs](/Logs) for more information.
+
+## Advanced Query Settings
+
+When importing data, you can use [Filters](#filters) and [Sorting](#sorting) to build your query.
+
+### Filters
+
+To add a filter, click the **+** next to the **Filters** header. You can add more filters by clicking the **+** again, and you can delete a filter by clicking the trash can icon next to it.
+
+<Frame>
+  <img src="/images/sheets_filter.png" alt="Sheets Filter" />
+</Frame>
+
+Each filter has three fields to fill out:
+
+- **Column**—select the column from your table that you want to filter.
+- **Op**—the operation the filter performs. Options are *equals*, *does not equal*, *contains*, *does not contain*, *less than*, *less than or equal to*, *greater than*, and *greater than or equal to*.
+- **Value**—the value for the filter operation.
+
+For example, if you wanted to retrieve AccountValues above $100,000, you might set the Column to *AccountValues*, the Op to *greater than*, and the Value to *100,000*. Then, when you execute the query, only results matching this filter will be returned.
+
+As you enter your filter parameters, the **Generated Query** at the bottom of the pane automatically updates.
+
+### Sorting
+
+To add a sorting rule to your query results, click the **+** next to the **Sort By** header. You can add more sorting rules by clicking the **+** again, and you can delete a sorting rule by clicking the trash can icon next to it.
+
+<Frame>
+  <img src="/images/sheets_sort.png" alt="Sheets Sort" />
+</Frame>
+
+Each sorting rule requires a **Column** and a sorting **Order** (ascending or descending). If you add multiple sorting rules, the results are sorted in the order that the rules appear. The query gives highest sorting priority to the first rule, then the second rule, etc.
+
+As you enter your sorting parameters, the **Generated Query** at the bottom of the pane automatically updates.

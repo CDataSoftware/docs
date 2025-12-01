@@ -1,0 +1,45 @@
+---
+title: "Domino"
+---
+
+## Setup Guide
+
+Follow these steps to connect Domino to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Domino* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+In Domino, if the Proton component has not been installed, install it before continuing. See the Domino documentation for instructions on acquiring and installing Proton or the AppDev pack.
+</Step>
+<Step>
+Enter the following information:
+	- **SSL Client Cert**—the content of the TLS/SSL client certificate file for client authentication
+	- **SSL Client Cert Type**—the format of the TLS/SSL client certificate file
+	- **SSL Client Cert Password**—the Private Key Password. Only required when your Private Key has been encrypted.
+	- **SSL Server Cert**—You only need to set this if you are using a certificate that is not issued by a certificate authority. You can also set this to '\*' to accept all certificates (not recommended for production use cases).
+	- **Database**—the name of the Domino database file, including the `.nsf` extension
+	- **Port**—the port number that the Proton service is listening on
+	- **Server**—the hostname or IP address of the Domino server
+</Step>
+<Step>
+At the top of the Connect AI **Add Domino Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Domino, see [this information page](https://cdn.cdata.com/help/JKK/cloud/default.htm#default).

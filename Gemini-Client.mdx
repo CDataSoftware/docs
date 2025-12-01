@@ -1,0 +1,100 @@
+---
+title: "Gemini"
+description: "Gemini is Google’s family of large language models (LLMs). It can generate text, images, audio, video, and code. This page explains how to connect the Connect AI MCP to Gemini through either the command-line interface or the Google Agent Development Kit (ADK)."
+---
+
+## Prerequisites
+
+Before you can configure and use Gemini with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+You need Python >= 3.10 to use the Gemini tools.
+
+## Connect through the Gemini Command Line Interface
+
+After you install Gemini, do the following:
+
+<Steps>
+<Step>
+Go to your user directory `%USERPROFILE%` and create a `.gemini` folder.
+</Step>
+<Step>
+Within the folder, create a file named `settings.json`.
+</Step>
+<Step>
+Copy and paste the following into the `settings.json` file. Replace `EMAIL` with your Connect AI email and `PAT` with the PAT you obtained in the prerequisites:
+</Step>
+</Steps>
+
+```json
+{
+"mcpServers": {
+   "connect-cloud": {
+      "httpUrl": "https://mcp.cloud.cdata.com/mcp/",
+      "headers": {
+        "Authorization": "Basic EMAIL:PAT"  //Replace with your Connect AI's Email and PAT
+     },
+      "trust": true
+   }
+ },
+"selectedAuthType": "oauth-personal"
+}
+```
+
+<Steps>
+<Step>
+In the terminal, type `gemini`. You may need to give Google authorization to access your account.
+</Step>
+<Step>
+The Gemini screen appears as follows:
+<Frame>
+  <img src="/images/gemini_client_homescreen.png" alt="Gemini Home Screen" />
+</Frame>
+
+</Step>
+<Step>
+Enter a prompt in the prompt box to ask Gemini a question. Gemini uses the Connect AI tools such as `getCatalogs`, `getSchemas`, and `getTables` to retrieve data from connected data sources.
+</Step>
+<Step>
+Gemini returns a response to your prompt.
+<Frame>
+  <img src="/images/gemini_client_prompt.png" alt="Gemini Prompt" />
+</Frame>
+</Step>
+</Steps>
+
+
+
+## Connect through the Google ADK
+
+<Steps>
+<Step>
+Download the folder [adk-mcp-client](https://github.com/CDataSoftware/adk-mcp-client) and unzip the folder.
+</Step>
+<Step>
+Rename `.env example` to `.env`.
+</Step>
+<Step>
+In the `.env` file, replace `your_email@example.com` with your Connect AI email, and replace `your_mcp_password_here` with the PAT created in the prerequisites.
+</Step>
+<Step>
+Run `pip install -r requirements.txt` in your terminal.
+</Step>
+<Step>
+Run `python -m google.adk.cli web --port 5000`. This starts the ADK at port 5000 on your local machine.
+</Step>
+<Step>
+In your web browser, open `127.0.0.1:5000`. The application looks like the following:
+<Frame>
+  <img src="/images/gemini_client_adk.png" alt="Gemini ADK" />
+</Frame>
+</Step>
+<Step>
+Enter a prompt in the **Type a Message** box. Gemini uses the Connect AI tools such as `getCatalogs`, `getSchemas`, and `getTables` to retrieve data from connected data sources.
+<Frame>
+  <img src="/images/gemini_client_adkprompt.png" alt="Gemini ADK Prompt" />
+</Frame>
+</Step>
+</Steps>
+

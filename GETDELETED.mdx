@@ -1,0 +1,20 @@
+---
+title: "GETDELETED Statements"
+sidebarTitle: "GETDELETED"
+description: "You can issue the GETDELETED query to retrieve all records deleted from the live data for the time range specified. This query accepts a datetime value as a filter, as shown in the following example:"
+---
+
+
+```bash
+GETDELETED FROM <table_name> WHERE <search_condition>
+ 
+<search_condition> ::=
+  {
+    <expression> { = | < | <= | > | >= } [ <expression> ]
+  } [ { AND | OR } ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```

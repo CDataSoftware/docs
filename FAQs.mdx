@@ -1,0 +1,41 @@
+---
+title: "Frequently Asked Questions (FAQs)"
+sidebarTitle: "FAQs"
+description: "This page provides answers to common questions about features and technical parameters of Connect AI."
+---
+
+<AccordionGroup>
+  <Accordion title="What is the rate limit for issuing requests to connections?">
+    The Connect AI rate limit is 100 requests per user per minute. This limit is shared across all data sources, so if a user issues 70 requests in a minute to one connection, that user can only issue 30 more requests to another connection in the same minute. Note that requests with excessively long response times might time out. If your request times out, please refine the query to reduce the time it takes to execute.
+  </Accordion>
+
+  <Accordion title="What static IP addresses does Connect AI use?">
+    Connect AI uses a range of static IP addresses to communicate with external data sources. To ensure that you can access your data, you must whitelist these static IP addresses in your data sources. The table below lists these IP addresses.
+
+    | IP Addresses (CIDR) | IP Addresses (Range) |
+    |:------------------- |:-------------------- |
+    | 52.224.0.160/28 | 52.224.0.160 - 52.224.0.175 |
+  </Accordion>
+
+  <Accordion title="How do I change the email address on my account?">
+    To change the primary contact for your Connect AI account, click your username in the upper right corner and choose **Settings**. Select the **Account** tab and change the **Primary Contact Information** details.
+
+    To change the email address for your own account, click **Users** in the left menu. Click **Invite Users** to open the user invitation dialog. Send an invitation to your new email and follow the steps to accept the invitation. Once your new account is active, return to the **Users** page and delete your original account. For more information, review [invite users](/Users#invite-users).
+  </Accordion>
+
+  <Accordion title="Why is my data not available in my integration tool?">
+    First, check that you can access your data from your connection using [Data Explorer](/Data-Explorer). If you cannot, there may be an issue with the connection to your data source. Check your connection details and ensure that you have set the permissions for the connection correctly.
+
+    If you can access your data in Data Explorer, there may be an issue with the configuration of your integration tool. Check your integration tool configuration according to the instructions in the [documentation](/Integrations).
+
+    If your data is still not accessible, please contact CData Technical Support.
+  </Accordion>
+
+  <Accordion title="Are there currently any known service outages?">
+    The [Connect AI Status page](https://status.cdata.com/) shows the current status and incident history for the application services.
+  </Accordion>
+
+  <Accordion title="How do I contact CData Technical Support?">
+    The [CData Technical Support](https://www.cdata.com/support/submit.aspx) contact form allows you to send a message to our Technical Support team. You also access this form by clicking the **Support** link at the bottom of the dashboard.
+  </Accordion>
+</AccordionGroup>

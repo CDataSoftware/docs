@@ -1,0 +1,43 @@
+---
+title: "Garoon"
+---
+
+## Setup Guide
+
+Follow these steps to connect Garoon to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Garoon* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **URL**—the URL for your Garoon account. Here are accepted URL format for supported versions:
+		- Cloud version : https://(subdomain).cybozu.com (default)
+		- Package version (Windows environment) : http://(server IP address or host name)/scripts/(installation identifier)/grn.exe
+		- Package version (Linux environment) : http://(server IP address or host name)/cgi-bin/(installation identifier)/grn.cgi
+	- **User**—the user Id of the authenticating Garoon user account.
+	- **Password**—the password of the authenticating Garoon user account.
+	- **Basic Auth User**—the additional username required for domains using basic authentication.
+	- **Basic Auth Password**—the additional password required for domains using basic authentication.
+</Step>
+<Step>
+At the top of the Connect AI **Add Garoon Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Garoon, see [this information page](https://cdn.cdata.com/help/URK/cloud/default.htm#default).

@@ -1,0 +1,77 @@
+---
+title: "Google Calendar"
+---
+
+## Setup Guide
+
+Follow these steps to connect Google Calendar to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Calendar* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Calendar sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Calendar account.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Calendar Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+### OAuth JWT
+
+<Steps>
+<Step>
+Enter your **OAuth JWT Cert**. This is multi-line and in PEM format.
+</Step>
+<Step>
+Select the **OAuth JWT Cert Type**.
+</Step>
+<Step>
+(Optional) Enter an **OAuth JWT Cert Password**. This only needs to be done if the certificate is encrypted.
+</Step>
+<Step>
+(Optional) If required, add an **OAuth JWT Cert Subject**.
+</Step>
+<Step>
+(Optional) Enter the **OAuth JWT Issuer**. This must include the client\_id or connected app for the which the certificate is registered.
+</Step>
+<Step>
+(Optional) Enter an **OAuth JWT Subject**. It must be formatted as an email address.
+</Step>
+<Step>
+At the top of the Connect AI **Add Google Calendar Connection** page, click **Save & Test**.
+
+	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
+	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
+	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+</Step>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Google Calendar, see [this information page](https://cdn.cdata.com/help/EGK/cloud/default.htm#default).

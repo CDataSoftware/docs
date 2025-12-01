@@ -1,0 +1,85 @@
+---
+title: "Features"
+description: "Connect AI supports powerful features that advanced users and organizations rely on for their workflows. This page outlines some of these features."
+---
+
+
+## Derived Views
+
+Connect AI supports derived views, which are saved queries that dynamically populate data when you use them. After you create a derived view in [Data Explorer](/Data-Explorer#configuring-derived-views), you can query it from your choice of [Integrations](/Integrations) as though it were any other connection. When querying a derived view, the syntax follows the format `CData.DerivedViews.derivedViewName`.
+
+When a derived view is saved in an account, it appears in the derived views list for all users. However, users who issue queries to derived views must have appropriate [permissions](/Sources#assigning-permissions) for each data source that the derived view queries. If a user lacks appropriate permissions, they will receive an error when issuing a query.
+
+### Example Derived View
+
+If you wanted to create a derived view to return all of the accounts in your Salesforce connection that were marked as deleted, your derived view might contain the following query:
+
+```sql
+SELECT * FROM [Salesforce1].[Salesforce].[Accounts] WHERE Deleted = 'true'
+```
+
+If you saved this derived view as DeletedAccounts, you could issue the following query from a Client to return all of the deleted accounts:
+
+```sql
+SELECT * FROM [CData].[DerivedViews].[DeletedAccounts]
+```
+
+This derived view provides a convenient, consistent way to access an up-to-date list of deleted accounts without the need to re-enter the query parameters every time.
+
+## Query Federation
+
+Connect AI enables you to write queries that combine data from different sources directly, on-demand.
+
+In many ad hoc scenarios, it is impractical to build pipelines to consolidate data. With query federation, you can bypass the need for custom pipelines by creating queries across data sources from the reporting tool of your choice.
+
+See [SQL Federated Queries](/SQL-Reference#federated-queries) for more information.
+
+## Single Sign-On (SSO)
+
+Connect AI supports Single Sign-On (SSO). When SSO is enabled for your account, users sign in through your chosen SSO provider instead of using Connect AI login credentials.
+
+Connect AI supports the following SSO providers:
+
+- SAML
+- OpenID Connect
+- Google Workspace
+- Microsoft Entra ID (formerly Azure AD)
+- Active Directory Federation Services (ADFS)
+- Active Directory/LDAP
+- Ping Federate
+- Okta Workforce Identity Cloud
+
+To enable SSO for your account, contact the CData sales team at sales@cdata.com.
+
+## User Credentials
+
+By default, all users on an account can access data from a data source through the same login credentials. For example, if you have a connection to Salesforce, all user accounts can access the data from the Salesforce account created for that Salesforce connection. Query permissions can be customized per-user to restrict available operations, but all users access the same data under these restrictions.
+
+Certain data sources support the ability to force each user on an account to log in to a connection with their own login credentials. This feature ensures that users can only access the data from accounts that they need to access. Furthermore, when a connection is configured in this way, it only counts as a single connection slot toward your account maximum.
+
+If a data source supports User Credentials, a **Data Credentials** label appears in the **Authentication** section of the connection settings. Clicking the setting next to this label opens a dialog that allows you to set the desired mode for the connection.
+
+<Frame>
+  <img src="/images/user_credentials_modal.png" alt="User credentials modal" />
+</Frame>
+
+<Note>
+  The following restrictions apply to this feature:
+
+- This feature is only available for the following data sources. If this feature is desired for a data source that is not listed, please contact our support team to request it.
+	- Paylocity
+	- RedShift
+	- Sage Intacct
+	- Salesforce
+	- SharePoint
+	- Snowflake
+	- Workday
+- Only administrator users can toggle a data source between Shared Credentials and User Credentials, but users of all roles can log in to a User Credentials connection with their own credentials.
+- User Credentials are not supported when using the [OData API](/OData-Dashboard). To connect a data source to the OData API, you must use Shared Credentials.
+</Note>
+
+## Workspaces
+
+The workspaces feature at its core is an organization scheme that creates a data catalog from connected data sources in Connect AI. Virtual datasets make it possible to bundle related data items separately in a simple and scalable way, while reducing data silos and promoting synergy across teams.
+
+These workspaces can include tables, views, and derived views. All of these are exposed directly without transformations, so the column names and other properties remain the same. Any table, view, or derived view can be added to any number of workspaces. They can be referenced by a unique alias. Tables that are workspaces support full CRUD capabilities.
