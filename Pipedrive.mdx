@@ -2,6 +2,8 @@
 title: "Pipedrive"
 ---
 
+import MySnippet from '/snippets/save-and-test.mdx';
+
 ## Setup Guide
 
 Follow these steps to connect Pipedrive to your Connect AI account:
@@ -32,42 +34,32 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Basic
-
-<Steps>
-<Step>
+<Tabs>
+  <Tab title="Basic">
+    
 Enter the **API Token** used for accessing your Pipedrive account.
 	To obtain an API Token, do the following:
 	
-	a. Open the Pipedrive portal.
+	1. Open the Pipedrive portal.
 	
-	b. At the top right corner of the page, click the account name. Pipedrive displays a drop-down list.
+	2. At the top right corner of the page, click the account name. Pipedrive displays a drop-down list.
 	
-	c. Navigate to **Company Settings** > **Personal Preferences** > **API** > **Generate Token**.
+	3. Navigate to **Company Settings** > **Personal Preferences** > **API** > **Generate Token**.
 	
-	d. Record the value of the generated API token.
-</Step>
-<Step>
-At the top of the Connect AI **Add Pipedrive Connection** page, click **Save & Test**.
+	4. Record the value of the generated API token.
 
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
-</Steps>
-### OAuth
+  </Tab>
+  <Tab title="OAuth">
 
-<Steps>
-<Step>
 Enter the following information:
 	- **OAuth Client Id**—the client Id assigned when you registered your Pipedrive account for OAuth.
 	- **OAuth Client Secret**—the client secret assigned when you registered your Pipedrive account for OAuth.
-</Step>
-<Step>
-At the top of the Connect AI **Add Pipedrive Connection** page, click **Save & Test**.
 
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
-</Steps>	
+  </Tab>
+  
+</Tabs>
+
+<MySnippet/>
+
+  
+
