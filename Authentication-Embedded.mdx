@@ -3,8 +3,6 @@ title: "Authentication"
 description: "All requests to the Embedded Cloud API must be properly authenticated using JSON Web Tokens (JWT)."
 ---
 
-
-
 CData requires that a JWT is signed using the RSA 256 algorithm.
 
 ## Creating a JWT
@@ -81,14 +79,10 @@ Your current directory should now contain the `public.key`, which you need to sh
 
 ## Code Samples
 
-Code samples for creating a JWT are available in the following programming languages:
+Click the relevant tab for the code sample for creating a JWT.
 
-- [Java](#java)
-- [Python](#python)
-- [C#](#c)
-- [node.js](#nodejs)
-
-### Java
+<Tabs>
+  <Tab title="Java">
 
 Creating a JWT in Java:
 
@@ -169,8 +163,9 @@ public class JWTExample {
 }
 }
 ```
+</Tab>
 
-### Python
+<Tab title="Python">
 
 Creating a JWT in Python:
 
@@ -201,8 +196,9 @@ token = jwt.encode(payload, secret_key, algorithm='RS256')
 
 print(token)
 ```
+</Tab>
 
-### C#
+<Tab title="C#">
 
 Creating a JWT in C#:
 
@@ -256,8 +252,9 @@ var tokenString = tokenHandler.WriteToken(token);
 Console.WriteLine(tokenString);
 Console.ReadLine();
 ```
+</Tab>
 
-### node.js
+<Tab title="node.js">
 
 Creating a JWT in node.js:
 
@@ -290,3 +287,5 @@ To run the code, save index.js and execute it as follows:
 ```bash
 node index.js
 ```
+</Tab>
+</Tabs>
