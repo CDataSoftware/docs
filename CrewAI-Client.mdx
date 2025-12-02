@@ -9,10 +9,7 @@ Before you can configure and use CrewAI with Connect AI, you must do the followi
 
 - Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
 - Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
-- Obtain an OpenAI API key: <a href="https://platform.openai.com" target="_self">
-  https://platform.openai.com</a>
-
-  .
+- Obtain an OpenAI API key at: https://platform.openai.com.
 - Make sure you have Python \>= 3.10 in order to use the CrewAI tools.
 
 ## Configure the Connect AI MCP Server
@@ -26,8 +23,6 @@ Before you can configure and use CrewAI with Connect AI, you must do the followi
   </Step>
   <Step>
     Copy and paste the content below. Replace `"CONNECT_AI_EMAIL"` with your Connect AI username and replace `"CONNECT_AI_PAT"` with your PAT obtained in the prerequisites. Your OpenAI API key can be found at https://platform.openai.com/.
-  </Step>
-</Steps>
 
 ```bash
 # CData MCP Server Configuration
@@ -36,6 +31,8 @@ MCP_USERNAME="CONNECT_AI_EMAIL"
 MCP_PASSWORD="CONNECT_AI_PAT"
 OPENAI_API_KEY="OPEN_API_KEY"  # Your OPEN AI API Key
 ```
+</Step>
+</Steps>
 
 ## Install the CrewAI Libraries
 
