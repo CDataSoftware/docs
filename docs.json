@@ -492,22 +492,16 @@
         "icon": "code",
         "pages": [
           {
-            "group": "SQL Reference",
-            "pages": [
-              "SQL-Reference",
-              {
-                "group": "DDL Commands",
+            "group": "DDL Commands",
                 "pages": [
-                  "DDL",
                   "CREATE-DERIVED-VIEW",
                   "DROP-DERIVED-VIEW",
                   "ALTER-DERIVED-VIEW"
                 ]
-              },
-              {
-                "group": "SQL Commands",
+              }, 
+          {
+             "group": "SQL Commands",  
                 "pages": [
-                  "SQL-Commands",
                   "SELECT",
                   "INSERT",
                   "UPDATE",
@@ -519,11 +513,11 @@
                   "UPDATE-SELECT",
                   "DELETE-SELECT"
                 ]
-              },
-              {
-                "group": "SQL Functions",
-                "pages": [
-                  "SQL-Functions",
+              },  
+
+             {
+              "group":"SQL Functions", 
+                  "pages": [
                   "STRING-Functions",
                   "DATE-Functions",
                   "MATH-Functions",
@@ -535,8 +529,7 @@
               }
             ]
           }
-        ]
-      },
+        ,
       {
         "tab": "API Reference",
         "icon": "terminal",
