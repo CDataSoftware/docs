@@ -8,7 +8,6 @@
     "dark": "#00A0FF"
   },
   "favicon": "/favicon.ico",
-
   "appearance": {
     "default": "light"
   },
@@ -260,7 +259,7 @@
       },
       {
         "tab": "Data Sources",
-        "icon":"server",
+        "icon": "server",
         "dropdowns": [
           {
             "dropdown": "Salesforce",
@@ -268,7 +267,7 @@
             "pages": [
               {
                 "group": "Data Sources",
-                "pages": [ "Salesforce"]
+                "pages": ["Salesforce"]
               }
             ]
           },
@@ -493,49 +492,45 @@
         "pages": [
           {
             "group": "Overview",
-                "pages": [
-                  "SQL-Reference"
-                ]
-              }, 
+            "pages": ["SQL-Reference"]
+          },
           {
             "group": "DDL Commands",
-                "pages": [
-                  "CREATE-DERIVED-VIEW",
-                  "DROP-DERIVED-VIEW",
-                  "ALTER-DERIVED-VIEW"
-                ]
-              }, 
+            "pages": [
+              "CREATE-DERIVED-VIEW",
+              "DROP-DERIVED-VIEW",
+              "ALTER-DERIVED-VIEW"
+            ]
+          },
           {
-             "group": "SQL Commands",  
-                "pages": [
-                  "SELECT",
-                  "INSERT",
-                  "UPDATE",
-                  "UPSERT",
-                  "DELETE",
-                  "GETDELETED",
-                  "EXECUTE",
-                  "INSERT-INTO-SELECT",
-                  "UPDATE-SELECT",
-                  "DELETE-SELECT"
-                ]
-              },  
-
-             {
-              "group":"SQL Functions", 
-                  "pages": [
-                  "STRING-Functions",
-                  "DATE-Functions",
-                  "MATH-Functions",
-                  "Conversion-Functions",
-                  "Aggregate-Functions",
-                  "Window-Functions",
-                  "Table-Valued-Functions"
-                ]
-              }
+            "group": "SQL Commands",
+            "pages": [
+              "SELECT",
+              "INSERT",
+              "UPDATE",
+              "UPSERT",
+              "DELETE",
+              "GETDELETED",
+              "EXECUTE",
+              "INSERT-INTO-SELECT",
+              "UPDATE-SELECT",
+              "DELETE-SELECT"
+            ]
+          },
+          {
+            "group": "SQL Functions",
+            "pages": [
+              "STRING-Functions",
+              "DATE-Functions",
+              "MATH-Functions",
+              "Conversion-Functions",
+              "Aggregate-Functions",
+              "Window-Functions",
+              "Table-Valued-Functions"
             ]
           }
-        ,
+        ]
+      },
       {
         "tab": "API Reference",
         "icon": "terminal",
@@ -543,181 +538,170 @@
           {
             "group": "Connect AI API",
             "pages": [
+              "API",
+              "Authentication",
               {
-                "group": "API",
+                "group": "MCP",
                 "pages": [
-                  "API",
-                  "Authentication",
+                  "MCP",
+                  "list-available-mcp-tools",
+                  "invoke-a-tool"
+                ]
+              },
+              {
+                "group": "REST API",
+                "pages": [
+                  "REST-API",
+                  "Audit-API",
                   {
-                    "group": "MCP",
+                    "group": "Log API",
                     "pages": [
-                      "MCP",
-                      "list-available-mcp-tools",
-                      "invoke-a-tool"
+                      "Log-API",
+                      "download-query-log",
+                      "list-audit-log"
                     ]
                   },
                   {
-                    "group": "REST API",
+                    "group": "Metadata",
                     "pages": [
-                      "REST-API",
-                      "Audit-API",
-                      {
-                        "group": "Log API",
-                        "pages": [
-                          "Log-API",
-                          "download-query-log",
-                          "list-audit-log"
-                        ]
-                      },
-                      {
-                        "group": "Metadata",
-                        "pages": [
-                          "Metadata-API",
-                          "Catalogs",
-                          "Columns",
-                          "Exported-Keys",
-                          "Imported-Keys",
-                          "Indexes",
-                          "Primary-Keys",
-                          "Procedure-Parameters",
-                          "Procedures",
-                          "Schemas",
-                          "Tables"
-                        ]
-                      },
-                      {
-                        "group": "SQL API",
-                        "pages": [
-                          "SQL-API",
-                          "Query-Operation",
-                          "Batch-Operation",
-                          "Execute-Procedures"
-                        ]
-                      }
+                      "Metadata-API",
+                      "Catalogs",
+                      "Columns",
+                      "Exported-Keys",
+                      "Imported-Keys",
+                      "Indexes",
+                      "Primary-Keys",
+                      "Procedure-Parameters",
+                      "Procedures",
+                      "Schemas",
+                      "Tables"
                     ]
                   },
                   {
-                    "group": "OData",
+                    "group": "SQL API",
                     "pages": [
-                      "OData-Dashboard",
-                      {
-                        "group": "Metadata",
-                        "pages": [
-                          "OData-Metadata",
-                          "odata-service-url",
-                          "odata-metadata-url",
-                          "odata-resource-url"
-                        ]
-                      },
-                      {
-                        "group": "OData Operations",
-                        "pages": [
-                          "OData-Operations",
-                          "put--",
-                          "post--",
-                          "delete--",
-                          "patch--"
-                        ]
-                      },
-
-                      "OData-Query-Options"
+                      "SQL-API",
+                      "Query-Operation",
+                      "Batch-Operation",
+                      "Execute-Procedures"
                     ]
-                  },
-                  {
-                    "group": "OpenAPI",
-                    "pages": ["OpenAPI", "openapi-url"]
                   }
                 ]
+              },
+              {
+                "group": "OData",
+                "pages": [
+                  "OData-Dashboard",
+                  {
+                    "group": "Metadata",
+                    "pages": [
+                      "OData-Metadata",
+                      "odata-service-url",
+                      "odata-metadata-url",
+                      "odata-resource-url"
+                    ]
+                  },
+                  {
+                    "group": "OData Operations",
+                    "pages": [
+                      "OData-Operations",
+                      "put--",
+                      "post--",
+                      "delete--",
+                      "patch--"
+                    ]
+                  },
+                  "OData-Query-Options"
+                ]
+              },
+              {
+                "group": "OpenAPI",
+                "pages": ["OpenAPI", "openapi-url"]
               }
             ]
           },
           {
             "group": "Embedded Cloud",
             "pages": [
+              "API-Embedded",
+              "Authentication-Embedded",
               {
-                "group": "API",
+                "group": "MCP",
                 "pages": [
-                  "API-Embedded",
-                  "Authentication-Embedded",
+                  "MCP",
+                  "list-available-mcp-tools",
+                  "invoke-a-tool"
+                ]
+              },
+              {
+                "group": "REST API",
+                "pages": [
+                  "REST-API",
                   {
-                    "group": "MCP",
+                    "group": "Account API",
                     "pages": [
-                      "MCP",
-                      "list-available-mcp-tools",
-                      "invoke-a-tool"
+                      "Account-API",
+                      "List-Accounts",
+                      "Delete-Account"
+                    ]
+                  },
+                  "Audit-API",
+                  {
+                    "group": "Connection API",
+                    "pages": [
+                      "Connection-API",
+                      "Edit-Connection",
+                      "List-Connections",
+                      "Delete-Connection",
+                      "Clear-Connection-Metadata"
                     ]
                   },
                   {
-                    "group": "REST API",
+                    "group": "Job API",
                     "pages": [
-                      "REST-API",
-                      {
-                        "group": "Account API",
-                        "pages": [
-                          "Account-API",
-                          "List-Accounts",
-                          "Delete-Account"
-                        ]
-                      },
-                      "Audit-API",
-                      {
-                        "group": "Connection API",
-                        "pages": [
-                          "Connection-API",
-                          "Edit-Connection",
-                          "List-Connections",
-                          "Delete-Connection",
-                          "Clear-Connection-Metadata"
-                        ]
-                      },
-                      {
-                        "group": "Job API",
-                        "pages": [
-                          "Job-API",
-                          "Create-Cache-Connection",
-                          "List-Jobs",
-                          "Describe-Job",
-                          "Create-Job",
-                          "Update-Job",
-                          "Delete-Job",
-                          "Run-Job",
-                          "Stop-Job"
-                        ]
-                      },
-                      {
-                        "group": "Log API",
-                        "pages": [
-                          "Log-API",
-                          "download-query-log",
-                          "list-audit-log"
-                        ]
-                      },
-                      {
-                        "group": "Metadata API",
-                        "pages": [
-                          "Metadata-API",
-                          "Catalogs",
-                          "Columns",
-                          "Data-Sources-API",
-                          "Exported-Keys",
-                          "Imported-Keys",
-                          "Indexes",
-                          "Primary-Keys",
-                          "Procedure-Parameters",
-                          "Procedures",
-                          "Schemas",
-                          "Tables"
-                        ]
-                      },
-                      {
-                        "group": "SQL API",
-                        "pages": [
-                          "SQL-API",
-                          "Query-Operation",
-                          "Batch-Operation",
-                          "Execute-Procedures"
-                        ]
-                      }
+                      "Job-API",
+                      "Create-Cache-Connection",
+                      "List-Jobs",
+                      "Describe-Job",
+                      "Create-Job",
+                      "Update-Job",
+                      "Delete-Job",
+                      "Run-Job",
+                      "Stop-Job"
+                    ]
+                  },
+                  {
+                    "group": "Log API",
+                    "pages": [
+                      "Log-API",
+                      "download-query-log",
+                      "list-audit-log"
+                    ]
+                  },
+                  {
+                    "group": "Metadata API",
+                    "pages": [
+                      "Metadata-API",
+                      "Catalogs",
+                      "Columns",
+                      "Data-Sources-API",
+                      "Exported-Keys",
+                      "Imported-Keys",
+                      "Indexes",
+                      "Primary-Keys",
+                      "Procedure-Parameters",
+                      "Procedures",
+                      "Schemas",
+                      "Tables"
+                    ]
+                  },
+                  {
+                    "group": "SQL API",
+                    "pages": [
+                      "SQL-API",
+                      "Query-Operation",
+                      "Batch-Operation",
+                      "Execute-Procedures"
                     ]
                   }
                 ]
