@@ -11,6 +11,29 @@ Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens
 
 You need Python >= 3.10 to use the Gemini tools.
 
+## Authentication 
+
+Follow the authentication instructions for either Connect AI or Embedded Cloud:
+
+<Tabs>
+<Tab title="Connect AI">
+<Steps>
+<Step>
+Generate a Personal Access Token (PAT) on the [Settings](/Settings) page. Copy this down, as it acts as your password during authentication.
+</Step>
+<Step>
+In the authorization header below, replace `EMAIL:PAT` with your Connect AI email and PAT.
+</Tab>
+<Tab title="Embedded Cloud">
+<Step>
+Generate an [OAuth JWT bearer token](Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+</Step>
+<Step>
+In the authorization header below, replace `Basic EMAIL:PAT` with `Bearer OAUTH_JWT_TOKEN`.
+</Step>
+</Tab>
+</Tabs>
+
 ## Connect through the Gemini Command Line Interface
 
 After you install Gemini, do the following:
@@ -23,7 +46,7 @@ Go to your user directory `%USERPROFILE%` and create a `.gemini` folder.
 Within the folder, create a file named `settings.json`.
 </Step>
 <Step>
-Copy and paste the following into the `settings.json` file. Replace `EMAIL` with your Connect AI email and `PAT` with the PAT you obtained in the prerequisites:
+Copy and paste the following into the `settings.json` file. Replace the authorization header with the authorization obtained above.
 
 ```json
 {
@@ -31,7 +54,7 @@ Copy and paste the following into the `settings.json` file. Replace `EMAIL` with
    "connect-cloud": {
       "httpUrl": "https://mcp.cloud.cdata.com/mcp/",
       "headers": {
-        "Authorization": "Basic EMAIL:PAT"  //Replace with your Connect AI's Email and PAT
+        "Authorization": "Basic EMAIL:PAT"  //Replace with your authorization header
      },
       "trust": true
    }
