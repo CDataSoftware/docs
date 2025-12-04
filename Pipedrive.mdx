@@ -2,7 +2,7 @@
 title: "Pipedrive"
 ---
 
-import MySnippet from '/snippets/save-and-test.mdx';
+import SaveAndTest from '/snippets/save-and-test.mdx';
 
 ## Setup Guide
 
@@ -37,6 +37,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 <Tabs>
   <Tab title="Basic">
     
+<Steps>
+<Step>
 Enter the **API Token** used for accessing your Pipedrive account.
 	To obtain an API Token, do the following:
 	
@@ -47,16 +49,24 @@ Enter the **API Token** used for accessing your Pipedrive account.
 	3. Navigate to **Company Settings** > **Personal Preferences** > **API** > **Generate Token**.
 	
 	4. Record the value of the generated API token.
+</Step>
 
-  </Tab>
+<SaveAndTest/>
+</Steps>
+</Tab>
+
   <Tab title="OAuth">
 
+<Steps>
+<Step>
 Enter the following information:
 	- **OAuth Client Id**—the client Id assigned when you registered your Pipedrive account for OAuth.
 	- **OAuth Client Secret**—the client secret assigned when you registered your Pipedrive account for OAuth.
+</Step>
+<SaveAndTest/>
+</Steps>
 
   </Tab>
   
 </Tabs>
 
-<MySnippet/>
