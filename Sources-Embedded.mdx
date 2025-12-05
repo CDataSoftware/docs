@@ -1,0 +1,175 @@
+---
+title: "Sources"
+description: "The ***Sources*** page enables you to create and manage connections to your [data sources](/Data-Sources)."
+---
+
+<Frame>
+  <img src="/images/sources.png" alt="Sources" />
+</Frame>
+
+The **Sources** page contains the following information about each connection:
+
+- **Connection Name**—the user-defined name of the connection.
+- **Data Source**—the data source type of the connection, along with whether the data source supports custom reports.
+- **Status**—The status of the connection, which can be one of the following:
+	- **Authenticated**—the connection to the data source is successful.
+	- **Not Authenticated**—the connection was created in Connect AI, but is not successfully connected to the data source. You can return to the connection's edit screen to authenticate the connection. Note that Query users need to contact an administrator to authenticate a connection.
+	- **Conditional**—the connection is conditional based on the global settings and tables added to the connector. This occurs with the API connector.
+- **Last Modified**—the date and time a user last modified the connection.
+
+## Add a Connection
+
+To add a new connection, complete the following steps:
+
+<Steps>
+<Step>
+On the **Sources** page, click **Add Connection**. This action displays the **Add Connection** dialog.
+</Step>
+<Step>
+Select a data source from the list in the dialog, or search for a connection by name.
+	<Frame>
+	  <img src="/images/add_connection.png" alt="Add connection" />
+	</Frame>
+</Step>
+</Steps>
+
+After you select a data source, the **Edit Connection** page for your data source appears.
+
+<Steps>
+<Step>
+Configure the connection according to the [instructions for the data source](/Data-Sources). The instructions for setting up the connection appear in the right pane of the configuration page, in the **Documentation** tab.
+</Step>
+<Step>
+Click **Save and Test**.
+</Step>
+</Steps>
+
+If the connection succeeds, a **Connection successfully saved** message appears. You can also view the data model of your connection in the right pane of the **Edit Connection** page, in the **Data Model** tab. When you return to the main **Sources** page, you will see the new connection in the Sources list. You can modify or delete a connection at any time by clicking the edit or delete icons in the list.
+
+If the connection fails, the user interface displays error messages under the fields with missing data. Some data sources require that you sign in directly to the data source’s website. If you did not sign in, the user interface displays an error message under the **Sign in** button.
+
+In some situations, refreshing your metadata cache for a connection can help fix loading or performance issues with your Connect AI application. To refresh your metadata cache, click **Refresh Metadata** at the top of the **Edit Connection** page. A success banner is displayed to indicate that the metadata cache has been refreshed. <Note>If you attempt to modify or delete a connection and Connect AI finds a cached job from the current connection, you are prompted with a warning. You can choose to cancel or continue with the changes. If you save the changes, Connect AI clears the cached data from the current connection.</Note>
+
+If the connection fails, it is saved as a draft. A draft connection appears on the **Edit Connection** page and on the main **Sources** page as **Not Authenticated**. You can edit the connection later and finish the authentication process. <Note>Query users need to contact an administrator of the account to have a draft connection authenticated.</Note>
+
+## Assign Permissions
+
+When you create or edit a connection, the **Permissions** tab displays a list of available users and allows you to assign permissions to each one. Permissions are described in the list below:
+
+- **Select:** Enables you to select rows from tables in a connection.
+- **Insert:** Enables you to insert rows into tables of a connection.
+- **Update:** Enables you to update rows in tables of a connection.
+- **Delete:** Enables you to delete rows from tables in a connection.
+- **Execute:** Enables users to execute stored procedures in a connection.
+	<Frame>
+	  <img src="/images/connection_permissions.png" alt="Connection permissions" />
+	</Frame>
+
+You can toggle the permissions in four ways:
+
+- Click an individual box in the table to toggle that permission for a single user.
+- Click the double check mark at the top of a table column to toggle that permission for every user.
+- Click the double check mark at the right side of the table to toggle all permissions for a single user.
+- Click the double check mark that is labeled **All** in the top-right corner of the table to toggle all permissions for all users.
+
+## Configure Custom Reports
+
+Some data sources support *custom reports*, which allow you to configure pre-defined reports that you can query as views within your connections. Each report has a unique set of required inputs, and you provide these inputs when you configure the report in your Connect AI account.
+
+Custom reports are generally useful in two types of scenarios:
+
+- For ad or analytics data sources, they can be used to show aggregated reports on performance data by allowing you to pre-define a set of metrics and dimensions.
+- Other types of data sources let you pre-define parameters to create data reports. For example, an accounting API might allow you to create a general ledger report in QuickBooks.
+
+### Create a Custom Report
+
+If a data source supports custom reports, a **Custom Reports** tab appears on the connection settings page. Clicking this tab opens the custom reports interface, as shown below:
+
+<Frame>
+  <img src="/images/customReports_empty.png" alt="Custom reports" />
+</Frame>
+
+To add a custom report, follow these steps:
+
+<Steps>
+<Step>
+Click **Add** above the report table. A dialog appears with a list of the custom reports available for your chosen data source.
+	<Frame>
+	  <img src="/images/customReports_addReport.png" alt="Add custom report" />
+	</Frame>
+</Step>
+<Step>
+Select the report you want to use and click **Confirm**. A list of required and optional fields appear for the custom report.
+</Step>
+<Step>
+Enter the requested information, and then click **Save** to save the custom report to your account.
+</Step>
+</Steps>
+
+After you save a custom report, it appears in the list of tables for your connection. You can delete custom reports and add new ones as needed.
+
+<Note>
+  Custom reports are not shared across multiple connections to the same data source. For example, if you have two separate connections to Adobe Analytics, both connections will have their own lists of custom reports.
+</Note>
+
+### Using a Custom Report
+
+You can query saved custom reports by passing the name of the custom report in the table field for your query. For example, if you have a custom report called *Customer Accounts List* on your QuickBooks Online connection, you could select all of its results with this query:
+
+```sql
+SELECT * FROM [QuickBooksOnline1].[QuickBooksOnline].[Customer Accounts List]
+```
+
+### Editing a Custom Report
+
+To edit an existing custom report, follow these steps:
+
+<Steps>
+<Step>
+In the report table, find the report you want to edit.
+</Step>
+<Step>
+Click the report name or type, or click the edit button.
+</Step>
+<Step>
+In **Edit Custom Report**, add or change report parameters.
+</Step>
+<Step>
+Click **Save Changes**.
+</Step>
+</Steps>
+
+### Duplicating a Custom Report from an Existing Report
+
+To duplicate an existing custom report, follow these steps:
+
+<Steps>
+<Step>
+In the report table, find the report you want to duplicate.
+	<Frame>
+	  <img src="/images/customReports_duplicate.png" alt="Duplicate custom report" />
+	</Frame>
+</Step>
+<Step>
+Click the duplicate button. Connect AI creates a duplicate custom report for the data source with a new name.
+</Step>
+<Step>
+Edit the **Report Name**, if desired, and click **Save**.
+</Step>
+</Steps>
+
+### Deleting a Custom Report
+
+To delete an existing custom report, follow these steps:
+
+<Steps>
+<Step>
+In the report table, find the report you want to delete.
+</Step>
+<Step>
+Click the delete button to the right of the report. Alternatively, you can click **Delete** on the **Edit Custom Report** page.
+</Step>
+<Step>
+Click **Delete** again in the dialog to confirm.
+</Step>
+</Steps>

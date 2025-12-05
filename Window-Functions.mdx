@@ -34,13 +34,13 @@ These window functions perform mathematical operations on the records within the
 
 Calculates the number of records in each partition. The calculated column is of the data type “int”.
 
-#### Syntax
+**Syntax**
 
 ```bash
 COUNT()
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the total number of records in that partition.
 
@@ -52,13 +52,13 @@ SELECT Name, Role, Earnings, COUNT() OVER (PARTITION BY Role) FROM Employees
 
 Calculates the number of records in each partition. The calculated column is of the data type “bigint”.
 
-#### Syntax
+**Syntax**
 
 ```bash
 COUNT_BIG()
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the total number of records in that partition.
 
@@ -70,13 +70,13 @@ SELECT Name, Role, Earnings, COUNT_BIG() OVER (PARTITION BY Role) FROM Employees
 
 Calculates the minimum value of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MIN(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the minimum value of numeric\_column across the records in that partition.
 
@@ -88,13 +88,13 @@ SELECT Name, Role, Earnings, MIN(Earnings) OVER (PARTITION BY Role) FROM Employe
 
 Calculates the maximum value of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MAX(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the maximum value of numeric\_column across the records in that partition.
 
@@ -106,13 +106,13 @@ SELECT Name, Role, Earnings, MAX(Earnings) OVER (PARTITION BY Role) FROM Employe
 
 Calculates the sum of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SUM(numeric_column)
 ```
 
-#### Exaqmple(s)
+**Exaqmple(s)**
 
 In each partition, every record will display the sum of numeric\_column across the records in that partition.
 
@@ -124,13 +124,13 @@ SELECT Name, Role, Earnings, SUM(Earnings) OVER (PARTITION BY Role) FROM Employe
 
 Calculates the average value of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 AVG(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the average value of numeric\_column across the records in that partition.
 
@@ -142,13 +142,13 @@ SELECT Name, Role, Earnings, AVG(Earnings) OVER (PARTITION BY Role) FROM Employe
 
 Calculates the median value of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MEDIAN(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the median value of numeric\_column across the records in that partition.
 
@@ -160,13 +160,13 @@ SELECT Name, Role, Earnings, MEDIAN(Earnings) OVER (PARTITION BY Role) FROM Empl
 
 Calculates the standard deviation of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 STDEV(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the standard deviation of numeric\_column across the records in that partition.
 
@@ -178,13 +178,13 @@ SELECT Name, Role, Earnings, STDEV(Earnings) OVER (PARTITION BY Role) FROM Emplo
 
 Calculates the population standard deviation of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 STDEVP(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the population standard deviation of numeric\_column across the records in that partition.
 
@@ -196,13 +196,13 @@ SELECT Name, Role, Earnings, STDEVP(Earnings) OVER (PARTITION BY Role) FROM Empl
 
 Calculates the statistical standard variance of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 VAR(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the statistical standard variance of numeric\_column across the records in that partition.
 
@@ -214,13 +214,13 @@ SELECT Name, Role, Earnings, VAR(Earnings) OVER (PARTITION BY Role) FROM Employe
 
 Calculates the variance population of a numerical column per partition.
 
-#### Syntax
+**Syntax**
 
 ```bash
 VARP(numeric_column)
 ```
 
-#### Example(s)
+**Example(s)**
 
 In each partition, every record will display the variance population of numeric\_column across the records in that partition.
 
@@ -238,13 +238,13 @@ Assigns a rank number to each record in a window based on the value of the colum
 
 If two or more records have an equal value in the in ranked column, they all receive the same rank number and the rank count increments internally, skipping ahead one rank number for each record with a duplicate value in the ORDER BY column.
 
-#### Syntax
+**Syntax**
 
 ```bash
 RANK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT Id, FullName, RANK() OVER (ORDER BY FullName) AS Rank FROM Lead
@@ -262,13 +262,13 @@ Operates like the RANK() function, but it doesn’t increment the internal rank 
 
 This means that, while records with identical values in the ORDER BY column still share a rank number, the function never skips a rank number.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DENSE_RANK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT Id, FullName, DENSE_RANK() OVER (PARTITION BY Id ORDER BY FullName) AS Rank FROM Lead
@@ -284,13 +284,13 @@ SELECT Id, FullName, DENSE_RANK() OVER (PARTITION BY Id ORDER BY FullName) AS Ra
 
 Calculates a row number for each record. An ORDER BY clause in the OVER clause is required.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ROW_NUMBER()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT Name, Role, Earnings, ROW_NUMBER() OVER (ORDER BY Role) FROM Employees
@@ -306,7 +306,7 @@ SELECT Name, Role, Earnings, ROW_NUMBER() OVER (PARTITION BY Role ORDER BY Earni
 
 Distributes rows of an ordered partition into a specified number of approximately equal groups, or buckets. It assigns each group a bucket number starting from one. For each row in a group, the NTILE() function assigns a bucket number representing the group to which the row belongs.
 
-#### Syntax
+**Syntax**
 
 ```bash
 NTILE(buckets) OVER (
@@ -315,7 +315,7 @@ NTILE(buckets) OVER (
 )
 ```
 
-#### Parameters
+**Parameters**
 
 - **buckets** The number of buckets into which the rows are divided. The buckets can be an expression or subquery that evaluates to a positive integer. It cannot be a window function.
 - **PARTITION BY** Distributes rows of a result set into partitions to which the NTILE() function is applied.
@@ -325,7 +325,7 @@ If the number of rows is not divisible by the buckets, the NTILE() function retu
 
 If the total of rows is divisible by the number of buckets, the function divides the rows evenly among buckets.
 
-#### Example(s)
+**Example(s)**
 
 The following statement creates a new table named ntile\_demo that stores 10 integers:
 
@@ -359,7 +359,7 @@ These window functions perform analytical operations on the records within the w
 
 Calculates the relative rank SQL Percentile of each row. It returns values greater than zero, but the maximum value is one. It does not count any NULL values. This function is nondeterministic.
 
-#### Syntax
+**Syntax**
 
 ```bash
 PERCENT_RANK() OVER (
@@ -368,7 +368,7 @@ PERCENT_RANK() OVER (
   )
 ```
 
-#### Parameters
+**Parameters**
 
 - **PARTITION BY** By default, SQL Server treats the whole data set as a single set. You can specify the PARTITION BY clause to divide data into multiple sets. The Percent\_Rank function performs the analytical calculations on each set. This parameter is optional.
 - **ORDER BY** Sorts the data in either ascending or descending order. This parameter is required.

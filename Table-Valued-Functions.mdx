@@ -15,7 +15,7 @@ Table-valued function support is an experimental feature of the driver. This fun
 
 The CROSS APPLY operator is used to perform a subquery on each row of a table or resultset produced by a preceding table expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 <table_expression_1> CROSS APPLY <table_expression_2>
@@ -29,7 +29,7 @@ Each resulting record is an instance of the record it’s splitting, with all th
 
 The WITH clause is used alongside certain table-valued functions to match against constructs within the structure being split (keys, element names, attribute names, etc.) and/or to specify metadata for the columns generated from the function.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT A.ColumnName, X.DerivedColumnName FROM TableName A CROSS APPLY <table-valued function> WITH (DerivedColumnName varchar(255)) AS X
@@ -41,18 +41,18 @@ SELECT A.ColumnName, X.DerivedColumnName FROM TableName A CROSS APPLY <table-val
 
 Takes each record in the recordset of the preceding table expression, splits the column containing delimiters (input\_text) into substrings separated by the delimiter, and returns one record per substring.
 
-#### Syntax
+**Syntax**
 
 ```bash
 STRING_SPLIT(input_text,delimiter)
 ```
 
-#### Parameters
+**Parameters**
 
 - **input\_text** A column whose value you want to parse.
 - **delimiter** The character used to split the value of the column specified in input\_text.
 
-#### Example(s)
+**Example(s)**
 
 Suppose there is a column called “SplitColumn” with the following content:
 
@@ -77,18 +77,18 @@ SELECT A.ID, X.Value FROM [TableWithDelimitedStringField] A CROSS APPLY STRING_S
 
 For each record in the recordset of the preceding table expression, returns one record for each instance of a key in a JSON array (json\_content) that matches the key(s) specified in the WITH clause, at the scope specified by the “jsonpath” input.
 
-#### Syntax
+**Syntax**
 
 ```bash
 JSONTABLE(json_content,[jsonpath])
 ```
 
-#### Parameters
+**Parameters**
 
 - **json\_content** A JSON “table” (array of objects). The contents can nest, but this must be a single JSON array, not any other JSON structure, at the root level. The values of every instance of the key(s) provided in the WITH clause are retrievable only for substructures which are immediate children of the root-level JSON array.
 - **jsonpath** An optional JSONPath query defining the scope, within the json\_content array, that you want to pull content from. The JSON key(s) identified in the WITH clause must exist at the scope defined in this parameter. This defaults to the JSON root ($). Consider a sample table with a single record, including an ID column and column with JSON content called “JSONColumn” with the following content:
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 [
@@ -132,13 +132,13 @@ SELECT A.ID, X.name FROM [TableWithJSONField] A CROSS APPLY JSONTABLE(A.JSONColu
 
 For each record in the resultset of the preceding table expression, returns one record for each of the elements and/or attributes in an XML structure (xml\_content) that match the tag name(s) and/or attribute name(s) specified in the WITH clause, at the scope specified in the “xpath” input.
 
-#### Syntax
+**Syntax**
 
 ```bash
 XMLTABLE(xml_content,[xpath,child_type])
 ```
 
-#### Parameters
+**Parameters**
 
 - **xml\_content** A column containing an XML structure.
 - **xpath** An optional XPath that specifies the scope within the XML structure at which the driver extracts content matching the tag/attribute name(s) specified in the WITH clause. When extracting the content of sub-elements, the driver can retrieve all content from tags at the root level, (depth 0) immediate children of the root (depth 1), and children of those children (depth 2). When extracting element attribute content, the driver can retrieve all content from tags containing the specified attribute at the root level (depth 0) and from immediate children of root-level elements (depth 1).
@@ -147,7 +147,7 @@ XMLTABLE(xml_content,[xpath,child_type])
 	- 1: The column(s) in the WITH clause are checked for matches against the parent element’s attribute names.
 	- 2: The column(s) in the WITH clause are checked for matches against the parent element’s sub-element tag names. When not supplied, this defaults to 0.
 
-#### Example(s)
+**Example(s)**
 
 Consider a sample table with a single record, including an ID column and a column with XML content called “XMLContent” with the following content:
 
@@ -232,18 +232,18 @@ SELECT A.ID, X.type FROM [TableWithXMLField] A CROSS APPLY XMLTABLE(A.XMLContent
 
 For each record in the resultset of the preceding table expression, reads from a column that contains a CSV table (csv\_content) and for each record in that CSV table, returns one record containing the value of the CSV column(s) specified in the WITH clause.
 
-#### Syntax
+**Syntax**
 
 ```bash
 CSVTABLE(csv_content,[delimiter])
 ```
 
-#### Parameters
+**Parameters**
 
 - **csv\_content** A column containing a CSV table.
 - **delimiter** An optional custom delimiter (instead of a comma) which splits the CSV content contained in the csv\_content input.
 
-#### Example(s)
+**Example(s)**
 
 Consider a sample table with a single record, including an ID column and a column containing CSV table called “CSVContent” with the following content:
 

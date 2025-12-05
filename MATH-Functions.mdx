@@ -9,17 +9,17 @@ description: "MATH functions perform various mathematical operations on the data
 
 Returns the absolute (positive) value of the specified numeric expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ABS(numeric_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The expression of an indeterminate numeric data type except for the bit data type.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ABS(15);
@@ -33,17 +33,17 @@ SELECT ABS(-15);
 
 Returns the arc cosine, the angle in radians whose cosine is the specified float expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ACOS(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression that specifies the cosine of the angle to be returned. Values outside the range from -1 to 1 return null.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ACOS(0.5);
@@ -54,17 +54,17 @@ SELECT ACOS(0.5);
 
 Returns the arc sine, the angle in radians whose sine is the specified float expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ASIN(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression that specifies the sine of the angle to be returned. Values outside the range from -1 to 1 return null.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ASIN(0.5);
@@ -75,17 +75,17 @@ SELECT ASIN(0.5);
 
 Returns the arc tangent, the angle in radians whose tangent is the specified float expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ATAN(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression that specifies the tangent of the angle to be returned.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ATAN(10);
@@ -96,18 +96,18 @@ SELECT ATAN(10);
 
 Returns the angle in radians between the positive x-axis and the ray from the origin to the point (y, x) where x and y are the values of the two specified float expressions.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ATN2(float_expression1, float_expression2)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression1** The float expression that is the y-coordinate.
 - **float\_expression2** The float expression that is the x-coordinate.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ATN2(1, 1);
@@ -118,17 +118,17 @@ SELECT ATN2(1, 1);
 
 Returns the smallest integer greater than or equal to the specified numeric expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 CEILING ( numeric_expression ) or CEIL( numeric_expression )
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The expression of an indeterminate numeric data type except for the bit data type.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT CEILING(1.3);
@@ -145,17 +145,17 @@ SELECT CEILING(1.7);
 
 Returns the trigonometric cosine of the specified angle in radians in the specified expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 COS(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression of the specified angle in radians.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT COS(1);
@@ -166,17 +166,17 @@ SELECT COS(1);
 
 Returns the trigonometric cotangent of the angle in radians specified by float\_expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 COT(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression of the angle in radians.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT COT(1);
@@ -187,17 +187,17 @@ SELECT COT(1);
 
 Returns the angle in degrees for the angle specified in radians.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DEGREES(numeric_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The angle in radians, an expression of an indeterminate numeric data type except for the bit data type.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT DEGREES(3.1415926);
@@ -208,17 +208,17 @@ SELECT DEGREES(3.1415926);
 
 Returns the exponential value of the specified float expression. For example, EXP(LOG(20)) is 20.
 
-#### Syntax
+**Syntax**
 
 ```bash
 EXP(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT EXP(2);
@@ -229,17 +229,17 @@ SELECT EXP(2);
 
 Evaluates the expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 EXPR(expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **expression** The expression. Operators allowed are `+, -, \*, /, ==, !=, >, <, >=, and <=`.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT EXPR('1 + 2 * 3');
@@ -253,17 +253,17 @@ SELECT EXPR('1 + 2 * 3 == 7');
 
 Returns the largest integer less than or equal to the numeric expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FLOOR(numeric_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The expression of an indeterminate numeric data type except for the bit data type.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT FLOOR(1.3);
@@ -280,13 +280,13 @@ SELECT FLOOR(1.7);
 
 Returns the greatest of the supplied integers.
 
-#### Syntax
+**Syntax**
 
 ```bash
 GREATEST(int1,int2,....)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT GREATEST(3,5,8,10,1)
@@ -303,11 +303,11 @@ Returns a the equivalent hex for the input value.
 HEX(value)
 ```
 
-#### Parameters
+**Parameters**
 
 - **value**: A string or numerical value to be converted into hex.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT HEX(866849198);
@@ -325,7 +325,7 @@ Returns the least of the supplied integers.
 LEAST(int1,int2,....)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT LEAST(3,5,8,10,1)
@@ -336,18 +336,18 @@ SELECT LEAST(3,5,8,10,1)
 
 Returns the natural logarithm of the specified float expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LOG( float_expression [, base ] )
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression.
 - **base** The optional integer argument that sets the base for the logarithm.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT LOG(7.3890560);
@@ -358,17 +358,17 @@ SELECT LOG(7.3890560);
 
 Returns the base-10 logarithm of the specified float expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LOG10( float_expression )
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The expression of type float.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT LOG10(10000);
@@ -379,18 +379,18 @@ SELECT LOG10(10000);
 
 Returns the integer value associated with the remainder when dividing the dividend by the divisor.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MOD(dividend,divisor)
 ```
 
-#### Parameters
+**Parameters**
 
 - **dividend** The number to take the modulus of.
 - **divisor** The number to divide the dividend by when determining the modulus.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT MOD(10,3);
@@ -401,17 +401,17 @@ SELECT MOD(10,3);
 
 Returns the opposite to the real number input.
 
-#### Syntax
+**Syntax**
 
 ```bash
 NEGATE(real_number)
 ```
 
-#### Parameters
+**Parameters**
 
 - **real\_number** The real number to find the opposite of.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT NEGATE(10);
@@ -425,13 +425,13 @@ SELECT NEGATE(-12.4)
 
 Returns the constant value of pi.
 
-#### Syntax
+**Syntax**
 
 ```bash
 PI()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT PI()
@@ -442,18 +442,18 @@ SELECT PI()
 
 Returns the value of the specified expression raised to the specified power.
 
-#### Syntax
+**Syntax**
 
 ```bash
 POWER(float_expression , y)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression.
 - **y** The power to raise float\_expression to.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT POWER(2, 10);
@@ -467,17 +467,17 @@ SELECT POWER(2, -2);
 
 Returns the angle in radians of the angle in degrees.
 
-#### Syntax
+**Syntax**
 
 ```bash
 RADIANS(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The degrees of the angle as a float expression.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT RADIANS(180);
@@ -488,17 +488,17 @@ SELECT RADIANS(180);
 
 Returns a pseudorandom float value from 0 through 1, exclusive.
 
-#### Syntax
+**Syntax**
 
 ```bash
 RAND( [ integer_seed ] )
 ```
 
-#### Parameters
+**Parameters**
 
 - **seed** The optional integer expression that specifies the seed value. If seed is not specified, a seed value at random will be assigned.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT RAND();
@@ -514,19 +514,19 @@ SELECT RAND(1);
 
 Returns the numeric value rounded to the specified length or precision.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ROUND( numeric_expression [ ,integer_length] [ ,function ] )
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The expression of a numeric data type.
 - **length** The optional precision to round the numeric expression to. When this is ommitted, the default behavior will be to round to the nearest whole number.
 - **function** The optional type of operation to perform. When the function parameter is omitted or has a value of 0 (default), numeric\_expression is rounded. When a value other than 0 is specified, numeric\_expression is truncated.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT ROUND(1.3, 0);
@@ -548,17 +548,17 @@ SELECT ROUND (1.24);
 
 Returns the positive sign (1), 0, or negative sign (-1) of the specified expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SIGN(numeric_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **numeric\_expression** The expression of an indeterminate data type except for the bit data type.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT SIGN(0);
@@ -575,17 +575,17 @@ SELECT SIGN(-10);
 
 Returns the trigonometric sine of the angle in radians.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SIN(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The float expression specifying the angle in radians.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT SIN(1);
@@ -596,17 +596,17 @@ SELECT SIN(1);
 
 Returns the square root of the specified float value.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SQRT(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The expression of type float.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT SQRT(100);
@@ -617,17 +617,17 @@ SELECT SQRT(100);
 
 Returns the square of the specified float value.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SQUARE(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The expression of type float.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT SQUARE(10);
@@ -641,17 +641,17 @@ SELECT SQUARE(-10);
 
 Returns the tangent of the input expression.
 
-#### Syntax
+**Syntax**
 
 ```bash
 TAN(float_expression)
 ```
 
-#### Parameters
+**Parameters**
 
 - **float\_expression** The expression of type float.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT TAN(1);
@@ -662,18 +662,18 @@ SELECT TAN(1);
 
 Returns the supplied decimal number truncated to have the supplied decimal precision.
 
-#### Syntax
+**Syntax**
 
 ```bash
 TRUNC(decimal_number,precision)
 ```
 
-#### Parameters
+**Parameters**
 
 - **decimal\_number** The decimal value to truncate.
 - **precision** The number of decimal places to truncate the decimal number to.
 
-#### Example(s)
+**Example(s)**
 
 ```sql
 SELECT TRUNC(10.3423,2);
