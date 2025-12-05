@@ -25,8 +25,8 @@ If you do not need authentication, choose None in the **Auth Scheme** drop-down 
 
 ## Authentication Methods
 
-### Basic
-
+<Tabs>
+  <Tab title="Basic">
 <Steps>
 <Step>
 Enter the GraphQL username for authentication into **User**.
@@ -42,8 +42,9 @@ At the top of the Connect AI **Add GraphQL Connection** page, click **Save & Tes
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuth
+  </Tab>
 
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your GraphQL account for OAuth.
@@ -71,8 +72,9 @@ At the top of the Connect AI **Add GraphQL Connection** page, click **Save & Tes
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthPKCE
+  </Tab>
 
+  <Tab title="OAuthPKCE">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your GraphQL account for OAuth.
@@ -91,6 +93,8 @@ At the top of the Connect AI **Add GraphQL Connection** page, click **Save & Tes
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and GraphQL, see [this information page](https://cdn.cdata.com/help/LAK/cloud/default.htm#default).
