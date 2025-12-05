@@ -1,7 +1,22 @@
-strong {
-    font-weight: extra-bold;;
+#navbar {
+  background: #fffff2;
+  padding: 1rem;
+}
+
+strong,
+b,
+[class*="bold"],
+markdown strong,
+markdown b,
+.prose strong,
+.prose b,
+article strong,
+article b,
+main strong,
+main b {
+    font-weight: 600 !important;
 }
 
 Tab {
-    font-weight: extra-bold;;
+    font-weight: 600;
 }
