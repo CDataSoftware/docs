@@ -11,13 +11,13 @@ Date literal functions begin with `L_` and are used to filter date fields using 
 
 Returns the current date value.
 
-#### Syntax
+**Syntax**
 
 ```bash
 CURRENT_DATE()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT CURRENT_DATE();
@@ -28,13 +28,13 @@ SELECT CURRENT_DATE();
 
 Returns the current time stamp of the database system as a datetime value. This value is equal to GETDATE and SYSDATETIME, and is always in the local timezone.
 
-#### Syntax
+**Syntax**
 
 ```bash
 CURRENT_TIMESTAMP()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT CURRENT_TIMESTAMP();
@@ -45,20 +45,20 @@ SELECT CURRENT_TIMESTAMP();
 
 Returns the datetime value that results from adding the specified number (a signed integer) to the specified date part of the date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATEADD (datepart , integer_number , date [, dateformat])
 ```
 
-#### Parameters
+**Parameters**
 
 - **datepart** The part of the date to add the specified number to. The valid values and abbreviations are year (yy, yyyy), quarter (qq, q), month (mm, m), dayofyear (dy, y), day (dd, d), week (wk, ww), weekday (dw), hour (hh), minute (mi, n), second (ss, s), and millisecond (ms).
 - **number** The number to be added.
 - **date** The expression of the datetime data type.
 - **dateformat** The optional output date format.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATEADD('d', 5, '2018-02-01');
@@ -72,19 +72,19 @@ SELECT DATEADD('hh', 5, '2018-02-01 00:00:00');
 
 Returns the difference (a signed integer) of the specified time interval between the specified start date and end date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATEDIFF ( datepart , startdate , enddate )
 ```
 
-#### Parameters
+**Parameters**
 
 - **datepart** The part of the date that is the time interval of the difference between the start date and end date. The valid values and abbreviations are day (dd, d), hour (hh), minute (mi, n), second (ss, s), and millisecond (ms).
 - **startdate** The datetime expression of the start date.
 - **enddate** The datetime expression of the end date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATEDIFF('d', '2018-02-01', '2018-02-10');
@@ -98,19 +98,19 @@ SELECT DATEDIFF('hh', '2018-02-01 00:00:00', '2018-02-01 12:00:00');
 
 Returns the datetime value for the specified year, month, and day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATEFROMPARTS(integer_year, integer_month, integer_day)
 ```
 
-#### Parameters
+**Parameters**
 
 - **year** The integer expression specifying the year.
 - **month** The integer expression specifying the month.
 - **day** The integer expression specifying the day.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATEFROMPARTS(2018, 2, 1);
@@ -121,18 +121,18 @@ SELECT DATEFROMPARTS(2018, 2, 1);
 
 Returns the character string that represents the specified date part of the specified date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATENAME(datepart , date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **datepart** The part of the date to return. The valid values and abbreviations are year (yy, yyyy), quarter (qq, q), month (mm, m), dayofyear (dy, y), day (dd, d), week (wk, ww), weekday (dw), hour (hh), minute (mi, n), second (ss, s), millisecond (ms), microsecond (mcs), nanosecond (ns), and TZoffset (tz).
 - **date** The datetime expression.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATENAME('yy', '2018-02-01');
@@ -146,19 +146,19 @@ SELECT DATENAME('dw', '2018-02-01');
 
 Returns a character string that represents the specified date part of the specified date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATEPART(datepart, date [,integer_datefirst])
 ```
 
-#### Parameters
+**Parameters**
 
 - **datepart** The part of the date to return. The valid values and abbreviations are year (yy, yyyy), quarter (qq, q), month (mm, m), dayofyear (dy, y), day (dd, d), week (wk, ww), weekday (dw), hour (hh), minute (mi, n), second (ss, s), millisecond (ms), microsecond (mcs), nanosecond (ns), TZoffset (tz), ISODOW, ISO\_WEEK (isoweek, isowk,isoww), and ISOYEAR.
 - **date** The datetime string that specifies the date.
 - **datefirst** The optional integer representing the first day of the week. The default is 7, Sunday.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATEPART('yy', '2018-02-01');
@@ -172,13 +172,13 @@ SELECT DATEPART('dw', '2018-02-01');
 
 Returns the datetime value for the specified date parts.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATETIMEFROMPARTS(integer_year, integer_month, integer_day, integer_hour, integer_minute, integer_seconds, integer_milliseconds)
 ```
 
-#### Parameters
+**Parameters**
 
 - **year** The integer expression specifying the year.
 - **month** The integer expression specifying the month.
@@ -188,7 +188,7 @@ DATETIMEFROMPARTS(integer_year, integer_month, integer_day, integer_hour, intege
 - **seconds** The integer expression specifying the seconds.
 - **milliseconds** The integer expression specifying the milliseconds.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATETIMEFROMPARTS(2018, 2, 1, 1, 2, 3, 456);
@@ -199,13 +199,13 @@ SELECT DATETIMEFROMPARTS(2018, 2, 1, 1, 2, 3, 456);
 
 Returns the datetime value for the specified date parts (with different parameters).
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATETIME2FROMPARTS(integer_year, integer_month, integer_day, integer_hour, integer_minute, integer_seconds, integer_fractions, integer_precision)
 ```
 
-#### Parameters
+**Parameters**
 
 - **year** The integer expression specifying the year.
 - **month** The integer expression specifying the month.
@@ -216,7 +216,7 @@ DATETIME2FROMPARTS(integer_year, integer_month, integer_day, integer_hour, integ
 - **fractions** The integer expression specifying the fractions of the second.
 - **precision** The integer expression specifying the precision of the fraction.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATETIME2FROMPARTS(2018, 2, 1, 1, 2, 3, 456, 3);
@@ -227,18 +227,18 @@ SELECT DATETIME2FROMPARTS(2018, 2, 1, 1, 2, 3, 456, 3);
 
 Truncates the date to the precision of the given date part. Modeled after the Oracle TRUNC function.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATE_TRUNC(date, datepart)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 - **datepart** Refer to the [Oracle documentation](https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions230.htm#i1002084) for valid datepart syntax.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATE_TRUNC('05-04-2005', 'YY');
@@ -252,19 +252,19 @@ SELECT DATE_TRUNC('05-04-2005', 'MM');
 
 Truncates the date to the precision of the given date part. Modeled after the PostgreSQL date\_trunc function.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DATE_TRUNC2(datepart, date, [weekday])
 ```
 
-#### Parameters
+**Parameters**
 
 - **datepart** One of ‘millennium’, ‘century’, ‘decade’, ‘year’, ‘quarter’, ‘month’, ‘week’, ‘day’, ‘hour’, ‘minute’ or ‘second’.
 - **date** The datetime string that specifies the date.
 - **weekday** The optional day of the week to use as the first day for ‘week’. One of ‘sunday’, ‘monday’, etc.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DATE_TRUNC2('year', '2020-02-04');
@@ -278,17 +278,17 @@ SELECT DATE_TRUNC2('week', '2020-02-04', 'monday');
 
 Returns the integer that specifies the day component of the specified date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DAY(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DAY('2018-02-01');
@@ -299,17 +299,17 @@ SELECT DAY('2018-02-01');
 
 Returns the day of the month of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DAYOFMONTH(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DAYOFMONTH('04/15/2000');
@@ -320,17 +320,17 @@ SELECT DAYOFMONTH('04/15/2000');
 
 Returns the day of the week of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DAYOFWEEK(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DAYOFWEEK('04/15/2000');
@@ -341,17 +341,17 @@ SELECT DAYOFWEEK('04/15/2000');
 
 Returns the day of the year of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 DAYOFYEAR(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT DAYOFYEAR('04/15/2000');
@@ -362,18 +362,18 @@ SELECT DAYOFYEAR('04/15/2000');
 
 Returns the last day of the month that contains the specified date with an optional offset.
 
-#### Syntax
+**Syntax**
 
 ```bash
 EOMONTH(date [, integer_month_to_add ]) or LAST_DAY(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime expression specifying the date for which to return the last day of the month.
 - **integer\_month\_to\_add** The optional integer expression specifying the number of months to add to the date before calculating the end of the month.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT EOMONTH('2018-02-01');
@@ -390,17 +390,17 @@ SELECT EOMONTH('2018-02-01', 2);
 
 Returns the first day of the month of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FDMONTH(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT FDMONTH('02-08-2018');
@@ -411,17 +411,17 @@ SELECT FDMONTH('02-08-2018');
 
 Returns the first day of the quarter of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FDQUARTER(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT FDQUARTER('05-08-2018');
@@ -432,17 +432,17 @@ SELECT FDQUARTER('05-08-2018');
 
 Returns the first day of the week of the given date part.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FDWEEK(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT FDWEEK('02-08-2018');
@@ -453,17 +453,17 @@ SELECT FDWEEK('02-08-2018');
 
 Returns the time stamp associated with the Date Modified of the relevant file.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FILEMODIFIEDTIME(uri)
 ```
 
-#### Parameters
+**Parameters**
 
 - **uri** An absolute path pointing to a file on the local file system.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT FILEMODIFIEDTIME('C:/Documents/myfile.txt');
@@ -474,17 +474,17 @@ SELECT FILEMODIFIEDTIME('C:/Documents/myfile.txt');
 
 Returns a date derived from the number of days after 1582-10-15 (based upon the Gregorian calendar). This will be equivalent to the MYSQL FROM\_DAYS function.
 
-#### Syntax
+**Syntax**
 
 ```bash
 FROM_DAYS(datevalue)
 ```
 
-#### Parameters
+**Parameters**
 
 - **datevalue** A integer value representing the number of days since 1582-10-15.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT FROM_DAYS(736000);
@@ -495,13 +495,13 @@ SELECT FROM_DAYS(736000);
 
 Returns the current time stamp of the database system as a datetime value. This value is equal to CURRENT\_TIMESTAMP and SYSDATETIME, and is always in the local timezone.
 
-#### Syntax
+**Syntax**
 
 ```bash
 GETDATE()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT GETDATE();
@@ -512,13 +512,13 @@ SELECT GETDATE();
 
 Returns the current time stamp of the database system formatted as a UTC datetime value. This value is equal to SYSUTCDATETIME.
 
-#### Syntax
+**Syntax**
 
 ```bash
 GETUTCDATE()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT GETUTCDATE();
@@ -530,17 +530,17 @@ SELECT GETUTCDATE();
 
 Returns the hour component from the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 HOUR(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT HOUR('02-02-2020 11:30:00');
@@ -551,18 +551,18 @@ SELECT HOUR('02-02-2020 11:30:00');
 
 Returns 1 if the value is a valid date, time, or datetime value; otherwise, 0.
 
-#### Syntax
+**Syntax**
 
 ```bash
 ISDATE(date, [date_format])
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 - **date\_format** The optional datetime format.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT ISDATE('2018-02-01', 'yyyy-MM-dd');
@@ -576,13 +576,13 @@ SELECT ISDATE('Not a date');
 
 The previous n days, excluding the current day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_LAST_N_DAYS(n)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = LAST_N_DAYS(3)
@@ -592,13 +592,13 @@ SELECT * FROM MyTable WHERE MyDateField = LAST_N_DAYS(3)
 
 Every day in every week, starting n weeks before current week, and ending in the previous week.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_LAST_N_WEEKS(n)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = LAST_N_WEEKS(3)
@@ -608,13 +608,13 @@ SELECT * FROM MyTable WHERE MyDateField = LAST_N_WEEKS(3)
 
 Every day in the preceding week.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_LAST_WEEK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = L_LAST_WEEK()
@@ -624,13 +624,13 @@ SELECT * FROM MyTable WHERE MyDateField = L_LAST_WEEK()
 
 The following n days, including the current day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_NEXT_N_DAYS(n)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = NEXT_N_DAYS(3)
@@ -644,13 +644,13 @@ SELECT * FROM MyTable WHERE MyDateField = NEXT_N_DAYS(3)
 
 Every day in every week, starting the following week, and ending n weeks in the future.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_NEXT_N_WEEKS(n)
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = NEXT_N_WEEKS(3)
@@ -666,13 +666,13 @@ SELECT * FROM MyTable WHERE MyDateField = NEXT_N_WEEKS(3)
 
 Every day in the following week.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_NEXT_WEEK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = NEXT_WEEK()
@@ -688,13 +688,13 @@ SELECT * FROM MyTable WHERE MyDateField = NEXT_WEEK()
 
 Every day in the current week.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_THIS_WEEK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = THIS_WEEK()
@@ -704,13 +704,13 @@ SELECT * FROM MyTable WHERE MyDateField = THIS_WEEK()
 
 The current day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_TODAY()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = TODAY()
@@ -720,13 +720,13 @@ SELECT * FROM MyTable WHERE MyDateField = TODAY()
 
 The following day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_TOMORROW()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = TOMORROW()
@@ -736,13 +736,13 @@ SELECT * FROM MyTable WHERE MyDateField = TOMORROW()
 
 The previous day.
 
-#### Syntax
+**Syntax**
 
 ```bash
 L_YESTERDAY()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT * FROM MyTable WHERE MyDateField = YESTERDAY()
@@ -752,13 +752,13 @@ SELECT * FROM MyTable WHERE MyDateField = YESTERDAY()
 
 Returns a time stamp equivalent to exactly one month before the current date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LAST_MONTH()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LAST_MONTH(); //Assume the date is 3/17/2020
@@ -769,13 +769,13 @@ SELECT LAST_MONTH(); //Assume the date is 3/17/2020
 
 Returns a time stamp equivalent to exactly one week before the current date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LAST_WEEK()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LAST_WEEK(); //Assume the date is 3/17/2020
@@ -786,13 +786,13 @@ SELECT LAST_WEEK(); //Assume the date is 3/17/2020
 
 Returns a time stamp equivalent to exactly one year before the current date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LAST_YEAR()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LAST_YEAR(); //Assume the date is 3/17/2020
@@ -803,17 +803,17 @@ SELECT LAST_YEAR(); //Assume the date is 3/17/2020
 
 Returns the last day of the provided month.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LDMONTH(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LDMONTH('02-02-2020');
@@ -824,17 +824,17 @@ SELECT LDMONTH('02-02-2020');
 
 Returns the last day of the provided quarter.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LDQUARTER(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LDQUARTER('02-02-2020');
@@ -845,17 +845,17 @@ SELECT LDQUARTER('02-02-2020');
 
 Returns the last day of the provided week.
 
-#### Syntax
+**Syntax**
 
 ```bash
 LDWEEK(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT LDWEEK('02-02-2020');
@@ -866,18 +866,18 @@ SELECT LDWEEK('02-02-2020');
 
 Returns a date value from a year and a number of days.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MAKEDATE(year, days)
 ```
 
-#### Parameters
+**Parameters**
 
 - **year** The year
 - **days** The number of days into the year. Value must be greater than 0.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT MAKEDATE(2020, 1);
@@ -888,17 +888,17 @@ SELECT MAKEDATE(2020, 1);
 
 Returns the minute component from the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MINUTE(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT MINUTE('02-02-2020 11:15:00');
@@ -909,17 +909,17 @@ SELECT MINUTE('02-02-2020 11:15:00');
 
 Returns the month component from the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 MONTH(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT MONTH('02-02-2020');
@@ -930,17 +930,17 @@ SELECT MONTH('02-02-2020');
 
 Returns the quarter associated with the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 QUARTER(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT QUARTER('02-02-2020');
@@ -951,17 +951,17 @@ SELECT QUARTER('02-02-2020');
 
 Returns the second component from the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SECOND(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT SECOND('02-02-2020 11:15:23');
@@ -972,13 +972,13 @@ SELECT SECOND('02-02-2020 11:15:23');
 
 Returns the datetime value for the specified date and time.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SMALLDATETIMEFROMPARTS(integer_year, integer_month, integer_day, integer_hour, integer_minute)
 ```
 
-#### Parameters
+**Parameters**
 
 - **year** The integer expression specifying the year.
 - **month** The integer expression specifying the month.
@@ -986,7 +986,7 @@ SMALLDATETIMEFROMPARTS(integer_year, integer_month, integer_day, integer_hour, i
 - **hour** The integer expression specifying the hour.
 - **minute** The integer expression specifying the minute.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT SMALLDATETIMEFROMPARTS(2018, 2, 1, 1, 2);
@@ -997,18 +997,18 @@ SELECT SMALLDATETIMEFROMPARTS(2018, 2, 1, 1, 2);
 
 Parses the provided string value and returns the corresponding datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 STRTODATE(string,format)
 ```
 
-#### Parameters
+**Parameters**
 
 - **string** The string value to be converted to datetime format.
 - **format** A format string which describes how to interpret the first string input. Follows standard [.NET date format syntax](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings). A few special formats are available as well, including UNIX, UNIXMILIS, TICKS, and FILETICKS.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT STRTODATE('03*04*2020','dd*MM*yyyy');
@@ -1019,13 +1019,13 @@ SELECT STRTODATE('03*04*2020','dd*MM*yyyy');
 
 Returns the current time stamp as a datetime value of the database system. It is equal to GETDATE and CURRENT\_TIMESTAMP, and is always in the local timezone.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SYSDATETIME()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT SYSDATETIME();
@@ -1036,13 +1036,13 @@ SELECT SYSDATETIME();
 
 Returns the current system date and time as a UTC datetime value. It is equal to GETUTCDATE.
 
-#### Syntax
+**Syntax**
 
 ```bash
 SYSUTCDATETIME()
 ```
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT SYSUTCDATETIME();
@@ -1054,13 +1054,13 @@ SELECT SYSUTCDATETIME();
 
 Returns the time value for the specified time and with the specified precision.
 
-#### Syntax
+**Syntax**
 
 ```bash
 TIMEFROMPARTS(integer_hour, integer_minute, integer_seconds, integer_fractions, integer_precision)
 ```
 
-#### Parameters
+**Parameters**
 
 - **hour** The integer expression specifying the hour.
 - **minute** The integer expression specifying the minute.
@@ -1068,7 +1068,7 @@ TIMEFROMPARTS(integer_hour, integer_minute, integer_seconds, integer_fractions, 
 - **fractions** The integer expression specifying the fractions of the second.
 - **precision** The integer expression specifying the precision of the fraction.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT TIMEFROMPARTS(1, 2, 3, 456, 3);
@@ -1079,17 +1079,17 @@ SELECT TIMEFROMPARTS(1, 2, 3, 456, 3);
 
 Returns the number of days since 1582-10-15 (based upon the Gregorian calendar). This will be equivalent to the MYSQL TO\_DAYS function.
 
-#### Syntax
+**Syntax**
 
 ```bash
 TO_DAYS(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT TO_DAYS('02-06-2015');
@@ -1100,17 +1100,17 @@ SELECT TO_DAYS('02-06-2015');
 
 Returns the week (of the year) associated with the provided datetime.
 
-#### Syntax
+**Syntax**
 
 ```bash
 WEEK(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT WEEK('02-17-2020 11:15:23');
@@ -1121,17 +1121,17 @@ SELECT WEEK('02-17-2020 11:15:23');
 
 Returns the integer that specifies the year of the specified date.
 
-#### Syntax
+**Syntax**
 
 ```bash
 YEAR(date)
 ```
 
-#### Parameters
+**Parameters**
 
 - **date** The datetime string that specifies the date.
 
-#### Example(s)
+**Example(s)**
 
 ```bash
 SELECT YEAR('2018-02-01');
