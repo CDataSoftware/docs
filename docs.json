@@ -50,21 +50,13 @@
                   "Workspaces",
                   {
                     "group": "Explorer",
-                    "pages": ["Data-Explorer", "QueryBuilder", "AIGenerator"]
-                  },
-                  {
-                    "group": "Jobs",
-                    "pages": ["Jobs", "Caching", "Scheduled-Queries"]
+                    "pages": ["Data-Explorer", "QueryBuilder"]
                   },
                   "Users",
                   "Logs",
                   "Settings"
                 ]
-              },
-              "Features",
-              "Technology",
-              "FAQs",
-              "Glossary"
+              }
             ]
           },
           {
@@ -271,121 +263,142 @@
             ]
           },
           {
+            "group": "Explore and Model",
+            "pages": [
+              "Data-Explorer",
+              "QueryBuilder"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               "Integrations",
+              "ChatGPT-Client",
+              "Claude-Client",
+              "MicrosoftCopilot-Client",
               {
-                "group": "AI Tools",
+                "group": "More",
                 "pages": [
-                  "AITools",
-                  "AgentBricks-Client",
-                  "ChatGPT-Client",
-                  "Claude-Client",
-                  "ClaudeCode-Client",
-                  "CrewAI-Client",
-                  "Gemini-Client",
-                  "LangChain-Client",
-                  "LlamaIndex-Client",
-                  "Mistral-Client",
-                  "MicrosoftCopilot-Client",
-                  "N8N-Client"
-                ]
-              },
-              {
-                "group": "BI and Reporting Tools",
-                "pages": [
-                  "BIReportingTools",
-                  "Alteryx-Client",
-                  "AmazonQuickSight-Client",
-                  "AAS-Client",
-                  "APOS-Client",
-                  "CrystalReports-Client",
                   {
-                    "group": "Excel",
-                    "pages": ["Excel365-Client", "Excel-Client-Functions"]
+                    "group": "AI Tools",
+                    "pages": [
+                      "AITools",
+                      "AgentBricks-Client",
+                      "ClaudeCode-Client",
+                      "CrewAI-Client",
+                      "Gemini-Client",
+                      "LangChain-Client",
+                      "LlamaIndex-Client",
+                      "Mistral-Client",
+                      "N8N-Client"
+                    ]
                   },
-                  "Geckoboard-Client",
-                  "GoogleSheets-Client",
-                  "IBMCognos-Client",
-                  "Looker-Client",
-                  "LookerStudio-Client",
-                  "Metabase-Client",
-                  "MicrosoftFabric-Client",
-                  "MicroStrategy-Client",
-                  "Mode-Client",
-                  "PowerBI.com-Client",
-                  "PowerBIDesktop-Client",
-                  "QlikSenseCloud-Client",
-                  "Redash-Client",
-                  "SAPAnalyticsCloud-Client",
-                  "SASViya-Client",
-                  "TableauCloud-Client",
-                  "TableauDesktop-Client",
-                  "ThoughtSpot-Client",
-                  "ZohoAnalytics-Client"
-                ]
-              },
-              {
-                "group": "No-Code Tools",
-                "pages": [
-                  "NoCodeTools",
-                  "AppSheet-Client",
-                  "AWSAppStudio-Client",
-                  "AzureLogicApps-Client",
-                  "Bubble-Client",
-                  "Claris-Client",
-                  "Mendix-Client",
-                  "MicrosoftPowerApps-Client",
-                  "MicrosoftPowerAutomate-Client",
-                  "Nintex-Client",
-                  "Outsystems-Client",
-                  "Retool-Client",
-                  "SalesforceExternal-Client",
-                  "SFLC-Client",
-                  "Workato-Client",
-                  "Zapier-Client"
-                ]
-              },
-              {
-                "group": "ETL Tools",
-                "pages": [
-                  "ETLTools",
-                  "Airbyte-Client",
-                  "AWSGlue-Client",
-                  "AzureDataFactory-Client",
-                  "CDataSync-Client",
-                  "CloudDataFusion-Client"
-                ]
-              },
-              {
-                "group": "Dev Tools",
-                "pages": [
-                  "DevTools",
-                  "ADO.NET-Client",
-                  "AppsScript-Client",
-                  "Axios-Client",
-                  "Choreo-Client",
-                  "Databricks-Client",
-                  "DatabricksLHF-Client",
-                  "Grafana-Client",
-                  "JDBC-Client",
-                  "Nodejs-Client",
-                  "ODBC-Client",
-                  "Polybase-Client",
-                  "Python-Client",
-                  "SSIS-Client",
-                  "SQLServerLinked-Client"
-                ]
-              },
-              {
-                "group": "iPaaS Tools",
-                "pages": [
-                  "iPaaSTools",
-                  "Jitterbit-Client",
-                  "Mulesoft-Client",
-                  "SnapLogic-Client"
+                  {
+                    "group": "BI and Reporting Tools",
+                    "pages": [
+                      "BIReportingTools",
+                      "Alteryx-Client",
+                      "AmazonQuickSight-Client",
+                      "AAS-Client",
+                      "APOS-Client",
+                      "CrystalReports-Client",
+                      {
+                        "group": "Excel",
+                        "pages": ["Excel365-Client", "Excel-Client-Functions"]
+                      },
+                      "Geckoboard-Client",
+                      "GoogleSheets-Client",
+                      "IBMCognos-Client",
+                      "Looker-Client",
+                      "LookerStudio-Client",
+                      "Metabase-Client",
+                      "MicrosoftFabric-Client",
+                      "MicroStrategy-Client",
+                      "Mode-Client",
+                      "PowerBI.com-Client",
+                      "PowerBIDesktop-Client",
+                      "QlikSenseCloud-Client",
+                      "Redash-Client",
+                      "SAPAnalyticsCloud-Client",
+                      "SASViya-Client",
+                      "TableauCloud-Client",
+                      "TableauDesktop-Client",
+                      "ThoughtSpot-Client",
+                      "ZohoAnalytics-Client"
+                    ]
+                  },
+                  {
+                    "group": "No-Code Tools",
+                    "pages": [
+                      "NoCodeTools",
+                      "AppSheet-Client",
+                      "AWSAppStudio-Client",
+                      "AzureLogicApps-Client",
+                      "Bubble-Client",
+                      "Claris-Client",
+                      "Mendix-Client",
+                      "MicrosoftPowerApps-Client",
+                      "MicrosoftPowerAutomate-Client",
+                      "Nintex-Client",
+                      "Outsystems-Client",
+                      "Retool-Client",
+                      "SalesforceExternal-Client",
+                      "SFLC-Client",
+                      "Workato-Client",
+                      "Zapier-Client"
+                    ]
+                  },
+                  {
+                    "group": "ETL Tools",
+                    "pages": [
+                      "ETLTools",
+                      "Airbyte-Client",
+                      "AWSGlue-Client",
+                      "AzureDataFactory-Client",
+                      "CDataSync-Client",
+                      "CloudDataFusion-Client"
+                    ]
+                  },
+                  {
+                    "group": "Dev Tools",
+                    "pages": [
+                      "DevTools",
+                      "ADO.NET-Client",
+                      "AppsScript-Client",
+                      "Axios-Client",
+                      "Choreo-Client",
+                      "Databricks-Client",
+                      "DatabricksLHF-Client",
+                      "Grafana-Client",
+                      "JDBC-Client",
+                      "Nodejs-Client",
+                      "ODBC-Client",
+                      "Polybase-Client",
+                      "Python-Client",
+                      "SSIS-Client",
+                      "SQLServerLinked-Client"
+                    ]
+                  },
+                  {
+                    "group": "iPaaS Tools",
+                    "pages": [
+                      "iPaaSTools",
+                      "Jitterbit-Client",
+                      "Mulesoft-Client",
+                      "SnapLogic-Client"
+                    ]
+                  }
                 ]
               }
+            ]
+          },
+          {
+            "group": "Governance",
+            "pages": [
+              "Overview",
+              "Workspaces",
+              "Permissions",
+              "Security"
             ]
           },
           {
@@ -398,7 +411,18 @@
               }
             ]
           },
-          "ReleaseNotes",
+          {
+            "group": "Operations",
+            "pages": [
+              {
+                "group": "Jobs",
+                "pages": ["Jobs", "Caching", "Scheduled-Queries"]
+              },
+              "FAQs",
+              "Glossary",
+              "ReleaseNotes"
+            ]
+          },
           "terms-of-service"
         ]
       },
@@ -424,8 +448,6 @@
                 ]
               },
               "Settings-Embedded",
-              "Features-Embedded",
-              "Technology-Embedded",
               "FAQs-Embedded",
               "Glossary-Embedded"
             ]
@@ -879,7 +901,7 @@
         },
         {
           "anchor": "Blog",
-          "href": "https://www.cdata.com/blog",
+          "href": "https://www.cdata.com/blog/?tag=connect-cloud",
           "icon": "newspaper"
         }
       ]
