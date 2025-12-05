@@ -36,8 +36,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Basic
-
+<Tabs>
+  <Tab title="Basic">
 <Steps>
 <Step>
 Enter the Salesforce username for authentication.
@@ -59,8 +59,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuth
+  </Tab>
 
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
@@ -79,8 +80,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthPassword
+  </Tab>
 
+  <Tab title="OAuthPassword">
 <Steps>
 <Step>
 Enter the Salesforce username for authentication.
@@ -102,8 +104,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthJWT
+  </Tab>
 
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 Enter your **OAuth JWT Certificate**. This is multi-line and in PEM format.
@@ -134,8 +137,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OneLogin
+  </Tab>
 
+  <Tab title="OneLogin">
 <Steps>
 <Step>
 Enter the OneLogin **User** Id.
@@ -160,8 +164,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### PingFederate
+  </Tab>
 
+  <Tab title="PingFederate">
 <Steps>
 <Step>
 Enter the PingFederate **User** Id.
@@ -186,8 +191,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OKTA
+  </Tab>
 
+  <Tab title="OKTA">
 <Steps>
 <Step>
 Enter the OKTA **User** Id.
@@ -212,8 +218,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### ADFS
+  </Tab>
 
+  <Tab title="ADFS">
 <Steps>
 <Step>
 Enter the ADFS **User** Id.
@@ -238,8 +245,9 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureAD
+  </Tab>
 
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
@@ -270,6 +278,8 @@ At the top of the Connect AI **Add Salesforce Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Salesforce, see [this information page](https://cdn.cdata.com/help/RFK/cloud/default.htm#default).

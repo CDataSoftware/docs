@@ -25,8 +25,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### AzureAD
-
+<Tabs>
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **Azure Tenant** Id found on the Overview page of the OAuth app used to authenticate to Microsoft SharePoint on Azure.
@@ -45,8 +45,9 @@ At the top of the Connect AI **Add Azure Analysis Services Connection** page, cl
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Azure Password
+  </Tab>
 
+  <Tab title="Azure Password">
 <Steps>
 <Step>
 In **User** enter the Azure Analysis Services username for authentication.
@@ -65,8 +66,9 @@ At the top of the Connect AI **Add Azure Analysis Services Connection** page, cl
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureServicePrincipal
+  </Tab>
 
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **Azure Tenant** that you will use to access data.
@@ -85,6 +87,8 @@ At the top of the Connect AI **Add Azure Analysis Services Connection** page, cl
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Azure Analysis Services, see [this information page](https://cdn.cdata.com/help/OAM/cloud/default.htm#default).
