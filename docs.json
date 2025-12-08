@@ -290,7 +290,8 @@
                       "LangChain-Client",
                       "LlamaIndex-Client",
                       "Mistral-Client",
-                      "N8N-Client"
+                      "N8N-Client",
+                      "Windsurf-Client"
                     ]
                   },
                   {
