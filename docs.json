@@ -287,7 +287,9 @@
                       "ClaudeCode-Client",
                       "CrewAI-Client",
                       "Gemini-Client",
+                      "GitHubCopilot-Client",
                       "LangChain-Client",
+                      "LangGraph-Client",
                       "LlamaIndex-Client",
                       "Mistral-Client",
                       "N8N-Client",
@@ -671,7 +673,8 @@
                   "LangGraph-Client-Embedded",
                   "LlamaIndex-Client-Embedded",
                   "MicrosoftCopilot-Client-Embedded",
-                  "N8N-Client-Embedded"
+                  "N8N-Client-Embedded",
+                  "Windsurf-Client-Embedded"
                 ]
               },
               {
