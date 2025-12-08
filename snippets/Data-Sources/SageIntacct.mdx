@@ -1,3 +1,5 @@
+import SaveAndTest from '/snippets/save-and-test.mdx';
+
 <Frame>
 <iframe
     width="100%"
@@ -63,7 +65,8 @@ Follow these steps to connect Sage Intacct to your Connect AI account:
 
 ## Authentication Methods
 
-### BasicReadOnly
+<Tabs>
+<Tab title="BasicReadOnly">
 
 <Steps>
   <Step>
@@ -82,24 +85,11 @@ Follow these steps to connect Sage Intacct to your Connect AI account:
     On the Connect AI connections page, add the embedded **User** and
     **Password** provided by Sage Intacct.
   </Step>
-  <Step>
-    At the top of the Connect AI **Add Sage Intacct Connection** page, click
-    **Save & Test**.
-
-- If the connection test succeeds, a **Connection successfully saved** message appears,
-indicating that your connection has been created. The **Status** on the **Edit Connection**
-page also changes to **Authenticated**. View the data model of your successful connection
-in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
-the connection test fails, ensure that you entered your login information correctly
-with no stray spaces or other characters. Connect AI displays error messages under
-the required fields with missing data. Some data sources require that you sign in
-directly to the source website. If you did not, an error message appears under the
-**Sign in** button. Correct the errors and try again. - Unsuccessful connections
-are saved as drafts and have a **Status** of **Not Authenticated**. You can return
-to the connection and authenticate it later.
-</Step>
+  <SaveAndTest/>
 </Steps>
-### Basic
+</Tab>
+
+<Tab title="Basic">
 
 <Steps>
   <Step>
@@ -110,24 +100,11 @@ to the connection and authenticate it later.
     Services password. Contact your Sage Intacct representative for more
     details.
   </Step>
-  <Step>
-    At the top of the Connect AI **Add Sage Intacct Connection** page, click
-    **Save & Test**.
-
-- If the connection test succeeds, a **Connection successfully saved** message appears,
-indicating that your connection has been created. The **Status** on the **Edit Connection**
-page also changes to **Authenticated**. View the data model of your successful connection
-in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
-the connection test fails, ensure that you entered your login information correctly
-with no stray spaces or other characters. Connect AI displays error messages under
-the required fields with missing data. Some data sources require that you sign in
-directly to the source website. If you did not, an error message appears under the
-**Sign in** button. Correct the errors and try again. - Unsuccessful connections
-are saved as drafts and have a **Status** of **Not Authenticated**. You can return
-to the connection and authenticate it later.
-</Step>
+  <SaveAndTest/>
 </Steps>
-### OKTA
+</Tab>
+
+<Tab title="OKTA">
 
 <Steps>
   <Step>
@@ -136,31 +113,22 @@ to the connection and authenticate it later.
     URL**—Set to the URL used by the SSO provider. - **SSO Properties**—Add
     property IntacctUserID, set to the Okta user specified in the User
     connection property. Then add all desired properties. The following is an
-    example of a valid connection string: AuthScheme=Okta;
+    example of a valid connection string: 
+    ```
+    AuthScheme=Okta;
     SSOLoginURL='https://example.okta.com/home/appType/0bg4ivz6cJRZgCz5d6/46';
     User=oktaUserName; Password=oktaPassword;
-    SSOProperties='IntacctUserID=intacct\_user'; . - **Note**: If you add an
-    APIToken property, it must be set to the API Token that the customer created
+    SSOProperties='IntacctUserID=intacct\_user'; 
+    ```
+    
+    <Note>If you add an APIToken property, it must be set to the API Token that the customer created
     from the Okta org. It should only be used when authenticating a user via a
-    trusted application or proxy that overrides Okta client request context.
+    trusted application or proxy that overrides Okta client request context.</Note>
   </Step>
-  <Step>
-    At the top of the Connect AI **Add Sage Intacct Connection** page, click
-    **Save & Test**.
-
-- If the connection test succeeds, a **Connection successfully saved** message appears,
-indicating that your connection has been created. The **Status** on the **Edit Connection**
-page also changes to **Authenticated**. View the data model of your successful connection
-in the right pane of the **Edit Connection** page, in the **Data Model** tab. - If
-the connection test fails, ensure that you entered your login information correctly
-with no stray spaces or other characters. Connect AI displays error messages under
-the required fields with missing data. Some data sources require that you sign in
-directly to the source website. If you did not, an error message appears under the
-**Sign in** button. Correct the errors and try again. - Unsuccessful connections
-are saved as drafts and have a **Status** of **Not Authenticated**. You can return
-to the connection and authenticate it later.
-</Step>
+  <SaveAndTest/>
 </Steps>
+</Tabs>
+
 ## More Information
 
 For more information about interactions between Connect AI and Sage Intacct, see [this information page](https://cdn.cdata.com/help/CTK/cloud/default.htm#default).
