@@ -31,7 +31,7 @@ Copy and paste the following into the `settings.json` file. `"Authorization"` sh
    "connect-cloud": {
       "httpUrl": "https://mcp.cloud.cdata.com/mcp/",
       "headers": {
-        "Authorization": "Basic EMAIL:PAT"  //Replace with your Connect AI's Email and PAT
+        "Authorization": "Bearer OAUTH_JWT_TOKEN"  //Replace with your OAuth JWT Token
      },
       "trust": true
    }
@@ -97,7 +97,7 @@ python -m google.adk.cli web --port 5000
 In your web browser, open `127.0.0.1:5000`. The application looks like the following:
 
 <Frame>
-  <img src="/images/gemini_client_adk.png" alt="Gemini Client ADK" />
+  <img src="/images/gemini_client_ADK.png" alt="Gemini Client ADK" />
 </Frame>
 </Step>
 <Step>
