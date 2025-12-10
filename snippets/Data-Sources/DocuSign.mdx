@@ -55,8 +55,8 @@ Select an **AuthScheme** and follow the relevant instructions below.
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 For **OAuth Client Id**, copy and paste the Docusign integration key you created in the prerequisites.
@@ -81,8 +81,9 @@ At the top of the Connect AI **Add Docusign Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthJWT
+  </Tab>
 
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 For **OAuth JWT Cert**, copy and paste the RSA private key you generated in the prerequisites.
@@ -101,6 +102,8 @@ At the top of the Connect AI **Add Docusign Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Docusign, see [this information page](https://cdn.cdata.com/help/UCM/cloud/default.htm#default).

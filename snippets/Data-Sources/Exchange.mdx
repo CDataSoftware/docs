@@ -25,8 +25,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Click **Sign in** to connect securely through OAuth. This action opens the Exchange sign-in page in a new tab.
@@ -42,8 +42,9 @@ At the top of the Connect AI **Add Exchange Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureAD
+  </Tab>
 
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 (Optional) Enter the **Azure Tenant** Id being used to access data. This value is the directory Id in the **Azure Portal** > **Azure Active Directory** > **Properties**.
@@ -62,8 +63,9 @@ At the top of the Connect AI **Add Exchange Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureServicePrincipal
+  </Tab>
 
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your application with an OAuth authorization server.
@@ -82,8 +84,9 @@ At the top of the Connect AI **Add Exchange Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureServicePrincipalCert
+  </Tab>
 
+  <Tab title="AzureServicePrincipalCert">
 <Steps>
 <Step>
 Enter the following information:
@@ -101,6 +104,8 @@ At the top of the Connect AI **Add Exchange Connection** page, click **Save & Te
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Exchange, see [this information page](https://cdn.cdata.com/help/CEK/cloud/default.htm#default).

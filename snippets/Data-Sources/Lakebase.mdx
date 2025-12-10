@@ -55,8 +55,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuthClient
-
+<Tabs>
+  <Tab title="OAuthClient">
 <Steps>
 <Step>
 Enter the **OAuthClientId** assigned when you configured the service principal (in the prerequisites).
@@ -72,8 +72,9 @@ At the top of the Connect AI **Add Databricks Lakebase Connection** page, click 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthPKCE
+  </Tab>
 
+  <Tab title="OAuthPKCE">
 <Steps>
 <Step>
 Enter the **User** Id of the authenticating user. The user obtains a temporary code from the authorization server.
@@ -85,4 +86,6 @@ At the top of the Connect AI **Add Databricks Lakebase Connection** page, click 
 	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
-</Steps>	
+</Steps>
+  </Tab>
+</Tabs>

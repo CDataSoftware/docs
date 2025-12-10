@@ -44,14 +44,6 @@
                 "group": "Navigation Menu",
                 "pages": [
                   "Navigation-Menu",
-                  "Dashboard",
-                  "Sources",
-                  "Integrations",
-                  "Workspaces",
-                  {
-                    "group": "Explorer",
-                    "pages": ["Data-Explorer", "QueryBuilder"]
-                  },
                   "Users",
                   "Logs",
                   "Settings"
@@ -400,7 +392,6 @@
           {
             "group": "Governance",
             "pages": [
-              "Overview",
               "Workspaces",
               "Permissions",
               "Security"
@@ -446,9 +437,7 @@
               {
                 "group": "Navigation",
                 "pages": [
-                  "Navigation-Embedded",
-                  "Dashboard-Embedded",
-                  "Sources-Embedded",
+                  "Navigation-Embedded",                  
                   "Logs-Embedded"
                 ]
               },

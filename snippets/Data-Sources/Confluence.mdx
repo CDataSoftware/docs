@@ -22,8 +22,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Enter the following information:
@@ -45,8 +45,9 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Basic
+  </Tab>
 
+  <Tab title="Basic">
 <Note>
 Basic authentication is only applicable for Server instances. For Cloud instances, use APIToken authentication.
 </Note>
@@ -66,8 +67,9 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### APIToken
+  </Tab>
 
+  <Tab title="APIToken">
 <Note>
 APIToken is only applicable for Cloud instances. For Server instances, use Basic authentication.
 </Note>
@@ -87,8 +89,9 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Crowd
+  </Tab>
 
+  <Tab title="Crowd">
 <Steps>
 <Step>
 Enter the following information:
@@ -110,8 +113,9 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Okta
+  </Tab>
 
+  <Tab title="Okta">
 <Steps>
 <Step>
 Enter the following information:
@@ -132,8 +136,9 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### PAT
+  </Tab>
 
+  <Tab title="PAT">
 <Steps>
 <Step>
 In your Atlassian account, go to **Profile** > **Personal Access Tokens** > **Create token**. Copy and paste the PAT here.
@@ -146,6 +151,8 @@ At the top of the Connect AI **Add Confluence Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Confluence, see [this information page](https://cdn.cdata.com/help/UGK/cloud/default.htm#default).

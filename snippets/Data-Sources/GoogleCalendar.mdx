@@ -22,8 +22,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Calendar sign-in page on a new tab.
@@ -39,8 +39,9 @@ At the top of the Connect AI **Add Google Calendar Connection** page, click **Sa
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuth JWT
+  </Tab>
 
+  <Tab title="OAuth JWT">
 <Steps>
 <Step>
 Enter your **OAuth JWT Cert**. This is multi-line and in PEM format.
@@ -68,6 +69,8 @@ At the top of the Connect AI **Add Google Calendar Connection** page, click **Sa
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Google Calendar, see [this information page](https://cdn.cdata.com/help/EGK/cloud/default.htm#default).

@@ -22,8 +22,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Token
-
+<Tabs>
+  <Tab title="Token">
 <Steps>
 <Step>
 Enter the **API Key** for your Google Cloud account. You can create an API key in the Google Cloud Console by clicking **Create credentials > API key**.
@@ -39,8 +39,9 @@ At the top of the Connect AI **Add Google Sheets Connection** page, click **Save
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuth
+  </Tab>
 
+  <Tab title="OAuth">
 <Steps>
 <Step>
 (Optional) To improve performance, fill out either the **Spreadsheet** field with a comma separated list of sheet names or Ids or enter a **Folder Name**.
@@ -59,8 +60,9 @@ At the top of the Connect AI **Add Google Sheets Connection** page, click **Save
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthJWT
+  </Tab>
 
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 Enter the OAuth JWT Cert. This is multi-line and should be in the following format:
@@ -94,6 +96,8 @@ At the top of the Connect AI **Add Google Sheets Connection** page, click **Save
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Google Sheets, see [this information page](https://cdn.cdata.com/help/RLK/cloud/default.htm#default).

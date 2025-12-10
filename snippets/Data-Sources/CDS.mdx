@@ -25,8 +25,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### AzureAD
-
+<Tabs>
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Select a **Schema** from the drop down. System is used for optimal performance, while Entities provides more user-friendly table names.
@@ -45,8 +45,9 @@ At the top of the Connect AI **Add Dataverse Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureServicePrincipal
+  </Tab>
 
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **Azure Tenant** that you will use to access data.
@@ -74,6 +75,8 @@ At the top of the Connect AI **Add Dataverse Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Dataverse, see [this information page](https://cdn.cdata.com/help/UVK/cloud/default.htm#default).
