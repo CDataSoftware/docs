@@ -5,21 +5,22 @@ title: "GitHub Copilot"
 ## Prerequisites
 
 Before you can configure and use GitHub Copilot with Connect AI, you must do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+- Install and enable GitHub Copilot in Visual Studio Code (or any IDE supporting GitHub Copilot).
+
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+- Base64-encode your Connect AI credentials in the following format: `Base64("email:PAT")`.
+
+
+## Connect GitHub Copilot to the Connect AI MCP
+
 <Steps>
 <Step>
- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-</Step>
-<Step>
-Install and enable GitHub Copilot in Visual Studio Code (or any IDE supporting GitHub Copilot).
-</Step>
-<Step>
-Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
-</Step>
-</Steps>
-## Create the Configuration File
-<Steps>
-<Step>
-Create a folder named `.vscode` in your project repository. Within this folder, create a file named `mcp.json` and add the following configuration. Replace `Basic <your_base64_encoded_email_PAT>` with `Basic` and the Base64-encoded value of `username:PAT` (the PAT was generated in the prerequisites).
+Create a folder named `.vscode` in your project repository. Within this folder, create a file named `mcp.json` and add the following configuration. Replace `YOUR_BASE64_ENCODED_EMAIL:PAT` with the Base64-encoded value of `email:PAT` that you created in the prerequisites.
+	
 	```bash
 	{
 	  "servers": {
@@ -27,7 +28,7 @@ Create a folder named `.vscode` in your project repository. Within this folder, 
 	      "type": "http",
 	      "url": "https://mcp.cloud.cdata.com/mcp",
 	      "headers": {
-	         "Authorization": "Basic <your_base64_encoded_email_PAT>"
+	         "Authorization": "Basic YOUR_BASE64_ENCODED_EMAIL:PAT"
 	     }
 	   }
 	  },
@@ -35,9 +36,7 @@ Create a folder named `.vscode` in your project repository. Within this folder, 
 	}
 	```
 </Step>
-</Steps>
-## Start the MCP Server
-<Steps>
+
 <Step>
  Click **Start** within your IDE to start the MCP server. If the MCP server starts without error, it displays **Running**.
 	<Frame>![](/images/githubcopilot_client_config.png)</Frame>
