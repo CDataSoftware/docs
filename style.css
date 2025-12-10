@@ -15,3 +15,38 @@ main b {
 Tab {
     font-weight: 600;
 }
+
+/* Reduce spacing between tab headers and tab body */
+[class*="tabs"] > div:not(:first-child),
+[class*="tab"] > div:not(:first-child),
+.tabs-content,
+[class*="tab-content"] {
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem !important;
+}
+
+/* Reduce spacing in tab panels */
+[class*="tab-panel"],
+[class*="tab-content"] > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Target Mintlify tab structure more specifically */
+div[role="tabpanel"] {
+    margin-top: 0.75rem !important;
+    padding-top: 0 !important;
+}
+
+/* Reduce spacing after tab button container */
+button[role="tab"] + div,
+[class*="tab-list"] + div {
+    margin-top: 0.5rem !important;
+}
+
+/* Reduce top margin/padding of content inside tabs */
+[class*="tab"] [class*="content"] > *:first-child,
+[role="tabpanel"] > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}

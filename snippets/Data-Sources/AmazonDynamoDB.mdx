@@ -38,7 +38,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 </Steps>
 ## Authentication Methods
 
-### ADFS
+<Tabs>
+  <Tab title="ADFS">
 <Steps>
 <Step>
  Enter the ADFS **User** Id.
@@ -62,7 +63,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AWSRootKeys
+  </Tab>
+
+  <Tab title="AWSRootKeys">
 <Steps>
 <Step>
  Enter the **AWS Access Key** associated with the AWS root account.
@@ -83,7 +86,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AWSIAMRoles
+  </Tab>
+
+  <Tab title="AWSIAMRoles">
 <Steps>
 <Step>
  Enter the **AWS Access Key** associated with the AWS root account.
@@ -110,7 +115,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Okta
+  </Tab>
+
+  <Tab title="Okta">
 <Steps>
 <Step>
  In **User** enter the Amazon DynamoDB username for authentication.
@@ -137,7 +144,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### PingFederate
+  </Tab>
+
+  <Tab title="PingFederate">
 <Steps>
 <Step>
  In **User** enter the Amazon DynamoDB username for authentication.
@@ -170,6 +179,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Amazon DynamoDB, see [this information page](https://cdn.cdata.com/help/DDK/cloud/default.htm#default).

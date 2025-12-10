@@ -34,8 +34,8 @@ Select an **AuthScheme** and follow the relevant instructions below.
 
 ## Authentication Methods
 
-### USRIDPWD
-
+<Tabs>
+  <Tab title="USRIDPWD">
 <Steps>
 <Step>
 To authenticate with user credentials, enter the following information:
@@ -50,8 +50,9 @@ At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### EUSRIDPWD
+  </Tab>
 
+  <Tab title="EUSRIDPWD">
 <Steps>
 <Step>
 To authenticate with encrypted user credentials, select **EUSRIDPWD** and enter the following information:
@@ -66,8 +67,9 @@ At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### IBMIAMAuth
+  </Tab>
 
+  <Tab title="IBMIAMAuth">
 <Steps>
 <Step>
 To authenticate using the API key of an application that connects to it, select **IBMIAMAuth** and enter the following information:
@@ -81,4 +83,6 @@ At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
 	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
-</Steps>	
+</Steps>
+  </Tab>
+</Tabs>

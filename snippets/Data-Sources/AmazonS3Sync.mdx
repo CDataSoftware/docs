@@ -25,8 +25,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### ADFS
-
+<Tabs>
+  <Tab title="ADFS">
 <Steps>
 <Step>
 Enter the ADFS **User** Id.
@@ -54,8 +54,9 @@ At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AWSRootKeys
+  </Tab>
 
+  <Tab title="AWSRootKeys">
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account. You can find this on your AWS security credentials page.
@@ -80,8 +81,9 @@ At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AWSIAMRoles
+  </Tab>
 
+  <Tab title="AWSIAMRoles">
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account. You can find this on your AWS security credentials page.
@@ -112,8 +114,9 @@ At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Okta
+  </Tab>
 
+  <Tab title="Okta">
 <Steps>
 <Step>
 In **User** enter the Amazon S3 username for authentication.
@@ -144,8 +147,9 @@ At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### PingFederate
+  </Tab>
 
+  <Tab title="PingFederate">
 <Steps>
 <Step>
 In **User** enter the Amazon S3 username for authentication.
@@ -179,6 +183,8 @@ At the top of the Connect AI **Add Amazon S3 Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Amazon S3, see [this information page](https://cdn.cdata.com/help/SXH/cloud/default.htm#default).
