@@ -56,8 +56,8 @@ Under **Data Credentials**, determine if you want to allow shared credentials or
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 In the **User** field, enter your Snowflake user name.
@@ -91,7 +91,9 @@ At the top of the Connect AI **Add Snowflake Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Password
+  </Tab>
+
+  <Tab title="Password">
 <Info>
 **Important:** Any new Snowflake account starting with bundle "2024\_08" will no longer support Password authentication. Please use other authentication methods, such as OAuth or Private Key.
 </Info>
@@ -115,9 +117,9 @@ At the top of the Connect AI **Add Snowflake Connection** page, click **Save & T
 In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
 </Step>
 </Steps>
+  </Tab>
 
-### Private Key
-
+  <Tab title="Private Key">
 Follow these steps to configure private key authentication:
 
 <Steps>
@@ -152,9 +154,9 @@ At the top of the Connect AI **Add Snowflake Connection** page, click **Save & T
 In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
 </Step>
 </Steps>
+  </Tab>
 
-### Okta
-
+  <Tab title="Okta">
 <Steps>
 <Step>
 Enter the following information:
@@ -185,9 +187,9 @@ At the top of the Connect AI **Add Snowflake Connection** page, click **Save & T
 In Snowflake, add the Connect AI static IP addresses to your connection whitelist.
 </Step>
 </Steps>
+  </Tab>
 
-### PingFederate
-
+  <Tab title="PingFederate">
 <Steps>
 <Step>
 In the **User** field, enter the Snowflake username for authentication.
@@ -211,7 +213,8 @@ At the top of the Connect AI **Add Snowflake Connection** page, click **Save & T
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Snowflake, see [this information page](https://cdn.cdata.com/help/OWK/cloud/default.htm#default).

@@ -22,8 +22,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### PersonalAccessToken
-
+<Tabs>
+  <Tab title="PersonalAccessToken">
 <Steps>
 <Step>
 Enter your **Personal Access Token**. You can get your token in your Smartsheet Account by navigating to **Account > Personal Settings > API Access** and using the provided form to generate it.
@@ -36,8 +36,9 @@ At the top of the Connect AI **Add Smartsheet Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuth
+  </Tab>
 
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your Smartsheet account for OAuth.
@@ -53,6 +54,8 @@ At the top of the Connect AI **Add Smartsheet Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Smartsheet, see [this information page](https://cdn.cdata.com/help/BSK/cloud/default.htm#default).

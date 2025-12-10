@@ -25,8 +25,8 @@ Enter a **Subdomain**. Your subdomain is specified in the Authentication Base UR
 
 ## Authentication Methods
 
-### OAuth
-
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 To use this data source, you must supply a **Callback URL** when setting up your OAuth app. This is sometimes referred to as a 'Redirect URL'. On Connect AI, this is marked as `https://oauth.cdata.com/oauth/`. Use this when you configure your OAuth app on Salesforce Marketing Cloud.
@@ -44,8 +44,9 @@ At the top of the Connect AI **Add Salesforce Marketing Cloud Connection** page,
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### OAuthClient
+  </Tab>
 
+  <Tab title="OAuthClient">
 <Steps>
 <Step>
 Enter the following information:
@@ -60,8 +61,9 @@ At the top of the Connect AI **Add Salesforce Marketing Cloud Connection** page,
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### Basic (SOAP schema only)
+  </Tab>
 
+  <Tab title="Basic (SOAP schema only)">
 <Steps>
 <Step>
 Enter the **User** and **Password** for Salesforce Marketing Cloud.
@@ -74,6 +76,8 @@ At the top of the Connect AI **Add Salesforce Marketing Cloud Connection** page,
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Salesforce Marketing Cloud, see [this information page](https://cdn.cdata.com/help/FEK/cloud/default.htm#default).

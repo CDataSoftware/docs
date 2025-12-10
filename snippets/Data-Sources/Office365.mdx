@@ -22,8 +22,8 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### AzureAD
-
+<Tabs>
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Click **Sign in** to connect securely through OAuth. This action opens the Office 365 sign-in page in a new tab.
@@ -39,8 +39,9 @@ At the top of the Connect AI **Add Office 365 Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
-### AzureServicePrincipal
+  </Tab>
 
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter your **OAuth Client Id**. This is in your Entra ID (formerly Azure AD) application settings.
@@ -60,6 +61,8 @@ At the top of the Connect AI **Add Office 365 Connection** page, click **Save & 
 	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 ## More Information
 
 For more information about interactions between Connect AI and Office 365, see [this information page](https://cdn.cdata.com/help/CXK/cloud/default.htm#default).
