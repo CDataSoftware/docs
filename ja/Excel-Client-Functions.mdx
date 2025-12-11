@@ -1,0 +1,87 @@
+---
+title: "Excel Functions"
+description: "The CData Connect Spreadsheets add-in for Excel includes support for several Excel functions. A *function* is a preset formula that helps perform different operations and data analysis faster. You can use these functions to execute stored procedures."
+---
+
+
+Functions perform specific calculations in a particular order based on the specified values, called *arguments* or parameters. Function parameters can refer to specific cells; as these cell values change, the add-in automatically refreshes the results.
+
+Since Excel functions are stored within the Excel file, you can easily share your dynamic spreadsheets with others. In addition, they eliminate time-consuming manual entry of formulas. You can perform your tasks efficiently and save time.
+
+## CDATACONNECT.QUERY
+
+*\=CDATACONNECT.QUERY(query, connection, \[defaultCatalog\], \[defaultSchema\], \[paramsRange\] \[options\])*
+
+It contains the following parameters:
+
+| **Parameter** | **Description** |
+|:-|:-|
+| query | A string containing the SQL query (or other statement) to execute. This should be in quotes. For example: |
+|  | `"SELECT * FROM [MailChimp2].[MailChimp].[Automations]"` |
+| connection | A string containing the complete connection string or profile name. This is in quotes. For example: |
+|  | `"Connection=MailChimp2,Schema=MailChimp,Table=Automations"` |
+| \[defaultCatalog\] | A string containing the default catalog to use. This can be left blank. |
+| \[defaultSchema\] | A string containing the default schema to use. This can be left blank. |
+| \[paramsRange\] | The Parameters argument specifies the range of cells that contains the names and values for the parameters. The first row of the range is a header row and specifies the parameter names. For example, if the range A10:B11 contains the parameters, then the cells A10:B10 should contain the parameter names, and the cells A11:B11 should contain the parameter values. |
+| \[options\] | A string containing additional options to control the formula’s behavior, such as “header=false” to return the data without headers. |
+
+The following is an example of a complete CDATACONNECT.QUERY function:
+
+```excel
+=CDATACONNECT.QUERY("SELECT * FROM [SQLServer1].[dbo].[ImportantDataTypes]", "Connection=SQLServer1,Schema=dbo,Table=ImportantDataTypes", "", "", A1:F2)
+```
+
+The results appear just below the cell where the formula was entered.
+
+## CDATACONNECT.INSERT
+
+*\=CDATACONNECT.INSERT(data, connection, \[columnHeaders\])*
+
+| **Parameter** | **Description** |
+|:-|:-|
+| data | The range of rows to insert, such as A1:F14. The first row must contain the column headers unless they are specified in the ColumnHeaders argument; if you set ColumnHeaders, set only the column values in the data argument. |
+| connection | A string containing the complete connection string or profile name. This is in quotes. For example: |
+|  | `"Connection=MailChimp2,Schema=MailChimp,Table=Automations"` |
+| \[columnHeaders\] | The columnHeaders argument specifies the range of cells that contains the column headers. The columnHeaders argument only needs to be specified if the column headers are not in the first row of data. You can also use the columnHeaders argument to specify the orientation of the data table: If the column headers are located in a vertical array, such as B20:B30, then each column is inserted as a row into the chosen table. |
+
+The following formula inserts rows into the sheet:
+
+```excel
+=CDATACONNECT.INSERT(K35:Q40,"Connection=SQLServer1,Schema=dbo,Table=ImportantDataTypes"",A1:G1)
+```
+
+## CDATACONNECT.UPDATE
+
+*\=CDATACONNECT.UPDATE(data, connection, \[columnHeaders\])*
+
+| **Parameter** | **Description** |
+|:-|:-|
+| data | The range of rows to update, such as J15:L15. The first row must contain the column headers unless they are specified in the ColumnHeaders argument; if you set ColumnHeaders, set only the column values in the data argument. |
+| connection | A string containing the complete connection string or profile name. This is in quotes. For example: |
+|  | `"Connection=MailChimp2,Schema=MailChimp,Table=Automations"` |
+| \[columnHeaders\] | The columnHeaders argument specifies the range of cells that contains the column headers. The columnHeaders argument only needs to be specified if the column headers are not in the first row of data. You can also use the columnHeaders argument to specify the orientation of the data table: If the column headers are located in a vertical array, such as B20:B30, then each column is updated as a row into the chosen table. |
+
+The following formula updates the record in row 15 of the sheet:
+
+```excel
+=CDATACONNECT.UPDATE(A15:K15,"Connection=SQLServer1,Schema=dbo,Table=ImportantDataTypes"",J1:L1)
+```
+
+## CDATACONNECT.DELETE
+
+*\=CDATACONNECT.DELETE(data, connection, \[columnHeaders\])*
+
+It contains the following parameters:
+
+| **Parameter** | **Description** |
+|:-|:-|
+| data | The range of rows to delete, such as J15:L15. The first row must contain the column headers unless they are specified in the ColumnHeaders argument; if you set ColumnHeaders, set only the column values in the data argument. |
+| connection | A string containing the complete connection string or profile name. This is in quotes. For example: |
+|  | `"Connection=MailChimp2,Schema=MailChimp,Table=Automations"` |
+| \[columnHeaders\] | The columnHeaders argument specifies the range of cells that contains the column headers. The columnHeaders argument only needs to be specified if the column headers are not in the first row of data. You can also use the columnHeaders argument to specify the orientation of the data table: If the column headers are located in a vertical array, such as B20:B30, then each column is updated as a row into the chosen table. |
+
+The following formula deletes the record in row 14 of the sheet:
+
+```excel
+=CDATACONNECT.DELETE(A15:K15,"Connection=SQLServer1,Schema=dbo,Table=ImportantDataTypes"",A1:K1)
+```

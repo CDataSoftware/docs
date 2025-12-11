@@ -1,0 +1,51 @@
+---
+title: "List Accounts"
+description: "List Accounts lists the child accounts within the parent account."
+api: GET https://cloud.cdata.com/api/poweredby/account/list
+contentType: application/json
+---
+
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`
+
+<Expandable title="Response body">
+
+<ResponseField name="accounts" type="array of objects" required>
+  <ResponseField name="id" type="string" required>
+    The internal Connect AI account Id.
+  </ResponseField>
+  <ResponseField name="externalId" type="string" required>
+    The Embedded Cloud external account identifier.
+  </ResponseField>
+  <ResponseField name="created" type="string" required>
+    The time this account was created.
+  </ResponseField>
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+    "accounts": [
+       {
+          "id": "fee1ce9d-c40c-4ef6-8f8c-77461315713d",
+          "externalId": "ExternalId",
+          "created": "2023-07-13T20:42:56.317Z"
+       },
+       {
+          "id": "c6cc4c16-35c8-4657-90c6-f93d401b0ae9",
+          "externalId": "GlobeInc",
+          "created": "2024-07-16T18:03:19.622Z"
+       }    
+    ]
+}
+```
+
+</ResponseExample>

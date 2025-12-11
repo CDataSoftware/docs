@@ -1,0 +1,46 @@
+---
+title: "Redash"
+description: "This page outlines the steps to connect Redash to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Redash to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Redash.
+</Step>
+<Step>
+Click the settings widget on the top right.
+</Step>
+<Step>
+Click **New Data Source**.
+</Step>
+<Step>
+Select **Microsoft SQL Server** as the Data Source Type.
+</Step>
+<Step>
+On the configuration tab, set the following properties:
+- **Database Name**: enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **Server**: enter the virtual SQL Server host name (*tds.cdata.com*)
+- **User**: enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**: enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- **Port**: enter *14333*
+</Step>
+<Step>
+Click **Create**.
+</Step>
+<Step>
+Click **Test Connection** to ensure that the connection is configured properly.
+</Step>
+</Steps>

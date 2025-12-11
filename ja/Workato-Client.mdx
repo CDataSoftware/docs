@@ -1,0 +1,81 @@
+---
+title: "Workato"
+description: "This page outlines the steps to connect Workato to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Workato to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Workato.
+</Step>
+<Step>
+On the navigation bar, click **Projects**.
+</Step>
+<Step>
+Enter a name for the new project and click **Create project**.
+</Step>
+<Step>
+In your new project, click **Create** > **Connection**.
+<Frame>
+![](/images/workato_client_create_connection.png)
+</Frame>
+</Step>
+<Step>
+In the search bar, enter "SQL Server". The **Connect to SQL Server** screen appears.
+<Frame>
+![](/images/workato_client_connect_sql.png)
+</Frame>
+</Step>
+<Step>
+In **Connect to SQL Server**, enter the connection name and the following connection settings.
+	- **Location**—The name of the project in which to create the connection.
+	- **Connection type**—select **Cloud**.
+	- **Host**—*tds.cdata.com*
+	- **Port**—*14333*
+	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+</Step>
+<Step>
+Click **Connect**. A **Connection established** message appears.
+</Step>
+<Step>
+The next step is to set up your recipe. In your project, click **Create** > **Recipe**.
+<Frame>
+![](/images/workato_client_create_recipe.png)
+</Frame>
+</Step>
+<Step>
+In **Set up your recipe**, enter the name and location of your recipe.
+</Step>
+<Step>
+Select **Run on a schedule**.
+</Step>
+<Step>
+Select the actions that occur on the schedule.
+</Step>
+<Step>
+Select a table from your SQL Server connection, and any filters, if applicable.
+<Frame>
+![](/images/workato_client_select_table.png)
+</Frame>
+</Step>
+<Step>
+Click **Save** to save the recipe.
+</Step>
+<Step>
+Click **Test Jobs** to test your recipe.
+</Step>
+</Steps>

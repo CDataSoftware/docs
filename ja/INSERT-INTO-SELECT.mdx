@@ -1,0 +1,36 @@
+---
+title: "INSERT INTO SELECT Statements"
+sidebarTitle: "INSERT INTO SELECT"
+description: "To perform multiple inserts in a single request, use the INSERT … SELECT syntax to insert from a temporary table of data. This works by first populating a temporary table with the data you are going to submit to the data source. Once you have all of the data you want to insert, the temporary table is then passed into the table you are inserting to."
+---
+
+
+## Populate the Temporary Table
+
+The temporary table that the command populates is dynamic and is created at run time the first time you insert to it. Temporary tables are denoted by a `#` in their name. When using a temporary table to insert, the temporary table must be named in the format \[TableName\]#TEMP, where TableName is the name of the table you will be inserting to. For example:
+
+```bash
+INSERT INTO Orders#TEMP (ShipCity, MyCustomField__c) VALUES ('New Orders', '9000');
+INSERT INTO Orders#TEMP (ShipCity, MyCustomField__c) VALUES ('New Orders 2', '9001');
+INSERT INTO Orders#TEMP (ShipCity, MyCustomField__c) VALUES ('New Orders 3', '9002');
+```
+
+This creates a temporary table called Orders#TEMP with two columns and three rows of data. Since type cannot be determined on the temporary table itself, all values are stored in memory as strings. They are later converted to the proper type when they are submitted to the Orders table.
+
+## Insert to the Actual Table
+
+Once your temporary table is populated, it is now time to insert to the actual table. You can do this by performing an INSERT to the destination table and selecting the input data from the temporary table. For example:
+
+```bash
+INSERT INTO Orders (Name, MyCustomField__c) SELECT Name, MyCustomField__c FROM Orders#TEMP
+```
+
+In this example, the full contents of the Orders#TEMP table are passed into the Orders table. Multiple inserts can be submitted with each request, which results in fewer requests being submitted to the data source. These consolidated requests improve performance when inserting many records at once.
+
+## Results
+
+The results of the query are stored in the LastResultInfo#TEMP temporary table. This table is cleared and repopulated the next time data is modified by passing in a temporary table. Please be aware that the LastResultInfo#TEMP table has no predefined schema. You need to check its metadata at run time before reading data.
+
+## Temporary Table Life Span
+
+Temporary tables only last as long as the connection remains open. When the connection is closed, all temporary tables are cleared, including the LastResultInfo#TEMP table.

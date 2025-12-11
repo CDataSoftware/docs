@@ -1,0 +1,26 @@
+---
+title: "DELETE Statements"
+sidebarTitle: "DELETE"
+description: "To delete information from a table, use DELETE statements."
+---
+
+
+
+## DELETE Syntax
+
+The DELETE statement requires the table name in the FROM clause and the row's primary key in the WHERE clause, as shown in the following example:
+
+```bash
+<delete_statement> ::= DELETE FROM <table_name> WHERE { Id = <expression> } [ { AND | OR } ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```
+
+The following is an example query:
+
+```bash
+DELETE FROM Orders WHERE Id = @myId
+```

@@ -1,0 +1,78 @@
+---
+title: "Cloud Data Fusion"
+description: "This page outlines the steps to install and configure the Connect AI connector for Cloud Data Fusion. After installation, Cloud Data Fusion can pull data from sources that you have connected to your Connect AI account."
+---
+
+
+## Prerequisites
+
+Before you can configure and use Cloud Data Fusion with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+You must also generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Cloud Data Fusion to Connect AI, follow these steps.
+
+<Steps>
+<Step>
+Download and install the Connect AI JDBC driver.
+	- Open the **Integrations** page of Connect AI.
+	- Search for **JDBC** or **Cloud Data Fusion**.
+	- Click **Download** and select your operating system.
+	- When the download is complete, run the setup file.
+	- When the installation is complete, the JAR file can be found in the installation directory.
+</Step>
+<Step>
+Log in to Cloud Data Fusion.
+</Step>
+<Step>
+Click the green "+" in the top right to add an entity.
+</Step>
+<Step>
+Under **Driver**, click **Upload**.
+<Frame>
+![](/images/google_data_fusion_client_01.png)
+</Frame>
+</Step>
+<Step>
+Upload the Connect AI JDBC driver.
+</Step>
+<Step>
+Enter the driver settings.
+	- **Name**—the name of the driver
+	- **Class name**—enter *cdata.jdbc.connect.ConnectDriver*
+	- **Version**—the driver version
+	- **Description**—(optional) a description for the driver
+<Frame>
+![](/images/google_data_fusion_client_02.png)
+</Frame>
+</Step>
+<Step>
+Click **Finish**.
+</Step>
+<Step>
+Enter source configuration settings.
+	- **Label**—to identify the connection
+	- **JDBC driver name**—enter the JDBC driver name. This is to identify the driver configured in Step 6.
+	- **Connection string**—the JDBC connection string. It is formatted like `jdbc:connect:AuthScheme=Basic;User=[User];Password=[Password];`. Fill in this string with the following parameters.
+	- **User**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+<Frame>
+![](/images/google_data_fusion_client_03.png)
+</Frame>
+</Step>
+<Step>
+Click **Validate** in the top right.
+</Step>
+<Step>
+If the connection succeeds, you can manage the pipeline by editing it through the UI.
+<Frame>
+![](/images/google_data_fusion_client_04.png)
+</Frame>
+</Step>
+</Steps>
+
+## Troubleshooting
+
+Please be aware that there is a known issue with Cloud Data Fusion where `int` types from source data are automatically cast as `long`.

@@ -1,0 +1,134 @@
+---
+title: "AWS Glue"
+description: "This page outlines the steps to connect AWS Glue to your Connect AI account."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+Follow these steps to establish a connection from AWS Glue to Connect AI:
+
+<Steps>
+<Step>
+Log in to AWS Glue.
+</Step>
+<Step>
+In the navigation pane, under **ETL**, select **AWS Glue Studio**.
+</Step>
+<Step>
+On the AWS Glue Studio page, click **View Connectors**.
+</Step>
+<Step>
+In the **Marketplace Connectors** box, click **Go to AWS Marketplace**.
+</Step>
+<Step>
+Enter *Connect AI* in the Marketplace search bar.
+</Step>
+<Step>
+Select **CData AWS Glue Connector for CData Connect**. The connector page opens in a new browser tab.
+</Step>
+<Step>
+At the top of the connector page, click **Continue to Subscribe**.
+</Step>
+<Step>
+On the next page, click **Continue to Configuration**, and then click **Continue to Launch** on the following page.
+</Step>
+<Step>
+On the **Launch this software** page, click **Usage Instructions**. In the dialog that appears, click **Activate the connector with AWS Glue Studio**.
+</Step>
+<Step>
+GlueStudio opens in a new browser tab. Set the connection properties as follows:
+	- **Name**—enter a name of your choice for the connection.
+	- **Description**—if desired, enter a description for the connection.
+	- **Connection credential type**—select **connect\_cloud**.
+	- **AWS Secret**—leave this blank.
+	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **defaultCatalog**—the name of the connection that you want to access. For example, *Salesforce1*.
+</Step>
+<Step>
+At the bottom of the page, click **Create connection and activate connector**.
+</Step>
+</Steps>
+
+Your connection now appears in the **Connections** list in Glue Studio.
+
+## Create an IAM Role
+
+To access your data in AWS Glue, you must have an IAM Role with the correct permissions. If you have not created an IAM Role in AWS Glue, follow the [AWS instructions for creating an IAM Role](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html).
+
+When selecting the permissions policies, ensure that you select the following AWS Managed policies at a minimum:
+
+- **AmazonS3FullAccess**
+- **AmazonEC2ContainerRegistryReadOnly**
+- **AWSGlueServiceRole**
+
+If you are using AWS Secrets Manager to store confidential connection properties, create and add an inline policy similar to the following, granting access to the specific secrets needed for the AWS Glue job:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:ListSecretVersionIds"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-2:111222333:secret:CDataSecret-abcdef"
+            ]
+        }
+    ]
+}
+```
+
+You will use this role when creating a job in AWS Glue.
+
+## Use the Connection in AWS Glue
+
+After you create your connection to Connect AI, you can use the connection to create a job. Follow these steps:
+
+<Steps>
+<Step>
+Select the connection in the **Connections** list.
+</Step>
+<Step>
+Click **Create Job**.
+</Step>
+<Step>
+Select **CData AWS Glue Connector for CData Connect** in the visual flow.
+</Step>
+<Step>
+On the **Data source properties - Connector** tab:
+	- Select the connection you created above.
+	- Select either **Enter table name** or **Write a query**.
+		- If you select Enter table name, in the **Table name** field, enter the fully-qualified name of the table you want to access in the format *ConnectionName.ConnectionType.TableName*. For example, *Salesforce1.Salesforce.Customers*.
+		- If you select Write a query, use the fully-qualified name of the table that you want to access when writing the query.
+	- Open **Job bookmark options**. In the field labelled **Enter key**, enter the name of the primary key of the table you are accessing. Alternatively, you can open the **Job details** tab and set **Job bookmark** to *Disable*.
+</Step>
+<Step>
+In the visual flow, select the **Job details** tab.
+</Step>
+<Step>
+Enter a name for the job.
+</Step>
+<Step>
+In the **IAM Role** field, enter the name of the [IAM Role you created above](#create-an-iam-role).
+</Step>
+<Step>
+Save the job.
+</Step>
+</Steps>
+
+You can now run the job as part of your AWS Glue flow.

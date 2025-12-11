@@ -1,0 +1,53 @@
+---
+title: "Aggregate"
+description: "Aggregate functions operate on values across rows to make calculations such as sum, average, minimum/maximum, and count. These functions take 0 or more rows and produce a single output."
+---
+
+
+## COUNT
+
+Returns the number of rows that match the query criteria.
+
+```sql
+SELECT COUNT(*) FROM Account WHERE Industry = 'Floppy Disks'
+```
+
+## COUNT(DISTINCT)
+
+Returns the number of distinct, non-null field values that match the query criteria.
+
+```sql
+SELECT COUNT(DISTINCT BillingState) AS DistinctValues FROM Account WHERE Industry = 'Floppy Disks'
+```
+
+## AVG
+
+Returns the average of the column values.
+
+```sql
+SELECT Name, AVG(AnnualRevenue) FROM Account WHERE Industry = 'Floppy Disks'  GROUP BY Name
+```
+
+## MIN
+
+Returns the minimum column value.
+
+```sql
+SELECT MIN(AnnualRevenue), Name FROM Account WHERE Industry = 'Floppy Disks' GROUP BY Name
+```
+
+## MAX
+
+Returns the maximum column value.
+
+```sql
+SELECT Name, MAX(AnnualRevenue) FROM Account WHERE Industry = 'Floppy Disks' GROUP BY Name
+```
+
+## SUM
+
+Returns the total sum of the column values.
+
+```sql
+SELECT SUM(AnnualRevenue) FROM Account WHERE Industry = 'Floppy Disks'
+```

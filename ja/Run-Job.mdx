@@ -1,0 +1,19 @@
+---
+title: "Run Job"
+description: "Administrators, impersonating a service user, can use this call to put the specified job in the queue to be run."
+api: POST https://cloud.cdata.com/api/job/{jobId}/run
+contentType: application/json
+---
+
+
+### Path Parameters
+
+<ParamField path="jobId" type="string" required>
+The Id of the job you want to put in the queue to be run.
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`

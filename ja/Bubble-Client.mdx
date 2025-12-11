@@ -1,0 +1,67 @@
+---
+title: "Bubble"
+description: "This page outlines the steps to connect Bubble to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Bubble to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Bubble.
+</Step>
+<Step>
+On the left hand menu, click **Plugins**.
+<Frame>
+![](/images/bubble_client_01.png)
+</Frame>
+</Step>
+<Step>
+Click **Add plugins**.
+</Step>
+<Step>
+Search for "SQL Database Connector" and click **Install**.
+<Frame>
+![](/images/bubble_client_02.png)
+</Frame>
+</Step>
+<Step>
+Once it is installed, it is available to use as shown below. Click **Add a new connection**.
+<Frame>
+![](/images/bubble_client_03.png)
+</Frame>
+</Step>
+<Step>
+Enter the connection settings.
+	- **Connection name**—enter a name for the connection to Connect AI.
+	- **Database type**—select **Microsoft SQL**.
+	- **Connection string**—enter the SQL database connection string. This string includes a username and password in a format like `sql://[Username]:[Password]@tds.cdata.com:14333/`. Enter the following settings into this string.
+		- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+		- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+<Note>
+The password portion of the connection string should not contain any forward slashes, because Bubble interprets them as separators. Replace any forward slashes with the URL-encoded string `%2F`.
+</Note>
+<Note>
+it is also possible to add a database connection name at the end of the connection string like `sql://[Username]:[Password]@tds.cdata.com:14333/[ConnectionName]`.
+</Note>
+<Frame>
+![](/images/bubble_client_04.png)
+</Frame>
+</Step>
+<Step>
+Click **Test the connection**. If the connection succeeds, this button becomes gray and says **Database connected** as shown below.
+<Frame>
+![](/images/bubble_client_05.png)
+</Frame>
+</Step>
+</Steps>

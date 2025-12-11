@@ -1,0 +1,118 @@
+---
+title: "Databricks"
+description: "This page outlines the steps to configure Databricks to access Connect AI. Databricks can pull data from sources that you have connected to your Connect AI account."
+---
+
+
+## Prerequisites
+
+Before you can configure and use Databricks with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+You must also generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from Databricks to Connect AI, follow these steps.
+
+<Steps>
+<Step>
+Download and install the Connect AI JDBC driver.
+
+<Steps>
+<Step>
+Open the **Integrations** page of Connect AI.
+</Step>
+<Step>
+Search for **JDBC** or **Databricks**.
+</Step>
+<Step>
+Click **Download** and select your operating system.
+</Step>
+<Step>
+When the download is complete, run the setup file.
+</Step>
+<Step>
+When the installation is complete, the JAR file can be found in the installation directory.
+</Step>
+</Steps>
+</Step>
+<Step>
+Log in to Databricks.
+</Step>
+<Step>
+In the navigation pane, select **Compute**. Start any compute or create a new one.
+
+<Frame>
+![](/images/databricks_client_compute.png)
+</Frame>
+</Step>
+<Step>
+Once the compute is started, click the compute and then select the **Libraries** tab.
+
+<Frame>
+![](/images/databricks_client_libraries.png)
+</Frame>
+</Step>
+<Step>
+Click **Install new**. The **Install library** dialog appears.
+
+<Frame>
+![](/images/databricks_client_install.png)
+</Frame>
+</Step>
+<Step>
+Select **DBFS**. Then drag and drop the JDBC JAR file into the indicated area. The file has the name *cdata.jdbc.connect.jar*. Click **Install**.
+</Step>
+<Step>
+You must now run three notebook scripts, one by one.
+</Step>
+<Step>
+The first script is below. Change the following:
+	- Update `User` with your Connect AI username.
+	- Update `Password` with the PAT you generated in the prerequisites.
+	- Update `Your_Connection_name` with the name of the data source you created in the prerequisites.
+
+```python
+driver = "cdata.jdbc.connect.ConnectDriver"
+url ="jdbc:connect:AuthScheme=Basic;User=user@cdata.com;Password=***********;URL=https://cloud.cdata.com/api/;DefaultCatalog= Your_Connection_Name;"
+```
+</Step>
+<Step>
+Run the first script.
+</Step>
+<Step>
+From the menu on the right side, select **Add cell below** to add a second script. The second script is below. Change the following:
+	- Update `User` with your Connect AI username.
+	- Update `Password` with the PAT you generated in the prerequisites.
+	- Update `Your_Connection_name` with the name of the data source you created in the prerequisites.
+	- Update `YOUR_SCHEMA.YOUR_TABLE` with your schema and table, for example, `PUBLIC.CUSTOMERS`.
+
+```python
+remote_table = spark.read.format ( "jdbc" ) \
+.option ( "driver" , "cdata.jdbc.connect.ConnectDriver") \
+.option ( "url","jdbc:connect:AuthScheme=Basic;User=user@cdata.com;Password=*******;URL=https://cloud.cdata.com/api/;DefaultCatalog= Your_Connection_Name;") \
+.option ( "dbtable" , "YOUR_SCHEMA.YOUR_TABLE") \
+.load ()
+```
+</Step>
+<Step>
+Run the second script.
+</Step>
+<Step>
+Add a cell for the third script. The third script is below. Select the columns you want to display.
+
+```python
+display (remote_table.select ("ColumnName1","ColumnName2"))
+```
+</Step>
+<Step>
+Run the third script.
+</Step>
+<Step>
+You can preview your data in Databricks.
+
+<Frame>
+![](/images/databricks_client_preview.png)
+</Frame>
+</Step>
+</Steps>

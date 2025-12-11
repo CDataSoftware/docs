@@ -1,0 +1,138 @@
+---
+title: "Create Job"
+description: "Administrators, impersonating a service user, can use this call to create a new job."
+api: POST https://cloud.cdata.com/api/job/create
+contentType: application/json
+---
+
+
+### Payload Parameters
+
+<ParamField path="jobType" type="string" required>
+The type of job that the user wants to run (Caching or ScheduledQuery).
+</ParamField>
+
+<ParamField path="intervalUnit" type="string" required>
+A string representing the time interval (Hour/Day/Week/Month).
+</ParamField>
+
+<ParamField path="intervalValue" type="integer" required>
+An integer that represents how many of the selected frequency unit the job should wait before running again.
+</ParamField>
+
+<ParamField path="logVerbosity" type="integer" required>
+An enum indicating the level of log verbosity (1-5).
+</ParamField>
+
+<ParamField path="enabled" type="boolean">
+A Boolean value indicating whether the job is enabled. The default value is true.
+</ParamField>
+
+<ParamField path="definedNextRun" type="string">
+An optional DateTime value that can be used to set the initial start time for the job.
+</ParamField>
+
+<ParamField path="params" type="object" required>
+An object containing different job details depending on if the job is a cache job or a scheduled query. See examples below.
+
+For cache jobs:
+- timeCheckColumn: string
+- autoTruncateStrings: string
+- sourceConnectionName: string
+- sourceName: string
+- sourceSchema: string
+- sourceTable: string
+
+For scheduled queries:
+- name: string
+- query: string
+- destinationWriteScheme: string
+- destinationConnectionName: string
+- destinationSchema: string
+- destinationTable: string
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`
+
+<Expandable title="Response body">
+
+<ResponseField name="jobs" type="array of objects" required>
+  <ResponseField name="id" type="string" required>
+    The job's Id.
+  </ResponseField>
+  <ResponseField name="name" type="string" required>
+    The job's name.
+  </ResponseField>
+  <ResponseField name="enabled" type="boolean" required>
+    A Boolean value indicating whether the job is enabled.
+  </ResponseField>
+  <ResponseField name="created" type="string" required>
+    The date and time the job was created.
+  </ResponseField>
+  <ResponseField name="lastModified" type="string" required>
+    The date and time the job was last modified.
+  </ResponseField>
+  <ResponseField name="nextRunTime" type="string" required>
+    The date and time the job is scheduled to be run next.
+  </ResponseField>
+  <ResponseField name="intervalUnit" type="string" required>
+    A string representing the interval unit for the job (Hour/Day/Week/Month).
+  </ResponseField>
+  <ResponseField name="intervalValue" type="integer" required>
+    An integer that represents how many of the selected interval unit the job should wait before running again.
+  </ResponseField>
+  <ResponseField name="logVerbosity" type="integer" required>
+    A number indicating the level of log verbosity (1-5).
+  </ResponseField>
+  <ResponseField name="lastRun" type="object">
+    The last run metrics for the job, including the date and time, duration, status, rows affected, and next run time.
+  </ResponseField>
+  <ResponseField name="params" type="object">
+    An object containing different job details, depending on whether the job is a cache job or a scheduled query.
+  </ResponseField>
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+  "jobs": [
+    {
+      "id": "string",
+      "name": "string",
+      "enabled": true,
+      "created": "2024-01-01T00:00:00Z",
+      "lastModified": "2024-01-01T00:00:00Z",
+      "nextRunTime": "2024-01-01T00:00:00Z",
+      "intervalUnit": "Hour",
+      "intervalValue": 1,
+      "logVerbosity": 1,
+      "lastRun": {
+        "dateTime": "0001-01-01T00:00:00Z",
+        "duration": 63894847975,
+        "status": "JOB_QUEUED",
+        "rowsAffected": 0,
+        "nextRunTime": "0001-01-01T00:00:00Z"
+      },
+      "params": {
+        "timeCheckColumn": "",
+        "autoTruncateStrings": "false",
+        "sourceConnection": "f6f3cfe6-72e2-4edb-914f-4409c01c1418",
+        "sourceConnectionName": "MailChimp1",
+        "sourceName": "MailChimp",
+        "sourceSchema": "MailChimp",
+        "sourceTable": "Conversations"
+      }
+    }
+  ]
+}
+```
+
+</ResponseExample>

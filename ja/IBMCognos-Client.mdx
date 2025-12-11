@@ -1,0 +1,52 @@
+---
+title: "IBM Cognos Analytics"
+description: "This page outlines the steps to install and configure the Connect AI connector for IBM Cognos Analytics. After installation, IBM Cognos Analytics will be able to pull data from sources that you have connected to your Connect AI account."
+---
+
+
+## Prerequisites
+
+Before you can configure and use IBM Cognos Analytics with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+You must also generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+After you have completed the prerequisites above, follow the steps below:
+
+<Steps>
+<Step>
+Download the Connect AI JDBC driver from the Integrations page and install it to the `<cognos>\drivers` directory.
+</Step>
+<Step>
+Open IBM Cognos Analytics and navigate to **Manage** > **Data server connections**.
+</Step>
+<Step>
+Click the icon to add a data server.
+</Step>
+<Step>
+Select **Connect AI**.
+</Step>
+<Step>
+In the connection editor, enter the JDBC URL to the Connect AI server. See the [IBM Cognos Analytics documentation](https://www.ibm.com/en/cognos-analytics) for more information.
+</Step>
+<Step>
+In the username field, enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+</Step>
+<Step>
+In the password field, enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+</Step>
+<Step>
+Save the connection definition.
+</Step>
+<Step>
+Click **Test** to confirm that the connection succeeds.
+</Step>
+</Steps>
+
+## More Information
+
+For more information about using IBM Cognos Analytics, please refer to the [IBM Cognos Analytics documentation](https://www.ibm.com/en/cognos-analytics). The pages below contain information that pertains to Connect AI:
+
+- [Creating a data server connection](https://www.ibm.com/en/cognos-analytics/12.0.0?topic=servers-creating-data-server-connection)
+- [Supported Software Environments](https://www.ibm.com/en/cognos-analytics/12.0.0?topic=icdqa-supported-environments)

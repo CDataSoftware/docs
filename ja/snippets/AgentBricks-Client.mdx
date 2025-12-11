@@ -1,0 +1,82 @@
+---
+title: "Agent Bricks"
+description: "The Connect AI Remote MCP Service enables Agent Bricks to securely read and take action on your data in real time."
+---
+
+
+
+This page outlines the steps to install and configure the Connect AI connector for Agent Bricks. After installation, Agent Bricks can pull data from sources that you have connected to your Connect AI account.
+
+## Prerequisites
+
+Contact [CData Support](https://www.cdata.com/support/submit.aspx) to obtain a Client Id and Client Secret to enter in Agent Bricks. You must provide support with your callback URL specific to your Agent Bricks instance. This is found in the beginning of the Agent Bricks URL.
+
+You must also connect at least one data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+## Connect to the Connect AI MCP Server
+
+Follow these steps to connect to Connect AI in Agent Bricks:
+<Steps>
+<Step>
+Sign in to [Databricks](https://login.databricks.com/) or create a new account.
+</Step>
+<Step>
+ In the **Catalogs** tab, click **+** and select **Create connection** from the drop-down list.
+</Step>
+<Step>
+In **Step 1: Connection basics**, enter the following:
+	- **Connection name**–your user-defined connection name.
+	- **Connection type**–select **HTTP**.
+	- **Auth type**–select **OAuth User to Machine Per User**.
+	Click **Next**.
+</Step>
+<Step>
+ In **Step 2: Authentication**, enter the following:
+	- **Host**–enter *`https://mcp.cloud.cdata.com`*.
+	- **Port**–leave the default port.
+	- **Client Secret**–enter the Client Secret provided by the CData support team.
+	- **Client ID**–enter the Client Id provided by the CData support team.
+	- **Authorization endpoint**–enter *`http://cloud-login.cdata.com/authorize`*.
+	- **OAuth scope**–enter *openid,profile,email,offline\_access*.
+		<Frame>![](/images/databricks_mcp_setup_auth.png)</Frame>
+	Click **Next**.
+</Step>
+<Step>
+In **Step 3: Connection details**, enter the following:
+	- **Token endpoint**–enter *`https://cloud-login.cdata.com/oauth/token`*.
+	- **Base path**–enter */mcp*.
+	- **Is mcp connection**–select this.
+	- **Oauth credential exchange method**–select **Header only**.
+		<Frame>![](/images/databricks_mcp_setup_details.png)</Frame>
+	Click **Create connection**.
+</Step>
+<Step>
+ Once you have a successful connection, click **Login**. Your connection details appear.
+</Step>
+</Steps>
+## Use the Connector
+
+Now that you are logged in, you can use the connector.
+<Steps>
+<Step>
+ Click **Playground**.
+</Step>
+<Step>
+ Select an endpoint that has tools enabled.
+	<Frame>![](/images/databricks_mcp_toolsenabled.png)</Frame>
+</Step>
+<Step>
+ In your selected tool, under **Add you own tools**, click **Add tools**.
+</Step>
+<Step>
+ Select the **MCP Servers Beta** tab.
+</Step>
+<Step>
+ Under **External MCP Servers**, select the connection you just created.
+	<Frame>![](/images/databricks_mcp_addtools.png)</Frame>
+	Click **Save**.
+</Step>
+<Step>
+ You can now query your connected data with the AI tool you selected.
+</Step>
+</Steps>

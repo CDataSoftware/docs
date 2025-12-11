@@ -1,0 +1,108 @@
+---
+title: "Apps Script"
+description: "This page outlines the steps to connect Apps Script to Connect AI via the Query API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+In order to connect from Apps Script to Connect AI via the Query API, you need the following information:
+
+- **URL**—*https://cloud.cdata.com/api/query*
+- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+
+<Steps>
+<Step>
+Log in to Apps Script (https://script.google.com).
+</Step>
+<Step>
+Create a new Apps Script project.
+</Step>
+<Step>
+Copy and paste the script below into the Apps Script project. This script connects your data source to the Query API and outputs the results to the Apps Script console.
+	Change the following in the script:
+	- Update `username` with your Connect AI username.
+	- Update `password` with the PAT you generated in the prerequisites.
+	- Update `query` with your database query.
+
+```javascript expandable
+function postQueryToAPI() {
+ // Define the API endpoint and authentication
+ const apiUrl = 'https://cloud.cdata.com/api/query';
+ const username = 'CONNECT_CLOUD_USERNAME'; // Replace with your API username
+ const password = 'CONNECT_CLOUD_PAT' // Replace with your API password or PAT
+ 
+ // Define the query payload
+ const queryPayload = {
+     query: "SELECT * FROM [Snowflake1].[PUBLIC].[Account]"
+ };
+ 
+ // Options for the POST request
+ const options = {
+     method: 'POST',
+     headers: {
+         'Authorization': 'Basic ' + Utilities.base64Encode(username + ':' + password),
+         'Content-Type': 'application/json'
+     },
+     payload: JSON.stringify(queryPayload) // Convert payload to JSON
+ };
+ 
+ try {
+     // Send the POST request to the API
+     const response = UrlFetchApp.fetch(apiUrl, options);
+ 
+     // Parse the JSON response
+     const jsonResponse = JSON.parse(response.getContentText());
+ 
+     const schema = jsonResponse.results[0].schema;
+     const rows = jsonResponse.results[0].rows;
+ 
+    // Create a mapped result
+     const parsedResults = rows.map(row => {
+     let rowData = {};
+     schema.forEach((column, index) => {
+         rowData[column.columnLabel] = row[index];
+     });
+     return rowData;
+     });
+ 
+     // Log the response to check the result
+     Logger.log('Parsed Results: ' + JSON.stringify(parsedResults, null, 2));
+ } catch (e) {
+     // Handle errors and log the message
+     Logger.log('Error: ' + e.message);
+ }
+}
+```
+</Step>
+<Step>
+Name and save your Apps Script project.
+
+<Frame>
+![](/images/appsscript_client_code.png)
+</Frame>
+</Step>
+<Step>
+Run the script.
+
+<Note>
+The first time you run the script, you need to authorize it to make external connections. Click **Review Permissions** and follow the prompts to grant the necessary permissions.
+</Note>
+</Step>
+<Step>
+The **Execution log** displays the query output as a JSON object:
+
+<Frame>
+![](/images/appsscript_client_log.png)
+</Frame>
+</Step>
+</Steps>
