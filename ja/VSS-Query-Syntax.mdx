@@ -1,0 +1,135 @@
+---
+title: "Query Syntax"
+description: "You can execute SQL queries against your Virtual SQL Server just as you would query a traditional SQL Server database. You can also execute stored procedures."
+---
+
+
+## Select Statements
+
+The following syntax diagram outlines the supported **SELECT** syntax:
+
+```bash expandable
+SELECT {
+  [ TOP <numeric_literal> | DISTINCT ]
+  {
+    *
+    | {
+      <expression> [ [ AS ] <column_reference> ]
+      | { <table_name> | <correlation_name> } .*
+  } [ , ... ]
+  }
+  [ INTO csv:// [ filename= ] <file_path> [ ;delimiter=tab ] ]
+  {
+    FROM <table_reference> [ [ AS ] <identifier> ]
+  } [ , ... ]
+  [ [
+      INNER | { { LEFT | RIGHT | FULL } [ OUTER ] }
+    ] JOIN <table_reference> [ ON <search_condition> ] [ [ AS ] <identifier> ]
+  ] [ ... ]
+  [ WHERE <search_condition> ]
+  [ GROUP BY <column_reference> [ , ... ]
+  [ HAVING <search_condition> ]
+  [ UNION [ ALL ] <select_statement> ]
+  [
+    ORDER BY
+    <column_reference> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST ]
+  ]
+  [
+    LIMIT <expression>
+  [
+    { OFFSET | , }
+    <expression>
+  ]
+  ]
+} | SCOPE_IDENTITY()
+ 
+<expression> ::=
+  | <column_reference>
+  | @ <parameter>
+  | ?
+  | COUNT( * | { [ DISTINCT ] <expression> } )k
+  | { AVG | MAX | MIN | SUM | COUNT } ( <expression> )
+  | NULLIF ( <expression> , <expression> )
+  | COALESCE ( <expression> , ... )
+  | CASE <expression>
+      WHEN { <expression> | <search_condition> } THEN { <expression> | NULL } [ ... ]
+    [ ELSE { <expression> | NULL } ]
+    END
+  | <literal>
+  | <sql_function>
+ 
+<search_condition> ::=
+  {
+  <expression> { = | > | < | >= | <= | <> | != | 
+                 LIKE | NOT_LIKE | IN | NOT_IN | IS_NULL | IS_NOT_NULL | 
+                 AND | OR | CONTAINS | BETWEEN 
+               } [ <expression> ]
+  } [ { AND | OR } ... ]
+```
+
+## Insert Statements
+
+The **INSERT** statement specifies the columns to be inserted and the new column values. You can specify the column values in a comma-separated list in the **VALUES** clause:
+
+```bash
+INSERT INTO <table_name>
+  ( <column_reference> [ , ... ] )
+VALUES
+  ( { <expression> | NULL } [ , ... ] )
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```
+
+## Update Statements
+
+To issue an **UPDATE** query, provide a comma-separated list of columns and new column values as name-value pairs in the **SET** clause, as shown below:
+
+```bash
+UPDATE 
+  <table_name> 
+SET 
+  { <column_reference> = <expression> } [ , ... ] 
+WHERE 
+  Id = <expression>  } [ { AND | OR } ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```
+
+## Delete Statements
+
+The **DELETE** statement requires:
+
+- The table name in the **FROM** clause
+- The primary key for the row in the **WHERE** clause
+
+This format is shown below:
+
+```bash
+DELETE FROM <table_name> 
+WHERE { 
+  Id = <expression> 
+} [ { AND | OR } ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```
+
+## Stored Procedures
+
+Stored procedures from Virtual SQL Server can be executed as follows:
+
+```bash
+-- WITHOUT parameters
+EXECUTE [ConnectionName].[SchemaName].[ProcedureName]
+
+-- WITH Parameters
+EXECUTE [ConnectionName].[SchemaName].[ProcedureName] @ParameterName1 = <value1>, @ParameterName2 = <value2>, ...
+```

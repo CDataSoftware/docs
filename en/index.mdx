@@ -1,0 +1,127 @@
+---
+mode: "custom"
+title: "CData Docs"
+---
+
+<div className="py-8 px-4 max-w-[1200px] mx-auto">
+  <div className="text-center mb-16">
+    <h1 className='dark:text-white text-black text-5xl font-bold mb-4'>
+      Welcome to Connect AI
+    </h1>
+    <p className="dark:text-[#aaa] text-[#333] text-lg max-w-[800px] mx-auto mb-8 leading-relaxed">
+      Connect AI is a managed platform for reading, writing, and acting on hundreds of SaaS, database, and API sources through secure, standards-based access. One governed layer for your entire stack: MCP for AI agents, ODBC/JDBC for BI tools, REST/OData for custom apps. Your data stays accessible, protected, and ready—wherever you need it.
+    </p>
+    <div className="flex gap-4 justify-center flex-wrap">
+      <a  href="https://cloud-login.cdata.com/u/signup"  className="inline-block px-6 py-3 bg-[#00A0FF] text-white rounded-md font-medium hover:opacity-90">
+        Sign up
+      </a>
+      <a href="https://cloud-login.cdata.com/u/login" className="inline-block px-6 py-3 bg-white text-[#252525] border border-[#ddd] rounded-md font-medium hover:opacity-90">
+        Log in
+      </a>
+    </div>
+  </div>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <div className='dark:bg-[#1E1E1E] bg-white border dark:border-gray-700 border-[#e5e7eb] p-8 rounded-xl shadow-sm'>
+      <div className="mb-5">
+        <Icon icon="grid" size={48} color="#00A0FF" />
+      </div>
+      <h3 className='dark:text-[#ccc] text-[#252525] text-xl font-bold mb-3'>
+        Many sources, one interface
+      </h3>
+      <p className="dark:text-[#aaa] text-[#333] leading-relaxed mb-5 text-[0.9375rem]">
+        Unify access to 300+ sources and tools (BI, iPaaS, no-code builders) without building one-off integrations.
+      </p>
+      <a href="/en/Salesforce" className="text-[#00A0FF] no-underline font-medium text-[0.9375rem] inline-block">Data Sources →</a>
+    </div>
+
+    <div className='dark:bg-[#1E1E1E] bg-white border dark:border-gray-700 border-[#e5e7eb] p-8 rounded-xl shadow-sm'>
+      <div className="mb-5">
+        <Icon icon="lock" size={48} color="#00A0FF" />
+      </div>
+      <h3 className='dark:text-[#ccc] text-[#252525] text-xl font-bold mb-3'>
+        Enterprise controls
+      </h3>
+      <p className="dark:text-[#aaa] text-[#333] leading-relaxed text-[0.9375rem]">
+        SSO, user credentials, and workspaces to isolate and govern access.
+      </p>
+    </div>
+
+    <div className='dark:bg-[#1E1E1E] bg-white border dark:border-gray-700 border-[#e5e7eb] p-8 rounded-xl shadow-sm'>
+      <div className="mb-5">
+        <Icon icon="database" size={48} color="#00A0FF" />
+      </div>
+      <h3 className='dark:text-[#ccc] text-[#252525] text-xl font-bold mb-3'>
+        APIs
+      </h3>
+      <p className="dark:text-[#aaa] text-[#333] leading-relaxed mb-5 text-[0.9375rem]">
+        Full REST API with SQL-grade semantics, plus a virtual SQL Server endpoint for tooling that speaks TDS.
+      </p>
+      <a href="/en/API" className="text-[#00A0FF] no-underline font-medium text-[0.9375rem] inline-block">API Reference →</a>
+    </div>
+
+  </div>
+
+  <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
+
+    <div className='lg:w-1/2 dark:text-white text-black'>
+      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+        Get started in 5 minutes
+      </h2>
+      <p className="dark:text-[#aaa] text-[#333]" style={{ fontSize: '1.125rem', lineHeight: '1.6', marginBottom: '2rem' }}>
+        Setting up your first connection should be the easiest part of getting started. With quick authentication and easy connection setup, you'll be up and running in minutes—not hours.
+        <p className='mt-4'>No guesswork, no complexity—just your first successful prompt, fast.</p>
+      </p>
+       <a href="/en/Quick-Start-Guide" className="inline-flex items-center gap-2 px-6 py-3 bg-[#00A0FF] text-white rounded-md font-medium hover:opacity-90">
+
+        <Icon icon="rocket" size={20} color="white"/> Get started
+      </a>
+    </div>
+
+    <div className='lg:w-1/2'>
+       <img src="./images/background-1.png"/>
+    </div>
+
+  </div>
+
+<div className="flex flex-col lg:flex-row gap-4 mb-16">
+    <div className='lg:w-1/2'>
+<pre>
+```bash        
+{`async def get_mcp_tools(session: ClientSession):
+    """Set up the list of MCP tools that will be used to interact with"""
+    mcp_tools = await session.list_tools()
+    return [
+        types.Tool(
+            function_declarations=[
+                types.FunctionDeclaration(
+                    name=tool.name,
+                    description=tool.description,
+                    parameters={
+                        p: v for p, v in tool.inputSchema.items()
+                    }
+                )
+            ]
+        )
+        for tool in mcp_tools.tools
+        if tool.name in BOX_MCP_TOOLS
+    ]`}
+```
+</pre>
+    </div>
+
+    <div className='lg:w-1/2' style={{ padding: '2rem', borderRadius: '1rem' }}>
+      <h2 className="dark:text-white text-black" style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+        Learn more about the developer platform
+      </h2>
+      <p className="dark:text-[#aaa] text-[#333]" style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '2rem' }}>
+        This guide covers three high-impact areas you'll implement first: (1) Connectivity & Modeling, (2) Security & Governance, and (3) Programmatic Access & Jobs.
+      </p>
+      <a href="/en/API" className="inline-block px-6 py-3 bg-white text-[#252525] border border-[#ddd] rounded-md font-medium hover:opacity-90">
+         <Icon icon="book" size={16} color="#252525"/> Documentation
+      </a>
+    </div>
+
+  </div>
+
+</div>

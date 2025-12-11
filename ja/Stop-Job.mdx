@@ -1,0 +1,19 @@
+---
+title: "Stop Job"
+description: "Administrators, impersonating a service user, can use this call to stop the specified job."
+api: POST https://cloud.cdata.com/api/job/{jobId}/stop
+contentType: application/json
+---
+
+
+### Path Parameters
+
+<ParamField path="jobId" type="string" required>
+The Id of the job you want to stop.
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`

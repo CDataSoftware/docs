@@ -1,0 +1,88 @@
+---
+title: "Azure Logic Apps"
+description: "You can connect Azure Logic Apps to Connect AI via the OpenAPI specification."
+---
+
+
+
+## Prerequisites
+
+Before you connect via OpenAPI, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- [Add a workspace](/Workspaces#add-a-workspace) to Workspaces.
+- [Add assets](/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Ensure that you have access to create a custom connector under your Azure subscription.
+
+## Connect to Connect AI
+
+To establish a connection from Azure Logic Apps to Connect AI via OpenAPI, follow these steps.
+
+<Steps>
+<Step>
+In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/OpenAPI) for more information.
+<Note>
+You must use OpenAPI version 2.0 and select **Convert array types to strings**.
+</Note>
+<Frame>
+![](/images/powerautomate_client_endpoints.png)
+</Frame>
+</Step>
+<Step>
+Log in to your Azure portal.
+</Step>
+<Step>
+In Microsoft Azure, under **Azure services**, click **Create a resource**.
+</Step>
+<Step>
+In the search bar, type *Logic Apps Custom Connector*. Click **Create** > **Logic Apps Custom Connector**.
+<Frame>
+![](/images/logic_apps_client_create_custom.png)
+</Frame>
+</Step>
+<Step>
+Enter the details for your custom connector, and then click **Review + create**.
+<Frame>
+![](/images/logic_apps_client_create_basics.png)
+</Frame>
+Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/connectors/custom-connectors/create-logic-apps-connector) for more details.
+</Step>
+<Step>
+In the Logic Apps custom connector you created, click **Edit**. You will now import the OpenAPI definition into the custom connector. Follow the steps below or refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/connectors/custom-connectors/define-openapi-definition).
+</Step>
+<Step>
+Under **1\. General**, select an **Import mode** of **OpenAPI file**. Then locate the OpenAPI definition you created.
+<Frame>
+![](/images/logic_apps_client_openapi.png)
+</Frame>
+</Step>
+<Step>
+Enter general information about the connector, including a description. **Host** and **Base URL** are already filled in.
+</Step>
+<Step>
+In the **2\. Security** step, select an **Authentication type** of **Basic authentication**. Users have to provide a user name and password before using this API. Enter the parameter labels that users will see.
+<Note>
+When you use the custom connector, the user name is the Connect AI user name, and the password is the PAT created in the prerequisites.
+</Note>
+</Step>
+<Step>
+The **3\. Definition** step of the connector defines all the actions of the connector that are contained in the OpenAPI specification file. The actions include all the functions you need for the table, including list, get, create, update, and delete records.
+	In the **3\. Definition** step, you can edit the **Actions** and **References** imported from the OpenAPI specification.
+	- **Actions**—each action in the custom connector has **General** information, as well as the **Request**, **Response**, and **Validation** of the response.
+		For example, the following request is a GET request to list drives.
+<Frame>
+![](/images/powerapps_request.png)
+</Frame>
+		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
+		See [API Operations](/OpenAPI#api-operations) for a complete reference.
+		Similarly, there is a POST request to create a new record. The request contains all the fields for the record. You can edit these fields in the definition.
+	- **References**—reusable parameters that are used by both actions and triggers. Each reference has a **Definition** and **Validation**.
+</Step>
+<Step>
+Click **Update connector** to save your changes.
+</Step>
+<Step>
+You can now build Logic Apps with your custom connector. For more information about building Logic Apps with a custom connector, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/connectors/custom-connectors/use-custom-connector-logic-apps).
+</Step>
+</Steps>

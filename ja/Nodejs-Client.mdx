@@ -1,0 +1,58 @@
+---
+title: "Node.js"
+description: "This page outlines the steps to connect Node.js to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+In order to connect from Node.js to Connect AI via the SQL Server interface, you need the following information:
+
+- **Server**—*tds.cdata.com*
+- **Port**—*14333*
+- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+
+Use the following code to connect to your database with Node.js, and change the following:
+
+- Update `user` with your Connect AI username.
+- Update `password` with the PAT you generated in the prerequisites.
+- Update `database` with the name of the data source you created in the prerequisites.
+- Replace the `query` with your database query.
+
+```javascript expandable
+var sql = require('mssql')
+var config = {
+   server: 'tds.cdata.com',
+   port: 14333,
+   user: 'user@mydomain.com', //your Connect AI username
+   password: 'CONNECT_USER_PAT', //your Connect AI PAT  
+   options: {
+      encrypt: true,
+      database: 'SAPHANA1' //the name of your database connection
+   }
+}
+ 
+sql.connect(config, err => {
+   if(err){
+      throw err ;
+   }
+   new sql.Request().query('SELECT * FROM Buckets', (err, result) => { //your query
+      console.dir(result)
+   })
+ 
+});
+ 
+sql.on('error', err => {
+   console.log("SQL Error: " ,err);
+})
+```

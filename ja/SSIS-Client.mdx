@@ -1,0 +1,59 @@
+---
+title: "SSIS"
+description: "This page outlines the steps to use the SSIS Components for Connect AI."
+---
+
+
+
+<Note>
+Before you can configure and use SSIS with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+</Note>
+
+## Install the Provider
+
+Follow these steps to download and install the Components:
+
+<Steps>
+<Step>
+Open the **Integrations** page of Connect AI.
+</Step>
+<Step>
+In the **Dev Tools** section, click **SSIS**.
+</Step>
+<Step>
+Download and run the setup file.
+</Step>
+<Step>
+The installer can automatically detect software that supports SSIS. Select the options that you want the installer to configure.
+</Step>
+</Steps>
+
+## Connect to Connect AI
+
+To add a new Connect AI connection to the SSIS package, follow these steps:
+
+<Steps>
+<Step>
+Right-click within the Connection Manager window and select **New Connection** from the menu.
+</Step>
+<Step>
+Choose the **Connect AI Connection Manager** from the Add SSIS Connection Manager window.
+</Step>
+<Step>
+The OAuth endpoint opens in your default web browser. Log in to complete the OAuth process.
+</Step>
+</Steps>
+
+Alternatively, you can create a new connection directly using the Connect AI Source or the Connect AI Destination. You can set the connection properties in the Connect AI Connection Manager window.
+
+## Connect to a Workspace
+
+To connect the SSIS client to a specific [workspace](/Workspaces), you specify the workspace name in the **Workspace** field of the Connect AI Connection Manager.
+
+<Frame>
+![](/images/ssis_specify_workspace.png)
+</Frame>
+
+## Learn More
+
+To learn more information about using the SSIS Components for Connect AI, click [here](https://cdn.cdata.com/help/LFM/rssis/default.htm).

@@ -1,0 +1,19 @@
+---
+title: "Create Cache Connection"
+description: "Create/update the cache connection used by the other caching API calls."
+api: POST https://cloud.cdata.com/api/job/cacheConnection
+contentType: application/json
+---
+
+
+### Body Parameters
+
+<ParamField path="connectionString" type="string" required>
+The connection string used to configure the user's PostgreSQL connection.
+</ParamField>
+
+## Responses
+
+### 200
+
+`HTTP 200 OK`

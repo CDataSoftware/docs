@@ -1,0 +1,100 @@
+---
+title: "OpenAPI"
+sidebarTitle: "Overview"
+description: "Connect AI supports the OpenAPI specification version 2.0 and 3.0, allowing you to connect no-code/low-code applications that integrate with OpenAPI easily. Connect AI allows you to download an OpenAPI document from a workspace."
+---
+
+
+## Generate an OpenAPI file for a Workspace
+
+You can generate an OpenAPI specification file for a selected workspace. This file can be used in client applications to integrate with Connect AI via OpenAPI.
+
+To generate an OpenAPI specification file:
+
+<Steps>
+<Step>
+In the dashboard, select **Workspaces**.
+</Step>
+<Step>
+Select the workspace in which to generate an OpenAPI specification file. This file can be used in client applications to integrate with Connect AI via OpenAPI.
+</Step>
+<Step>
+In the top menu, click **View Endpoints**.
+	An **Endpoints** dialog appears.
+</Step>
+<Step>
+Select the **OpenAPI** tab.
+
+<Frame>
+![](/images/endpoints_openapi.png)
+</Frame>
+</Step>
+<Step>
+Select version 3.0 or 2.0 of OpenAPI.
+</Step>
+<Step>
+Toggle **Convert array types to strings** on if the client application does not support array types (such as Microsoft Power Apps).
+</Step>
+<Step>
+Click **Download** to download the OpenAPI specification file for the workspace. This is the file that is imported into the client application.
+
+<Note>
+Some integration tools accept an OpenAPI URL instead of the downloaded specification file. In that case, copy the OpenAPI URL in this dialog. Refer to the integration tool documentation for details.
+</Note>
+</Step>
+<Step>
+Click **Close**.
+</Step>
+</Steps>
+
+## API Operations
+
+For each entity *EntityName* that is exposed in a data set, OpenAPI makes the following operations available. The inputs for each operation are described in the sections below.
+
+- List*EntityName*
+- Get*EntityName*
+- Create*EntityName*
+- Delete*EntityName*
+- Update*EntityName*
+- GetCount*EntityName*
+
+### List*EntityName*
+
+The List operation invokes a GET request for all entities in the data set. The following are the inputs available for List:
+
+- `$top=N` includes only the first *N* records in the result. For example, `$top=10` returns only the top ten records in the entity.
+- `$skip=N` skips the first *N* records from the result. For example, `$skip=10` skips the first ten records in the entity, and begins with the eleventh record.
+- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/OData-Query-Options#filter) for a complete list of operators.
+- `$orderby` sorts the records in the entity by a property or properties. Separate the properties by a comma. You can sort by `asc` (ascending) or `desc` (descending). The default value is `asc`. For example, order the data set by `Model` (ascending) and then by `Color` (descending) as follows: `$orderby=Model asc, Color desc`.
+- `$select` retrieves a subset of properties. For example, return the properties `Id` and `Model` for all records in the data set as follows: `$select=Id, Model`.
+
+### Get*EntityName*
+
+The Get operation invokes a GET request for an entity in the data set. The following are the inputs available for Get:
+
+- `Id` (or other primary key) is the unique identifier for the requested entity in the data set.
+
+### Create*EntityName*
+
+The Create operation invokes a POST request to add an entity to the data set. The following are the inputs for Create:
+
+- `body` is the body of the POST request, containing the properties of the entity.
+
+### Delete*EntityName*
+
+The Delete operation invokes a DELETE request to delete an entity. The following are the inputs for Delete:
+
+- `Id` (or other primary key) is the unique identifier for the requested entity to delete.
+
+### Update*EntityName*
+
+The Update operation invokes a PATCH request to update an entity. The following are the inputs for Update:
+
+- `Id` (or other primary key) is the unique identifier for the requested entity to update.
+- `body` is the body of the request, containing the properties of the entity to update.
+
+### GetCount*EntityName*
+
+The GetCount operation invokes a GET request to get the number of the resource. The following are the inputs for GetCount:
+
+- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/OData-Query-Options#filter) for a complete list of operators.

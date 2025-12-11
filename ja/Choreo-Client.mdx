@@ -1,0 +1,174 @@
+---
+title: "Choreo"
+description: "This page outlines the steps to connect Choreo to your Connect AI account."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI in Choreo
+
+<Steps>
+<Step>
+Sign in to the [Choreo platform](https://console.choreo.dev/).
+</Step>
+<Step>
+Click **Manual Trigger** to create a program that you can execute manually.
+
+<Frame>
+![](/images/choreo_manualtrigger.png)
+</Frame>
+</Step>
+<Step>
+Enter a **Name** and **Description** for the manual trigger and click **Create**.
+
+<Frame>
+![](/images/choreo_create.png)
+</Frame>
+</Step>
+<Step>
+The manual trigger opens in the **Develop** view.
+
+<Frame>
+![](/images/choreo_developview.png)
+</Frame>
+</Step>
+<Step>
+Click **Edit Code** to open the low-code diagram view.
+
+<Frame>
+![](/images/choreo_editcode.png)
+</Frame>
+</Step>
+<Step>
+Choreo automatically generates a construct in the low-code diagram view. Delete this construct by highlighting it and clicking the delete icon.
+
+<Frame>
+![](/images/choreo_deleteconstruct.png)
+</Frame>
+</Step>
+<Step>
+Choreo prompts you to create a new construct. Click the indicated button to open a list of options, then select **Main**.
+
+<Frame>
+![](/images/choreo_main.png)
+</Frame>
+</Step>
+<Step>
+Click **Save** in the settings pane that appears.
+</Step>
+<Step>
+The main construct appears in the diagram view. In the menu that appears under **Start**, click **Connector**.
+
+<Frame>
+![](/images/choreo_startconnector.png)
+</Frame>
+</Step>
+<Step>
+In the **Connectors** dialog, search for *CData*. Click **CData Connect** to open the **Connector** settings pane.
+
+<Frame>
+![](/images/choreo_cdataconnect.png)
+</Frame>
+</Step>
+<Step>
+In the **Connector** settings pane, enter the configuration settings:
+	- Enter an **Endpoint Name** for your use.
+	- In the **User** field, enter the email address of the Connect AI user, wrapped in quotation marks (for example, *"user@cdata.com"*).
+	- In the **Password** field, enter the [PAT you generated earlier](#prerequisites), wrapped in quotation marks (for example, *"SampleToken"*).
+
+<Frame>
+![](/images/choreo_logincredentials.png)
+</Frame>
+</Step>
+<Step>
+Click **Save Connection** to save your settings.
+</Step>
+</Steps>
+
+The Connect AI connector appears in both the low-code diagram view and the source code view of the code editor.
+
+<Frame>
+![](/images/choreo_dualview.png)
+</Frame>
+
+You can now add connector Actions to your application logic.
+
+## Use Connector Actions in Choreo
+
+To add an Action to your application logic, click the **+** icon between the **new** and **End** nodes.
+
+<Frame>
+![](/images/choreo_addbetween.png)
+</Frame>
+
+In the menu that appears, click **Action**.
+
+<Frame>
+![](/images/choreo_addaction.png)
+</Frame>
+
+The Connect AI connector supports the following operations:
+
+- **query**—[query data](#query-action) from your data sources
+- **queryRow**—query data from a single row of a data source
+- **execute**—perform DML and DDL operations
+- **batchExecute**—perform a batch of DML and DDL operations
+- **call**—execute a stored procedure
+
+For more information about working with these operations, see the [CData Connect Ballerina Guide](https://github.com/ballerina-platform/module-ballerinax-cdata.connect/blob/main/ballerina/Module.md#quickstart).
+
+### Query Action
+
+Follow these steps to configure a query action:
+
+<Steps>
+<Step>
+Select **query** for the connector **Operation**.
+</Step>
+<Step>
+Enter your query in the **SqlQuery** box.
+	- When writing the query, be sure to specify the **Connection Name** and **Data Source Name** of the data source you want to query. For example, `Salesforce1.Salesforce`.
+	- These parameters appear on the [Sources](/Sources) page of your Connect AI dashboard.
+
+<Frame>
+![](/images/choreo_sqlquery.png)
+</Frame>
+</Step>
+<Step>
+Click **Save** to save the action.
+</Step>
+</Steps>
+
+## Deploy the Program
+
+Once you have added all of your desired actions to your program, follow these steps:
+
+<Steps>
+<Step>
+Commit and push your final source code in the web editor and sync those changes with the Choreo platform.
+</Step>
+<Step>
+Click **Deploy** in the left navigation bar of the Choreo Console.
+</Step>
+<Step>
+Under **Build Area**, click **Configure & Deploy** to deploy your program.
+</Step>
+<Step>
+When prompted, enter the same Connect AI username and password that you used earlier and click **Deploy**.
+
+<Frame>
+![](/images/choreo_deploy.png)
+</Frame>
+</Step>
+</Steps>
+
+## More Information
+
+For more information about using Choreo with Connect AI, see the [CData Connect Ballerina Guide](https://github.com/ballerina-platform/module-ballerinax-cdata.connect/blob/main/ballerina/Module.md#quickstart).

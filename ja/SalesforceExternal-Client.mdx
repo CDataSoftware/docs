@@ -1,0 +1,72 @@
+---
+title: "Salesforce External Services"
+description: "The page outlines the steps to connect Salesforce External Services to Connect AI using OpenAPI. This requires the use of workspaces and an OpenAPI specification file."
+---
+
+
+## Prerequisites
+
+Before you can add an external service in Salesforce, you must create a named credential in Salesforce. In Salesforce Setup, select **Settings** > **Security** > **Named Credentials** to create a named credential.
+
+Before you connect via OpenAPI, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- [Add a workspace](/Workspaces#add-a-workspace) to Workspaces.
+- [Add assets](/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect via OpenAPI
+
+To establish a connection from Salesforce External Services to the Connect AI via OpenAPI, follow these steps.
+
+<Steps>
+<Step>
+In the **Workspaces** screen in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/OpenAPI) for more information.
+<Note>
+Select OpenAPI version 3.0. Leave **Convert array types to strings** off.
+</Note>
+</Step>
+<Step>
+Log in to Salesforce.
+	In Salesforce Setup, select **Platform Tools** > **Integrations** > **External Services**.
+<Frame>
+![](/images/sfl_externalservices.png)
+</Frame>
+</Step>
+<Step>
+Click **Add an External Service**.
+</Step>
+<Step>
+Click **Select an API source from API Specification** and click **Next**.
+</Step>
+<Step>
+In **Provide Registration Details**, enter the following:
+	- **External Service Name**—an identifying name for your external service.
+	- **Description**—a description of your external service.
+	- **Service Schema**—select **Upload from local**.
+	- **Select a Named Credential**—select the named credential you created.
+</Step>
+<Step>
+Upload the JSON file you downloaded from Connect AI.
+</Step>
+<Step>
+If the schema validation was successful, click **Save & Next**.
+</Step>
+<Step>
+The next step is **Select Operations**. These operations are all the actions of the connector that are contained in the OpenAPI specification file. The actions include all the functions you need for the table, including list, get, create, update, and delete records. The actions include a description, input parameters, and output parameters.
+<Frame>
+![](/images/sfl_externaloperations.png)
+</Frame>
+	The input parameters are appended to the URL, such as `$top`, `$filter`, and `$orderby`. See [API Operations](/OpenAPI#api-operations) for a complete parameter reference. The input parameters are based on OData filtering.
+	Select the operations you want to include in the external service.
+</Step>
+<Step>
+Review the actions for your external service, including the input and output parameters. If you need to change input or output parameters, you need to edit the OpenAPI specification file.
+<Frame>
+![](/images/sfl_reviewactions.png)
+</Frame>
+</Step>
+<Step>
+Click **Finish**. Your external service appears in the list of external services for Salesforce and is now available to build flows.
+</Step>
+</Steps>

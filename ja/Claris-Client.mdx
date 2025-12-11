@@ -1,0 +1,138 @@
+---
+title: "FileMaker Pro"
+description: "This page outlines the steps to connect FileMaker Pro to Connect AI."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+### Connect from Mac
+
+<Steps>
+<Step>
+Download and install the [Actual ODBC Driver for SQL Server](https://actualtech.com/product_sqlserver.php).
+</Step>
+<Step>
+Configure a DSN using the Actual ODBC driver by setting the following:
+	- **URL**: [https://tds.cdata.com/](https://tds.cdata.com/)
+	- **Port**: Change the port from 1433 to 14333
+	- **Username**: your Connect AI email
+	- **Password**: the PAT you created earlier
+</Step>
+</Steps>
+
+The FileMaker Pro SQL Query Builder requires customization to connect to Connect AI. Auto-generated queries do not work in FileMaker Pro. We recommend the following additional steps:
+
+<Steps>
+<Step>
+In the SQL Query Builder **SELECT** tab, select the columns to include as part of the query.
+<Frame>
+![](/images/claris_filemaker_query1.png)
+</Frame>
+</Step>
+<Step>
+Open the **WHERE** tab of the SQL Query Builder and select **Show only selected columns**.
+</Step>
+<Step>
+In **Table.Column**, select a table and a column name.
+</Step>
+<Step>
+Set the **Operator** to **\=**.
+</Step>
+<Step>
+Select **Column**, and then select the same table and column name as **Table.Column**.
+</Step>
+<Step>
+Click **Insert into SQL Query**.
+<Frame>
+![](/images/claris_filemaker_query2.png)
+</Frame>
+</Step>
+<Step>
+If no other modifications to the SQL query are required, click **Execute**.
+</Step>
+</Steps>
+
+### Connect from Windows
+
+To establish a connection from FileMaker Pro to Connect AI, follow these steps.
+
+<Steps>
+<Step>
+Download and install the Connect AI ODBC driver.
+	- Open the **Integrations** page of Connect AI.
+	- Search for **ODBC**.
+	- Click **Download** and select your operating system.
+	- When the download is complete, run the setup file.
+	- When the installation is complete, the ConfigureODBC file can be found in the installation directory.
+</Step>
+<Step>
+Open the ConfigureODBC file.
+<Frame>
+![](/images/claris_filemaker_odbc.png)
+</Frame>
+</Step>
+<Step>
+In the **Basic** tab, make sure the **Auth Scheme** is `OAuth`.
+</Step>
+<Step>
+In the **Advanced** tab, in **Miscellaneous** > **Default Catalog**, enter the name of the connection set up in the prerequisites.
+<Frame>
+![](/images/claris_filemaker_default_catalog.png)
+</Frame>
+</Step>
+<Step>
+Click **Test Connection**. Click **OK** when you have a successful connection.
+</Step>
+<Step>
+Launch FileMaker Pro. A startup screen appears.
+<Frame>
+![](/images/claris_filemaker_start_screen.png)
+</Frame>
+</Step>
+<Step>
+Start a blank app or use a template. Name your app.
+</Step>
+<Step>
+Select **File** > **Import Records** > **ODBC Data Source**. A **Select ODBC Data Source** dialog appears.
+<Frame>
+![](/images/claris_filemaker_select_odbc.png)
+</Frame>
+</Step>
+<Step>
+Select **Connect Source** and click **Continue**.
+<Frame>
+![](/images/claris_filemaker_connect_source.png)
+</Frame>
+</Step>
+<Step>
+Enter your user credentials in the dialog. The **User name** is your User Id in Connect AI, and the **Password** is the PAT obtained in the prerequisites.
+</Step>
+<Step>
+When the Connect AI data is finished importing, a **SQL Query Builder** dialog appears.
+<Frame>
+![](/images/claris_filemaker_query_builder.png)
+</Frame>
+</Step>
+<Step>
+Select the tables and columns to insert into your SQL query and click **Execute**.
+</Step>
+<Step>
+A **Specify Import Order** dialog appears, where you can customize how and into which table you want to import the Connect AI data into FileMaker Pro.
+<Frame>
+![](/images/claris_filemaker_import_order.png)
+</Frame>
+</Step>
+<Step>
+Click **Import** to import the data into the target FileMaker Pro file.
+</Step>
+<Step>
+You can now work with the data in FileMaker Pro.
+</Step>
+</Steps>

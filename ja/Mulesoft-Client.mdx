@@ -1,0 +1,150 @@
+---
+title: "MuleSoft"
+description: "This page outlines the steps to install and configure the Connect AI connector for MuleSoft. After installation, MuleSoft can pull data from sources that you have connected to your Connect AI account."
+---
+
+
+## Prerequisites
+
+Before you can configure and use MuleSoft with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+
+You must also generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from MuleSoft to Connect AI through the JDBC driver, follow these steps.
+
+<Steps>
+<Step>
+Download and install the Connect AI JDBC driver.
+
+
+a. Open the **Integrations** page of Connect AI.
+
+b. In the **Dev Tools** section, click **JDBC**.
+
+c. Download and run the setup file.
+
+d. When the installation is complete, the JAR file can be found in the installation directory.
+
+</Step>
+<Step>
+Log in to MuleSoft Anypoint Studio or launch the desktop application.
+</Step>
+<Step>
+Create a new MuleSoft project.
+
+<Frame>
+![](/images/mulesoft_client_create_project.png)
+</Frame>
+
+The new project appears in a project folder.
+
+<Frame>
+![](/images/mulesoft_client_create_project_2.png)
+</Frame>
+</Step>
+<Step>
+In the **Mule Palette** on the right, drag a HTTP Listener to the **Message Flow** area.
+
+<Frame>
+![](/images/mulesoft_client_http_listener.png)
+</Frame>
+</Step>
+<Step>
+Click the **HTTP Listener** to configure it.
+
+<Frame>
+![](/images/mulesoft_client_http_listener_2.png)
+</Frame>
+</Step>
+<Step>
+Click the **+** sign to the right of **Connector configuration**. The **HTTP Listener config** dialog appears.
+
+<Frame>
+![](/images/mulesoft_client_http_listener_3.png)
+</Frame>
+</Step>
+<Step>
+Configure the HTTP Listener, providing a **Port** on which to query your data, and click **OK**.
+</Step>
+<Step>
+Provide a path on which to perform the actions. The HTTP Listener is now configured.
+
+<Frame>
+![](/images/mulesoft_client_http_listener_4.png)
+</Frame>
+</Step>
+<Step>
+In the **Mule Palette** on the right, type `database` in the search bar.
+
+<Frame>
+![](/images/mulesoft_client_database.png)
+</Frame>
+</Step>
+<Step>
+Drag the database operation you want to perform to the **Message Flow** area. For this example, we choose **Select**.
+
+<Frame>
+![](/images/mulesoft_client_select.png)
+</Frame>
+</Step>
+<Step>
+Click the **Configure** button to configure the JDBC driver. Select **Use local file** from the drop-down list.
+</Step>
+<Step>
+Locate the Connect AI JAR file from the JDBC driver installation and click **OK**.
+
+<Frame>
+![](/images/mulesoft_client_database_config.png)
+</Frame>
+</Step>
+<Step>
+Provide the following information:
+	- **URL**–the URL for the connection, for example: `jdbc:connect:Authscheme=Basic;user=username;password=password`.
+
+<Note>
+the password is the PAT created in the prerequisites.
+</Note>
+
+	- **Driver class name**–`cdata.jdbc.connect.ConnectDriver`
+
+<Frame>
+![](/images/mulesoft_client_database_config_2.png)
+</Frame>
+</Step>
+<Step>
+Click **Test Connection**.
+</Step>
+<Step>
+If the connection is successful, provide the **SQL Query Text** in the editor. You can see the metadata of the table on the right side in the **Output** tab.
+
+<Frame>
+![](/images/mulesoft_client_sql_query.png)
+</Frame>
+</Step>
+<Step>
+In the **Mule Palette**, drag **Transform Message** to the **Message Flow** area.
+
+<Frame>
+![](/images/mulesoft_client_transform_message.png)
+</Frame>
+</Step>
+<Step>
+Click **Transform Message** to configure it. Change the **Output** as follows:
+
+<Frame>
+![](/images/mulesoft_client_output_message.png)
+</Frame>
+</Step>
+<Step>
+Save your project and run it. In the console, MuleSoft starts initializing the dependencies.
+</Step>
+<Step>
+Once you see the message, `Message source 'listener' on flow your_project_name successfully started`, you can start querying your data at the endpoint you provided.
+
+<Frame>
+![](/images/mulesoft_client_query_data.png)
+</Frame>
+</Step>
+</Steps>

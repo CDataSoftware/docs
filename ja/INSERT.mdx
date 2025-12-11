@@ -1,0 +1,24 @@
+---
+title: "INSERT Statements"
+sidebarTitle: "INSERT"
+description: "To create new records, use INSERT statements."
+---
+
+
+
+## INSERT Syntax
+
+The INSERT statement specifies the columns to be inserted and the new column values. You can specify the column values in a comma-separated list in the VALUES clause, as shown in the following example:
+
+```bash
+INSERT INTO <table_name> 
+( <column_reference> [ , ... ] )
+VALUES 
+( { <expression> | NULL } [ , ... ] ) 
+  
+  
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```

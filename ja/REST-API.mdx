@@ -1,0 +1,127 @@
+---
+title: "Rest API"
+sidebarTitle: "Overview"
+description: "Connect AI provides a full-featured API that allows any REST-compatible application or integration tool capable of creating HTTP requests to query data, perform batch operations, and execute stored procedures across all data sources configured in your account. This API is based on a JSON-formatted API. All operations in the API are described relative to the Connect AI API’s base URL:"
+---
+
+
+```bash
+https://cloud.cdata.com/api
+```
+
+## Authentication
+
+All requests to the Connect AI API must be properly authenticated using either OAuth or Basic Authentication. See [Authentication](/Authentication) for details.
+
+## Workspaces
+
+To query a workspace, add a URL parameter to the REST API URL named “workspace”. Set this to the name of the workspace you want to query. This works with both the GET operation on the metadata endpoint, as well as the POST operation on the query and batch endpoints. Note that the /exec endpoint does not support workspaces.
+
+## Response Format
+
+Operations in the Connect AI API share a common response format which, depending on the operation, may include:
+
+- One or more result sets with:
+	- Result column metadata
+	- Row values, if any
+	- Affected row count
+- Output and return parameters (for applicable stored procedure executions)
+- Any error that may have occurred prior to, during, or after request processing
+
+The response objects returned by the API contain one or more of the top-level properties shown below:
+
+```json expandable
+{
+  "results": [
+    {
+      "schema": [
+        {
+          "ordinal": <int>,
+          "catalogName": "<string>",
+          "schemaName": "<string>",
+          "tableName": "<string>",
+          "columnName": "<string>",
+          "columnLabel": "<string>",
+          "dataType": <int>,
+          "dataTypeName": "<string>",
+          "length": <int>,
+          "precision": <int>,
+          "scale": <int>,
+          "nullable": <bool>
+        },
+        ...
+      ],
+      "rows": [
+        [<any>, <any>, ...],
+        ...
+      ],
+      "affectedRows": <int>,
+    },
+    ...
+  ],
+  "parameters": {
+    "@p1": { "dataType": <int>, "direction": <int>, "value": <any> }
+    ...
+  },
+  "error": {
+    "code": "<string>",
+    "message": "<string>"
+  }
+}
+```
+
+### Properties
+
+| Property | Description |
+|:-|:-|
+| *results* | Array of result sets for the query, one object per result set. |
+| *schema* | Array of column schema for the result set. |
+| *ordinal* | The position of the column in the result set. 0-based. |
+| *catalogName* | Name of the column's catalog. |
+| *schemaName* | Name of the column's schema. |
+| *tableName* | Name of the column's table. |
+| *columnName* | The column's name. |
+| *columnLabel* | The column's label. |
+| *dataType* | The column's [data type](#data-types). |
+| *dataTypeName* | Name of the column's data type. May be data-source-specific. |
+| *length* | For binary/string columns, the maximum number of characters. For other data types, the display length. |
+| *precision* | The column's precision. Omitted if not applicable. |
+| *scale* | The column's scale. Omitted if not applicable. |
+| *nullable* | Whether the column is nullable. |
+| *rows* | An array of row value arrays. Each nested array represents a row in the result set, and contains the row's values for each column. |
+| *affectedRows* | The number of affected rows, or `-1` if not applicable/available. |
+| *parameters* | Any output, in/out, or return parameters produced by a stored procedure. Omitted if there are no such parameters in the result. |
+| *dataType* | The parameter's [data type](#data-types). |
+| *direction* | The parameter's direction: `2` for in/out, `4` for output, or `5` for return. |
+| *value* | The parameter's value. |
+| *error* | Information about the error which occurred. Omitted if no error occurred. |
+| *code* | The error code. |
+| *message* | The error message. |
+
+## Errors
+
+When Connect AI receives an API request, it validates it, executes it, and then serializes and streams back the results as they arrive. If an error occurs prior to or during execution, the response object only contains error information. However, it is also possible for errors to occur *after* a query’s results have started being returned. In such cases, the response object may contain both a partial result as well as error information stating that the result is incomplete.
+
+Since the HTTP status code is returned before the body, incomplete responses have a `200 OK` status. As such, it’s important that you always check for the presence of error information in the response rather than relying solely on the HTTP status code.
+
+## Data Types
+
+The following table shows the valid values for the dataType property in the Result Set Serialization.
+
+| Value | Meaning | Representation |
+|:-|:-|:-|
+| 1 | BINARY | JSON String; Base64-encoded |
+| 5 | VARCHAR | JSON String |
+| 6 | TINYINT | JSON Number |
+| 7 | SMALLINT | JSON Number |
+| 8 | INTEGER | JSON Number |
+| 9 | BIGINT | JSON Number |
+| 10 | FLOAT | JSON Number |
+| 11 | DOUBLE | JSON Number |
+| 12 | DECIMAL | JSON String; format: valid JSON number |
+| 13 | NUMERIC | JSON String; format: valid JSON number |
+| 14 | BOOLEAN | JSON Boolean (true/false) |
+| 15 | DATE | JSON String; format: `yyyy-MM-dd` |
+| 16 | TIME | JSON String; format: `HH:mm:ss.fffffff` |
+| 17 | TIMESTAMP | JSON String; ISO8601 format: `yyyy-MM-ddTHH:mm:ss.fffffffZ` |
+| 18 | UUID | JSON String; format: `{01234567-890a-bcde-f012-34567890abcd}` |

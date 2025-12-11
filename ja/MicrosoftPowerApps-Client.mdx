@@ -1,0 +1,142 @@
+---
+title: "Microsoft Power Apps"
+description: "You can connect Microsoft Power Apps to Connect AI via the OpenAPI specification or via the Virtual SQL Server API."
+---
+
+
+
+## Prerequisites for Connecting via OpenAPI
+
+Before you connect via OpenAPI, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- [Add a workspace](/Workspaces#add-a-workspace) to Workspaces.
+- [Add assets](/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect via OpenAPI
+
+To establish a connection from Microsoft Power Apps to Connect AI via OpenAPI, follow these steps.
+
+<Steps>
+<Step>
+In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/OpenAPI) for more information.
+<Note>
+You must use OpenAPI version 2.0 and select **Convert array types to strings**.
+</Note>
+<Frame>
+![](/images/powerautomate_client_endpoints.png)
+</Frame>
+</Step>
+<Step>
+Log in to Microsoft Power Apps.
+</Step>
+<Step>
+Select **Custom connectors** to create a custom connector (you may need to click **Discover all** to find **Custom connectors**).
+</Step>
+<Step>
+Select **New custom connector** > **Import an OpenAPI file**.
+<Frame>
+![](/images/powerapps_importopenAPI.png)
+</Frame>
+</Step>
+<Step>
+Enter a **Connector name** and import the OpenAPI specification file you downloaded.
+</Step>
+<Step>
+In the **1\. General** step, enter general information about the connector, including a description. **Host** and **Base URL** are required, but are already filled in.
+</Step>
+<Step>
+In the **2\. Security** step, select an **Authentication type** of **Basic authentication**. Users have to provide a user name and password before using this API. Enter the parameter labels that users will see.
+<Note>
+When you use the custom connector, the user name is the Connect AI user name, and the password is the PAT created in the prerequisites.
+</Note>
+</Step>
+<Step>
+The **3\. Definition** step of the connector defines all the actions of the connector that are contained in the OpenAPI specification file. The actions include all the functions you need for the table, including list, get, create, update, and delete records.
+	In the **3\. Definition** step, you can edit the **Actions**, **References**, and **Policies** imported from the OpenAPI specification.
+	- **Actions**—each action in the custom connector has **General** information, as well as the **Request**, **Response**, and **Validation** of the response.
+		For example, the following request is a GET request to list drives.
+<Frame>
+![](/images/powerapps_request.png)
+</Frame>
+		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
+		See [API Operations](/OpenAPI#api-operations) for a complete reference.
+		The **Test** step of creating a custom connector is where you can test out the query parameters.
+		Similarly, there is a POST request to create a new record. The request contains all the fields for the record. You can edit these fields in the definition.
+	- **References**—reusable parameters that are used by both actions and triggers. Each reference has a **Definition** and **Validation**.
+	- **Policies**—used to change the behavior of actions through configuration.
+</Step>
+<Step>
+Save the custom connector.
+</Step>
+<Step>
+In the **6\. Test** step, you can test the behavior of each operation defined in the OpenAPI specification by applying query parameters.
+	For example, you can test the `$top` and `$orderby` query parameters by returning the top 100 records, ordered by `name`.
+<Frame>
+![](/images/powerapps_test.png)
+</Frame>
+</Step>
+<Step>
+You can now build apps with your custom connector.
+</Step>
+</Steps>
+
+## Prerequisites for Connecting via Virtual SQL Server API
+
+Before you connect via the Virtual SQL Server API, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- If you want to connect to a Connect AI workspace, [add a workspace](/Workspaces#add-a-workspace) to Workspaces and [add assets](/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect via the Virtual SQL Server API
+
+To establish a connection from Microsoft Power Apps to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Microsoft Power Apps.
+</Step>
+<Step>
+In the navigation menu, open **More** > **Connections**.
+<Frame>
+![](/images/powerautomate_client_01.png)
+</Frame>
+</Step>
+<Step>
+Click **New connection** to open the list of available connections.
+</Step>
+<Step>
+Select **SQL Server**. In the dialog that appears, select **SQL Server Authentication**.
+</Step>
+<Step>
+Enter the connection settings.
+	- **SQL server name**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
+	- **SQL database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*). To connect to a workspace, set the **SQL database name** to the name of your workspace (for example, *MyWorkspace*).
+	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*. To connect to a workspace, set the **Username** to `[CData_username]@[workspace_name]` (for example, *test@cdata.com@MyWorkspace*).
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- Leave the **Choose a gateway** field blank.
+	*Connecting to a source*: 
+<Frame>
+![](/images/powerapps_create.png)
+</Frame>
+	*Connecting to a workspace*: 
+<Frame>
+![](/images/powerapps_workspace.png)
+</Frame>
+</Step>
+<Step>
+Click **Create** to establish the connection.
+</Step>
+</Steps>
+
+Your connection now appears in your connection list. You can add more data sources from your Connect AI account by repeating this process and entering a different **SQL database name**.
+
+<Note>
+You can preview your virtual table in Microsoft Power Apps only if you have an INTEGER column primary key in your table. Refer to the [Microsoft Power Apps documentation](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/limits-tshoot-virtual-tables?tabs=sql) for details.
+</Note>
+
+## Learn More
+
+For more information about SQL Server connections in Microsoft Power Apps, please see [Microsoft’s support article](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/connections/connection-azure-sqldatabase).

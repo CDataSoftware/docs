@@ -1,0 +1,19 @@
+---
+title: "ALTER DERIVED VIEW Statements"
+sidebarTitle: "ALTER DERIVED VIEW"
+description: "Use the ALTER DERIVED VIEW statement to assign a new SQL query to a derived view."
+---
+
+
+
+## ALTER DERIVED VIEW Syntax
+
+```bash
+ALTER DERIVED VIEW [<view_name>] AS <sql_query_contents>
+```
+
+The following query changes an existing derived view, MyViewName, to a new SQL query:
+
+```bash
+ALTER DERIVED VIEW [MyViewName] AS SELECT * FROM Customers WHERE TimeModified > '3/1/2020';
+```

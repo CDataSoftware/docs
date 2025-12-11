@@ -1,0 +1,43 @@
+---
+title: "Create Cache Connection URL"
+description: "Create Cache Connection generates a URL for users to create or update their cache connection."
+api: POST https://cloud.cdata.com/api/job/cacheConnection/formLink
+contentType: application/json
+---
+
+
+
+Returns a string containing the URL to redirect the user to. Users can then add their PostgreSQL connection information to this page.
+
+### Payload Parameters
+
+<ParamField path="redirectURL" type="string" required>
+The URL to redirect the customer once the customer has edited the connection through the Connect AI UI.
+</ParamField>
+
+## Responses
+
+### 200
+
+A string containing the URL to redirect the user to. Users can then add their PostgreSQL connection information to this page.
+
+`HTTP 200 OK`
+
+<Expandable title="Response body">
+
+<ResponseField name="redirectURL" type="string" required>
+A string containing the URL to redirect the user to.
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+    "redirectURL": "https://cloud.cdata.com/oem/user/cacheConnection?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJvZW1TdWJBY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IlBvc3RncmVTUUwiLCJuYmYiOjE3NjI4OTYxNTEsImV4cCI6MTc2Mjg5NjMzMSwiaXNzIjoiY2RhdGEuY29ubmVjdC5hY2NvdW50c2VydmljZSIsImF1ZCI6ImNkYXRhLmNvbm5lY3Qub2VtIn0.Wucf_8YhzGlggHr3DXMsJJYD7BpvcJTxFhJrYcWo9hF28gt684XES0Jh6VZ3YReFb0HVvQlqB_Vf7pkSC_seIPLXC4J7gVaX8oRBKgT6S8aIrNiyi_kZDueeRnBo3sVezUCmzCenEMcHA61H8H8-B7PDhMgOwaKWyFZCpL_ATHH7kTVYAVl8AoeG-z4A1RlwcSnbsoP4RZRgeOv9XEpz_0naviJ7TUyz54WlPAvdFwG6As_R0oI1oU6Nw7aXetphiTqmq3pAYk3FP__8KIkUSliEQv6-VxO6Ugc7CF97Dplzl7arBYkoGkVpv3Rk7jdteZYw0m_uRjKNjhfeB1Vexg&driver=PostgreSQL&redirectUrl=https%3A%2F%2Fwww.google.com&connectionName=OEMCacheConnection"
+}
+```
+
+</ResponseExample>

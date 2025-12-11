@@ -1,0 +1,122 @@
+---
+title: "Azure Data Factory"
+description: "This page outlines the steps to connect Azure Data Factory to Connect AI. You can use either Connect AI Virtual SQL Server API or the Connect AI OData endpoint to connect. Note that the Virtual SQL Server API performs better for large datasets, while OData performs well with smaller datasets."
+---
+
+
+## Prerequisites for Connecting via Virtual SQL Server API
+
+Before you connect via Virtual SQL Server API, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via Virtual SQL Server API
+
+To establish a connection from Azure Data Factory to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Login to Azure Data Factory.
+</Step>
+<Step>
+If you have not yet created a Data Factory:
+	- Click **Create** and enter your configuration information in each tab.
+	- When you are finished entering information, click **Review + create** and then **Create** to save the Data Factory.
+</Step>
+<Step>
+Open Azure Data Factory Studio and select your Data Factory.
+</Step>
+<Step>
+In the **Factory Resources** section, highlight the **Datasets** option.
+</Step>
+<Step>
+Click the three dots to open the Dataset actions and select **New Dataset**.
+<Frame>
+![](/images/adf_new_dataset.png)
+</Frame>
+</Step>
+<Step>
+In the search bar, enter *SQL Server* and select it when it appears.
+</Step>
+<Step>
+Enter a name for the server. In the **Linked service** field, select **New**.
+</Step>
+<Step>
+Enter the connection settings.
+	- **Name**—enter a name of your choice.
+	- **Server name**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
+	- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+	- **User Name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—select **Password** (not **Azure Key Vault**) and enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+</Step>
+<Step>
+Click **Create**.
+</Step>
+<Step>
+Select your new connection in the **Linked service** field.
+</Step>
+<Step>
+Select your desired table and click **OK**.
+</Step>
+</Steps>
+
+You can now use this Dataset when creating Data flows in Azure Data Factory.
+
+## Prerequisites for Connecting via OData Endpoint
+
+Before you connect to Connect AI via the OData endpoint, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI via OData Endpoint
+
+To connect to Connect AI using the OData protocol, follow these steps.
+
+<Steps>
+<Step>
+Login to Azure Data Factory.
+</Step>
+<Step>
+Click **New** > **Dataset**.
+<Frame>
+![](/images/adf_client_new_dataset.png)
+</Frame>
+	A **New dataset** dialog appears.
+</Step>
+<Step>
+In the search bar, enter *OData*.
+<Frame>
+![](/images/adf_client_odata.png)
+</Frame>
+	Select **OData** and click **Continue**.
+</Step>
+<Step>
+In the **Set properties** dialog, name your OData Resource and for **Linked service**, click **New**. A **New linked service** dialog appears.
+</Step>
+<Step>
+Enter the following settings for OData:
+	- **Name**—enter a name of your choice.
+	- **Service URL**—enter *https://cloud.cdata.com/api/odata/{workspace\_name}*.
+	- **Authentication type**—select **Basic Authentication**.
+	- **User name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—select **Password** (not **Azure Key Vault**) and enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+<Frame>
+![](/images/adf_client_new_linked_service.png)
+</Frame>
+</Step>
+<Step>
+Click **Create**. This loads the details for your specific table or dataset that you want to query.
+</Step>
+<Step>
+In the tab for your new dataset, select the path for the data you want to view.
+<Frame>
+![](/images/adf_client_preview_data.png)
+</Frame>
+</Step>
+<Step>
+Click **Preview data** to view the data.
+</Step>
+</Steps>

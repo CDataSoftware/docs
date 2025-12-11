@@ -1,0 +1,58 @@
+---
+title: "AppSheet"
+description: "This page outlines the steps to connect AppSheet to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+## Connect to Connect AI
+
+To establish a connection from AppSheet to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to AppSheet.
+</Step>
+<Step>
+In the top navigation bar, select **My account**.
+</Step>
+<Step>
+On the **Sources** tab, select **New Data Source**.
+<Frame>
+![](/images/appsheet_newsource.png)
+</Frame>
+</Step>
+<Step>
+In the data source list, select **Cloud Database**.
+<Frame>
+![](/images/appsheet_sourcelist.png)
+</Frame>
+</Step>
+<Step>
+Enter the connection settings.
+	- **Type**—select **SQLServer**.
+	- **Server**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
+	- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
+	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **SSL**—set to **Require SSL**.
+<Frame>
+![](/images/appsheet_connectiondetails.png)
+</Frame>
+</Step>
+<Step>
+Click **Test** to test your entered credentials. If you receive an error, check all fields and try again.
+</Step>
+<Step>
+Click **Authorize Access** to create the connection.
+</Step>
+</Steps>
+
+After you create your data source, it appears on the Account Sources list. When creating an app in AppSheet, you can select tables from your connection as the source of data.

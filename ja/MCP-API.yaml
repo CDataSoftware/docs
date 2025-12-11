@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: Example MCP Server API
+  version: 1.0.0
+  description: |
+    This API provides a Model Context Protocol (MCP) server that exposes tools to connect your data with a model-aware client.
+
+servers:
+  - url: https://mcp.cloud.cdata.com/mcp
+    description: Production base MCP URL
+
+paths:
+  /tools/list:
+    get:
+      summary: List available MCP tools
+      tags:
+        - MCP
+      description: Returns a list of tools (functions or APIs) exposed by this MCP server.
+      responses:
+        '200':
+          description: A list of tool definitions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tools:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tool'
+
+  /tools/call:
+    post:
+      summary: Invoke a tool
+      tags:
+        - MCP
+      description: Executes a registered tool by name, passing JSON arguments.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The tool name to invoke
+                arguments:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Tool execution result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ToolResult'
+
+components:
+  schemas:
+    Tool:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        parameters:
+          type: object
+          description: JSON schema describing the input parameters.
+
+    ToolResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+        content:
+          type: object
+          description: Output returned by the tool.
+
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    #OAuth2:
+    #  type: oauth2
+    #  flows:
+    #    authorizationCode:
+    #      authorizationUrl: https://cloud-login.clouddataos.com/authorize
+    #      tokenUrl: https://cloud-login.clouddataos.com/oauth/token
+    #      refreshUrl: https://cloud-login.clouddataos.com/oauth/refresh
+    #      scopes: []
+          # Optional tool-specific hint for PKCE
+          #x-usePkce: true
+security:
+  - Basic: []
+  #- OAuth2: []
