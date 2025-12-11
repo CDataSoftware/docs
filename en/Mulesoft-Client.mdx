@@ -35,34 +35,34 @@ Log in to MuleSoft Anypoint Studio or launch the desktop application.
 Create a new MuleSoft project.
 
 <Frame>
-![](/images/mulesoft_client_create_project.png)
+![](./images/mulesoft_client_create_project.png)
 </Frame>
 
 The new project appears in a project folder.
 
 <Frame>
-![](/images/mulesoft_client_create_project_2.png)
+![](./images/mulesoft_client_create_project_2.png)
 </Frame>
 </Step>
 <Step>
 In the **Mule Palette** on the right, drag a HTTP Listener to the **Message Flow** area.
 
 <Frame>
-![](/images/mulesoft_client_http_listener.png)
+![](./images/mulesoft_client_http_listener.png)
 </Frame>
 </Step>
 <Step>
 Click the **HTTP Listener** to configure it.
 
 <Frame>
-![](/images/mulesoft_client_http_listener_2.png)
+![](./images/mulesoft_client_http_listener_2.png)
 </Frame>
 </Step>
 <Step>
 Click the **+** sign to the right of **Connector configuration**. The **HTTP Listener config** dialog appears.
 
 <Frame>
-![](/images/mulesoft_client_http_listener_3.png)
+![](./images/mulesoft_client_http_listener_3.png)
 </Frame>
 </Step>
 <Step>
@@ -72,21 +72,21 @@ Configure the HTTP Listener, providing a **Port** on which to query your data, a
 Provide a path on which to perform the actions. The HTTP Listener is now configured.
 
 <Frame>
-![](/images/mulesoft_client_http_listener_4.png)
+![](./images/mulesoft_client_http_listener_4.png)
 </Frame>
 </Step>
 <Step>
 In the **Mule Palette** on the right, type `database` in the search bar.
 
 <Frame>
-![](/images/mulesoft_client_database.png)
+![](./images/mulesoft_client_database.png)
 </Frame>
 </Step>
 <Step>
 Drag the database operation you want to perform to the **Message Flow** area. For this example, we choose **Select**.
 
 <Frame>
-![](/images/mulesoft_client_select.png)
+![](./images/mulesoft_client_select.png)
 </Frame>
 </Step>
 <Step>
@@ -96,7 +96,7 @@ Click the **Configure** button to configure the JDBC driver. Select **Use local 
 Locate the Connect AI JAR file from the JDBC driver installation and click **OK**.
 
 <Frame>
-![](/images/mulesoft_client_database_config.png)
+![](./images/mulesoft_client_database_config.png)
 </Frame>
 </Step>
 <Step>
@@ -110,7 +110,7 @@ the password is the PAT created in the prerequisites.
 	- **Driver class name**–`cdata.jdbc.connect.ConnectDriver`
 
 <Frame>
-![](/images/mulesoft_client_database_config_2.png)
+![](./images/mulesoft_client_database_config_2.png)
 </Frame>
 </Step>
 <Step>
@@ -120,21 +120,21 @@ Click **Test Connection**.
 If the connection is successful, provide the **SQL Query Text** in the editor. You can see the metadata of the table on the right side in the **Output** tab.
 
 <Frame>
-![](/images/mulesoft_client_sql_query.png)
+![](./images/mulesoft_client_sql_query.png)
 </Frame>
 </Step>
 <Step>
 In the **Mule Palette**, drag **Transform Message** to the **Message Flow** area.
 
 <Frame>
-![](/images/mulesoft_client_transform_message.png)
+![](./images/mulesoft_client_transform_message.png)
 </Frame>
 </Step>
 <Step>
 Click **Transform Message** to configure it. Change the **Output** as follows:
 
 <Frame>
-![](/images/mulesoft_client_output_message.png)
+![](./images/mulesoft_client_output_message.png)
 </Frame>
 </Step>
 <Step>
@@ -144,7 +144,7 @@ Save your project and run it. In the console, MuleSoft starts initializing the d
 Once you see the message, `Message source 'listener' on flow your_project_name successfully started`, you can start querying your data at the endpoint you provided.
 
 <Frame>
-![](/images/mulesoft_client_query_data.png)
+![](./images/mulesoft_client_query_data.png)
 </Frame>
 </Step>
 </Steps>
