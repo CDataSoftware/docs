@@ -26,7 +26,7 @@ In **Workspaces** in Connect AI, select a workspace and download the OpenAPI spe
 You must use OpenAPI version 2.0 and select **Convert array types to strings**.
 </Note>
 <Frame>
-![](/images/powerautomate_client_endpoints.png)
+![](./images/powerautomate_client_endpoints.png)
 </Frame>
 </Step>
 <Step>
@@ -38,13 +38,13 @@ In Microsoft Azure, under **Azure services**, click **Create a resource**.
 <Step>
 In the search bar, type *Logic Apps Custom Connector*. Click **Create** > **Logic Apps Custom Connector**.
 <Frame>
-![](/images/logic_apps_client_create_custom.png)
+![](./images/logic_apps_client_create_custom.png)
 </Frame>
 </Step>
 <Step>
 Enter the details for your custom connector, and then click **Review + create**.
 <Frame>
-![](/images/logic_apps_client_create_basics.png)
+![](./images/logic_apps_client_create_basics.png)
 </Frame>
 Refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/connectors/custom-connectors/create-logic-apps-connector) for more details.
 </Step>
@@ -54,7 +54,7 @@ In the Logic Apps custom connector you created, click **Edit**. You will now imp
 <Step>
 Under **1\. General**, select an **Import mode** of **OpenAPI file**. Then locate the OpenAPI definition you created.
 <Frame>
-![](/images/logic_apps_client_openapi.png)
+![](./images/logic_apps_client_openapi.png)
 </Frame>
 </Step>
 <Step>
@@ -72,7 +72,7 @@ The **3\. Definition** step of the connector defines all the actions of the conn
 	- **Actions**—each action in the custom connector has **General** information, as well as the **Request**, **Response**, and **Validation** of the response.
 		For example, the following request is a GET request to list drives.
 <Frame>
-![](/images/powerapps_request.png)
+![](./images/powerapps_request.png)
 </Frame>
 		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
 		See [API Operations](/OpenAPI#api-operations) for a complete reference.
