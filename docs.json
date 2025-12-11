@@ -42,6 +42,7 @@
             "tab": "Connect AI",
             "icon": "book",
             "pages": [
+              "en/index",
               {
                 "group": "Getting Started",
                 "pages": [
@@ -957,6 +958,7 @@
             "tab": "Connect AI",
             "icon": "book",
             "pages": [
+              "ja/index",
               {
                 "group": "Getting Started",
                 "pages": [
