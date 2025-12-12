@@ -9,11 +9,11 @@ article strong,
 article b,
 main strong,
 main b {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
 
 Tab {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Reduce spacing between tab headers and tab body */
