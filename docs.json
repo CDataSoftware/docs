@@ -39,6 +39,13 @@
         ],
         "tabs": [
           {
+            "tab": "Home",
+            "icon": "house",
+            "pages": [
+              "en/index"
+            ]
+          },
+          {
             "tab": "Connect AI",
             "icon": "book",
             "pages": [
@@ -953,6 +960,13 @@
           }
         ],
         "tabs": [
+          {
+            "tab": "Home",
+            "icon": "house",
+            "pages": [
+              "ja/index"
+            ]
+          },
           {
             "tab": "Connect AI",
             "icon": "book",
