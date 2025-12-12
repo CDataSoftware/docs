@@ -8,7 +8,7 @@ Data Explorer can be useful to:
 
 - Verify that your data sources are connected correctly
 - Explore the columns and data types that are available in your data sources
-- Search for specific data in your data sources using the SQL Editor, the [Query Builder](/QueryBuilder), or the [AI Generator](/AIGenerator).
+- Search for specific data in your data sources using the SQL Editor or the [Query Builder](/ja/QueryBuilder).
 
 When you open Data Explorer, the interface displays a navigation pane on the left and the query editor on the right. Select whether you want to build your query in the Query Builder or the SQL Editor. If you click **Build Query**, the Query Builder guides you through the steps of creating a query. If you click **SQL Editor**, a simple SQL editor appears.
 
@@ -23,7 +23,7 @@ At any time in the Data Explorer, you can click the **Home** tab on the right si
 The SQL Editor allows you to create, modify, and save queries.
 
 <Note>
-  For instructions on using the Query Builder to build queries, refer to [Query Builder](/QueryBuilder).
+  For instructions on using the Query Builder to build queries, refer to [Query Builder](/ja/QueryBuilder).
 </Note>
 
 Click the arrow to the right to view the list of schema for the connection. If there is only one schema in a connection, the schema is already open to a list of tables in the schema. If there are multiple schemas, open the desired schema to view the list of tables.
@@ -42,10 +42,10 @@ Click **Select a Connection** to open a drop-down menu of your connections.
 Select a connection. All available items appear in the left column.
 	- The solid table icon indicates a table.
 	- The dashed square icon indicates a view.
-	- The blue double document icon to the right of the item indicates that the item is being cached. See [Caching](/Caching) for more information.
+	- The blue double document icon to the right of the item indicates that the item is being cached. See [Caching](/ja/Caching) for more information.
 </Step>
 <Step>
-Choose the data that you want to query. If you want to use the AI query generator, refer to the [AI Generator](/AIGenerator) documentation.
+Choose the data that you want to query.
 	- To create a query that selects an entire table or view, drag the item from the left column to the query editor. Alternatively, click the three dots next to the table or view and select **Query** for results or **View Details** for metadata information.
 	- To select a specific column, click the expansion arrow next to the item that you want to query. Then, drag the column to the query editor.
 	- Some data source types contain SQL templates for commonly-used queries. These queries appear under **Common Queries** when you expand the connection name. Click the three dots next to the query name and click **Query** to view the query. You can edit the query if needed. Click **Execute** to run the common query.
@@ -120,7 +120,7 @@ You can also rename and delete saved queries when you click the three dots.
 
 ## Configure Derived Views
 
-The *derived views* feature of Data Explorer allows you to create and save queries that return dynamically populated data results from your connections. You can query your saved derived views from [Integrations](/Integrations), and the results automatically update when the data in your connections change.
+The *derived views* feature of Data Explorer allows you to create and save queries that return dynamically populated data results from your connections. You can query your saved derived views from [Integrations](/ja/Integrations), and the results automatically update when the data in your connections change.
 
 <Note>
   Only administrators of Connect AI can create or modify derived views. Query users can query saved derived views created by an administrator.
@@ -192,6 +192,6 @@ Create your query using the Query Builder or the SQL Editor.
 Click **Save** > **Save as Scheduled Query**.
 </Step>
 <Step>
-You then enter the details about the scheduled query, such as how often it runs. See [Scheduled Queries](/Scheduled-Queries) for details.
+You then enter the details about the scheduled query, such as how often it runs. See [Scheduled Queries](/ja/Scheduled-Queries) for details.
 </Step>
 </Steps>
