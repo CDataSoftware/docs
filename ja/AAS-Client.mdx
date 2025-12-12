@@ -10,8 +10,8 @@ Before you connect via Virtual SQL Server API, you must first do the following:
 
 - Create a server in Azure Analysis Services to which you will deploy your data from Connect AI.
 - An on-premises data gateway is required when one or more Azure Analysis Services servers in the same region connect to on-premises data sources. To install and configure an on-premises gateway to access data sources, refer to the Microsoft documentation: [Install an On-Premises Gateway](https://learn.microsoft.com/en-us/azure/analysis-services/analysis-services-gateway-install?tabs=azure-portal).
-- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
 ## Connect to Connect AI via Virtual SQL Server API
 
@@ -115,7 +115,7 @@ Click **OK**. In the new window, select **Database**.
 <Step>
 Enter the following information:
 - **User name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
 <Frame>
   <img src="./images/azureanalysis_entercredentials.png" alt="Azure Analysis Enter Credentials" />
 </Frame>
@@ -162,9 +162,9 @@ Once you deploy your data to Azure Analysis Services, you can use your data to c
 
 If you do not want to use a local gateway with Azure Analysis Services, you can use an OData endpoint to connect to Connect AI. However, the performance is slower than with a Virtual SQL Server connection.
 
-- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-- Create a [Workspace](/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
-- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+- Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
 ## Connect to Connect AI via OData Endpoint
 

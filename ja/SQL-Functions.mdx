@@ -19,25 +19,25 @@ SELECT DATENAME(yy,GETDATE())
 SELECT DATENAME('yy',GETDATE())
 ```
 
-### [STRING Functions](/STRING-Functions)
+### [STRING Functions](/ja/STRING-Functions)
 
-String functions perform string manipulations and return a string value. See [STRING Functions](/STRING-Functions) for more details.
+String functions perform string manipulations and return a string value. See [STRING Functions](/ja/STRING-Functions) for more details.
 
 ```bash
 SELECT CONCAT(firstname, space(4), lastname) FROM Account WHERE Industry = 'Floppy Disks'
 ```
 
-### [DATE Functions](/DATE-Functions)
+### [DATE Functions](/ja/DATE-Functions)
 
-These functions perform date and date time manipulations. See [DATE Functions](/DATE-Functions) for more details.
+These functions perform date and date time manipulations. See [DATE Functions](/ja/DATE-Functions) for more details.
 
 ```bash
 SELECT CURRENT_TIMESTAMP() FROM Account
 ```
 
-### [Math Functions](/MATH-Functions)
+### [Math Functions](/ja/MATH-Functions)
 
-These functions provide mathematical operations. See [MATH Functions](/MATH-Functions) for more details.
+These functions provide mathematical operations. See [MATH Functions](/ja/MATH-Functions) for more details.
 
 ```bash
 SELECT RAND() FROM Account
@@ -45,7 +45,7 @@ SELECT RAND() FROM Account
 
 ### Aggregate Functions
 
-Aggregate functions return data from across multiple rows. See [Aggregate Functions](/Aggregate-Functions) for more details.
+Aggregate functions return data from across multiple rows. See [Aggregate Functions](/ja/Aggregate-Functions) for more details.
 
 ```bash
 SELECT MIN(AnnualRevenue), Name FROM Account WHERE Industry = 'Floppy Disks' GROUP BY Name

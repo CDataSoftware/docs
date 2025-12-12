@@ -32,7 +32,7 @@ The following is an overview of setting up Embedded Cloud. There are four main s
 ### Step 1: Create a Parent Account
 <Steps>
 <Step>
-The administrator of the Embedded Cloud parent account [creates a JSON Web Token (JWT)](/Authentication-Embedded), which consists of a private key and a corresponding public key. The private key must be stored according to the security requirements of the product integrated with Embedded Cloud.
+The administrator of the Embedded Cloud parent account [creates a JSON Web Token (JWT)](/en/Authentication-Embedded), which consists of a private key and a corresponding public key. The private key must be stored according to the security requirements of the product integrated with Embedded Cloud.
 </Step>
 <Step>
 The administrator provides the public key certificate in Privacy-Enhanced Mail (PEM) format to register the management account. They can register the public key by opening a support ticket with Connect AI.
@@ -43,23 +43,23 @@ Once registered, the administrator of the parent account can sign in to the acco
 </Steps>
 ### Step 2: Create a Child Account
 
-Use [Create Account](/Account-API#create-account) in the Embedded Cloud API to create a child account. You must supply the JWT that you created in [Create a Parent Account](#step-1:-create-a-parent-account).
+Use [Create Account](/en/Account-API#create-account) in the Embedded Cloud API to create a child account. You must supply the JWT that you created in [Create a Parent Account](#step-1:-create-a-parent-account).
 
 ### Step 3: Configure a Connection
 
-An end user of the child account clicks **Add Connection** on your web page. On the backend, your web site calls the Create Connnection API, which generates a redirect URL to the Embedded Cloud web page. The end user can then configure a connection of a certain type, such as a Salesforce connection, and save and test the connection. When the end user is finished, he/she is then redirected back to your web page containing a list of connections. See [Connection Flow](/Connection-Flow) for more details.
+An end user of the child account clicks **Add Connection** on your web page. On the backend, your web site calls the Create Connnection API, which generates a redirect URL to the Embedded Cloud web page. The end user can then configure a connection of a certain type, such as a Salesforce connection, and save and test the connection. When the end user is finished, he/she is then redirected back to your web page containing a list of connections. See [Connection Flow](/en/Connection-Flow) for more details.
 
 ### Step 4: Query the Data
 
 Use one of the following Connect AI drivers to query the data:
 
-- [ADO.NET](/ADO.NET-Client)
-- [ODBC](/ODBC-Client)
-- [JDBC](/JDBC-Client)
-- [Python](/Python-Client)
+- [ADO.NET](/en/ADO.NET-Client)
+- [ODBC](/en/ODBC-Client)
+- [JDBC](/en/JDBC-Client)
+- [Python](/en/Python-Client)
 
-In addition, Embedded Cloud provides a full-featured [REST API](/REST-API). You can query data directly with any REST-compatible application or integration tool capable of creating HTTP requests.
+In addition, Embedded Cloud provides a full-featured [REST API](/en/REST-API). You can query data directly with any REST-compatible application or integration tool capable of creating HTTP requests.
 
 ### View Logs
 
-Use the [Log API](/Log-API) to view and download a list of logs for a Embedded Cloud account.
+Use the [Log API](/en/Log-API) to view and download a list of logs for a Embedded Cloud account.

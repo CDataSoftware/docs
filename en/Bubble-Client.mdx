@@ -9,8 +9,8 @@ description: "This page outlines the steps to connect Bubble to the Connect AI V
 
 Before you connect, you must first do the following:
 
-- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/en/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/en/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
 ## Connect to Connect AI
 
@@ -47,7 +47,7 @@ Enter the connection settings.
 	- **Database type**—select **Microsoft SQL**.
 	- **Connection string**—enter the SQL database connection string. This string includes a username and password in a format like `sql://[Username]:[Password]@tds.cdata.com:14333/`. Enter the following settings into this string.
 		- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-		- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+		- **Password**—enter the PAT you generated on the [Settings](/en/Settings#access-tokens) page.
 <Note>
 The password portion of the connection string should not contain any forward slashes, because Bubble interprets them as separators. Replace any forward slashes with the URL-encoded string `%2F`.
 </Note>

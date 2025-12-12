@@ -9,10 +9,10 @@ description: "You can connect Microsoft Power Apps to Connect AI via the OpenAPI
 
 Before you connect via OpenAPI, you must first do the following:
 
-- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-- [Add a workspace](/Workspaces#add-a-workspace) to Workspaces.
-- [Add assets](/Workspaces#workspace-assets) to your workspace.
-- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/en/Sources) for more information.
+- [Add a workspace](/en/Workspaces#add-a-workspace) to Workspaces.
+- [Add assets](/en/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/en/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
 ## Connect via OpenAPI
 
@@ -20,7 +20,7 @@ To establish a connection from Microsoft Power Apps to Connect AI via OpenAPI, f
 
 <Steps>
 <Step>
-In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/OpenAPI) for more information.
+In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/en/OpenAPI) for more information.
 <Note>
 You must use OpenAPI version 2.0 and select **Convert array types to strings**.
 </Note>
@@ -61,7 +61,7 @@ The **3\. Definition** step of the connector defines all the actions of the conn
 ![](./images/powerapps_request.png)
 </Frame>
 		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
-		See [API Operations](/OpenAPI#api-operations) for a complete reference.
+		See [API Operations](/en/OpenAPI#api-operations) for a complete reference.
 		The **Test** step of creating a custom connector is where you can test out the query parameters.
 		Similarly, there is a POST request to create a new record. The request contains all the fields for the record. You can edit these fields in the definition.
 	- **References**—reusable parameters that are used by both actions and triggers. Each reference has a **Definition** and **Validation**.
@@ -86,9 +86,9 @@ You can now build apps with your custom connector.
 
 Before you connect via the Virtual SQL Server API, you must first do the following:
 
-- Connect a data source to your Connect AI account. See [Sources](/Sources) for more information.
-- If you want to connect to a Connect AI workspace, [add a workspace](/Workspaces#add-a-workspace) to Workspaces and [add assets](/Workspaces#workspace-assets) to your workspace.
-- Generate a Personal Access Token (PAT) on the [Settings](/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/en/Sources) for more information.
+- If you want to connect to a Connect AI workspace, [add a workspace](/en/Workspaces#add-a-workspace) to Workspaces and [add assets](/en/Workspaces#workspace-assets) to your workspace.
+- Generate a Personal Access Token (PAT) on the [Settings](/en/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
 ## Connect via the Virtual SQL Server API
 
@@ -115,7 +115,7 @@ Enter the connection settings.
 	- **SQL server name**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
 	- **SQL database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*). To connect to a workspace, set the **SQL database name** to the name of your workspace (for example, *MyWorkspace*).
 	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*. To connect to a workspace, set the **Username** to `[CData_username]@[workspace_name]` (for example, *test@cdata.com@MyWorkspace*).
-	- **Password**—enter the PAT you generated on the [Settings](/Settings#access-tokens) page.
+	- **Password**—enter the PAT you generated on the [Settings](/en/Settings#access-tokens) page.
 	- Leave the **Choose a gateway** field blank.
 	*Connecting to a source*: 
 <Frame>

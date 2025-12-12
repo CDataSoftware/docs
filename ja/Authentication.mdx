@@ -8,7 +8,7 @@ description: "All requests to the Connect AI API must be properly authenticated 
 To authenticate a request using Basic Authentication, pass the Base64-encoded login credentials of a registered user in the `Authorization` header of the request. Follow this guidance when passing the credentials:
 
 - The username is the email address of the user, e.g. `user@cdata.com`.
-- The password is a Personal Access Token (PAT) that you generate from the [Settings](/Settings#access-tokens) page.
+- The password is a Personal Access Token (PAT) that you generate from the [Settings](/ja/Settings#access-tokens) page.
 - If your application or service does not automatically Base64-encode the string, follow these steps to encode it manually:
     - Separate the username and PAT with a colon, for example, `user@cdata.com:token`.
     - Use Base64 to encode the colon-separated string.
