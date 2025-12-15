@@ -10,7 +10,7 @@ Data Explorer can be useful to:
 - Explore the columns and data types that are available in your data sources
 - Search for specific data in your data sources using the SQL Editor or the [Query Builder](/en/QueryBuilder).
 
-When you open Data Explorer, the interface displays a navigation pane on the left and the query editor on the right. Select whether you want to build your query in the Query Builder or the SQL Editor. If you click **Build Query**, the Query Builder guides you through the steps of creating a query. If you click **SQL Editor**, a simple SQL editor appears.
+When you first open Data Explorer, the interface displays a navigation pane on the left and the query editor on the right. Select whether you want to build your query in the Query Builder or the SQL Editor. If you click **Build Query**, the Query Builder guides you through the steps of creating a query. If you click **SQL Editor**, a simple SQL editor appears.
 
 <Frame>
   <img src="./images/data_explorer_empty.png" alt="Data Explorer" />
@@ -26,7 +26,7 @@ The SQL Editor allows you to create, modify, and save queries.
   For instructions on using the Query Builder to build queries, refer to [Query Builder](/en/QueryBuilder).
 </Note>
 
-Click the arrow to the right to view the list of schema for the connection. If there is only one schema in a connection, the schema is already open to a list of tables in the schema. If there are multiple schemas, open the desired schema to view the list of tables.
+You can use the Data Explorer to view workspaces, saved queries, derived views, and connections. Click the arrow to the right to view the contents of the connection or workspace. Connections may consist of multiple schema. If there is only one schema in a connection, the schema is already open to a list of tables in the schema. If there are multiple schemas, open the desired schema to view the list of tables.
 
 You can use the search bar to search for connections. Once you are within a connection, you can use the search bar to search for schemas and tables.
 
@@ -36,20 +36,19 @@ Follow these steps to execute a query using the SQL Editor in the Data Explorer:
 
 <Steps>
 <Step>
-Click **Select a Connection** to open a drop-down menu of your connections.
-</Step>
-<Step>
-Select a connection. All available items appear in the left column.
+Select a connection, workspace, saved query or derived view. All available items appear in the left column.
 	- The solid table icon indicates a table.
 	- The dashed square icon indicates a view.
 	- The blue double document icon to the right of the item indicates that the item is being cached. See [Caching](/en/Caching) for more information.
+	- The folder indicates a workspace.
 </Step>
 <Step>
 Choose the data that you want to query.
-	- To create a query that selects an entire table or view, drag the item from the left column to the query editor. Alternatively, click the three dots next to the table or view and select **Query** for results or **View Details** for metadata information.
-	- To select a specific column, click the expansion arrow next to the item that you want to query. Then, drag the column to the query editor.
-	- Some data source types contain SQL templates for commonly-used queries. These queries appear under **Common Queries** when you expand the connection name. Click the three dots next to the query name and click **Query** to view the query. You can edit the query if needed. Click **Execute** to run the common query.
-	Alternatively, you can enter a query manually by using SQL syntax in the SQL Editor. Connect AI has an autocomplete feature to assist you with SQL syntax.
+	- To view the SQL query for an entire table or view, click that table or view. Alternatively, click the three dots next to the table or view and select **Open**. The SQL query appears on the right. Column details appear below the SQL query. This query is read-only.  
+	- Click the three dots next to the table or view and select **Query** to create a new query based on the table or view. You can edit and save this query.
+	- Some data source types contain SQL templates for commonly-used queries. These queries appear under **Common Queries** when you expand the connection name. Click the three dots next to the query name and click **Query** to view the query. You can edit the query if needed.
+
+	Alternatively, you can enter a query manually by clicking the + sign in the tab bar and selecting **SQL Editor**. Use SQL syntax in the SQL Editor. Connect AI has an autocomplete feature to assist you with SQL syntax.
 	<Frame>
 	  <img src="./images/data_explorer_syntax_help.png" alt="SQL syntax help" />
 	</Frame>
@@ -74,7 +73,7 @@ When you execute the query, a loading icon appears in the **Results** section, a
 
 If your time elapsed exceeds five minutes, please contact [CData support](https://www.cdata.com/support/submit.aspx) for assistance.
 
-When the query is finished executing, your results appear under the query editor. The **Details** section displays metadata returned by the query, and the **Results** section displays the data returned by the query. You can scroll through pages and adjust the number of results per page by using the fields at the bottom of the page. You can also adjust the column widths of the table details and results.
+When the query is finished executing, your results appear under the query editor. You can scroll through pages and adjust the number of results per page by using the fields at the bottom of the page. You can also adjust the column widths of the results.
 
 If your query returns an error, an error message appears above the query. An error icon also appears in the query's tab. Click **Learn More** for more details about the error.
 
@@ -82,7 +81,7 @@ If your query returns an error, an error message appears above the query. An err
   <img src="./images/data_explorer_error.png" alt="Query error" />
 </Frame>
 
-### Modifying a Query
+### Modify a Query
 
 After a query executes, you can perform the following actions:
 
@@ -90,7 +89,7 @@ After a query executes, you can perform the following actions:
 - Clear the query editor by selecting **Clear** and then clicking **OK** in the prompt that is displayed.
 - Generate a new query by dragging a new table or column into the query editor and clicking **OK** in the prompt that is displayed.
 
-### Saving a Query
+### Save a Query
 
 Data Explorer provides the ability to save queries and return to them later without the need to re-enter the query parameters each time.
 
@@ -111,10 +110,6 @@ The Data Explorer Saved Queries menu opens, and your newly-saved query appears i
 #### Use Saved Queries
 
 Saved queries are available in the **Saved Queries** folder in the Data Explorer navigation pane, and saved derived views are available in the **Derived Views** folder. To execute a saved query, click the three dots next to the saved query name and select **Query**. The contents of the saved query populate in the Query Editor, and you can click **Execute** to retrieve the results.
-
-<Note>
-  The **Details** tab, which contains metadata, is not available when executing saved queries.
-</Note>
 
 You can also rename and delete saved queries when you click the three dots.
 
@@ -142,7 +137,7 @@ Click **Confirm** to save the derived view.
 </Step>
 </Steps>
 
-### Accessing a Derived View in Integrations
+### Access a Derived View in Integrations
 
 When issuing queries to a derived view from within an integration tool, set the Connection or Database value to *CData*. The following syntax shows the correct fully-qualified syntax for accessing a derived view:
 
@@ -152,7 +147,7 @@ SELECT * FROM [CData].[DerivedViews].[SampleDerivedView]
 
 Substitute the name of your derived view for the \[SampleDerivedView\] value in the example above.
 
-### Accessing a Derived View in Data Explorer
+### Access a Derived View in Data Explorer
 
 After you create a derived view, it appears in the list of derived views in Data Explorer. You can click the three dots next to the entry in the list to open a list of options.
 
@@ -161,8 +156,7 @@ After you create a derived view, it appears in the list of derived views in Data
 </Frame>
 
 - To execute the query, click **Query**. The contents of the derived view appear in the Data Explorer query view, and you can then click **Execute** to view the query results.
-- To return metadata, click **View Details**. This action automatically executes, and the results populate under the **Details** tab.
-- You can click **Rename** to change the name of the derived view, or you can click **Delete** to remove it from the list.
+- You can click the three dots next to the derived view and select **Open/Edit** to change the name of the derived view, or you can click **Delete** to remove it from the list.
 
 ### Modify a Derived View
 
