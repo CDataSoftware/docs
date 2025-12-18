@@ -1,3 +1,5 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
 ## Setup Guide
 
 Follow these steps to connect DB2 to your Connect AI account:
@@ -42,13 +44,7 @@ To authenticate with user credentials, enter the following information:
 	- **User**—enter the username of a user with access to the database.
 	- **Password**—enter the password of a user with access to the database.
 </Step>
-<Step>
-At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
   </Tab>
 
@@ -59,13 +55,7 @@ To authenticate with encrypted user credentials, select **EUSRIDPWD** and enter 
 	- **User**—enter the username of a user with access to the database.
 	- **Password**—enter the password of a user with access to the database.
 </Step>
-<Step>
-At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
   </Tab>
 
@@ -76,13 +66,7 @@ To authenticate using the API key of an application that connects to it, select 
 	- **User**—enter the the IBM ID or service ID of a DB2 server user.
 	- **Password**—enter the API key associated with the application that requires access to the DB2 database.
 </Step>
-<Step>
-At the top of the Connect AI **Add DB2 Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
   </Tab>
 </Tabs>

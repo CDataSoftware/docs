@@ -1,3 +1,5 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
 ## Prerequisites
 
 #### Whitelist CData IPs
@@ -50,11 +52,5 @@ Click **Sign in** to connect securely through OAuth. This action opens the Azure
 <Step>
 Log in to your Azure Data Lake Storage account and provide the requested permissions (if applicable).
 </Step>
-<Step>
-At the top of the Connect AI **Add Azure Data Lake Storage Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>	

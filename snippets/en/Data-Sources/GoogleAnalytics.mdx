@@ -1,3 +1,5 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
 ## Setup Guide
 
 Follow these steps to connect Google Analytics to your Connect AI account:
@@ -47,13 +49,7 @@ If you selected `GoogleAnalytics4` as the schema, the **Property Id** field popu
 <Step>
 If you selected `UniversalAnalytics` as the schema, enter your **Profile** and select your **API version**.
 </Step>
-<Step>
-At the top of the Connect AI **Add Google Analytics Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
   </Tab>
 
@@ -77,13 +73,7 @@ If you selected `GoogleAnalytics4` as the schema, enter the **Property Id**.
 <Step>
 If you selected `UniversalAnalytics` as the schema, enter your **Profile** and select your **API version**.
 </Step>
-<Step>
-At the top of the Connect AI **Add Google Analytics Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
   </Tab>
 </Tabs>
