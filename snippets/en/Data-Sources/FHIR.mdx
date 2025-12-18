@@ -1,3 +1,5 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
 ## Setup Guide
 
 Follow these steps to connect FHIR to your Connect AI account:
@@ -41,13 +43,7 @@ Click **Sign in** to connect securely through OAuth. This action opens the FHIR 
 <Step>
 Log in to your FHIR account and provide the requested permissions (if applicable).
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ### None
 
@@ -55,13 +51,7 @@ At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**
 <Step>
 Enter the **URL** for your connection. A sample generic URL is as follows: `http://my_fhir_server/r4b/`.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ## Azure Authentication Methods
 
@@ -77,13 +67,7 @@ Click **Sign in** to connect securely through OAuth. This action opens the FHIR 
 <Step>
 Log in to your FHIR account and provide the requested permissions (if applicable).
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ### AzureServicePrincipal
 
@@ -94,13 +78,7 @@ Enter the following information:
 	- **OAuth Client Secret**—the client secret for your FHIR account.
 	- **URL**—the URL of the FHIR server. A sample Azure URL is as follows: `https://MY_AZURE_FHIR.azurehealthcareapis.com/`.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ## AWS Authentication Methods
 
@@ -115,13 +93,7 @@ Enter the following information:
 	- **AWS Secret Key**—your AWS account secret key. This value is found in your AWS security credentials page.
 	- **URL**—the URL of the FHIR server. A sample AWS URL is as follows: `https://healthlake.REGION.amazonaws.com/datastore/DATASTORE_ID/r4/`.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ### AwsIAMRoles
 
@@ -133,13 +105,7 @@ Enter the following information:
 	- **AWS Role ARN**—the Amazon Resource Name of the role you want to use when authenticating.
 	- **URL**—the URL of the FHIR server. A sample AWS URL is as follows: `https://healthlake.REGION.amazonaws.com/datastore/DATASTORE_ID/r4/`.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ## Google Authentication Methods
 
@@ -155,13 +121,7 @@ Click **Sign in with Google** to connect securely through OAuth. This action ope
 <Step>
 Log in to your FHIR account.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ### OAuthJWT
 
@@ -172,13 +132,7 @@ Enter the following information:
 	- **OAuth JWT Subject**—(optional) the email address of the user whose data you want to access. Only set this value if the service account is part of a GSuite domain and you want to enable delegation.
 	- **URL**—the URL of the FHIR server. A sample Google URL is as follows: `https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/`.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ## InterSystems Authentication Methods
 
@@ -191,13 +145,7 @@ Enter the **API Key** for your FHIR account.
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>
 ### None
 
@@ -205,11 +153,5 @@ At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
-<Step>
-At the top of the Connect AI **Add FHIR Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
-</Step>
+<SaveAndTest/>
 </Steps>	
