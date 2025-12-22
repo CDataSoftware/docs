@@ -9,7 +9,7 @@ servers:
 
 paths:
   /log/query/list:
-    post:
+    get:
       summary: List query log
       tags:
         - Log
@@ -53,18 +53,26 @@ paths:
       operationId: listAuditLog
       description: >
         Retrieves a list of audit logs for an account.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/AuditEventSearchCriteria"
+      parameters:
+        - name: startTime
+          in: query
+          description: 'Timestamp in UTC (ISO 8601 format). Example: "2025-08-18T00:00:00Z"'
+          schema:
+            type: string
+            format: date-time
+        - name: endTime
+          in: query
+          description: 'Timestamp in UTC (ISO 8601 format). Example: "2025-08-18T23:59:59Z"'
+          schema:
+            type: string
+            format: date-time
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/QuerySearchResult"
+                $ref: "#/components/schemas/AuditSearchResult"
   /catalogs:
     get:
       tags:
@@ -453,6 +461,45 @@ paths:
                 $ref: "#/components/schemas/QueryResult"
 components:
   schemas:
+    AuditEvent:
+      type: object
+      properties:
+        eventType:
+          $ref: "#/components/schemas/AuditEventType"
+        timestamp:
+          type: string
+          format: date-time
+        relatedId:
+          type: string
+          nullable: true
+        relatedName:
+          type: string
+          nullable: true
+        relatedType:
+          type: integer
+          format: int32
+          nullable: true
+        targetId:
+          type: string
+          nullable: true
+        targetName:
+          type: string
+          nullable: true
+        targetType:
+          type: integer
+          format: int32
+          nullable: true
+        userId:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        userType:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
     AuditEventSearchCriteria:
       type: object
       properties:
@@ -880,6 +927,15 @@ components:
             $ref: "#/components/schemas/QueryRecord"
           nullable: true
       additionalProperties: false
+    AuditSearchResult:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuditEvent"
+          nullable: true
+      additionalProperties: false
     QueryType:
       enum:
         - 0
@@ -1010,6 +1066,11 @@ components:
       type: http
       scheme: basic
       description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token authentication. Include the token in the Authorization header as 'Bearer <token>'.
     #OAuth2:
     #  type: oauth2
     #  flows:
@@ -1018,8 +1079,9 @@ components:
     #      tokenUrl: https://cloud-login.clouddataos.com/oauth/token
     #      refreshUrl: https://cloud-login.clouddataos.com/oauth/refresh
     #      scopes: []
-          # Optional tool-specific hint for PKCE
-          #x-usePkce: true
+    #      # Optional tool-specific hint for PKCE
+    #      x-usePkce: true
 security:
   - Basic: []
+  - BearerAuth: []
   #- OAuth2: []

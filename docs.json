@@ -8,9 +8,17 @@
     "dark": "#00A0FF"
   },
   "favicon": "/favicon.ico",
+  "defaultOrigin": "https://cdata.mintlify.app",
   "appearance": {
     "default": "light"
   },
+  "api": {
+    "mdx": {
+      "auth": {
+        "method": "bearer"
+    }
+  }
+},
   "background": {
     "decoration": "gradient"
   },
@@ -785,13 +793,12 @@
                     "group": "REST API",
                     "pages": [
                       "en/REST-API",
-                      "en/Audit-API",
                       {
                         "group": "Log API",
                         "pages": [
+                          "en/Audit-API",
                           "en/Log-API",
-                          "en/download-query-log",
-                          "en/list-audit-log"
+                          "en/download-query-log"
                         ]
                       },
                       {
@@ -881,7 +888,7 @@
                           "en/Delete-Account"
                         ]
                       },
-                      "en/Audit-API",
+                      
                       {
                         "group": "Connection API",
                         "pages": [
@@ -909,9 +916,9 @@
                       {
                         "group": "Log API",
                         "pages": [
+                          "en/Audit-API",
                           "en/Log-API",
-                          "en/download-query-log",
-                          "en/list-audit-log"
+                          "en/download-query-log"
                         ]
                       },
                       {
@@ -1707,13 +1714,12 @@
                     "group": "REST API",
                     "pages": [
                       "ja/REST-API",
-                      "ja/Audit-API",
                       {
                         "group": "Log API",
                         "pages": [
+                          "ja/Audit-API",
                           "ja/Log-API",
-                          "ja/download-query-log",
-                          "ja/list-audit-log"
+                          "ja/download-query-log"
                         ]
                       },
                       {
@@ -1803,7 +1809,6 @@
                           "ja/Delete-Account"
                         ]
                       },
-                      "ja/Audit-API",
                       {
                         "group": "Connection API",
                         "pages": [
@@ -1831,9 +1836,9 @@
                       {
                         "group": "Log API",
                         "pages": [
+                          "ja/Audit-API",
                           "ja/Log-API",
-                          "ja/download-query-log",
-                          "ja/list-audit-log"
+                          "ja/download-query-log"
                         ]
                       },
                       {
