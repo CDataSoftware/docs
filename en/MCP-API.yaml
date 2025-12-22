@@ -83,6 +83,11 @@ components:
       type: http
       scheme: basic
       description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token authentication. Include the token in the Authorization header as 'Bearer <token>'.
     #OAuth2:
     #  type: oauth2
     #  flows:
@@ -95,4 +100,5 @@ components:
           #x-usePkce: true
 security:
   - Basic: []
+  - BearerAuth: []
   #- OAuth2: []
