@@ -312,6 +312,7 @@
                           "en/LlamaIndex-Client",
                           "en/Mistral-Client",
                           "en/N8N-Client",
+                          "en/Replit-Client",
                           "en/Windsurf-Client"
                         ]
                       },
@@ -708,6 +709,7 @@
                       "en/LlamaIndex-Client-Embedded",
                       "en/MicrosoftCopilot-Client-Embedded",
                       "en/N8N-Client-Embedded",
+                      "en/Replit-Client-Embedded",
                       "en/Windsurf-Client-Embedded"
                     ]
                   },
@@ -1233,6 +1235,7 @@
                           "ja/LlamaIndex-Client",
                           "ja/Mistral-Client",
                           "ja/N8N-Client",
+                          "ja/Replit-Client",
                           "ja/Windsurf-Client"
                         ]
                       },
@@ -1629,6 +1632,7 @@
                       "ja/LlamaIndex-Client-Embedded",
                       "ja/MicrosoftCopilot-Client-Embedded",
                       "ja/N8N-Client-Embedded",
+                      "ja/Replit-Client-Embedded",
                       "ja/Windsurf-Client-Embedded"
                     ]
                   },
