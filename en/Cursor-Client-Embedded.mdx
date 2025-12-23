@@ -1,0 +1,56 @@
+---
+title: "Cursor"
+description: "Cursor is an AI-powered integrated development environment (IDE) developed by Anysphere. It is a fork of Visual Studio Code."
+---
+
+## Prerequisites
+
+Before you can configure and use Cursor with Connect AI, you must first do the following:
+
+- Install the Cursor IDE.
+
+- Connect a data source to your Connect AI account. See [Sources](/en/Sources) for more information.
+
+- Generate a Personal Access Token (PAT) on the [Settings](/en/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+
+- Generate an [OAuth JWT bearer token](/en/Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+
+## Connect Cursor to the Connect AI MCP
+
+<Steps>
+<Step>
+In the Cursor IDE, go to **Cursor Settings**. Then click **Tools & MCP**, and then click **New MCP Server.** The file `mcp.json` opens automatically in the Cursor IDE.
+</Step>
+
+<Step>
+Copy and paste the following into the `mcp.json` file. Replace the authorization header with the credentials obtained in the prerequisites.
+
+```json
+{
+  "mcpServers": {
+    "cdata-mcp": {
+      "url": "https://mcp.cloud.cdata.com/mcp",
+      "headers": {
+        "Authorization": "Bearer OAUTH_JWT_TOKEN" //Replace with your OAuth JWT Token
+      }
+    }
+  }
+}
+```
+</Step>
+<Step>
+Return to **Tools & MCP** under **Cursor Settings**. Confirm that Cursor is connected to CData's MCP Server. You should see **cdata-mcp** listed with a green indicator.
+ 
+<Frame>
+   <img src="./images/cursor_client_start_MCP.png" alt="Cursor start MCP server" />
+</Frame>
+</Step>
+
+<Step>
+You can now chat with the assistant. Cursor lists the available tools, the connections, and a result set of a given table of a given connection. By default, Cursor asks for confirmation before executing MCP tool actions.
+<Frame>
+   <img src="./images/cursor_client_sample_chat.png" alt="Cursor sample chat" />
+</Frame>
+</Step>
+</Steps>
+

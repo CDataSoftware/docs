@@ -1,0 +1,58 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Office 365 to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Office 365* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Office 365 sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Office 365 account and provide the requested permissions (if applicable).
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipal">
+<Steps>
+<Step>
+Enter your **OAuth Client Id**. This is in your Entra ID (formerly Azure AD) application settings.
+</Step>
+<Step>
+(Optional) Enter a **OAuthClientSecret**. This is in your Entra ID (formerly Azure AD) application settings.
+</Step>
+<Step>
+(Optional) Set the **OAuthJWTCert:** to the JWT Certificate . This is a multi-line key.
+	You must provide either a OAuth Client Secret OR OAuth JWT Cert to authenticate.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Office 365, see [this information page](https://cdn.cdata.com/help/CXK/cloud/default.htm#default).

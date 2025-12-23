@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: CData Connect AI OpenAPI API
+  version: v1
+
+servers:
+  - url: https://cloud.cdata.com/api/openapi
+    description: Production base OpenAPI URL
+
+paths:
+  /{version}/{workspaceName}:
+    get:
+      tags:
+        - OpenAPI
+      summary: OpenAPI URL
+      description: >
+        Connect AI supports the OpenAPI specification version 2.0 and 3.0, allowing you to connect no-code/low-code applications that integrate with OpenAPI easily. Connect AI allows you to download an OpenAPI document from a workspace.
+      parameters:
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: workspaceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: convertArraysToStrings
+          in: query
+          schema:
+            type: boolean
+        - name: requesturl
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK  
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    #OAuth2:
+    #  type: oauth2
+    #  flows:
+    #    authorizationCode:
+    #      authorizationUrl: https://cloud-login.clouddataos.com/authorize
+    #      tokenUrl: https://cloud-login.clouddataos.com/oauth/token
+    #      refreshUrl: https://cloud-login.clouddataos.com/oauth/refresh
+    #      scopes: []
+          # Optional tool-specific hint for PKCE
+          #x-usePkce: true
+security:
+  - Basic: []
+  #- OAuth2: []

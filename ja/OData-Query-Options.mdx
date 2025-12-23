@@ -1,0 +1,138 @@
+---
+title: "Query Options"
+description: "All requests to the OData connection managed by Connect AI workspaces begin with the OData service URL with a workspace name (`https://cloud.cdata.com/api/odata/{workspace_name}`). You can filter your requests by appending query options to the end of the service URL. The available query options are outlined below."
+---
+
+
+## Single Table
+
+To target a specific table with your request, add the table name (or Alias, if one has been set) to the end of the service URL. For example, the request below targets only the **Cars** table in the **CompanyResources** workspace:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars
+```
+
+## Individual Record
+
+To target a single record within a table, add the table name to the end of the service URL. Then, add the primary key for the record in parentheses and single quotation marks. The example below targets the record with a primary key value of **1000** in the **Cars** table:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars('1000')
+```
+
+Some entities have multiple primary keys, which are indexed as shown in the following example:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars(Id='1000', Date='2016-07-01')
+```
+
+## $filter
+
+You can use the **$filter** parameter to retrieve multiple entities based on a set of logic operators. The OData API supports the following operators. These must be provided in lowercase format as show below.
+
+| Operator | Meaning |
+|:-|:-|
+| eq | Equal |
+| ne | Not Equal |
+| gt | Greater than |
+| ge | Greater than or Equal |
+| lt | Less than |
+| le | Less than or Equal |
+| not | Negation |
+
+For example, a filter to retrieve all records from the **Cars** table where **Make** matches **Honda** would look like the following:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$filter=Make eq 'Honda'
+```
+
+You can also use the boolean operators **and** and **or** to combine multiple filters, as shown here:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$filter=Make eq 'Honda' and Date lt '2016-07-01'
+```
+
+The functions **startswith()**, **endswith()**, **toupper()**, **tolower()**, and **contains()** can be used with the **$filter** query option. For example, the following request returns records for which the **Make** property contains the substring **Honda**:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$filter=contains(Make,'Honda')
+```
+
+## $select
+
+To retrieve a subset of properties, add **$select** to the end of the service URL, as shown in the following example:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$select=Id,Model
+```
+
+This returns the properties **Id** and **Model** for all records in the **Cars** table.
+
+You can also retrieve an individual property value for a single record. This example returns the value of **Model** for the record with primary key **1000**:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars('1000')/Model/$value
+```
+
+## $orderby
+
+You can use **$orderby** to sort records, as shown in the following example:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$orderby=Model asc, Color desc
+```
+
+This returns the records sorted by **Model** (ascending) and then by **Color** (descending).
+
+## $count
+
+Using the **$count** URL parameter, you can retrieve the number of records in an entity or the number of records matching a particular filter. The following example returns the number of records in **Cars** where **Make** is equal to **Honda**:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$count=true&$filter=Make eq 'Honda'
+```
+
+The response is a raw count of records matching the filter in the request.
+
+## $top and $skip
+
+You can use the **$top=N** parameter to include only the first *N* records in the result. For example, the following request returns only the top ten records in **Cars**:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$top=10
+```
+
+You can use the **$skip=N** parameter to exclude the first *N* records from the result. In the following example, **$skip=10** skips the first ten records and begins with the eleventh:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$skip=10
+```
+
+You can combine **$top** and **$skip** to implement client-side paging. **$skip** is always applied before **$top**, regardless of their order in the query. The following queries retrieve the first ten records on one page and the next ten records on another page:
+
+```bash
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$top=10
+https://cloud.cdata.com/api/odata/CompanyResources/Cars?$top=10&$skip=10
+```
+
+You can also set the parameter **$count** to **true** to return the total number of records in the results. For example, consider the following query:
+
+```bash
+GET https://cloud.cdata.com/api/odata/CompanyResources/Cars?$top=3&$skip=4&$count=true
+```
+
+This query returns a response like the following:
+
+```json
+{
+  "@odata.context": "https://cloud.cdata.com/api/odata/CompanyResources/$metadata#Cars",
+  "@odata.count": 402,
+    "value": [
+    { "Id": "4", "Color": "Color_4", "Model": "Model_4"},
+    { "Id": "5", "Color": "Color_5", "Model": "Model_5"},
+    { "Id": "6", "Color": "Color_6", "Model": "Model_6"}
+  ]
+}
+```
+
+The total count that matches the filter is returned in the response as **@odata.count** along with the single page of results.

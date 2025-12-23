@@ -1,0 +1,34 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect SAP Hybris Cloud for Customer to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SAP Hybris Cloud for Customer* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Choose an **Auth Scheme**.
+	- If you choose **Basic**, enter the following information.
+		- **User**—the SAP Hybris Cloud for Customer username for authentication.
+		- **Password**—the user password.
+		- **Tenant**—the tenant to which you want to connect.
+	- If you choose **AzureAD**, enter the following information.
+		- **SSO Properties**—Single Sign-On (SSO) properties formatted like `SSOProperty1=value1;SSOProperty2=value2;`.
+		- **Tenant**—the tenant to which you want to connect.
+</Step>
+<SaveAndTest/>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and SAP Hybris Cloud for Customer, see [this information page](https://cdn.cdata.com/help/OHM/cloud/default.htm#default).

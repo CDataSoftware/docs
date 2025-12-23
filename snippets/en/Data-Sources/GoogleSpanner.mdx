@@ -1,0 +1,66 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Google Spanner to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Spanner* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select a **Database Dialect**. This is the dialect type of the connected database. The default value is correct for most connections.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+<Tab title="OAuth">
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Project Id**—the ID of the project where your Google Spanner instance resides.
+	- **Database**—the name of the database.
+	- **Instance Id**—the ID of the Google Spanner instance to which you are connecting.
+</Step>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Spanner sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Spanner account.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuthJWT">
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuthJWT Cert**—the content of the JSON certificate provided by Google.
+	- **OAuthJWT Subject**—(optional) a subject value is required if the service account is part of a GSuite domain and you want to enable delegation.
+	- **Project Id**—the ID of the project where your Google Spanner instance resides.
+	- **Database**—the name of the database.
+	- **Instance Id**—the ID of the Google Spanner instance to which you are connecting.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Google Spanner, see [this information page](https://cdn.cdata.com/help/OGM/cloud/default.htm#default).

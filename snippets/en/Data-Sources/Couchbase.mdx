@@ -1,0 +1,63 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Couchbase to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Couchbase* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select which **Couchbase Service** to connect to, **Analytics** or **N1QL**.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="Basic">
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the Couchbase username for authentication.
+	- **Password**—the user password.
+	- **Server**—the host name or IP address of the Couchbase server or servers to which you are connecting.
+</Step>
+<SaveAndTest/>
+<Step>
+In Couchbase, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="SSLCertificate">
+<Steps>
+<Step>
+Enter the following information:
+	- **SSL Client Cert**—the contents of your certificate file. A sample is displayed.
+	- **SSL Client Cert Password**—the client certificate password if it is encrypted.
+	- **Server**—the host name or IP address of the Couchbase server or servers to which you are connecting.
+</Step>
+<SaveAndTest/>
+<Step>
+In Couchbase, add the Connect AI static IP addresses to your connection whitelist.
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Couchbase, see [this information page](https://cdn.cdata.com/help/CKM/cloud/default.htm#default).

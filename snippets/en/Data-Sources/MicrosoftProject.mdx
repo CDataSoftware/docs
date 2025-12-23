@@ -1,0 +1,159 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Microsoft Project to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Microsoft Project* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **URL** for your Microsoft Project Web App (for example, `https://MyOrganization.sharepoint.com/sites/pwa/`).
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="SharePointOnlineCookies">
+<Steps>
+<Step>
+Enter the Microsoft Project username for authentication in the **User** field.
+</Step>
+<Step>
+Enter the user password in the **Password** field.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your Microsoft Project account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your Microsoft Project account for OAuth.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="ADFS">
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Set the **SSO Login URL** to the URL used by the SSO provider.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OKTA">
+<Steps>
+<Step>
+Enter the Microsoft Project username for authentication in the **User** field.
+</Step>
+<Step>
+Enter the user password in the **Password** field.
+</Step>
+<Step>
+Enter the **SSO Login URL**.
+</Step>
+<Step>
+Enter all relevant **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OneLogin">
+<Steps>
+<Step>
+Enter the Microsoft Project username for authentication in the **User** field.
+</Step>
+<Step>
+Enter the user password in the **Password** field.
+</Step>
+<Step>
+Enter all relevant **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id that you will use to access data.
+</Step>
+<Step>
+Enter all relevant **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Enter your **OAuth Client Id**.
+</Step>
+<Step>
+Enter your **OAuth Client Secret**.
+</Step>
+<Step>
+Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
+</Step>
+<Step>
+(Optional) Enter the default **Project Id** name to define it for all operations which require one.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Microsoft Project, see [this information page](https://cdn.cdata.com/help/COM/cloud/default.htm#default).

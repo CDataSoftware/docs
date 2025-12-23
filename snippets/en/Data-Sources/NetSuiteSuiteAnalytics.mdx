@@ -1,0 +1,62 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect NetSuite SuiteAnalytics to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *NetSuite SuiteAnalytics* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **Server**—the host name or IP address of the server.
+	- **AccountId**—the company account your username is associated with on NetSuite.
+	- **RoleId**—the InternalId of the role that is used to log in to NetSuite. Obtain the RoleId by logging in to NetSuite and navigating to **Setup** > **Integration** > **Web Services Preferences**. The RoleId is displayed next to the specified role.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="Basic">
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—the NetSuite SuiteAnalytics username for authentication
+	- **Password**—the user password
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="Token">
+<Steps>
+<Step>
+Enter the following information:
+	- **Consumer Key**—The consumer key for the integration record. This string was created when you created the integration record.
+	- **Consumer Secret**—The consumer secret for the integration record. This string was created when you created the integration record.
+	- **TokenKey**—The token key used to authenticate requests to the data source.
+	- **TokenSecret**—The token secret used to authenticate requests to the data source.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## Advanced Settings Tab
+
+### Authentication
+
+Optionally, enter any **Native Driver Properties** in the **Advanced Settings** tab. These are any extra NetSuite SuiteAnalytics properties you want to add to the connection string, along with the other properties from the **Basic Settings** tab.

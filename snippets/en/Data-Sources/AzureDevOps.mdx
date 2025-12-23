@@ -1,0 +1,63 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Azure DevOps to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Azure DevOps* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter your organization name. This is the segment of your Azure URL that follows the base URL, `dev.azure.com/*Organization*`.
+</Step>
+<Step>
+Select your **Azure Dev Ops Edition** from the drop down.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+Select a **Schema** from the drop down. Note that the Analytics option is read only.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Azure DevOps sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your Azure DevOps account and provide the requested permissions (if applicable).
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="Basic">
+<Steps>
+<Step>
+Enter the **Personal Access Token** generated in Azure DevOps.
+</Step>
+<Step>
+Select a **Schema** from the drop down. Note that the Analytics option is read only.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Azure DevOps, see [this information page](https://cdn.cdata.com/help/HNK/cloud/default.htm#default).

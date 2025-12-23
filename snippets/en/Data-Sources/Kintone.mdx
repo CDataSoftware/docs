@@ -1,0 +1,57 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Kintone to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Kintone* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the Kintone **URL** (for example, `https://*SubdomainName*.cybozu.com`)
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="Password">
+<Steps>
+<Step>
+In the **User** field, enter the Kintone username for authentication.
+</Step>
+<Step>
+Enter the user password.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="API Token">
+<Steps>
+<Step>
+In the **App Id** field, enter the application Id to use for authentication.
+</Step>
+<Step>
+In the **API Token** field, add the API token to use for authentication with the application Id. To generate an API token in Kintone, navigate to **App Settings tab > API Token** and click the **Generate** Button.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Kintone, see [this information page](https://cdn.cdata.com/help/EKM/cloud/default.htm#default).
