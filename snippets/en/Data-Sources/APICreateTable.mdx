@@ -22,6 +22,23 @@ Enter the URL of your API endpoint into the **Request URL** field.
 </Step>
 <Step>
 If you select `Post`, supply the **Body** to include in the API request. Then enter the `URL` of your API endpoint.
+
+<p>
+You can use the **Body** section to request body filters for `Post` API requests. The following is an example of a request body and a filter:
+```
+{
+	"query": { "date_utc": { "$gte": "[_input.startDate]", "$lte": "[_input.endDate]" } }, "options": { "select": \["name", "date_utc", "success", "details"], "sort": { "date_utc": "asc" }, "limit": 20 } 
+}
+```
+</p>
+In this case, the user is prompted to input a start date and an end date. 
+<p>
+When you have a body filter, **Edit Table** displays the message **Body Filter(s) Detected**.
+</p>
+<Note>
+If your table request body also contains filters, you need to add an escape character to the square bracket, as shown in the example above before `"name"`.
+</Note>
+
 </Step>
 <Step>
 Select a **Response Type** of **JSON**, **LDJSON**, **XML**, or **CSV**.
