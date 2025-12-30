@@ -898,7 +898,8 @@
                           "en/Edit-Connection",
                           "en/List-Connections",
                           "en/Delete-Connection",
-                          "en/Clear-Connection-Metadata"
+                          "en/Clear-Connection-Metadata",
+                          "en/Data-Explorer-API"
                         ]
                       },
                       {
@@ -1820,7 +1821,8 @@
                           "ja/Edit-Connection",
                           "ja/List-Connections",
                           "ja/Delete-Connection",
-                          "ja/Clear-Connection-Metadata"
+                          "ja/Clear-Connection-Metadata",
+                          "ja/Data-Explorer-API"
                         ]
                       },
                       {
