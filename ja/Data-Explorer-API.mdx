@@ -1,0 +1,32 @@
+---
+title: "Data Explorer"
+description: "Data Explorer redirects you to the Data Explorer page of Connect AI."
+api: POST https://cloud.cdata.com/api/poweredby/dataExplorer
+contentType: application/json
+---
+
+## Responses
+
+### 200
+
+A string containing the URL to redirect the user to. 
+
+`HTTP 200 OK`
+<Expandable title="Response body">
+
+<ResponseField name="redirectURL" type="string" required>
+A string containing the URL to redirect the user to.
+</ResponseField>
+
+</Expandable>
+
+<ResponseExample>
+
+
+```json 200
+{
+"redirectURL": "https://cloud.cdata.com/oem/user/dataexplorer?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJvZW1TdWJBY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImRhdGFFeHBsb3JlciIsImFjY291bnRJZCI6ImZlZTFjZTlkLWM0MGMtNGVmNi04ZjhjLTc3NDYxMzE1NzEzZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy9hY2NvdW50X25hbWUiOiJDRGF0YU9FTVVzZXIiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvdXNlcl90eXBlIjoiMCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX2lkIjoiNGJiYmJiYmItM2M1Yy01NmY4LWFhZTQtYjk4N2Q4ZWEzOTdhIiwibmFtZSI6Ik9FTVN1YkFjY291bnRVc2VyIENvbm5lY3RDbG91ZCIsImVtYWlsIjoib2VtLTRiYmJiYmJiLTNjNWMtNTZmOC1hYWU0LWI5ODdkOGVhMzk3YUBmYWtlZW1haWwuY29tIiwiY29ubmVjdGlvbklkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwibmJmIjoxNzY3MTIwMzkyLCJleHAiOjE3NjcxMjA1NzIsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.S7UtQ3qlgeogzYRnNQQA1rtsyR-G-SfXNVRzCJayg2eL3qaWahIOjJCTZYyfNAWkKyh5RRtxfyhJOgGm0AMf9xaltvl04AOMJILJWcinnptcIhEFeetGnrJEdT6nOVhpj2o7wGv28Nv395a2wv6Ns4z7IT-0rzbVa8UU9jqu3zANw5FoqIm7kr1SILVPpsan-q4yFjf-MBIzfswGB4EfWylc894nO9IThnZxfjCL0-XOzxnRI8o1gj2zlJM5inizoEGxFlTzpuhmt0ArMFlESOdze4dJUP6JmFcPJ-9v2fiEraX_QP-lWeujcxz386Qtk37sd08l-BhZITLR8iXqmA"
+}
+```
+
+</ResponseExample>
