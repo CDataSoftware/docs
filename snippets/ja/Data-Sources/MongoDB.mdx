@@ -1,43 +1,43 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to MongoDB, you need to allow access to MongoDB via CData’s IP. When hosting MongoDB behind a firewall, you must safelist these IP addresses in your firewall.
+MongoDB への接続を確立するには、CData のIP 経由でMongoDB へのアクセスを許可する必要があります。MongoDB をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure MongoDB Is Publicly Accessible
+#### MongoDB が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect MongoDB to your Connect AI account:
+以下の手順で、MongoDB をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *MongoDB* into the search field, then click the data source name.
+検索フィールドに *MongoDB* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
-Enter the host name or IP address of the MongoDB server in the **Server** field.
+Enter MongoDB サーバーのホスト名またはIP アドレス in the **Server** field.
 </Step>
 <Step>
-Specify the port for connecting to the MongoDB server in the **Port** field. By default this is set to 27017.
+Specify MongoDB サーバーに接続するためのポート in the **Port** field. By default this is set to 27017.
 </Step>
 <Step>
 Enter the name of the MongoDB **Database**.
@@ -46,25 +46,25 @@ Enter the name of the MongoDB **Database**.
 Select the **Auth Scheme** you use to connect to MongoDB. Options are: `MONGODB-CR`, `SCRAM-SHA-1`, `SCRAM-SHA-256`, and `X509`.
 </Step>
 <Step>
-Enter the MongoDB username for authentication in the **User** field.
+Enter 認証用のMongoDB ユーザー名 in the **User** field.
 </Step>
 <Step>
-In the **Password** field, enter the user password.
+In the **Password** field, enter ユーザーパスワード.
 </Step>
 <Step>
 (Optional) If the authentication database is different from the database to retreive data from, enter it into the **Auth Database** field.
 </Step>
 <Step>
-In MongoDB, add the Connect AI static IP addresses to your connection whitelist.
+MongoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add MongoDB Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add MongoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+
 ### Connect to Replica Sets
 
 <Steps>
@@ -79,7 +79,6 @@ Set **Slave OK** to `True`.
 </Step>
 <Step>
 Set **Read Preference** to determine how the provider reads from the secondary servers.
-
 	- `primary` executes all SELECT queries against the primary server.
 	- `primaryprefered` executes SELECT queries from a secondary server when the primary is not available.
 	- `secondary` executes SELECT queries on secondary servers only.
@@ -87,6 +86,7 @@ Set **Read Preference** to determine how the provider reads from the secondary s
 	- `nearest` executes SELECT queries on whichever server has the least latency.
 </Step>
 </Steps>
-## More Information
 
-For more information about interactions between Connect AI and MongoDB, see [this information page](https://cdn.cdata.com/help/DGK/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とMongoDB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DGK/jp/cloud/default.htm#default)を参照してください。

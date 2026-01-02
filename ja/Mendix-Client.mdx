@@ -1,21 +1,20 @@
 ---
 title: "Mendix"
-description: "This page outlines the steps to connect Mendix to Connect AI using the [OData](/ja/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/ja/Workspaces) documentation for more information."
+description: "このページでは、[OData](/ja/OData-Dashboard) プロトコルを使用してMendix をConnect AI に接続する手順の概要を示します。これには、ワークスペースを使う必要があります。詳しくは、[Workspaces](/ja/Workspaces) ヘルプを参照してください。"
 ---
 
 
+## 前提条件
 
-## Prerequisites
+接続する前にまず以下を実行します。
 
-Before you connect, you must first do the following:
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [ワークスペース](/ja/Workspaces)を作成します。後の手順で、(*`https://cloud.cdata.com/api/odata/{workspace_name}`*) ページの**OData Service URL** と関連するワークスペース名を使用してコネクションを確立します。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+## Connect AI への接続
 
-## Connect to Connect AI
-
-To establish a connection from Mendix to Connect AI using the OData protocol, follow these steps.
+OData プロトコルを使用してMendix からConnect AI へのコネクションを確立するには、以下の手順に従います。
 
 Then, download the OData metadata file according to the steps below.
 
@@ -26,14 +25,15 @@ When creating a connection in Mendix, the connection flow requires a Data Source
 <Steps>
 <Step>
 Open a command-line window for your operating system.
-	- On Windows, open the start menu, type *cmd*, and press the enter key to open a command prompt.
-	- On macOS and Linux, open a Terminal window.
+- On Windows, open the start menu, type *cmd*, and press the enter key to open a command prompt.
+- On macOS and Linux, open a Terminal window.
 </Step>
 <Step>
 To check if curl is installed on your system, type *curl -help* and press the enter key. If it is not installed, install it from [the curl website](https://curl.se/).
 </Step>
 <Step>
 Issue the following curl command, replacing `[user]` with your Connect AI username and `[PAT]` with the PAT you generated above:
+
 ```bash
 curl -u [user]:[PAT] https://cloud.cdata.com/api/odata/service/$metadata -o metadata.xml
 ```
@@ -73,7 +73,7 @@ Enter a name in **Application Name** and select a technical owner (by default, t
 Click **Next**. In the **Environment Name** field, enter a desired name (for example, *Connect AI*).
 </Step>
 <Step>
-In the **Environment Location** field, enter *https://cloud.cdata.com* and select **Non-Production** for the environment type.
+In the **Environment Location** field, enter *`https://cloud.cdata.com`* and select **Non-Production** for the environment type.
 </Step>
 <Step>
 Click **Done!** to create your connection.

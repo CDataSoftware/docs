@@ -2,28 +2,28 @@
 
 In Elasticsearch, add the Connect AI static IP addresses to your connection whitelist.
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect Elasticsearch to your Connect AI account:
+以下の手順で、Elasticsearch をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *Elasticsearch* into the search field, then click the data source name.
+検索フィールドに *Elasticsearch* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 Enter the REST **Server**'s host name or IP address.
 </Step>
 <Step>
-Enter the port for connecting to the Elasticsearch server.
+Enter Elasticsearch サーバーに接続するためのポート.
 </Step>
 <Step>
 Select the Authentication method, then proceed to the relevant section and follow those instructions.
@@ -32,29 +32,28 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-<Tabs>
-  <Tab title="BASIC">
+### BASIC
+
 <Steps>
 <Step>
-Enter the Elasticsearch username for authentication in the **User** field.
+Enter 認証用のElasticsearch ユーザー名 in the **User** field.
 </Step>
 <Step>
-In the **Password** field, enter the user password.
+In the **Password** field, enter ユーザーパスワード.
 </Step>
 <Step>
 Select the **Data Model** from the drop down.
 </Step>
 <Step>
-At the top of the Connect AI **Add Elasticsearch Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AWS RootKeys">
+### AWS RootKeys
+
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account.
@@ -69,16 +68,15 @@ Enter the **AWS Region** where the ElasticSearch instance is hosted.
 Select the **Data Model** from the drop down.
 </Step>
 <Step>
-At the top of the Connect AI **Add Elasticsearch Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AWSIAMRoles">
+### AWSIAMRoles
+
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account.
@@ -99,16 +97,15 @@ Enter the **AWS Region** where the ElasticSearch instance is hosted.
 Select the **Data Model** from the drop down.
 </Step>
 <Step>
-At the top of the Connect AI **Add Elasticsearch Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="API Key">
+### API Key
+
 <Steps>
 <Step>
 Enter the **API Key** received from ElasticSearch.
@@ -120,15 +117,13 @@ Enter the **API Key Id** returned alongside the above API Key.
 Select the **Data Model** from the drop down.
 </Step>
 <Step>
-At the top of the Connect AI **Add Elasticsearch Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-</Tabs>
-## More Information
 
-For more information about interactions between Connect AI and Elasticsearch, see [this information page](https://cdn.cdata.com/help/EEM/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とElasticsearch の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/EEM/jp/cloud/default.htm#default)を参照してください。

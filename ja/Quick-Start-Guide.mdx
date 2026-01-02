@@ -1,96 +1,100 @@
 ---
-title: "Quick Start Guide"
-description: "Connect a data source, explore it, and use it from AI or BI tools—in minutes."
+title: "クイックスタートガイド"
+description: "わずか数分でデータソースに接続し、探索し、AI ツールやBI ツールからお使いいただけます"
 ---
 
-## Step 1: Sign In
+## Step 1：サインイン
 
 <Steps>
 <Step>
-Go to [https://cloud.cdata.com/](https://cloud.cdata.com/).
+[https://cloud.cdata.com/](https://cloud.cdata.com/) に移動します。
 </Step>
 <Step>
-Sign in with your CData account.
+CData アカウントでサインインします。
 </Step>
 </Steps>
 
 <Tip>
-No account? Click **Sign Up** for a free trial.
+アカウントがありませんか？ **[Sign Up](https://jp.cdata.com/ai/signup/)** をクリックして無償トライアルを始めましょう。
 </Tip>
-## Step 2: Connect Your First Source
 
-### Example: Salesforce (OAuth)
+## Step 2：最初のデータソースを接続
+
+### 例：Salesforce（OAuth）
 
 <Steps>
 <Step>
-Open **Sources** > **Add Connection** > **Salesforce**.
+**Sources** > **Add Connection** > **Salesforce** を開きます。
 </Step>
 <Step>
-Select **OAuth** authentication (recommended).
+**OAuth** 認証（推奨）を選択します。
 </Step>
 <Step>
-Provide:
-	- **Client ID** and **Client Secret** from Salesforce (*Setup > App Manager > Your Connected App*).
-	- **Callback URL** shown in Connect AI.
+以下を入力します：
+- Salesforce の **クライアントID** および **クライアントシークレット**（*設定 > アプリケーションマネージャ > 接続済みのアプリケーション*）。
+- Connect AI に表示されている**Callback URL**。
 </Step>
 <Step>
-Click **Authorize** and sign in with Salesforce.
+**Authorize** をクリックしてSalesforce でサインインします。
 </Step>
 <Step>
-**Test** connection, and then **Save**.
+接続を **テスト**し、**保存** します。
 </Step>
 </Steps>
 
-<Check>   
-   **Done!** You can now query **Account**, **Opportunity**, **Contact**, and other objects in real time.
+<Check>
+**完了です！** `取引先`、`商談`、`取引先責任者`、その他のオブジェクトをリアルタイムでクエリできるようになりました。
 </Check>
 
-### Example: Google BigQuery (OAuth)
+### 例：Google BigQuery（OAuth）
 
 <Steps>
 <Step>
-Open **Sources** > **Add Connection** > **Google BigQuery**.
+**Sources** > **Add Connection** > **Google BigQuery** を開きます。
 </Step>
 <Step>
-Sign in with your Google account.
+Google アカウントでサインインします。
 </Step>
 <Step>
-Select the project and dataset(s) to expose.
+公開するプロジェクトとデータセットを選択します。
 </Step>
 <Step>
-Test connection, and Save.
+接続をテストし、保存します。
 </Step>
 </Steps>
-	<Check>Your BigQuery datasets are now queryable via SQL, OData, and REST.</Check>
+
+<Check>
+BigQuery データセットは、SQL、OData、REST 経由でクエリできるようになりました。
+</Check>
 
 <Tip>
-   Other authentication options include Username/Password (legacy) and OAuth with Refresh Token for long-lived access.
+その他の認証オプションには、ユーザー名 / パスワード（レガシー）と、長期間アクセス可能なリフレッシュトークンを使用したOAuth があります。
 </Tip>
 
-## Step 3: Explore and Query Your Data
+## Step 3：データの探索とクエリ
 
 <Steps>
 <Step>
-Open **Explorer** and select your source.
+**Explorer** を開きデータソースを選択します。
 </Step>
 <Step>
-Run a query:
-	```sql
-	SELECT Name, StageName, Amount
-	FROM Opportunity
-	WHERE CloseDate >= CURRENT_DATE - 90
-	ORDER BY Amount DESC;
-	```
+クエリを実行します：
+```sql
+SELECT Name, StageName, Amount
+FROM Opportunity
+WHERE CloseDate >= CURRENT_DATE - 90
+ORDER BY Amount DESC;
+```
 </Step>
 </Steps>
 
 <Tip>
-   Save as a **Derived View** to reuse and share.
+再利用および共有するには、**Derived View** として保存します。
 </Tip>
 
-## Step 4: Create Derived Views
+## Step 4：Derived View を作成する
 
-Derived Views are saved SQL definitions you can permission like tables.
+Derived View はテーブルと同様に権限を付与できる保存済みSQL 定義です。
 
 ```sql
 CREATE DERIVED VIEW Sales.TopOpportunities AS
@@ -102,115 +106,116 @@ LIMIT 10;
 ```
 
 <Tip>
-Use **Scheduled Queries** under **Jobs** to refresh cached results for heavy workloads.
+負荷の高いワークロードのキャッシュされた結果をリフレッシュするには、**Jobs** の下にある **Scheduled Queries** を使用します。
 </Tip>
 
-## Step 5: Use Data in Your Tools
+## Step 5：ツールでデータを使用する
 
-### Power BI (SQL endpoint)
-
-<Steps>
-<Step>
-Open Power BI Desktop and then select **Get Data** > **SQL Server**.
-</Step>
-<Step>
-Enter your Connect Cloud SQL endpoint (*tds.cdata.com*).
-</Step>
-<Step>
-Authenticate with your CData credentials.
-</Step>
-<Step>
-Select tables or derived views and build visuals.
-</Step>
-</Steps>
-
-### Excel (OData)
+### Power BI（SQL エンドポイント）
 
 <Steps>
 <Step>
-In Excel, select **Data** > **Get Data** > **From Other Sources** > **From OData Feed**.
+Power BI Desktop を開き、**データを取得** > **SQL Server** を選択します。
 </Step>
 <Step>
-Paste your Connect Cloud OData endpoint (*https://cloud.cdata.com/api/odata/{workspace\_name}*).
+Connect AI SQL エンドポイント（*tds.cdata.com*）を入力します。
 </Step>
 <Step>
-Authenticate with your CData credentials and load data.
+CData クレデンシャルで認証します。
+</Step>
+<Step>
+テーブルまたは派生ビューを選択し、ビジュアライズします。
 </Step>
 </Steps>
 
-### Tableau (OData or SQL)
+### Excel（OData）
 
 <Steps>
 <Step>
-In Tableau, select **Connect** > **OData Server** (or **SQL Server**).
+Excel で **データ** > **データの取得** > **その他のデータ ソースから** > **OData フィードから** を選択します。
 </Step>
 <Step>
-Enter either the OData or SQL Server endpoint, authenticate, and start exploring.
+Connect AI OData エンドポイント（*`https://cloud.cdata.com/api/odata/{workspace_name}`*）を貼り付けます。
+</Step>
+<Step>
+CData クレデンシャルで認証してデータを読み込みます。
 </Step>
 </Steps>
 
-### AI and Apps (Rest/OpenAPI)
-
-Expose any source as a secure API for custom apps and large language models (LLMs).
-
-- REST provides programmatic access from apps/agents:
-	```bash
-	GET https://cloud.cdata.com/api.rsc/Salesforce/Opportunity Authorization: Bearer <token>
-	```
-- OData v4 is used for BI tools and pagination/filtering:
-	```bash
-	GET https://cloud.cdata.com/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
-	```
-- OpenAPI generates clients and validates requests:
-	```bash
-	GET https://cloud.cdata.com/openapi/Salesforce
-	```
-
-## Step 6: Organize with Workspaces
+### Tableau（OData またはSQL）
 
 <Steps>
 <Step>
-In Workspaces, **Add Workspace** and name the workspace (for example, Sales).
+Tableau で **接続** > **OData Server**（または **SQL Server**）を選択します。
 </Step>
 <Step>
-Add sources and derived views needed by the team.
-</Step>
-<Step>
-Share with groups to grant access.
+OData またはSQL Server のいずれかのエンドポイントを入力し、認証して探索を開始します。
 </Step>
 </Steps>
 
-## Step 7: Permissions by Need-to-Know
+### AI およびApps（Rest / OpenAPI）
 
-Control access at the source or workspace level.
+あらゆるソースを、カスタムアプリや大規模言語モデル（LLM）のセキュアなAPI として公開します。
 
-| **Permission** | **What it allows** |
+- REST は、アプリケーションやエージェントからのプログラムによるアクセスを提供します：
+```bash
+GET https://cloud.cdata.com/api.rsc/Salesforce/Opportunity
+Authorization: Bearer <token>
+```
+- OData v4 は、BI ツールおよびページネーション / フィルタリングに使用されます：
+```bash
+GET https://cloud.cdata.com/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
+```
+- OpenAPI はクライアントを生成し、リクエストを検証します：
+```bash
+GET https://cloud.cdata.com/openapi/Salesforce
+```
+
+## Step 6：ワークスペースで整理する
+
+<Steps>
+<Step>
+ワークスペースで **ワークスペースを追加** し、ワークスペースに名前を付けます（例：Sales）。
+</Step>
+<Step>
+チームが必要とするデータソースと派生ビューを追加します。
+</Step>
+<Step>
+グループと共有してアクセス権を付与します。
+</Step>
+</Steps>
+
+## Step 7：必要最小限の権限付与
+
+データソース、スキーマ、テーブル、またはビューレベルでのアクセス制御
+
+| **権限** | **許可される内容** |
 |:- |:- |
-| SELECT | Read/query data |
-| INSERT/UPDATE/DELETE | Write changes back (if source allows) |
-| EXECUTE | Run procedures (such as refresh metadata) |
+| SELECT | データの読み出し / クエリ |
+| INSERT / UPDATE / DELETE | 変更の書き戻し（データソースが許可している場合） |
+| EXECUTE | プロシージャの実行（メタデータのリフレッシュなど） |
 
-## Security and Best Practices
+## セキュリティのベストプラクティス
 
-- **Rate limits**: 100 requests/user/minute.
-- **IP allowlist**: Restrict access to trusted networks.
-- **Logging & audit**: Enable detailed logs for governance.
+- **Rate limits**：100 リクエスト / ユーザー / 分。
+- **IP allowlist**：信頼できるネットワークへのアクセスを制限します。
+- **Logging & audit**：ガバナンスのため、詳細なログを有効にします。
 
-## Troubleshooting
+## トラブルシューティング
 
-*Connection failed? Verify credentials, network/VPN, and source API status.*
+*接続に失敗しましたか？クレデンシャル、ネットワーク / VPN、およびデータソースのAPI ステータスを検証してください。*
 
-- **Missing tables?** Refresh metadata on the source.
-- **Slow queries?** Filter early, limit columns, and enable caching.
-- **Auth errors?** Re-authorize OAuth and confirm scopes.
+- **テーブルがありませんか？** データソースのメタデータをリフレッシュします。
+- **クエリが遅いですか？** 早期にフィルタ処理し、カラムを制限し、キャッシュを有効にします。
+- **認証エラーが発生していますか？** OAuth の再認証を行い、スコープを確認します。
 
-## Get Support
+## サポートについて
 
-For assistance with using *Connect AI*, there are two main resources available:
+*Connect AI* の使用に関するサポートとして、主に2つのリソースをご利用いただけます。
 
-- The [Status page](https://status.cdata.com/), which shows the current status and incident history for the application services.
-- [CData Technical Support](https://www.cdata.com/support/submit.aspx), which you can also access by clicking the **Support** link at the bottom of the dashboard.
+- [ステータスページ](https://status.cdata.com/) ：このページでは、アプリケーションサービスの現在のステータスおよびインシデントの履歴を確認できます。
+- [CData テクニカルサポート](https://jp.cdata.com/support/submit.aspx)：こちらのフォームから、お気軽にお問い合わせください。
 
-## What’s New
+## 最新情報
 
-See our [Release Notes](/ja/ReleaseNotes) for new connectors, enhancements, and fixes.
+新しいコネクタ、機能強化、修正については、[リリースノート](/ja/ReleaseNotes)を参照してください。

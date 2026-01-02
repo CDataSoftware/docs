@@ -5,22 +5,20 @@ title: "GitHub Copilot"
 ## Prerequisites
 
 Before you can configure and use GitHub Copilot with Connect AI, you must do the following:
-
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-
-- Install and enable GitHub Copilot in Visual Studio Code (or any IDE supporting GitHub Copilot).
-
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
-
-- Base64-encode your Connect AI credentials in the following format: `Base64("email:PAT")`.
-
-
-## Connect GitHub Copilot to the Connect AI MCP
-
 <Steps>
 <Step>
-Create a folder named `.vscode` in your project repository. Within this folder, create a file named `mcp.json` and add the following configuration. Replace `YOUR_BASE64_ENCODED_EMAIL:PAT` with the Base64-encoded value of `email:PAT` that you created in the prerequisites.
-	
+Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+</Step>
+<Step>
+Install and enable GitHub Copilot in Visual Studio Code (or any IDE supporting GitHub Copilot).
+</Step>
+<Step>
+[Settings](/ja/Settings) ページでPersonal Access Token（PAT）を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+</Step>
+</Steps>
+## Create the Configuration File
+
+1. Create a folder named `.vscode` in your project repository. Within this folder, create a file named `mcp.json` and add the following configuration. Replace `Basic <your_base64_encoded_email_PAT>` with `Basic` and the Base64-encoded value of `username:PAT` (the PAT was generated in the prerequisites).
 	```bash
 	{
 	  "servers": {
@@ -28,25 +26,26 @@ Create a folder named `.vscode` in your project repository. Within this folder, 
 	      "type": "http",
 	      "url": "https://mcp.cloud.cdata.com/mcp",
 	      "headers": {
-	         "Authorization": "Basic YOUR_BASE64_ENCODED_EMAIL:PAT"
+	         "Authorization": "Basic <your_base64_encoded_email_PAT>"
 	     }
 	   }
 	  },
 	 "inputs": []
 	}
 	```
-</Step>
 
+## Start the MCP Server
+<Steps>
 <Step>
- Click **Start** within your IDE to start the MCP server. If the MCP server starts without error, it displays **Running**.
+Click **Start** within your IDE to start the MCP server. If the MCP server starts without error, it displays **Running**.
 	<Frame>![](./images/githubcopilot_client_config.png)</Frame>
 </Step>
 <Step>
- Toggle **Chat** in the title bar to display the **Chat** pane on the right.
+Toggle **Chat** in the title bar to display the **Chat** pane on the right.
 	<Frame>![](./images/githubcopilot_client_chat.png)</Frame>
 </Step>
 <Step>
- Click **Add Context** in the bottom of the **Chat** pane. In the search bar, select **Tools**. Then search for *CData*. Add **cdata-mcp All Tools**.
+Click **Add Context** in the bottom of the **Chat** pane. In the search bar, select **Tools**. Then search for *CData*. Add **cdata-mcp All Tools**.
 	<Frame>![](./images/githubcopilot_client_tools.png)</Frame>
 </Step>
 </Steps>

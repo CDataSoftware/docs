@@ -1,20 +1,20 @@
 ---
 title: "Zapier"
-description: "This page outlines the steps to connect Zapier to Connect AI using the [OData](/ja/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/ja/Workspaces) documentation for more information."
+description: "このページでは、[OData](/ja/OData-Dashboard) プロトコルを使用してZapier をConnect AI に接続する手順の概要を示します。これには、ワークスペースを使う必要があります。詳しくは、[Workspaces](/ja/Workspaces) ヘルプを参照してください。"
 ---
 
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [ワークスペース](/ja/Workspaces)を作成します。後の手順で、(*`https://cloud.cdata.com/api/odata/{workspace_name}`*) ページの**OData Service URL** と関連するワークスペース名を使用してコネクションを確立します。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI への接続
 
-To establish a connection from Zapier to Connect AI using the OData protocol, follow these steps.
+OData プロトコルを使用してZapier からConnect AI へのコネクションを確立するには、以下の手順に従います。
 
 <Steps>
 <Step>
@@ -24,30 +24,30 @@ Log in to Zapier.
 Click **Create Zap**.
 </Step>
 <Step>
-In the dialog that appears, search for "Webhooks by Zapier", and click the option underneath.
+In the dialog that appears, search for “Webhooks by Zapier”, and click the option underneath.
 <Frame>
-![](./images/zapier_client_01.png)
+  <img src="./images/zapier_client_01.png" alt="Zapier client 01" />
 </Frame>
 </Step>
 <Step>
 Under Event, select **Retrieve Poll**.
 <Frame>
-![](./images/zapier_client_02.png)
+  <img src="./images/zapier_client_02.png" alt="Zapier client 02" />
 </Frame>
 </Step>
 <Step>
 Fill in the connection details:
 	- **URL**: Enter the OData URL.
-	- **Key**: Enter "value.name".
+	- **Key**: Enter “value.name”.
 	- Authentication details: Fill in **Basic Auth** or **Headers**. The basic option requires a user and password separated by a pipe (`|`) symbol. The headers option requires a request type header with encoded credentials.
 <Frame>
-![](./images/zapier_client_03.png)
+  <img src="./images/zapier_client_03.png" alt="Zapier client 03" />
 </Frame>
 </Step>
 <Step>
 Click **Test**. If the connection is set up properly, sample records will appear.
 <Frame>
-![](./images/zapier_client_04.png)
+  <img src="./images/zapier_client_04.png" alt="Zapier client 04" />
 </Frame>
 </Step>
 </Steps>

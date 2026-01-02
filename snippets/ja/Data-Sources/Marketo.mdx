@@ -2,7 +2,9 @@
 
 Before obtaining OAuth credentials, you need to create a custom service in Marketo if you do not already have one. This procedure involves creating a new role with REST API privileges, assigning that role to an existing or new user, and then creating a new service.
 
-Note that only users with Admin privileges can create a Custom Service and that the term “service” refers to the entity created to provide OAuth credentials for API access.
+<Note>
+Note that only users with Admin privileges can create a Custom Service and that the term "service" refers to the entity created to provide OAuth credentials for API access.
+</Note>
 
 **Step 1: Create a New Role for API Access**
 
@@ -28,7 +30,6 @@ Specify a Role Name and select Role permissions. Specify Access API permissions 
 </Steps>
 
 **Step 2: Assign or Create a New User for API Access**
-
 <Steps>
 <Step>
 Select the **Users** tab.
@@ -43,9 +44,7 @@ Enter the new user information and assign them the role you just created with RE
 To denote the user as an API Only user, select the **API Only** option.
 </Step>
 </Steps>
-
 **Step 3: Create the New Service**
-
 <Steps>
 <Step>
 Navigate to **Admin** > **Integration** and click the **LaunchPoint** option.
@@ -81,25 +80,25 @@ Copy and paste the Client Id as the **OAuthClientId** and the Client Secret as t
 </Step>
 </Steps>
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect Marketo to your Connect AI account:
+以下の手順で、Marketo をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *Marketo* into the search field, then click the data source name.
+検索フィールドに *Marketo* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
-Enter your Marketo **URL**. You can locate this in **Admin** > **Integration** > **Web Services** > **REST API**. Example values: *https://123-abc-456.mktorest.com/* or *https://123-abc-456.mktorest.com/rest*.
+Enter your Marketo **URL**. You can locate this in **Admin** > **Integration** > **Web Services** > **REST API**. Example values: *`https://123-abc-456.mktorest.com/`* or *`https://123-abc-456.mktorest.com/rest`*.
 </Step>
 <Step>
 Paste the **OAuth Client Id** you obtained in the prerequisites.
@@ -111,13 +110,13 @@ Paste **OAuth Client Secret** you obtained in the prerequisites.
 (Optional) Set **Use Bulk API** to True to let it handle bulk requests of certain large datasets.
 </Step>
 <Step>
-At the top of the Connect AI **Add Marketo Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Marketo Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-## More Information
 
-For more information about interactions between Connect AI and Marketo, see [this information page](https://cdn.cdata.com/help/DKM/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とMarketo の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DKM/jp/cloud/default.htm#default)を参照してください。

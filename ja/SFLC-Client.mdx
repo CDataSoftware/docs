@@ -1,80 +1,83 @@
 ---
 title: "Salesforce Lightning Connect"
-description: "This page outlines the steps to connect Salesforce Lightning Connect to Connect AI using the [OData](/ja/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/ja/Workspaces) documentation for more information."
+description: "このページでは、[OData](/ja/OData-Dashboard) プロトコルを使用してSalesforce Lightning Connect をConnect AI に接続する手順の概要を示します。これには、ワークスペースを使う必要があります。詳しくは、[Workspaces](/ja/Workspaces) ヘルプを参照してください。"
 ---
 
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [ワークスペース](/ja/Workspaces)を作成します。後の手順で、(*`https://cloud.cdata.com/api/odata/{workspace_name}`*) ページの**OData Service URL** と関連するワークスペース名を使用してコネクションを確立します。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI への接続
 
-To establish a connection from Salesforce Lightning Connect to Connect AI using the OData protocol, follow these steps.
-
-<Steps>
-<Step>
-Open Salesforce Setup (lightning experience).
-</Step>
-<Step>
-Navigate to **Integrations** > **External Data Sources** or type *external data sources* into the search bar.
-<Frame>
-![](./images/sfl_externalsources.png)
-</Frame>
-</Step>
-<Step>
-Click **New External Data Source** at the top of the table.
-<Frame>
-![](./images/sfl_newsource.png)
-</Frame>
-</Step>
-<Step>
-Configure the data source fields:
-	- Enter labels for the **External Data Source** and **Name** fields. -**Type**—select **Salesforce Connect: OData 4.0**
-	- **URL**—enter *https://cloud.cdata.com/api/odata/{workspace\_name}*
-	- Under **Authentication**, for **Identity Type**, select **Named Principal**.
-	- **Authentication Protocol**—select **Password Authentication**.
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
-<Frame>
-![](./images/sfl_connectiondetails.png)
-</Frame>
-</Step>
-<Step>
-Click **Save** to save your external data source.
-</Step>
-</Steps>
-
-## Create External Objects from Data
-
-After you create your external data source, you must create external objects out of the data that you want to access in Salesforce Lightning Connect. Open your newly-created external data source and follow these steps:
+OData プロトコルを使用してSalesforce Lightning Connect からConnect AI へのコネクションを確立するには、以下の手順に従います。
 
 <Steps>
 <Step>
-In the top button bar, click **Validate and Sync**.
+Salesforce Lightning Connect の設定を開きます。
 </Step>
 <Step>
-Check the **Select** box next to each table that you want to sync to Salesforce. If desired, also check the **Sync in background** box.
+**インテグレーション** -> **外部データソース**と進むか、または検索バーで*外部データソース*と入力します。
+<Columns cols={2}>
+<Frame>
+  <img src="./images/sfl_externalsources.png" alt="Salesforce external sources" />
+</Frame>
+</Columns>
 </Step>
 <Step>
-Click **Sync** to synchronize the tables.
+テーブル上部の**新規外部データソース**をクリックします。
+<Frame>
+  <img src="./images/sfl_newsource.png" alt="Salesforce new source" />
+</Frame>
+</Step>
+<Step>
+データソースのフィールドを以下のとおりに設定します。
+	- **外部データソース**と**名前**のフィールドに任意のラベルを入力します。
+	- **種別**—**Salesforce Connect: OData 4.0** を選択します。
+	- **URL**— *`https://cloud.cdata.com/api/odata/{workspace_name}`* を入力します。
+	- **認証**の下にある**ID 種別**では**指定ユーザ**を選択します。
+	- **認証プロトコル**—**パスワード認証**を選択します。
+	- **ユーザ名**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*``test@cdata.co.jp``*
+	- **パスワード**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+<Frame>
+  <img src="./images/sfl_connectiondetails.png" alt="Salesforce connection details" />
+</Frame>
+</Step>
+<Step>
+**保存**をクリックして外部データソースを保存します。
 </Step>
 </Steps>
 
-Your Connect AI external objects can be accessed and used like standard Salesforce objects. Salesforce has documentation about [external objects](https://developer.salesforce.com/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_external_objects.htm) and their uses.
+## データから外部オブジェクトを作成する
 
-### Access External Objects
+外部データソースを作成したら、Salesforce Lightning Connect でアクセスしたいデータから外部オブジェクトを作成する必要があります。新たに作成した外部データソースを開き以下の手順に従います。
 
-To manage your external objects, you can use one of the following methods:
+<Steps>
+<Step>
+上部のボタンバーで**検証して同期**をクリックします。
+</Step>
+<Step>
+Salesforce と同期したい各テーブルの横にある**選択**ボックスにチェックを入れます。必要であれば**バックグラウンドで同期**ボックスにもチェックを入れます。
+</Step>
+<Step>
+**同期**をクリックしてテーブルを同期させます。
+</Step>
+</Steps>
 
-- Open your Connect AI connection in the **Integrations** > **External Data Sources** menu.
-	- Your synchronized tables appear under the **External Objects** field.
-	- Each table has buttons for **Edit**, **Erase**, and **Validate**.
-	- Click the name of a table to open it in Object Manager.
-- Alternatively, navigate to **Integrations** > **External Objects** or type *external objects* into the search bar.
-	- Your synchronized tables appear in the External Objects list with **Edit** and **Erase** options.
-	- You can click the label of an object to open its details, or you can click the name of the External Data Source to open your connection information.
+Connect AI の外部オブジェクトがSalesforce の標準オブジェクトと同じようにアクセスして使用できるようになりました。Salesforce では[外部オブジェクト](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_external_objects.htm)とその使用に関するドキュメントを発行しています。
+
+### 外部オブジェクトへアクセスする
+
+外部オブジェクトを管理するには、次の方法のうち1つを利用します。
+
+- **インテグレーション** -> **外部データソース**メニューと進み、Connect AI の接続を開きます。
+	- **外部オブジェクト**フィールドの下に同期済みのテーブルが表示されます。
+	- 各テーブルには**編集**、**削除**、**検証**ボタンがあります。
+	- テーブル名をクリックしオブジェクトマネージャで開きます。
+- 別の方法として、**インテグレーション** -> **外部オブジェクト**と進むか、または検索バーで*外部オブジェクト*と入力します。
+	- 外部オブジェクトリストに**編集**と**消去**のオプションが付いた同期済みのテーブルが表示されます。
+	- オブジェクトのラベルをクリックして詳細を開くか、または外部データソース名をクリックして接続情報を開きます。

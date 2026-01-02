@@ -1,5 +1,5 @@
 <Note>
-**Note:** Before you can configure and use JDBC with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](Sources) for more information.
+**Note:** Connect AI でJDBC を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 ## Install the Driver
@@ -13,6 +13,7 @@ Download and run the JDBC setup file for your operating system.
 ## Create a JDBC Data Source
 
 Follow these steps to create a JDBC data source to connect to Connect AI from your Java application:
+
 <Steps>
 <Step>
 Add the driver JAR file to the classpath. The JAR file is located in the `lib` subfolder of the JDBC driver for Connect AI installation directory.
@@ -40,12 +41,18 @@ or
 ```bash
 jdbc:cdata:connect:AuthScheme=OAuth;
 ```
-	The second format above can be used to ensure you are using the CData driver whenever there is a conflict in your application between drivers using the same URL format. The URL must start with either `jdbc:connect:` or `jdbc:cdata:connect:`, and it must only include the AuthScheme setting as OAuth.
+
+The second format above can be used to ensure you are using the CData driver whenever there is a conflict in your application between drivers using the same URL format. The URL must start with either `jdbc:connect:` or `jdbc:cdata:connect:`, and it must only include the AuthScheme setting as OAuth.
 </Step>
 </Steps>
+
 ## Connect to Connect AI
 
-Embedded Cloud users can connect the JDBC client to Embedded Cloud using OAuthJWT authentication. Set the **Auth Scheme** in your JDBC connection as **OAuthJWT**.
+There are two ways to connect to Connect AI through the JDBC driver: OAuth authentication and Basic authentication.
+
+To connect to Connect AI using OAuth, set the **Auth Scheme** in your JDBC connection as **OAuth**. If the OAuth login page appears in your default web browser, log in to Connect AI to proceed.
+
+If you are unable to use browser-based OAuth authentication to connect to Connect AI, you can use Basic authentication. In this case, set the AuthScheme in your JDBC connection to Basic, and then set the User and Personal Access Token for Connect AI.
 
 ### Connect to a Workspace
 

@@ -1,186 +1,183 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to Amazon DynamoDB, you need to allow access to Amazon DynamoDB via CData’s IP. When hosting Amazon DynamoDB behind a firewall, you must safelist these IP addresses in your firewall.
+Amazon DynamoDB への接続を確立するには、CData のIP 経由でAmazon DynamoDB へのアクセスを許可する必要があります。Amazon DynamoDB をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure Amazon DynamoDB Is Publicly Accessible
+#### Amazon DynamoDB が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect Amazon DynamoDB to your Connect AI account:
+以下の手順で、Amazon DynamoDB をConnect AI アカウントに接続します。
+
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *Amazon DynamoDB* into the search field, then click the data source name.
+検索フィールドに *Amazon DynamoDB* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 Select the Authentication method, then proceed to the relevant section and follow those instructions.
 </Step>
 </Steps>
+
 ## Authentication Methods
 
-<Tabs>
-  <Tab title="ADFS">
+### ADFS
+
 <Steps>
 <Step>
- Enter the ADFS **User** Id.
+Enter the ADFS **User** Id.
 </Step>
 <Step>
- Add the **Password** for that account.
+Add the **Password** for that account.
 </Step>
 <Step>
- Enter the **SSO Login URL** to the URL use by the SSO provider.
+Enter the **SSO Login URL** to the URL use by the SSO provider.
 </Step>
 <Step>
- Select the **AWS Region** that hosts your AWS account.
+Select the **AWS Region** that hosts your AWS account.
 </Step>
 <Step>
- In Amazon DynamoDB, add the Connect AI static IP addresses to your connection whitelist.
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
- At the top of the Connect AI **Add Amazon DynamoDB Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AWSRootKeys">
+### AWSRootKeys
+
 <Steps>
 <Step>
- Enter the **AWS Access Key** associated with the AWS root account.
+Enter the **AWS Access Key** associated with the AWS root account.
 </Step>
 <Step>
- Enter the **AWS Secret Key** associated with the AWS root account.
+Enter the **AWS Secret Key** associated with the AWS root account.
 </Step>
 <Step>
- Select the **AWS Region** that hosts your AWS account.
+Select the **AWS Region** that hosts your AWS account.
 </Step>
 <Step>
- In Amazon DynamoDB, add the Connect AI static IP addresses to your connection whitelist.
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
- At the top of the Connect AI **Add Amazon DynamoDB Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AWSIAMRoles">
+### AWSIAMRoles
+
 <Steps>
 <Step>
- Enter the **AWS Access Key** associated with the AWS root account.
+Enter the **AWS Access Key** associated with the AWS root account.
 </Step>
 <Step>
- Enter the **AWS Secret Key** associated with the AWS root account.
+Enter the **AWS Secret Key** associated with the AWS root account.
 </Step>
 <Step>
- Enter the **AWS Role ARN** for the authenticating User Id.
+Enter the **AWS Role ARN** for the authenticating User Id.
 </Step>
 <Step>
- (Optional) Enter the **AWS External Id** only if emulating a different role.
+(Optional) Enter the **AWS External Id** only if emulating a different role.
 </Step>
 <Step>
- Select the **AWS Region** that hosts your AWS account.
+Select the **AWS Region** that hosts your AWS account.
 </Step>
 <Step>
- In Amazon DynamoDB, add the Connect AI static IP addresses to your connection whitelist.
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
- At the top of the Connect AI **Add Amazon DynamoDB Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-
-  <Tab title="Okta">
+### Okta
 <Steps>
 <Step>
- In **User** enter the Amazon DynamoDB username for authentication.
+In **User** enter 認証用のAmazon DynamoDB ユーザー名.
 </Step>
 <Step>
- In **Password** enter the user password.
+In **Password** enter ユーザーパスワード.
 </Step>
 <Step>
- Enter the **SSO Login URL**.
+Enter the **SSO Login URL**.
 </Step>
 <Step>
- Enter all relevant **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
- </Step>
-<Step>
- Select the **AWS Region** that hosts your AWS account.
+Enter all relevant **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
 </Step>
 <Step>
- In Amazon DynamoDB, add the Connect AI static IP addresses to your connection whitelist.
+Select the **AWS Region** that hosts your AWS account.
 </Step>
 <Step>
- At the top of the Connect AI **Add Amazon DynamoDB Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-
-  <Tab title="PingFederate">
+### PingFederate
 <Steps>
 <Step>
- In **User** enter the Amazon DynamoDB username for authentication.
+In **User** enter 認証用のAmazon DynamoDB ユーザー名.
 </Step>
 <Step>
- In **Password** enter the user password.
+In **Password** enter ユーザーパスワード.
 </Step>
 <Step>
- Enter the **SSO Login URL**.
+Enter the **SSO Login URL**.
 </Step>
 <Step>
- Enter the **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
+Enter the **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
 </Step>
 <Step>
- Add the **SSO Exchange URL**.
+Add the **SSO Exchange URL**.
 </Step>
 <Step>
- (Optional) Enter the **AWS Role ARN** only if you have multiple Identity Providers in your AWS account.
+(Optional) Enter the **AWS Role ARN** only if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
- Select the **AWS Region** that hosts your AWS account.
+Select the **AWS Region** that hosts your AWS account.
 </Step>
 <Step>
- In Amazon DynamoDB, add the Connect AI static IP addresses to your connection whitelist.
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
- At the top of the Connect AI **Add Amazon DynamoDB Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-</Tabs>
-## More Information
 
-For more information about interactions between Connect AI and Amazon DynamoDB, see [this information page](https://cdn.cdata.com/help/DDK/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とAmazon DynamoDB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DDK/jp/cloud/default.htm#default)を参照してください。

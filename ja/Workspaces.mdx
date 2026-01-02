@@ -2,139 +2,139 @@
 title: "Workspaces"
 ---
 
-## Overview
+## 概要
 
-The **Workspaces** feature is a data catalog that streamlines the accessibility of diverse data sources. Workspaces provide a way to organize, catalog, and control access to specific data (assets) in Connect AI. You can bundle related assets separately in a simple and scalable way. Workspaces offer a customizable organization scheme that streamlines data analysis across numerous business functions.
+**Workspaces** 機能は、多様なデータソースへのアクセスを合理化するデータカタログです。ワークスペースは、Connect AI 内の特定のデータ（アセット）を整理し、カタログ化し、アクセスを制御するための方法を提供します。シンプルかつスケーラブルな方法で、関連するアセットを個別にバンドルできます。ワークスペースは、多くのビジネス機能にわたってデータ分析を合理化する、カスタマイズ可能な組織スキームを提供します。
 
-In the Connect AI data catalog, you can view a preview of the workspace’s column metadata.
+Connect AI データカタログでは、ワークスペースのカラムメタデータのプレビューを見ることができます。
 
-Workspace assets can be:
+ワークスペースのアセットには、以下のものがあります。
 
-- **Folders**–you can create one level of folders within a workspace.
-- **Tables and Views**–from connected Connect AI data sources
-- **Derived Views**–derived from one or many data sources in Connect AI
+- **Folders**–ワークスペース内に1階層のフォルダを作成できます。
+- **Tables and Views**–接続されたConnect AI データソースのテーブルとビュー
+- **Derived Views**–Connect AI の1つまたは複数のデータソースから派生
 
-Tables, views, and derived views are exposed directly without transformations, so the column names and other properties remain the same. Any table, view, or derived view can be added to any number of workspaces. They can be referenced by a unique **Alias**. Tables that are workspaces support full CRUD capabilities.
+テーブル、ビュー、およびDerived View は、変換なしで直接公開されるため、カラム名やその他のプロパティは同じままです。任意のテーブル、ビュー、Derived View を、任意の数のワークスペースに追加できます。これらは一意の**Alias** で参照できます。ワークスペースであるテーブルは、完全なCRUD 機能をサポートします。
 
-## Add a Workspace
+## ワークスペースを追加
 
-Workspaces are the highest level of organization. They are customizable to adjust to various business needs. A business unit like marketing or data science can have their own separate workspaces. Sales may choose to organize folders in their workspace for each client. Teams can choose the structure that supports them best.
+ワークスペースは組織の最上位レベルです。さまざまなビジネスニーズに合わせてカスタマイズできます。マーケティングやデータサイエンスなどのビジネスユニットは、それぞれ独立したワークスペースを持つことができます。セールスは、クライアントごとにワークスペースのフォルダを整理することが可能です。各チームはそれぞれに最適な構造を選択できます。
 
-To get started, you can create a workspace using the following steps:
-
-<Steps>
-<Step>
-Click **Workspaces** on the left side of the dashboard.
-</Step>
-<Step>
-Click **Add** on the top right side.
-</Step>
-<Step>
-Enter a **Workspace Name**.
-</Step>
-<Step>
-Click **Confirm** to create your new workspace.
-</Step>
-</Steps>
-
-After setting a name and description for a *Workspace*, SQL Server, OData, and OpenAPI **Endpoints** are automatically generated. Endpoints are the door to a wide range of connections that form the backbone of workspaces.
-
-To view connection details for connecting from a workspace via Virtual SQL Server, OData, or OpenAPI, click **View Endpoints**. The **Endpoints** dialog contains three tabs, one for **Virtual SQL Server**, one for **OData**, and one for **OpenAPI**.
-
-### Inbound Connections
-
-When connecting to Connect AI from a client application, you can connect directly to a workspace via workspace specific endpoints. Connect AI supports different endpoints for inbound connections, including a REST API, Virtual SQL Server, OData, and OpenAPI. This means that as a user, you can connect your integration tools directly to a workspace. You can identify endpoints quickly via a configurable naming structure that places periods in between workspace, folder, and asset names by default, for example, *Workspace.Folder.Asset*.
-
-Connect AI supports the OpenAPI specification version 2.0 and 3.0, allowing you to connect no-code/low-code applications that integrate with OpenAPI easily. Connect AI allows you to connect a workspace via OpenAPI by downloading an OpenAPI document from a workspace and importing the file in your client application.
-
-#### Connect to the REST API
-
-To make a connection to the REST API, add a URL parameter to the REST API URL named “workspace”. Set this to the name of the workspace you want to query. This works with both the GET operation on the metadata endpoint, as well as the POST operation on the query and batch endpoints. Note that the /exec endpoint does not support workspaces.
-
-#### Connect via Virtual SQL Server
-
-The **Virtual SQL Server** tab of the **Endpoints** dialog contains the settings you need to connect from a workspace via Virtual SQL Server clients. Copy the settings in the dialog.
-
-- **Username**—your username to connect to a workspace is in the format of `[your_email_address]@[workspace_name]`.
-- **SQL Server Host Name**—the SQL Server host name (*tds.cdata.com*).
-- **Port**—the SQL Server port (*14333*).
-- **Database**—the name of the workspace (if required).
-- **Password**—click **Create PAT** to create a Personal Access Token to use as your password during authentication.
-
-#### Connect via OData
-
-The **OData** tab of the **Endpoints** dialog contains the settings you need to connect from a workspace via OData clients. Copy the settings in the dialog.
-
-- **Username**—your username to connect to a workspace is in the format of your email address.
-- **OData URL**—the workspace name you want to connect to. The URL has the format `https://cloud.cdata.com/api/odata/[workspace_name]`.
-- **Password**—click **Create PAT** to create a Personal Access Token to use as your password during authentication.
-
-#### Connect via OpenAPI
-
-The **OpenAPI** tab of the **Endpoints** dialog contains the settings you need to connect from a workspace via OpenAPI. You can generate an OpenAPI specification file for the selected workspace. This file can be used in client applications to integrate with Connect AI via OpenAPI.
+まず、次の手順でワークスペースを作成します。
 
 <Steps>
 <Step>
-Select version 2.0 or 3.0 of OpenAPI.
+ダッシュボードの左側にある**Workspaces** をクリックします。
 </Step>
 <Step>
-Toggle **Convert array types to strings** on if the client application does not support array types (such as Microsoft Power Apps).
+右上の**Add** をクリックします。
 </Step>
 <Step>
-Click **Download** to download the OpenAPI specification file for the workspace. This is the file that is imported into the client application.
+**Workspace Name** を入力します。
 </Step>
 <Step>
-You can also copy and paste the **OpenAPI URL**.
+**Confirm** をクリックして、新しいワークスペースを作成します。
 </Step>
 </Steps>
 
-#### Connect to Development Tools (JDBC/ODBC/SSIS)
+*Workspace* に名前と説明を設定すると、SQL Server、OData、 およびOpenAPI **Endpoints** が自動的に生成されます。エンドポイントは、ワークスペースのバックボーンを形成するさまざまな接続への扉です。
 
-To make a connection from the workspace to CData development tools, enter the workspace name in the **Workspace** field in the **Advanced** tab of the driver for Connect AI. Below is an example for the JDBC driver.
+ワークスペースから仮想SQL Server、OData、またはOpenAPI 経由で接続するためのコネクションの詳細を表示するには、**View Endpoints** をクリックします。**Endpoints** ダイアログには、**Virtual SQL Server** 用、**OData** 用、**OpenAPI** 用の3つのタブがあります。
+
+### インバウンド接続
+
+クライアントアプリケーションからConnect AI に接続する場合、ワークスペース固有のエンドポイントを介してワークスペースに直接接続できます。Connect AI は、REST API、仮想SQL Server、OData、OpenAPI など、インバウンド接続用のさまざまなエンドポイントをサポートしています。これはつまり、ユーザーとして、インテグレーションツールをワークスペースに直接接続できるということです。例えば、*Workspace.Folder.Asset* のように、ワークスペース名、フォルダ名、アセット名の間にデフォルトでピリオドを置く設定可能な命名構造によって、エンドポイントを素早く特定できます。
+
+Connect AI はOpenAPI 仕様バージョン2.0と3.0をサポートしているため、OpenAPI と統合するノーコード / ローコードアプリケーションを簡単に接続できます。Connect AI を使用すると、ワークスペースからOpenAPI ドキュメントをダウンロードし、そのファイルをクライアントアプリケーションにインポートすることで、OpenAPI 経由でワークスペースに接続できます。
+
+#### REST API に接続
+
+REST API に接続するには、”workspace” という名前のREST API URL にURL パラメータを追加します。これを、クエリするワークスペースの名前に設定します。これはメタデータエンドポイントのGET 処理と、クエリおよびバッチエンドポイントのPOST 処理の両方で機能します。/exec エンドポイントはワークスペースをサポートしていないことに注意してください。
+
+#### 仮想SQL Server 経由で接続
+
+**Endpoints** ダイアログの**Virtual SQL Server** タブには、仮想SQL Server クライアントを介してワークスペースから接続するために必要な設定が含まれています。ダイアログの設定をコピーします。
+
+- **Username**—ワークスペースに接続するためのユーザー名の形式は、`[your_email_address]@[workspace_name]` です。
+- **SQL Server Host Name**—SQL Server のホスト名（*tds.cdata.com*）。
+- **Port**—SQL Server のポート（*14333*）。
+- **Database**—ワークスペースの名前（必要な場合）。
+- **Password**—認証時にパスワードとして使用するパーソナルアクセストークン（PAT）を作成するには、**Create PAT** をクリックします。
+
+#### OData 経由で接続
+
+**Endpoints** ダイアログの**OData** タブには、OData クライアントを介してワークスペースから接続するために必要な設定が含まれています。ダイアログの設定をコピーします。
+
+- **Username**—ワークスペースに接続するためのユーザー名は、E メールアドレス形式です。
+- **OData URL**—接続先のワークスペース名。URL の形式は、`https://cloud.cdata.com/api/odata/[workspace_name]` です。
+- **Password**—認証時にパスワードとして使用するパーソナルアクセストークン（PAT）を作成するには、**Create PAT** をクリックします。
+
+#### OpenAPI 経由で接続
+
+**Endpoints** ダイアログの**OpenAPI** タブには、OpenAPI を介してワークスペースから接続するために必要な設定が含まれています。選択したワークスペースのOpenAPI 仕様ファイルを生成できます。このファイルは、OpenAPI を介してConnect AI と統合するためにクライアントアプリケーションで使用することができます。
+
+<Steps>
+<Step>
+OpenAPI のバージョン2.0 または3.0 を選択します。
+</Step>
+<Step>
+クライアントアプリケーションが配列型をサポートしていない場合（Microsoft Power Apps など）は、**Convert array types to strings** トグルをON にします。
+</Step>
+<Step>
+**Download** をクリックして、ワークスペースのOpenAPI 仕様ファイルをダウンロードします。これが、クライアントアプリケーションにインポートされるファイルです。
+</Step>
+<Step>
+また、**OpenAPI URL** をコピーして貼り付けることもできます。
+</Step>
+</Steps>
+
+#### 開発ツールに接続（JDBC / ODBC / SSIS）
+
+ワークスペースからCData 開発ツールに接続するには、Connect AI のドライバーの**Advanced** タブにある**Workspace** フィールドにワークスペース名を入力します。以下はJDBC ドライバーの例です。
 
 <Frame>
   <img src="./images/jdbc_specify_workspace.png" alt="JDBC specify workspace" />
 </Frame>
 
-#### Connection Authentication
+#### 接続認証
 
-To authenticate, use your Connect AI email address as your username. You need a Personal Access Token (PAT) to use as your password. You can generate a PAT in the **Endpoints** dialog or on the [Settings](/ja/Settings#access-tokens) page.
+認証を行うには、Connect AI のE メールアドレスをユーザー名として使用します。パスワードとして使用するためのパーソナルアクセストークン（PAT）が必要です。**Endpoints** ダイアログまたは[Settings](/ja/Settings#access-tokens) ページでPAT を生成できます。
 
-## Workspace Assets
+## ワークスペースのアセット
 
-The assets created within workspaces link to specific data items and provide a second layer of organization. You can organize assets into folders, but you cannot create subfolders. On the left of the asset is an icon specifying whether the asset is a folder, table, or derived view. On the right of the asset is an icon displaying the data source of the asset (not applicable for derived views).
+ワークスペース内に作成されたアセットは特定のデータ項目にリンクし、組織の2番目のレイヤーを提供します。アセットをフォルダに整理できますが、サブフォルダは作成できません。アセットの左側には、アセットがフォルダ、テーブル、またはDerived View のいずれであるかを示すアイコンがあります。アセットの右側には、アセットのデータソースを表示するアイコンがあります（Derived View には適用されません）。
 
 <Frame>
-  <img src="./images/virtual_datasets_assets.png" alt="Workspace assets" />
+  <img src="./images/virtual_datasets_assets.png" alt="Virtual datasets assets" />
 </Frame>
 
-To create an asset inside of the workspace:
+ワークスペース内にアセットを作成するには：
 
 <Steps>
 <Step>
-Within the workspace, click **Add** on the top right side. The **Add Asset** dialog appears.
+ワークスペース内で、右上の**Add** をクリックします。**Add Asset** ダイアログが表示されます。
 	<Frame>
-	  <img src="./images/workspace_add_asset.png" alt="Add asset" />
+	  <img src="./images/workspace_add_asset.png" alt="Workspace add asset" />
 	</Frame>
 </Step>
 <Step>
-Select from the menu what you want to add:
+メニューから追加したいものを選択します。
 	- **Folder**
 	- **Tables and Views**
 	- **Derived Views**
-	If you select **Folder**, enter the folder name. If you select **Tables and Views**, you must select the connection and the tables or views to add. If you select **Derived Views**, you must select the derived views to add.
+	**Folder** を選択した場合は、フォルダ名を入力します。**Tables and Views** を選択した場合は、接続と追加するテーブルまたはビューを選択する必要があります。**Derived Views** を選択した場合は、追加するDerived View を選択する必要があります。
 </Step>
 <Step>
-Click **Confirm**.
+**Confirm** をクリックします。
 </Step>
 </Steps>
 
-When you click on an asset in a workspace, the horizontal tabs offer the following functionality:
+ワークスペース内のアセットをクリックすると、水平タブに以下の機能が表示されます。
 
-- **Columns**–a table with the column metadata
-- **Preview**–the connected data item’s contents in a preview table
-- **SQL**–a generated reference SQL query for a table, view, or derived view, including the configurable **Alias** which is an important reference when querying.
+- **Columns**–カラムのメタデータを含むテーブル
+- **Preview**–接続されたデータ項目の内容をプレビューテーブルに表示
+- **SQL**–テーブル、ビュー、またはDerived View に対して生成された参照SQL クエリ。クエリ時に重要な参照となる設定可能な**Alias** が含まれます。
 
-### Data Model
+### データモデル
 
-The data model follows a `Workspace.Folder.Table` design. If no folder is present in the hierarchy, it displays as `[ROOT]`. For more information about the data model, refer to [SQL Reference](/ja/SQL-Reference/#data-model).
+データモデルは、`Workspace.Folder.Table` 設計に従っています。階層にフォルダが存在しない場合は、`[ROOT]` と表示されます。データモデルについて詳しくは、[SQL リファレンス](/ja/SQL-Reference#data-model)を参照してください。

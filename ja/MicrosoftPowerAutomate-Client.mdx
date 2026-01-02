@@ -4,6 +4,7 @@ description: "You can connect Microsoft Power Automate to Connect AI via the Ope
 ---
 
 
+
 ## Prerequisites for Connecting via OpenAPI
 
 Before you connect via OpenAPI, you must first do the following:
@@ -21,10 +22,10 @@ To establish a connection from Microsoft Power Automate to Connect AI via OpenAP
 <Step>
 In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/ja/OpenAPI) for more information.
 <Note>
-You must use OpenAPI version 2.0 and select **Convert array types to strings**.
+**Note:** You must use OpenAPI version 2.0 and select **Convert array types to strings**.
 </Note>
 <Frame>
-![](./images/powerautomate_client_endpoints.png)
+  <img src="./images/powerautomate_client_endpoints.png" alt="Power Automate client endpoints" />
 </Frame>
 </Step>
 <Step>
@@ -35,9 +36,11 @@ Select **Custom connectors** to create a custom connector (you may need to click
 </Step>
 <Step>
 Select **New custom connector** > **Import an OpenAPI file**.
+<Columns cols={2}>
 <Frame>
-![](./images/powerapps_importopenAPI.png)
+  <img src="./images/powerapps_importopenAPI.png" alt="Power Apps import OpenAPI" />
 </Frame>
+</Columns>
 </Step>
 <Step>
 Enter a **Connector name** and import the OpenAPI specification file you downloaded.
@@ -48,7 +51,7 @@ In the **1\. General** step, enter general information about the connector, incl
 <Step>
 In the **2\. Security** step, select an **Authentication type** of **Basic authentication**. Users have to provide a user name and password before using this API. Enter the parameter labels that users will see.
 <Note>
-When you use the custom connector, the user name is the Connect AI user name, and the password is the PAT created in the prerequisites.
+**Note:** When you use the custom connector, the user name is the Connect AI user name, and the password is the PAT created in the prerequisites.
 </Note>
 </Step>
 <Step>
@@ -56,9 +59,9 @@ The **3\. Definition** step of the connector defines all the actions of the conn
 	In the **3\. Definition** step, you can edit the **Actions**, **References**, and **Policies** imported from the OpenAPI specification.
 	- **Actions**—each action in the custom connector has **General** information, as well as the **Request**, **Response**, and **Validation** of the response.
 		For example, the following request is a GET request to list drives.
-<Frame>
-![](./images/powerapps_request.png)
-</Frame>
+		<Frame>
+		  <img src="./images/powerapps_request.png" alt="Power Apps request" />
+		</Frame>
 		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
 		See [API Operations](/ja/OpenAPI#api-operations) for a complete reference.
 		The **Test** step of creating a custom connector is where you can test out the query parameters.
@@ -71,15 +74,15 @@ Click **Create connector** to save the custom connector.
 </Step>
 <Step>
 In the **6\. Test** step, you can test the behavior of each operation defined in the OpenAPI specification by applying query parameters.
-	For example, you can test the `$top` and `$orderby` query parameters by returning the top 100 records, ordered by `name`.
+For example, you can test the `$top` and `$orderby` query parameters by returning the top 100 records, ordered by `name`.
 <Frame>
-![](./images/powerapps_test.png)
+  <img src="./images/powerapps_test.png" alt="Power Apps test" />
 </Frame>
 </Step>
 <Step>
 Once the custom connector is created, click the **+** sign to create a connection with the custom connector.
 <Frame>
-![](./images/powerautomate_client_create_conn.png)
+  <img src="./images/powerautomate_client_create_conn.png" alt="Power Automate client create connection" />
 </Frame>
 </Step>
 <Step>
@@ -88,7 +91,7 @@ Provide your Connect AI user name and password. The password is the PAT created 
 <Step>
 Go to **My flows**. Select **New flow** > **Instant cloud flow**. The **Build an instant cloud flow** dialog appears.
 <Frame>
-![](./images/powerautomate_client_cloud_flow.png)
+  <img src="./images/powerautomate_client_cloud_flow.png" alt="Power Automate client cloud flow" />
 </Frame>
 </Step>
 <Step>
@@ -100,7 +103,7 @@ Click **+** to add an action.
 <Step>
 Select **Custom** from the **Runtime** drop-down list and click the custom connector you created.
 <Frame>
-![](./images/powerautomate_client_add_action.png)
+  <img src="./images/powerautomate_client_add_action.png" alt="Power Automate client add action" />
 </Frame>
 </Step>
 <Step>
@@ -125,7 +128,7 @@ Log in to Microsoft Power Automate.
 <Step>
 In the navigation menu, open **More** > **Connections**.
 <Frame>
-![](./images/powerautomate_client_01.png)
+  <img src="./images/powerautomate_client_01.png" alt="Power Automate client 01" />
 </Frame>
 </Step>
 <Step>
@@ -134,23 +137,23 @@ Click **New connection** to open the list of available connections.
 <Step>
 Select **SQL Server**. In the dialog that appears, select **SQL Server Authentication**.
 <Frame>
-![](./images/powerautomate_client_02.png)
+  <img src="./images/powerautomate_client_02.png" alt="Power Automate client 02" />
 </Frame>
 </Step>
 <Step>
 Enter the connection settings.
 	- **SQL server name**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
-	- **SQL database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*). To connect to a workspace, set the **SQL database name** to the name of your workspace (for example, *MyWorkspace*).
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*. To connect to a workspace, set the **Username** to `[CData_username]@[workspace_name]` (for example, *test@cdata.com@MyWorkspace*).
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **SQL database name**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1* To connect to a workspace, set the **SQL database name** to the name of your workspace (for example, *MyWorkspace*).
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`* To connect to a workspace, set the **Username** to `[CData_username]@[workspace_name]` (for example, *test@cdata.com@MyWorkspace*).
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 	- Leave the **Choose a gateway** field blank.
-	*Connecting to a source*: 
+	*Connecting to a source*:
 <Frame>
-![](./images/powerapps_create.png)
+  <img src="./images/powerapps_create.png" alt="Power Apps create" />
 </Frame>
-	*Connecting to a workspace*: 
+	*Connecting to a workspace*:
 <Frame>
-![](./images/powerapps_workspace.png)
+  <img src="./images/powerapps_workspace.png" alt="Power Apps workspace" />
 </Frame>
 </Step>
 <Step>

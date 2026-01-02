@@ -24,7 +24,7 @@ To establish a connection from Retool to Connect AI via OpenAPI, follow these st
 <Step>
 In **Workspaces** in Connect AI, select a workspace and copy the OpenAPI URL for the workspace. Keep the default options. See [OpenAPI](/ja/OpenAPI) for more information.
 <Frame>
-![](./images/retool_client_endpoints_URL.png)
+  <img src="./images/retool_client_endpoints_URL.png" alt="Retool client endpoints URL" />
 </Frame>
 </Step>
 <Step>
@@ -33,14 +33,16 @@ Log in to Retool.
 <Step>
 In the **Resources** tab, click **Create new** > **Resource**.
 <Frame>
-![](./images/retool_client_create_new.png)
+  <img src="./images/retool_client_create_new.png" alt="Retool client create new" />
 </Frame>
 </Step>
 <Step>
 In the **Select a resource type** search bar, enter *OpenAPI*.
+<Columns colls={2}>
 <Frame>
-![](./images/retool_client_openapi.png)
+  <img src="./images/retool_client_openapi.png" alt="Retool client OpenAPI" />
 </Frame>
+</Columns>
 </Step>
 <Step>
 Click **OpenAPI**. The **Configure OpenAPI** screen appears.
@@ -50,11 +52,11 @@ Enter the following information to configure the OpenAPI connector:
 	- **Name**—the name to use to identify the connector.
 	- **Specification URL**—the OpenAPI URL you copied in Connect AI. Paste the URL here.
 	- **Forward headers when fetching OpenAPI spec**—must be selected.
-	- **Headers**—Authorization is *Basic*. Then, Retool requires that you Base64 encode your Connect AI username and PAT using the input format *username:PAT*. The PAT is the token you created in the prerequisites. You can use a tool such as the one [here](https://www.base64encode.org/). Click **Encode** and copy the Base64 encoded result into this field. For example, for *test@cdata.com:12345*, the Base64 encoded value is *dGVzdEBjZGF0YS5jb206MTIzNDU=*.
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **Headers**—Authorization is *Basic*. Then, Retool requires that you Base64 encode your Connect AI username and PAT using the input format *username:PAT*. The PAT is the token you created in the prerequisites. You can use a tool such as the one [here](https://www.base64encode.org/). Click **Encode** and copy the Base64 encoded result into this field. For example, for *`test@cdata.com:12345`*, the Base64 encoded value is *dGVzdEBjZGF0YS5jb206MTIzNDU=*.
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*``test@cdata.co.jp``*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 <Frame>
-![](./images/retool_client_openapi_config.png)
+  <img src="./images/retool_client_openapi_config.png" alt="Retool client OpenAPI config" />
 </Frame>
 </Step>
 <Step>
@@ -69,19 +71,19 @@ Create the app in Retool in which to integrate your data.
 <Step>
 Click **Create resource query**.
 <Frame>
-![](./images/retool_client_create_resource.png)
+  <img src="./images/retool_client_create_resource.png" alt="Retool client create resource" />
 </Frame>
 </Step>
 <Step>
 Select the new resource you created, and view the endpoints that are available.
 <Frame>
-![](./images/retool_client_endpoints.png)
+  <img src="./images/retool_client_endpoints.png" alt="Retool client endpoints" />
 </Frame>
 </Step>
 <Step>
 You can now build your app with the data.
 <Frame>
-![](./images/retool_client_create_app.png)
+  <img src="./images/retool_client_create_app.png" alt="Retool client create app" />
 </Frame>
 </Step>
 </Steps>
@@ -96,33 +98,28 @@ Before you connect, you must first do the following:
 ## Connect to Connect AI via Virtual SQL Server API
 
 To establish a connection from Retool to the Connect AI Virtual SQL Server API, follow these steps.
-
 <Steps>
 <Step>
 Log in to Retool.
 </Step>
 <Step>
 Under **Resources**, click **Connect a resource**.
-<Frame>
-![](./images/retool_client_01.png)
-</Frame>
+	<Frame>![](./images/retool_client_01.png)</Frame>
 </Step>
 <Step>
-Enter "Microsoft SQL" in the search bar and click the resulting option.
-<Frame>
-![](./images/retool_client_02.png)
-</Frame>
+Enter “Microsoft SQL” in the search bar and click the resulting option.
+	<Frame>![](./images/retool_client_02.png)</Frame>
 </Step>
 <Step>
 Enter the connection settings.
 	- **Name**—a name for the connection to Connect AI
 	- **Host**—*tds.cdata.com*
 	- **Port**—*14333*
-	- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
-	- **Database username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Database password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **Database name**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Database username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*``test@cdata.co.jp``*
+	- **Database password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 <Frame>
-![](./images/retool_client_03.png)
+  <img src="./images/retool_client_03.png" alt="Retool client 03" />
 </Frame>
 </Step>
 <Step>

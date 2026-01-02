@@ -1,43 +1,43 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to PostgreSQL, you need to allow access to PostgreSQL via CData’s IP. When hosting PostgreSQL behind a firewall, you must safelist these IP addresses in your firewall.
+PostgreSQL への接続を確立するには、CData のIP 経由でPostgreSQL へのアクセスを許可する必要があります。PostgreSQL をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure PostgreSQL Is Publicly Accessible
+#### PostgreSQL が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect PostgreSQL to your Connect AI account:
+以下の手順で、PostgreSQL をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *PostgreSQL* into the search field, then click the data source name.
+検索フィールドに *PostgreSQL* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 If your PostgreSQL connection is behind a firewall, set the **Connection Type** to **SSH Tunnel** and follow the instructions in [SSH Tunnel Instructions](#ssh-tunnel-instructions). Then continue with these instructions. Otherwise, leave the **Connection Type** as **Direct**.
 </Step>
 <Step>
-In the **Server** field, enter the host name or IP address of the PostgreSQL server.
+In the **Server** field, enter PostgreSQL サーバーのホスト名またはIP アドレス.
 </Step>
 <Step>
 <Note>
@@ -51,38 +51,37 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-<Tabs>
-  <Tab title="Password">
+### Password
+
 <Steps>
 <Step>
-In the **User** field, enter the PostgreSQL username for authentication.
+In the **User** field, enter 認証用のPostgreSQL ユーザー名.
 </Step>
 <Step>
-Enter the user password in the **Password** field.
+Enter ユーザーパスワード in the **Password** field.
 </Step>
 <Step>
 (Optional) Enter the name of the PostgreSQL **Database**. If none is entered, the user's default database is used.
 </Step>
 <Step>
-(Optional) Specify the port for connecting to the PostgreSQL server in the **Port** field. This is set to 5432 by default.
+(Optional) Specify PostgreSQL サーバーに接続するためのポート in the **Port** field. This is set to 5432 by default.
 </Step>
 <Step>
-In PostgreSQL, add the Connect AI static IP addresses to your connection whitelist.
+PostgreSQL で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add PostgreSQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add PostgreSQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AzureAD">
+### AzureAD
+
 <Steps>
 <Step>
-In the **User** field, enter the PostgreSQL username for authentication.
+In the **User** field, enter 認証用のPostgreSQL ユーザー名.
 </Step>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -91,34 +90,33 @@ Enter the **Azure Tenant** Id to connect to.
 (Optional) Enter the name of the PostgreSQL **Database**. If none is entered, the user's default database is used.
 </Step>
 <Step>
-(Optional) Specify the port for connecting to the PostgreSQL server in the **Port** field. This is set to 5432 by default.
+(Optional) Specify PostgreSQL サーバーに接続するためのポート in the **Port** field. This is set to 5432 by default.
 </Step>
 <Step>
-Click **Sign in** to connect securely through OAuth. This action opens the PostgreSQL sign-in page in a new tab.
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、PostgreSQL のサインインページが新しいタブで開かれます。
 </Step>
 <Step>
-Log in to your PostgreSQL account and provide the requested permissions (if applicable).
+PostgreSQL アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
 <Step>
-In PostgreSQL, add the Connect AI static IP addresses to your connection whitelist.
+PostgreSQL で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add PostgreSQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add PostgreSQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AzurePassword">
+### AzurePassword
+
 <Steps>
 <Step>
-In the **User** field, enter the PostgreSQL username for authentication.
+In the **User** field, enter 認証用のPostgreSQL ユーザー名.
 </Step>
 <Step>
-Enter the user password in the **Password** field.
+Enter ユーザーパスワード in the **Password** field.
 </Step>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -127,25 +125,24 @@ Enter the **Azure Tenant** Id to connect to.
 (Optional) Enter the name of the PostgreSQL **Database**. If none is entered, the user's default database is used.
 </Step>
 <Step>
-(Optional) Specify the port for connecting to the PostgreSQL server in the **Port** field. This is set to 5432 by default.
+(Optional) Specify PostgreSQL サーバーに接続するためのポート in the **Port** field. This is set to 5432 by default.
 </Step>
 <Step>
-In PostgreSQL, add the Connect AI static IP addresses to your connection whitelist.
+PostgreSQL で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add PostgreSQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add PostgreSQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AWSIAMRoles">
+### AWSIAMRoles
+
 <Steps>
 <Step>
-In the **User** field, enter the PostgreSQL username for authentication.
+In the **User** field, enter 認証用のPostgreSQL ユーザー名.
 </Step>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account.
@@ -163,21 +160,19 @@ Enter the **AWS Role ARN** for the authenticating User Id.
 (Optional) Enter the name of the PostgreSQL **Database**. If none is entered, the user's default database is used.
 </Step>
 <Step>
-(Optional) Specify the port for connecting to the PostgreSQL server in the **Port** field. This is set to 5432 by default.
+(Optional) Specify PostgreSQL サーバーに接続するためのポート in the **Port** field. This is set to 5432 by default.
 </Step>
 <Step>
-In PostgreSQL, add the Connect AI static IP addresses to your connection whitelist.
+PostgreSQL で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add PostgreSQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add PostgreSQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-</Tabs>
+
 ## SSH Tunnel Instructions
 
 If your PostgreSQL data source is behind a firewall, follow these instructions.
@@ -195,10 +190,10 @@ Enter the following information:
 		- If **Public\_Key**, enter the **SSH User** name, **SSH Client Cert**, and **SSH Client Cert Password** (optional). Only PEMKEY\_BLOB is available as the **SSH Client Cert Type**. The **SSH Client Cert** is required, and is a valid private key. Enter the **SSH Client Cert Password** if the SSH client certificate has a password.
 </Step>
 <Step>
-Continue with the authentication instructions in the [Setup Guide](#setup-guide).
+Continue with the authentication instructions in the [Setup Guide](#セットアップガイド).
 </Step>
 </Steps>
 
-## More Information
+## 詳細について
 
-For more information about interactions between Connect AI and PostgreSQL, see [this information page](https://cdn.cdata.com/help/FPK/cloud/default.htm#default).
+Connect AI とPostgreSQL の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/FPK/jp/cloud/default.htm#default)を参照してください。

@@ -1,93 +1,93 @@
 ---
 title: "Databricks Lakehouse Federation"
-description: "Databricks Lakehouse Federation allows for data virtualization without importing data into Databricks. Although Connect AI allows for data virtualization, there are some features, such as data lineage and fine-grained access control, that can benefit from being virtualized on Databricks. For more information on Databricks Lakehouse Federation, see the [Databricks documentation](https://www.databricks.com/blog/announcing-general-availability-lakehouse-federation)."
+description: "Databricks Lakehouse Federation を使用すると、Databricks にデータをインポートすることなくデータ仮想化を実現できます。Connect AI ではデータの仮想化が可能ですが、データリネージやきめ細かいアクセス制御など、Databricks 上で仮想化することでメリットが得られる機能もあります。Databricks Lakehouse Federation について詳しくは、[Databricks のドキュメント](https://www.databricks.com/jp/blog/announcing-general-availability-lakehouse-federation)を参照してください。"
 ---
 
 
-Databricks Lakehouse Federation can pull data from sources that you have connected to your Connect AI account. This page outlines the steps to connect Databricks Lakehouse Federation to the Connect AI Virtual SQL Server API.
+Databricks Lakehouse Federation はConnect AI アカウントに接続されたデータソースからデータを取得できます。このページではDatabricks Lakehouse Federation をConnect AI の仮想SQL Server API に接続する手順の概要を示します。
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources.html) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI に接続する
 
-To establish a connection from Databricks Lakehouse Federation to the Connect AI Virtual SQL Server API, follow these steps.
+Databricks Lakehouse Federation からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
 
 <Steps>
 <Step>
-Log in to Databricks.
+Databricks にログインします。
 </Step>
 <Step>
-In the navigation pane, select **Catalog**. Click **+** and select **Add a connection**.
+ナビゲーションペインで**カタログ**を選択します。**+** アイコンをクリックし、**接続を追加**を選択します。
 
 <Frame>
 ![](./images/databrickslhf_client_add_connection.png)
 </Frame>
 </Step>
 <Step>
-In **Create Connection**, enter the following:
-	- **Connection name**—the user-defined connection name.
-	- **Connection type**—select **SQL Server** from the drop-down list.
-	- **Auth type**—select **Username and password**.
-	- **Host**—*tds.cdata.com*
-	- **Port**—*14333*
-	- **User**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+**接続を作成**で以下を入力します：
+	- **接続名**—ユーザー定義の接続名。
+	- **接続タイプ**—ドロップダウンリストから**SQL Server** を選択。
+	- **認証タイプ**—**ユーザー名とパスワード**を選択。
+	- **ホスト**—*tds.cdata.com*
+	- **ポート**—*14333*
+	- **ユーザー**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **パスワード**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 
 <Frame>
 ![](./images/databrickslhf_client_connection_details.png)
 </Frame>
 </Step>
 <Step>
-Click **Test connection**. If the connection succeeds, a confirmation dialog appears.
+**接続のテスト**をクリックします。接続に成功すると、確認ダイアログが表示されます。
 </Step>
 <Step>
-You now need to add the target database to the Catalog. In the navigation pane, select the connection you just created and click **Create catalog**.
+次に、ターゲットデータベースをカタログに追加する必要があります。ナビゲーションペインで、先ほど作成した接続を選択して**カタログを作成**をクリックします。
 
 <Frame>
 ![](./images/databrickslhf_client_create_catalog.png)
 </Frame>
 </Step>
 <Step>
-In the **Create a new catalog** dialog, enter the following information,
-	- **Catalog name**—enter a user-defined catalog name.
-	- **Connection**—this is the Databricks connection you defined earlier and selected.
-	- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
+**新規カタログを作成**ダイアログで以下の情報を入力します：
+	- **カタログ名**—ユーザー定義のカタログ名を入力。
+	- **接続**—先ほど定義して選択したDatabricks 接続。
+	- **データベース**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
 
 <Frame>
 ![](./images/databrickslhf_client_catalog_details.png)
 </Frame>
 </Step>
 <Step>
-Click **Create**. If the catalog creation succeeds, a confirmation dialog appears. Click **View catalog** to view your new catalog.
+**作成**をクリックします。カタログの作成に成功すると、確認ダイアログが表示されます。**カタログを表示**をクリックして新しいカタログを表示します。
 </Step>
 <Step>
-You can also return to **Catalog** in the navigation pane and find the catalog you just added. Expand the catalog to view the objects in the catalog.
+ナビゲーションペインの**カタログ**に戻って、追加したカタログを見つけることもできます。カタログを展開して、カタログ内のオブジェクトを表示します。
 
 <Frame>
 ![](./images/databrickslhf_client_view_catalog.png)
 </Frame>
 </Step>
 <Step>
-Select a table and click the **Overview** tab to view table metadata.
+テーブルを選択し、**概要**タブをクリックしてテーブルメタデータを表示します。
 
 <Frame>
 ![](./images/databrickslhf_client_table_metadata.png)
 </Frame>
 </Step>
 <Step>
-Click the **Sample Data** tab to view the real-time data in the table.
+**サンプルデータ**タブをクリックしてテーブル内のリアルタイムデータを表示します。
 
 <Frame>
 ![](./images/databrickslhf_client_table_data.png)
 </Frame>
 </Step>
 <Step>
-Go to **Dashboards** in the navigation pane to visualize the data.
+ナビゲーションペインの**ダッシュボード**に移動して、データを視覚化します。
 
 <Frame>
 ![](./images/databrickslhf_client_dashboards.png)

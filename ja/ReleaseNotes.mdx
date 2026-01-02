@@ -1,8 +1,139 @@
 ---
 title: "Release Notes"
+sidebarTitle: "リリースノート"
 rss: true
 mode: "wide"
 ---
+
+<Update label="December 5, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- Fixed the issue that occured when SCALE for VARCHAR was null. The Data Explorer no longer returns an error message. 
+
+#### Connectors
+
+- ADP (Update): Exposed ThrowsKeyNotFound property to fix a customer issue.
+- GraphQL (Update): Driver updated to the latest version.
+- NetSuite SuiteAnalytics (Update): Driver updated to the latest version.
+- ServiceNow (Update): Driver updated to the latest version.
+
+</Update>
+
+<Update label="November 21, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- Added Query Federation support for Embedded Cloud users.
+- In the Excel Add-in, added a **Settings** option that allows users to link to their account settings in Connect AI.
+- Fixed an issue where the Excel Add-in omitted columns in a generated query when using the search filter. 
+
+#### Connectors
+
+- eBay (Fix): Fixed an issue with using queries containing EXISTS. 
+- LinkedIn (Update): Driver updated to the latest version.
+- Netsuite (Fix): Fixed toggle switches for parameters in custom reports not behaving as expected.
+- Sybase IQ (New): Sybase IQ connector added to Connect AI.
+- Veeva Vault (Update): Driver updated to the latest version.
+
+</Update>
+
+<Update label="November 14, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- In the Google Sheets add-on, fixed an issue with updating and inserting time and date columns.
+- In Connect Spreadsheets, fixed an issue that prevented users from adding query results to a new page.
+- The Connect AI LLM was updated to recognize read-only fields.
+
+#### Connectors
+
+- API Connector (Update): Added support for dynamic filters in the request body.
+
+</Update>
+
+<Update label="November 7, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- In the Excel Add-in, sales and support email addresses now change dynamically by region.
+- The MCP (Model Context Protocol) definition was updated to optimize MCP performance.
+
+#### Connectors
+
+- API Connector (Update): Driver updated because of a parameter casing issue. 
+- API Connector (Update): You can now use semicolon-delimited parsing for CSV endpoints.
+- SAP SuccessFactors (Update): Driver updated to the latest version.
+- Xero (Update): You must now use PKCE authentication. Other authentication options were removed.
+
+</Update>
+
+<Update label="October 31, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- Added scheduled queries to the drop-down list on the **Jobs** page.
+
+#### Connectors
+
+- ADP (Update): Driver updated to the latest version.
+- DB2 (New): DB2 connector added to Connect AI.
+- Neo4j (New): Neo4j connector added to Connect AI.
+- QuickBooks Online (Update): Users informed in the documentation that Intuit is now charging for API calls authenticated through partner-issued credentials. Therefore, users are strongly encouraged to create their own OAuth credentials through the Intuit developer portal.
+- Smaregi (Update): Driver updated to the latest version.
+
+</Update>
+
+<Update label="October 24, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- In the Excel Add-In, the OR operator is now supported within the Query Builder.
+- In the Google Sheets add-on, fixed an issue where Google rejected a user with a missing last name.
+- In the Job endpoint of the API, added a generic params field that works for both scheduled query and cache jobs.
+
+#### Connectors
+
+- API Connector (Update): Added CSV as a supported response type.
+- Databricks Lakebase (New): Lakebase connector added to Connect AI.
+- Jira (Update): The Jira connector now supports user-defined credentials.
+- Sage Intacct (Update): Driver updated to the latest version. Also added support for OneLogin authentication. 
+- Xero (Update): Driver updated to the latest version.
+
+</Update>
+
+<Update label="October 17, 2025">
+
+### Changes, improvements, and bug fixes
+
+#### General
+
+- Fixed an issue with the TDS endpoint that led to an error importing data into FileMaker Pro.
+- In the Google Sheets add-on, made the following updates and fixes: 
+  - Added the ability to collapse and expand queries in the refresh menu. 
+  - Added a **Refresh** button for both query and audit logs in the **Log** function.
+  - Fixed an issue where read-only columns were being included in Update queries. 
+
+#### Connectors
+
+- Cvent (New): Cvent connector added to Connect AI.
+- Jira (Update): Driver updated to the latest version.
+- MySQL (Update): Driver updated to the latest version.
+- QuickBooks Online (Update): Driver updated to the latest version.
+
+</Update>
 
 <Update label="October 10, 2025">
 
@@ -1518,7 +1649,7 @@ Two new client tools are now supported on Connect AI: Google Data Fusion and Mic
 
 #### SQL API
 
-Connect AI now provides a full-featured API that can query data, perform batch operations, and execute stored procedures across all data sources configured in your account. Any REST-compatible application or client tool capable of creating HTTP requests can integrate with the API. For more information, see the [REST API docs](/ja/REST-API).
+Connect AI now provides a full-featured API that can query data, perform batch operations, and execute stored procedures across all data sources configured in your account. Any REST-compatible application or client tool capable of creating HTTP requests can integrate with the API. For more information, see the [REST API docs](/en/REST-API).
 
 ### Changes, improvements, and bug fixes
 

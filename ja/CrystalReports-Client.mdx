@@ -5,7 +5,7 @@ description: "This page outlines two different ways to connect to Connect AI fro
 
 
 <Note>
-The OData method of connecting is simpler and faster than the JDBC method.
+**Note:** The OData method of connecting is simpler and faster than the JDBC method.
 </Note>
 
 ## Prerequisites
@@ -14,7 +14,7 @@ Before you can configure and use Crystal Reports with Connect AI through either 
 
 You must also generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
 
-**For OData connectivity only:** Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
+**For OData connectivity only:** Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*`https://cloud.cdata.com/api/odata/{workspace_name}`*) with the relevant workspace name to establish the connection.
 
 ## Connect to Connect AI via OData
 
@@ -26,55 +26,47 @@ If necessary, download and install Crystal Reports from the SAP website.
 </Step>
 <Step>
 In Crystal Reports, select **File** > **New** > **Standard Report**.
-
-<Frame>
-  <img src="./images/crystal_reports_new_report.png" alt="Crystal Reports New Report" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_new_report.png" alt="Crystal Reports new report" />
+	</Frame>
 </Step>
 <Step>
 In the **Standard Report Creation Wizard**, select **OData** as your data source.
-<Frame>
-  <img src="./images/crystal_reports_report_wizard.png" alt="Crystal Reports Report Wizard" />
-</Frame>
-This opens the **OData** connectivity dialog.
-
-
+	<Frame>
+	  <img src="./images/crystal_reports_report_wizard.png" alt="Crystal Reports report wizard" />
+	</Frame>
+	This opens the **OData** connectivity dialog.
 </Step>
 <Step>
 In the **OData** dialog, enter the following information:
-- **Service root URL**–*https://cloud.cdata.com/api/odata/{workspace\_name}*
-- **User ID**–enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-- **Password**–enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
-
-<Frame>
-  <img src="./images/crystal_reports_odata.png" alt="Crystal Reports OData" />
-</Frame>
-Click **Finish**.
+	- **Service root URL**–*`https://cloud.cdata.com/api/odata/{workspace_name}`*
+	- **User ID**–Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**–[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	<Frame>
+	  <img src="./images/crystal_reports_odata.png" alt="Crystal Reports OData" />
+	</Frame>
+	Click **Finish**.
 </Step>
 <Step>
 The tables in the selected workspace now appear as an available data source under OData.
-<Frame>
-  <img src="./images/crystal_reports_data_source.png" alt="Crystal Reports Data Source" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_data_source.png" alt="Crystal Reports data source" />
+	</Frame>
 </Step>
 <Step>
 Select the tables and columns for your report.
-<Frame>
-  <img src="./images/crystal_reports_addfields.png" alt="Crystal Reports Add Fields" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_addfields.png" alt="Crystal Reports add fields" />
+	</Frame>
 </Step>
 <Step>
 Click **Finish** to generate the report.
 </Step>
 </Steps>
 
-
-
-
 ## Connect to Connect AI via JDBC Driver
 
 To establish a connection from Crystal Reports to Connect AI through the JDBC driver, follow these steps.
-
 <Steps>
 <Step>
 If necessary, download and install Crystal Reports from the SAP website.
@@ -82,15 +74,15 @@ If necessary, download and install Crystal Reports from the SAP website.
 <Step>
 Download and install the Connect AI JDBC driver.
 
-a. Open the **Integrations** page of Connect AI.
+	a. Open the **Integrations** page of Connect AI.
 
-b. In the **Dev Tools** section, click **JDBC**.
+	b. In the **Dev Tools** section, click **JDBC**.
 
-c. Download and run the setup file.
+	c. Download and run the setup file.
 
-d. When the installation is complete, locate the JDBC Connect JAR file in the JDBC driver's installation directory, for example, `C:\Program Files\CData\JDBC Driver for CData Connect\lib`.
-
-e. Copy the JDBC Connect JAR file.
+	d. When the installation is complete, locate the JDBC Connect JAR file in the JDBC driver’s installation directory, for example, `C:\Program Files\CData\JDBC Driver for CData Connect\lib`.
+	
+	e. Copy the JDBC Connect JAR file.
 </Step>
 <Step>
 Find the installation directory for Crystal Reports, for example, `C:\Program Files (x86)\SAP BusinessObjects\SAP BusinessObjects Enterprise XI 4.0\java\lib`.
@@ -100,19 +92,18 @@ Paste the JDBC Connect JAR file into the Crystal Reports installation directory.
 </Step>
 <Step>
 Go to the parent `java` folder (for example, `C:\Program Files (x86)\SAP BusinessObjects\SAP BusinessObjects Enterprise XI 4.0\java`). This folder should contain a `CRConfig` file.
-<Frame>
-  <img src="./images/crystal_reports_client.png" alt="Crystal Reports Client" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_client.png" alt="Crystal Reports client" />
+	</Frame>
 </Step>
 <Step>
 Open `CRConfig` in a text editor.
 </Step>
 <Step>
 Add the path to the JDBC Connect JAR file in the `<Classpath>` of the `CRConfig` file, for example, `C:\Program Files (x86)\SAP BusinessObjects\SAP BusinessObjects Enterprise XI 4.0\java\lib`.
-<Frame>
-  <img src="./images/crystal_reports_config.png" alt="Crystal Reports Config" />
-</Frame>
-
+	<Frame>
+	  <img src="./images/crystal_reports_config.png" alt="Crystal Reports config" />
+	</Frame>
 </Step>
 <Step>
 Log in to Crystal Reports and start a blank report.
@@ -122,28 +113,22 @@ In the **Database Expert** dialog, click **Create New Connection**.
 </Step>
 <Step>
 Select the **JDBC** data source and the tables you want to add. Click **OK**.
-
-<Frame>
-  <img src="./images/crystal_reports_addtables.png" alt="Crystal Reports Add Tables" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_addtables.png" alt="Crystal Reports add tables" />
+	</Frame>
 </Step>
 <Step>
 In the **Connection** dialog, enter the **Connection URL** and **Database Classname**.
-
-<Frame>
-  <img src="./images/crystal_reports_connection.png" alt="Crystal Reports Connection" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_connection.png" alt="Crystal Reports connection" />
+	</Frame>
 </Step>
 <Step>
 Click **Finish**. The **Database Expert** dialog displays all available connections.
-<Frame>
-  <img src="./images/crystal_reports_final.png" alt="Crystal Reports Final" />
-</Frame>
+	<Frame>
+	  <img src="./images/crystal_reports_final.png" alt="Crystal Reports final" />
+	</Frame>
 </Step>
 </Steps>
-
-
-
-
 
 You can now create reports with the connected data.

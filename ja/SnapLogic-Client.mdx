@@ -1,9 +1,11 @@
 ---
 title: "SnapLogic"
+description: "This page outlines the steps to connect SnapLogic to Connect AI."
 ---
 
+
 <Note>
-Before you can configure and use SnapLogic with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+**Note:** Connect AI でSnapLogic を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 You must also generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
@@ -12,14 +14,13 @@ You must also generate a Personal Access Token (PAT) on the [Settings](/ja/Setti
 <Step>
 Download and install the Connect AI JDBC driver.
 
-a. Open the **Integrations** page of Connect AI.
+	a. Open the **Integrations** page of Connect AI.
 
-b. In the **Dev Tools** section, click **JDBC**.
+	b. In the **Dev Tools** section, click **JDBC**.
 
-c. Download and run the setup file.
+	c. Download and run the setup file.
 
-d. When the installation is complete, the JAR file can be found in the installation directory. The default directory is `C:/Program Files/CData/CData Connect JDBC driver/lib`.
-
+	d. When the installation is complete, the JAR file can be found in the installation directory. The default directory is `C:/Program Files/CData/CData Connect JDBC driver/lib`.
 </Step>
 <Step>
 Log in to SnapLogic.
@@ -43,10 +44,11 @@ Click the **Files** tab.
 </Step>
 <Step>
 Click the "+" button in the top right to upload the Connect AI JDBC JAR file. It appears as a file once uploaded.
-
+<Columns cols={2}>
 <Frame>
 ![](./images/snaplogic_client_03.png)
 </Frame>
+</Columns>
 </Step>
 <Step>
 Click the **Designer** tab.
@@ -69,8 +71,8 @@ Enter the JDBC connection properties.
 	- **JDBC driver**—add the Connect AI JAR file
 	- **JDBC driver Class**—enter *cdata.jdbc.connect.ConnectDriver*
 	- **JDBC Url**—enter a JDBC connection string for the JDBC driver. The connection string is formatted like `jdbc:connect:AuthScheme=[AuthScheme];User=[User];Password=[PAT];`.
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 
 <Frame>
 ![](./images/snaplogic_client_05.png)

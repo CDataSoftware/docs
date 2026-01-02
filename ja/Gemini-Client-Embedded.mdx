@@ -6,15 +6,16 @@ description: "Gemini is Google’s family of large language models (LLMs). It ca
 
 ## Prerequisites
 
-Before you can configure and use Gemini with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
+Before you can configure and use Gemini with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
 
-Generate an [OAuth JWT bearer token](/ja/Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+[OAuth JWT bearer token](/ja/Authentication-Embedded) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
 You need Python >= 3.10 to use the Gemini tools.
 
 ## Connect through the Gemini Command Line Interface
 
 After you install Gemini, do the following:
+
 <Steps>
 <Step>
 Go to your user directory `%USERPROFILE%` and create a `.gemini` folder.
@@ -31,7 +32,7 @@ Copy and paste the following into the `settings.json` file. `"Authorization"` sh
    "connect-cloud": {
       "httpUrl": "https://mcp.cloud.cdata.com/mcp/",
       "headers": {
-        "Authorization": "Bearer OAUTH_JWT_TOKEN"  //Replace with your OAuth JWT Token
+        "Authorization": "Basic EMAIL:PAT"  //Replace with your Connect AI's Email and PAT
      },
       "trust": true
    }
@@ -41,19 +42,13 @@ Copy and paste the following into the `settings.json` file. `"Authorization"` sh
 ```
 </Step>
 <Step>
-In the terminal, type:
-
-```bash
-gemini
-```
-
-You may need to give Google authorization to access your account.
+In the terminal, type `gemini`. You may need to give Google authorization to access your account.
 </Step>
 <Step>
 The Gemini screen appears as follows:
 
 <Frame>
-  <img src="./images/gemini_client_homescreen.png" alt="Gemini Client Home Screen" />
+<img src="./images/gemini_client_homescreen.png" alt="Gemini client homescreen" />
 </Frame>
 </Step>
 <Step>
@@ -63,12 +58,13 @@ Enter a prompt in the prompt box to ask Gemini a question. Gemini uses the Conne
 Gemini returns a response to your prompt.
 
 <Frame>
-  <img src="./images/gemini_client_prompt.png" alt="Gemini Client Prompt" />
+<img src="./images/gemini_client_prompt.png" alt="Gemini client prompt" />
 </Frame>
 </Step>
 </Steps>
 
 ## Connect through the Google ADK
+
 <Steps>
 <Step>
 Download the folder [adk-mcp-client](https://github.com/CDataSoftware/adk-mcp-client) and unzip the folder.
@@ -80,31 +76,25 @@ Rename `.env example` to `.env`.
 In the `.env` file, remove `MCP_USERNAME` and `MCP_PASSWORD`. You are using the OAuth JWT token from the prerequisites to authenticate.
 </Step>
 <Step>
-Run the following command in your terminal:
+Run `pip install -r requirements.txt` in your terminal.
 
-```bash
-pip install -r requirements.txt
-```
 </Step>
 <Step>
-Run the following command. This starts the ADK at port 5000 on your local machine:
+Run `python -m google.adk.cli web --port 5000`. This starts the ADK at port 5000 on your local machine.
 
-```bash
-python -m google.adk.cli web --port 5000
-```
 </Step>
 <Step>
 In your web browser, open `127.0.0.1:5000`. The application looks like the following:
 
 <Frame>
-  <img src="./images/gemini_client_ADK.png" alt="Gemini Client ADK" />
+<img src="./images/gemini_client_ADK.png" alt="Gemini client ADK" />
 </Frame>
 </Step>
 <Step>
 Enter a prompt in the **Type a Message** box. Gemini uses the Connect AI tools such as `getCatalogs`, `getSchemas`, and `getTables` to retrieve data from connected data sources.
 
 <Frame>
-  <img src="./images/gemini_client_adkprompt.png" alt="Gemini Client ADK Prompt" />
+<img src="./images/gemini_client_adkprompt.png" alt="Gemini client ADK prompt" />
 </Frame>
 </Step>
 </Steps>

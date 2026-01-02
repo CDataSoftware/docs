@@ -10,7 +10,7 @@ description: "LlamaIndex is a framework for building LLM-powered applications th
 Before you can configure and use LlamaIndex with Connect AI, you must do the following:
 
 - Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token（PAT）を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 - Obtain an OpenAI API key: [https://platform.openai.com](https://platform.openai.com/).
 - Make sure you have Python >= 3.10 in order to install the LlamaIndex packages.
 
@@ -28,7 +28,7 @@ In `llamaindex.py`, set up your MCP server and MCP client to call the tools and 
 </Step>
 </Steps>
 
-```python
+```python expandable
 from llama_index.llms.openai import OpenAI
 from llama_index.tools.mcp import BasicMCPClient, aget_tools_from_mcp_url
 from llama_index.core.agent import ReActAgent
@@ -53,6 +53,7 @@ async def main():
 asyncio.run(main())
 ```
 
+
 ## Install the LlamaIndex Packages
 
 Run `pip install llama-index llama-index-llms-openai llama-index-tools-mcp` in your project terminal.
@@ -68,9 +69,8 @@ The script discovers the Connect AI MCP tools needed for the LLM to query the co
 </Step>
 <Step>
 Supply a prompt for the agent. The agent provides a response.
+	<Frame>
+	  <img src="./images/llamaindex_client_terminal.png" alt="LlamaIndex client terminal" />
+	</Frame>
 </Step>
 </Steps>
-
-<Frame>
-  <img src="./images/llamaindex_client_terminal.png" alt="LlamaIndex Terminal" />
-</Frame>

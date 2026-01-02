@@ -1,77 +1,77 @@
 ---
 title: "AWS Glue"
-description: "This page outlines the steps to connect AWS Glue to your Connect AI account."
+description: "このページでは、AWS Glue からConnect AI アカウントに接続する手順の概要を示します。"
 ---
 
 
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI への接続
 
-Follow these steps to establish a connection from AWS Glue to Connect AI:
+AWS Glue からConnect AI へのコネクションを確立するには以下の手順に従います。
 
 <Steps>
 <Step>
-Log in to AWS Glue.
+AWS Glue にログインします。
 </Step>
 <Step>
-In the navigation pane, under **ETL**, select **AWS Glue Studio**.
+ナビゲーションペインで、**ETL** 配下の **AWS Glue Studio** を選択します。
 </Step>
 <Step>
-On the AWS Glue Studio page, click **View Connectors**.
+AWS Glue Studio ページで**View Connectors** をクリックします。
 </Step>
 <Step>
-In the **Marketplace Connectors** box, click **Go to AWS Marketplace**.
+**Marketplace Connectors** ボックスで、**Go to AWS Marketplace** をクリックします。
 </Step>
 <Step>
-Enter *Connect AI* in the Marketplace search bar.
+Marketplace 検索バーで*Connect AI* を入力します。
 </Step>
 <Step>
-Select **CData AWS Glue Connector for CData Connect**. The connector page opens in a new browser tab.
+**CData AWS Glue Connector for CData Connect** を選択します。ブラウザの新しいタブでコネクタページが開きます。
 </Step>
 <Step>
-At the top of the connector page, click **Continue to Subscribe**.
+コネクタページの上の、**Continue to Subscribe** をクリックします。
 </Step>
 <Step>
-On the next page, click **Continue to Configuration**, and then click **Continue to Launch** on the following page.
+次のページで、**Continue to Configuration** をクリックし、**Continue to Launch** をクリックします。
 </Step>
 <Step>
-On the **Launch this software** page, click **Usage Instructions**. In the dialog that appears, click **Activate the connector with AWS Glue Studio**.
+**Launch this software** ページで、**Usage Instructions** をクリックします。ダイアログが表示されたら、**Activate the connector with AWS Glue Studio** をクリックします。
 </Step>
 <Step>
-GlueStudio opens in a new browser tab. Set the connection properties as follows:
-	- **Name**—enter a name of your choice for the connection.
-	- **Description**—if desired, enter a description for the connection.
-	- **Connection credential type**—select **connect\_cloud**.
-	- **AWS Secret**—leave this blank.
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
-	- **defaultCatalog**—the name of the connection that you want to access. For example, *Salesforce1*.
+Glue Studio がブラウザの新しいタブとして開きます。接続情報を以下のように設定します。
+	- **Name**—接続名を任意で入力します。
+	- **Description**—入力は任意ですが、接続の説明を入力することができます。
+	- **Connection credential type**—**connect\_cloud** を選択します。
+	- **AWS Secret**—不要です。
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **defaultCatalog**—接続したいCData Connect Cloud のConnection Name を入力します。例：*Salesforce1*。
 </Step>
 <Step>
-At the bottom of the page, click **Create connection and activate connector**.
+ページの一番下の**Create connection and activate connector** をクリックします。
 </Step>
 </Steps>
 
-Your connection now appears in the **Connections** list in Glue Studio.
+これで、Glue Studio 上で**Connections** リスト上に本接続が表示されるようになります。
 
-## Create an IAM Role
+## IAM ロールを作成する
 
-To access your data in AWS Glue, you must have an IAM Role with the correct permissions. If you have not created an IAM Role in AWS Glue, follow the [AWS instructions for creating an IAM Role](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html).
+AWS Glue のデータにアクセスするには、適切なアクセス許可を持つIAM ロールが必要です。AWS Glue でIAM ロールを作成していない場合は、[IAM ロールを作成するAWS のガイド](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/create-an-iam-role.html)の手順に従ってください。
 
-When selecting the permissions policies, ensure that you select the following AWS Managed policies at a minimum:
+アクセス権限ポリシーを選択する際は、少なくとも以下のAWS マネージドポリシーを選択してください。
 
 - **AmazonS3FullAccess**
 - **AmazonEC2ContainerRegistryReadOnly**
 - **AWSGlueServiceRole**
 
-If you are using AWS Secrets Manager to store confidential connection properties, create and add an inline policy similar to the following, granting access to the specific secrets needed for the AWS Glue job:
+AWS Secrets Manager を使用して機密性の高い接続情報を保存している場合は、次のようなインラインポリシーを作成および追加し、AWS Glue ジョブで必要となる特定のシークレットへのアクセスを許可します。
 
 ```json
 {
@@ -93,42 +93,42 @@ If you are using AWS Secrets Manager to store confidential connection properties
 }
 ```
 
-You will use this role when creating a job in AWS Glue.
+AWS Glue でジョブを作成する際に、このロールを使用します。
 
-## Use the Connection in AWS Glue
+## AWS Glue で接続を使用する
 
-After you create your connection to Connect AI, you can use the connection to create a job. Follow these steps:
+Connect AI への接続を作成すると、その接続を使って、ジョブを作成することができます。以下のようにしてGlue のジョブを作成します：
 
 <Steps>
 <Step>
-Select the connection in the **Connections** list.
+**Connections** リストから使用する接続を選択します。
 </Step>
 <Step>
-Click **Create Job**.
+**Create Job** をクリックします。
 </Step>
 <Step>
-Select **CData AWS Glue Connector for CData Connect** in the visual flow.
+ビジュアルフローで、**CData AWS Glue Connector for CData Connect** を選択します。
 </Step>
 <Step>
-On the **Data source properties - Connector** tab:
-	- Select the connection you created above.
-	- Select either **Enter table name** or **Write a query**.
-		- If you select Enter table name, in the **Table name** field, enter the fully-qualified name of the table you want to access in the format *ConnectionName.ConnectionType.TableName*. For example, *Salesforce1.Salesforce.Customers*.
-		- If you select Write a query, use the fully-qualified name of the table that you want to access when writing the query.
-	- Open **Job bookmark options**. In the field labelled **Enter key**, enter the name of the primary key of the table you are accessing. Alternatively, you can open the **Job details** tab and set **Job bookmark** to *Disable*.
+**Data source properties - Connector** タブで
+	- 先に作成したコネクションを選択します。
+	- **Enter table name** または**Write a query** のいずれかを選択します。
+		- Enter table name を選択した場合、**Table name** フィールドに、アクセスしたいテーブルの完全修飾名を*ConnectionName.ConnectionType.TableName* の形式で入力します。例えば、*Salesforce1.Salesforce.Customers* です。
+		- Write a query を選択した場合、クエリを記述する際に、アクセスしたいテーブルの完全修飾名を使用します。
+	- **Job bookmark options** を開きます。**Enter key** フィールドに、アクセスするテーブルの主キー名を入力します。または、**Job details** タブを開き、**Job bookmark** を*Disable* に設定することもできます。
 </Step>
 <Step>
-In the visual flow, select the **Job details** tab.
+ビジュアルフローで、**Job details** を選択します。
 </Step>
 <Step>
-Enter a name for the job.
+ジョブの名前を入力します。
 </Step>
 <Step>
-In the **IAM Role** field, enter the name of the [IAM Role you created above](#create-an-iam-role).
+**IAM Role** フィールドで、[先に作成したIAM ロール](#iam-ロールを作成する)を入力します。
 </Step>
 <Step>
-Save the job.
+ジョブを保存します。
 </Step>
 </Steps>
 
-You can now run the job as part of your AWS Glue flow.
+これで、AWS Glue フローとしてジョブを実行することが可能になります。

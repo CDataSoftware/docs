@@ -1,88 +1,89 @@
 ---
 title: "Logs"
-description: "The ***Logs*** page on the dashboard consists of two tabs:"
+description: "ダッシュボードの ***Logs*** ページは、2つのタブで構成されています："
 ---
 
 
-- **Query Log**—the query log contains details about the queries that are made to your Connect AI account.
-- **Audit Log**—the audit log records administrative tasks, including user creation, permission changes, and more.
+
+- **Query Log**—クエリログには、Connect AI アカウントに対して実行されたクエリの詳細が含まれます。
+- **Audit Log**—監査ログはユーザーの作成、権限の変更などの管理作業を記録します。
 
 ## Query Log
 
-The **Query Log** tab displays a list of performed queries and the following information for each one:
+**Query Log** タブには、実行されたクエリのリストと、それぞれのクエリについて以下の情報が表示されます：
 
-- **Timestamp**—the time when the query occurs, formatted as *YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* AM/PM UTC.
-- **Query Type**—the category of the query.
-- **User**—the login Id of the Connect AI user who makes the query.
-- **Status**—the final state of the query; that is, whether it succeeded or failed.
-- **Query Text**—the text and destination of the query.
+- **Timestamp**—*YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* AM/PM UTC 形式のクエリの発生時刻。
+- **Query Type**—クエリのカテゴリ。
+- **User**—クエリを実行したConnect AI ユーザーのログインID。
+- **Status**—成功または失敗を示すクエリの最終ステータス。
+- **Query Text**—クエリの文字列と送信先。
 	<Frame>
 	  <img src="./images/query_log.png" alt="Query log" />
 	</Frame>
 
-At the bottom of the query table, you can select the number of queries to display per page and you can navigate among pages of results.
+ページ下部のフィールドで、1ページあたりのクエリの表示数を調整したり、ページ間を移動したりできます。
 
-### Query Details
+### クエリの詳細
 
-Clicking any query in the log expands the query and displays detailed information about it. The fields and contents can vary among queries of different types.
-
+ログ内の任意のクエリをクリックすると、クエリが展開され詳細情報が表示されます。フィールドおよび内容は、異なる種類のクエリ間で変わることがあります。
 <Frame>
-  <img src="./images/query_details.png" alt="Query details" />
+![](./images/query_details.png)
 </Frame>
-
-You can click the **Logs** button in a query details section to download a log file that contains details about the query. These log files are useful in troubleshooting errors that are related to issuing queries to Connect AI.
+クエリの詳細セクションの**Logs** ボタンをクリックすると、クエリの詳細を含むログファイルをダウンロードすることができます。これらのログファイルは、Connect AI のクエリに起因するエラーのトラブルシューティングを行う際に有用です。
 
 <Note>
-  - You can increase or decrease the logging verbosity for a connection on the **Advanced Settings** page for that connection. The default verbosity is 2. See [Data Sources](/ja/Data-Sources#logging-verbosity) for more information.
-  - Connect AI saves log files for seven days only. Log files older than seven days are deleted automatically.
+**Notes:**
+
+- コネクションのログの詳細度は、そのコネクションの**Advanced Settings** ページで上げ下げできます。デフォルトの詳細レベルは2です。詳しくは、[データソース](https://cloud.cdata.com/docs/ja/Data-Sources.html#%E3%83%AD%E3%82%B0%E3%81%AE%E8%A9%B3%E7%B4%B0%E3%83%AC%E3%83%99%E3%83%AB)を参照してください。
+- Connect AI は、ログファイルを7日間のみ保存します。7日以上経過したログファイルは自動的に削除されます。
 </Note>
 
-### Filtering
+### フィルタリング
 
-The section above the query table allows you to filter queries by Query Id, date range, query type, user, and/or status.
+クエリテーブル上部のセクションで、Query Id、date range、query type、user、および / またはstatus でクエリをフィルタリングすることができます。
 
-- **Date Range**—displays only queries that match the given date range (such as the last 7 days) or a custom date range selected from the date picker.
-- **Query Type(s)**—displays only queries of the type(s) that you select.
-- **User**—displays only queries that are performed by the specified user. name.
-- **Status**—displays only queries that were a success or that failed.
-- **Query Text or Query Id**—displays only queries that include the entered text or match the Query Id.
+- **Date Range**—指定された日付範囲（過去7日間など）または日付ピッカーから選択されたカスタム日付範囲に一致するクエリのみを表示します。
+- **Query Type(s)**—選択した種類のクエリのみを表示します。
+- **User**—指定したユーザー名で実行されたクエリのみを表示します。
+- **Status**—成功または失敗したクエリのみを表示します。
+- **Query Text またはQuery Id**—入力したテキストを含む、またはクエリID と一致するクエリのみを表示します。
 	<Frame>
 	  <img src="./images/query_filter.png" alt="Query filter" />
 	</Frame>
 
-Click **Apply** to apply the selected filter(s) to the query table and perform a search. Click **Clear all** to start over.
+選択したフィルタをクエリテーブルに適用して検索を実行するには、**Apply** をクリックします。最初からやり直すには、**Clear all** をクリックします。
 
-## Audit Log
+## ログの監査
 
-The **Audit Log** tab displays a list of audit events and the following information for each event:
+**Audit Log** タブには、監査イベントの一覧と各イベントの次の情報が表示されます：
 
-- **Timestamp**—the time when the event occurs, formatted as *YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* AM/PM UTC.
-- **Event Type**—the category of audit event.
-- **User**—the login Id of the Connect AI user who performs the administrative task.
-- **Target Resource**—the category and the name of the targeted resource.
+- **Timestamp**—*YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* AM/PM UTC 形式のイベントの発生時刻。
+- **Event Type**—監査イベントのカテゴリ。
+- **User**—管理タスクを実行したConnect AI ユーザーのログインID。
+- **Target Resource**—対象リソースのカテゴリおよび名前。
 	<Frame>
 	  <img src="./images/audit_log.png" alt="Audit log" />
 	</Frame>
 
-At the bottom of the audit table, you can select the number of entries to display per page and navigate among pages of results.
+監査テーブル下部のフィールドで、1ページあたりのエントリの表示数を調整したり、ページ間を移動したりできます。
 
-### Audit Details
+### 監査の詳細
 
-Clicking any entry in the audit log expands the entry and displays detailed information about it. The fields and content can vary among entries of different types. Some entries do not have any detailed information to display.
+監査ログ内の任意のエントリをクリックすると、エントリが展開され詳細情報が表示されます。フィールドおよび内容は、異なる種類のエントリ間で変わることがあります。エントリによっては表示する詳細情報がない場合もあります。
 
 <Frame>
   <img src="./images/audit_details.png" alt="Audit details" />
 </Frame>
 
-### Filtering
+### フィルタリング
 
-The section above the audit log enables you to filter entries by date range, event type(s) and user.
+監査ログ上部のセクションで、date range、event type(s)、およびuser でエントリをフィルタリングすることができます。
 
-- **Date Range**—displays only entries that match the given date range (such as last 7 days) or a custom date range selected from the date picker.
-- **Event Type**—displays only entries of the type(s) that you select.
-- **User**—displays only entries that are performed by the specified user name.
+- **Date Range**—指定された日付範囲（過去7日間など）または日付ピッカーから選択されたカスタム日付範囲に一致するエントリのみを表示します。
+- **Event Type**—選択した種類のエントリのみを表示します。
+- **User**—指定したユーザー名で実行されたエントリのみを表示します。
 	<Frame>
 	  <img src="./images/audit_filter.png" alt="Audit filter" />
 	</Frame>
 
-Click **Apply** to apply the selected filter(s) to the audit log table and perform a search. Click **Clear all** to start over.
+選択したフィルタを監査ログテーブルに適用して検索を実行するには、**Apply** をクリックします。最初からやり直すには、**Clear all** をクリックします。

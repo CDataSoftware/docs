@@ -1,20 +1,19 @@
 ---
 title: "Jitterbit"
-description: "This page outlines the steps to connect Jitterbit to Connect AI using the [OData](/ja/OData-Dashboard) protocol. This requires the use of workspaces. See the [Workspaces](/ja/Workspaces) documentation for more information."
+description: "このページでは、[OData](/ja/OData-Dashboard) プロトコルを使用してJitterbit をConnect AI に接続する手順の概要を示します。これには、ワークスペースを使う必要があります。詳しくは、[Workspaces](/ja/Workspaces) ヘルプを参照してください。"
 ---
 
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Create a [Workspace](/ja/Workspaces). Later, you will use the **OData Service URL** on that page (*https://cloud.cdata.com/api/odata/{workspace\_name}*) with the relevant workspace name to establish the connection.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [ワークスペース](/ja/Workspaces)を作成します。後の手順で、(*`https://cloud.cdata.com/api/odata/{workspace_name}`*) ページの**OData Service URL** と関連するワークスペース名を使用してコネクションを確立します。 [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI への接続
 
-To establish a connection from Jitterbit to Connect AI using the OData protocol, follow these steps.
+OData プロトコルを使用してJitterbit からConnect AI へのコネクションを確立するには、以下の手順に従います。
 
 <Steps>
 <Step>
@@ -36,10 +35,10 @@ Select the **OData** connector.
 <Step>
 Enter the OData connection properties.
 	- **Connection Name**—enter a connection name.
-	- **OData Metadata URL**—enter the metadata URL: *https://cloud.cdata.com/api/odata/{workspace\_name}/$metadata*.
+	- **OData Metadata URL**—enter the metadata URL: *`https://cloud.cdata.com/api/odata/{workspace_name}/$metadata`*.
 	- **Authentication**—select **Basic Auth**.
-	- **User Name**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **User Name**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 
 <Frame>
 ![](./images/jitterbit_configure_OData.png)
@@ -50,10 +49,11 @@ Click **Test** to test the connection, and then click **Save Changes**.
 </Step>
 <Step>
 Choose the operation you want to perform and drag it to the workflow in your project.
-
+<Columns cols={2}>
 <Frame>
 ![](./images/jitterbit_query.png)
 </Frame>
+</Columns>
 </Step>
 <Step>
 Double-click the query operation to see all the tables and derived views available in your OData endpoint.
@@ -65,6 +65,6 @@ Double-click the query operation to see all the tables and derived views availab
 <Step>
 Select a table and configure the query.
 
-	You can now transform and integrate your data.
+You can now transform and integrate your data.
 </Step>
 </Steps>

@@ -1,54 +1,54 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to CockroachDB, you need to allow access to CockroachDB via CData’s IP. When hosting CockroachDB behind a firewall, you must safelist these IP addresses in your firewall.
+CockroachDB への接続を確立するには、CData のIP 経由でCockroachDB へのアクセスを許可する必要があります。CockroachDB をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure CockroachDB Is Publicly Accessible
+#### CockroachDB が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect CockroachDB to your Connect AI account:
+以下の手順で、CockroachDB をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *CockroachDB* into the search field, then click the data source name.
+検索フィールドに *CockroachDB* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 Enter the following information:
-	- **Password**—the user password
-	- **User**—the CockroachDB username for authentication
-	- **Server**—the host name or IP address of the CockroachDB server
+	- **Password**—ユーザーパスワード
+	- **User**—認証用のCockroachDB ユーザー名
+	- **Server**—CockroachDB サーバーのホスト名またはIP アドレス
 	- **Database**—the name of the CockroachDB database you want to access, set as the default database if not specified
-	- **Port**—the port for connecting to the CockroachDB server
+	- **Port**—CockroachDB サーバーに接続するためのポート
 </Step>
 <Step>
-At the top of the Connect AI **Add CockroachDB Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add CockroachDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-## More Information
 
-For more information about interactions between Connect AI and CockroachDB, see [this information page](https://cdn.cdata.com/help/HJM/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とCockroachDB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/HJM/jp/cloud/default.htm#default)を参照してください。

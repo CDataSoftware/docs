@@ -1,30 +1,37 @@
 ---
 title: "Jobs"
 sidebarTitle: "Overview"
-description: "The ***Jobs*** page enables you to manage and run various Connect AI jobs. From this page, you can manage either [Caching](/ja/Caching) or [Scheduled Queries](/ja/Scheduled-Queries)."
+description: "***Jobs*** ページでは、Connect AI のさまざまなジョブを管理および実行できます。このページから、[Caching](/ja/Caching) または[Scheduled Queries](/ja/Scheduled-Queries) を管理できます。"
 ---
+
 
 <Frame>
   <img src="./images/jobs.png" alt="Jobs" />
 </Frame>
 
-The Connect AI caching feature allows users to select tables to be cached, or saved to a database. Connect AI then fetches data for the selected tables on a scheduled basis, ensuring swift and reliable access to data whenever you need it.
+Connect AI のキャッシュ機能では、ユーザーはキャッシュするテーブル、つまりデータベースに保存するテーブルを選択できます。Connect AI は、選択したテーブルのデータをスケジュールに基づいて取得し、必要なときにいつでも迅速かつ確実にデータにアクセスできるようにします。
+
 <Note>
-Note that when you enable caching of data, Connect AI runs database queries against the *cached* data, not the live data. The cached data is stored in a PostgreSQL database, which you must set up before using the caching feature. You can manage the cache connection by clicking **Manage Cache Connection** on the Jobs page. See [Caching](/ja/Caching) for details.
+データのキャッシュを有効にすると、Connect AI はライブデータではなく*キャッシュされた*データに対してデータベースクエリを実行します。キャッシュデータはPostgreSQL データベースに格納されます。キャッシュ機能を使用する前にPostgreSQL を設定する必要があります。キャッシュ接続を管理するには、Jobs ページの**Manage Cache Connection** をクリックしてください。詳しくは、[Caching](/ja/Caching) を参照してください。
 </Note>
-The Connect AI Scheduled Queries feature allows users to write queries in Data Explorer and schedule them to write data to a variety of supported destinations based on a set schedule. Before you use the Scheduled Queries feature, you must set up a connection that contains the destination tables for the scheduled queries. See [Scheduled Queries](/ja/Scheduled-Queries) for details.
 
-The **Jobs** page contains the following information about each job:
+Connect AI のスケジュールクエリ機能を使用すると、データエクスプローラーでクエリを記述し、設定したスケジュールに基づいて、サポートされているさまざまな書き込み先にデータを書き込むことができます。スケジュールクエリ機能を使用する前に、スケジュールクエリの書き込み先テーブルを含む接続を設定する必要があります。詳しくは、[Scheduled Queries](/ja/Scheduled-Queries) を参照してください。
 
-- **Name**—the name of the job. For cached jobs, the job name is the table name. For scheduled queries, the job name is user defined.
-- **Job Type**—The job type, which is either **Cache** or **Scheduled Query**.
-- **Last Run**—The last time the job was run, and the next scheduled run.
-- **Status**—The status of the job, which can be one of the following:
-	- **Success**—the job completed successfully.
-	- **Failed**—the job was unsuccessful. Click anywhere in the job to open the **Edit Job** page. **Edit Job** displays details about why the job failed.
-	- **Queued**—the job is queued to run at the time specified in Next Run.
-	The toggle switch in the **Status** column indicates whether the job is enabled or disabled. You can disable a job temporarily without deleting it.
-- **Job Actions**—The icons in the last column represent the various actions you can perform on a job.
-	- **Run (▷)**—Run the selected job immediately. You can run several jobs at once by selecting the jobs to run and clicking the **Run** button on the top of the page.
-	- **Edit (🖉)**—Edit the selected job in the **Edit Job** page.
-	- **Delete (🗙)**—Delete the selected job. You can delete several jobs at once by selecting the jobs to delete and clicking the **Delete** button at the top of the page.
+1つ以上のジョブを選択し、**Run** をクリックして複数のジョブを一度に実行します。1つ以上のジョブを削除するには、ジョブを選択して**Delete** をクリックします。新しいキャッシュジョブまたは新しいスケジュールクエリを追加するには、**+Add Job** をクリックします。
+
+リストからジョブを検索するには、検索バーを使用します。
+
+**Jobs** ページには、各ジョブに関する次の情報も含まれています：
+
+- **Name**—ジョブの名前。キャッシュジョブの場合、ジョブ名はテーブル名です。スケジュールクエリの場合、ジョブ名はユーザー定義になります。
+- **Job Type**—ジョブの種類。**Cache** または**Scheduled Query** のいずれか。
+- **Last Run**—ジョブが最後に実行された日時と、次にスケジュールされている日時。
+- **Status**—ジョブのステータス。次のいずれかになります：
+	- **Success**—ジョブは正常に完了しました。
+	- **Failed**—ジョブは失敗しました。ジョブの任意の場所をクリックすると、**Edit Job** ページが開きます。**Edit Job** には、ジョブが失敗した理由の詳細が表示されます。
+	- **Queued**—次の実行で指定された日時に実行されるようにキューに入っています。
+	**Status** カラムのトグルスイッチは、ジョブが有効か無効かを示します。ジョブを削除することなく、一時的に無効化できます。
+- **Job Actions**—最後のカラムにあるアイコンは、ジョブに対して実行できるさまざまなアクションを表しています。
+	- **Run (▷)**—選択したジョブを即時に実行します。実行するジョブを複数選択して、ページ上部の**Run** ボタンをクリックすると、複数のジョブを同時に実行できます。
+	- **Edit (🖉)**—選択したジョブを**Edit Job** ページで編集します。
+	- **Delete (🗙)**—選択したジョブを削除します。削除するジョブを複数選択して、ページ上部の**Delete** ボタンをクリックすると、複数のジョブを同時に削除できます。

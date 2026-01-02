@@ -1,82 +1,81 @@
 ---
 title: "Dashboard"
-description: "The ***Dashboard*** page opens when you log in to Connect AI. It provides a high-level overview of recent queries and account activity."
+description: "Connect AI にログインすると、***ダッシュボード*** ページが開きます。このページは、最近のクエリやアカウントのアクテビティについての概要を提供します。"
 ---
 
-
 <Frame>
-  <img src="./images/dashboard.png" alt="Dashboard" />
+![](./images/dashboard.png)
 </Frame>
+ページ右上には、過去**1 Day**、**7 Days**、**30 Days** のデータを表示するためのボタンが表示されます。これらのボタンをクリックするとページがリフレッシュされ、表示されるデータがすぐに更新されます。
 
-The upper-right corner of the page displays buttons to adjust data for the past **1 Day**, **7 Days**, and **30 Days**. Clicking one of these buttons refreshes the page and adjusts the displayed data accordingly.
+## インフォメーションボックス
 
-## Information Boxes
+ページ上部のインフォメーションボックスには、選択された期間における次の4つのカテゴリの数量が表示されます：
 
-Information boxes at the top of the page display the quantity for each of these four categories in the selected time period:
-
-- **Queries:** The queries that are performed
-- **Rows:** The rows that are processed
-- **Active Connections:** The active connections on your account
-- **Active Users**: The active users in your account
+- **Queries：** 実行されたクエリ数
+- **Rows：** 処理された行数
+- **Active Connections：** アカウントの有効なコネクション数
+- **Active Users**：アカウントの有効なユーザー数
+  <Columns cols={2}>
 	<Frame>
 	  <img src="./images/overview_infobox.png" alt="Information boxes" />
 	</Frame>
+  </Columns>
+数値の下には、各ボックスで前の期間と比較した変化をパーセンテージで表示します。このパーセンテージは選択した期間をもとに自動的に調整されます。
 
-Underneath the count, each box displays the percentage change compared to the previous time period. This percentage change adjusts dynamically based on the time period that is selected.
+## データのビジュアライズ
 
-## Data Visuals
+**ダッシュボード**ページには、インフォメーションボックスの下に次の3つのビジュアルが表示されます：
 
-Under the information boxes, the **Dashboard** page displays three visuals:
+- **Queries Over Time**（期間中のクエリ数）
+- **Queries by Connection**（コネクション毎のクエリ数）
+- **Queries by User**（ユーザー毎のクエリ数）
 
-- **Queries Over Time**
-- **Queries by Connection**
-- **Queries by User**
+### Queries Over Time（期間中のクエリ数）
 
-### Queries Over Time
-
-This bar graph shows the total number of queries that are made through your Connect AI account over the selected time period. The x-axis displays the dates, and the y-axis displays the number of queries.
+この棒グラフは、選択した期間をとおしてConnect AI アカウントで作成されたクエリの合計数を表しています。X 軸が日付、Y 軸がクエリ数です。
 
 <Frame>
   <img src="./images/overview_qot.png" alt="Queries Over Time" />
 </Frame>
 
-Each bar is composed of two sections:
+グラフは次の2セクションで構成されます：
 
-- The number of successful queries, displayed top portion of the bar and colored blue
-- The number of failed queries, displayed as the bottom portion of the bar and colored red
+- 成功クエリ数はバーの上部に青色で表示
+- 失敗クエリ数はバーの下部に赤色で表示
 
-Clicking the down arrow icon in the upper-right corner of the section opens an export menu. This menu enables you to export the graph as a data file.
+セクション右上にある下矢印アイコンをクリックすると、エクスポートメニューが表示されます。このメニューからグラフをデータファイルとしてエクスポートできます。
 
-### Queries by Connection
+### Queries by Connection（コネクション毎のクエリ数）
 
-This table displays the number of queries that are made by each connection in the selected time period.
-
+このテーブルは選択した期間に各コネクションで作成されたクエリ数を表しています。
+<Columns cols={2}>
 <Frame>
   <img src="./images/overview_qbc.png" alt="Queries by Connection" />
 </Frame>
+</Columns>
+次の3つのカラムで構成されます：
 
-There are three columns in this table:
+- **Connection：** **Connections** タブで命名したコネクション名
+- **Queries：** 選択した期間にコネクションで作成された成功クエリおよび失敗クエリの合計数
+- **Successful：** 選択した期間内に、コネクタからのクエリで成功したパーセンテージ
 
-- **Connection:** The name that is given to the connection on the **Connections** tab
-- **Queries:** The total number of queries, both successful and failed, that are made by the connection in the selected time period
-- **Successful:** The percentage of queries from the connector that succeed in the selected time period
+カラムの名前をクリックすると、そのカラムでテーブルがソートされます。選択されたカラムでテーブルがすでにソートされている場合、ソート機能は昇順と降順で切り替わります。
 
-Clicking the name of a column sorts the table by that column. If the table is already sorted by the selected column, the sort function toggles between ascending and descending order.
+### Queries by User（ユーザー毎のクエリ数）
 
-### Queries by User
-
-This table provides a detailed breakdown of the queries that are made by each user in the selected time period.
+このテーブルは、選択した期間に各ユーザーが行ったクエリの詳細な内訳を表示します。
 
 <Frame>
   <img src="./images/overview_qbu.png" alt="Queries by User" />
 </Frame>
 
-There are five columns in this table:
+次の3つのカラムで構成されます：
 
-- **User:** The name of the user who performs the queries
-- **Queries:** The number of queries that are performed by the user in the selected time period
-- **Rows:** The number of rows that are processed by the user in the selected time period
-- **Errors:** The number of failed queries for the user in the selected time period
-- **Last Query:** The date and time of the user’s last query, formatted as *YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* UTC
+- **User：** クエリを実行するユーザーの名前
+- **Queries：** 選択した期間にユーザーが実行したクエリ数
+- **Rows：** 選択した期間にユーザーが処理した行数
+- **Errors：** 選択した期間のユーザーの失敗クエリ数
+- **Last Query：** ユーザーが最後にクエリを実行した日時。書式は*YYYY*\-*MM*\-*DD* *HH*:*MM*:*SS* UTC です。
 
-Clicking the name of a column sorts the table by that column. If the table is already sorted by the selected column, the sort function toggles between ascending and descending order.
+カラムの名前をクリックすると、そのカラムでテーブルがソートされます。選択されたカラムでテーブルがすでにソートされている場合、ソート機能は昇順と降順で切り替わります。

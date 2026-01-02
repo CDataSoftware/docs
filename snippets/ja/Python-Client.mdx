@@ -1,10 +1,11 @@
 <Note>
-**Note:** Before you can configure and use Python with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
+**Note:** Connect AI でPython を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 ## Install the Driver
 
 Follow these steps to download and install the driver:
+
 <Steps>
 <Step>
 Download and extract the setup archive for your operating system.
@@ -16,7 +17,9 @@ Download and extract the setup archive for your operating system.
 Follow the steps below for your operating system.
 </Step>
 </Steps>
+
 ### Windows Installation
+
 <Steps>
 <Step>
 In the extracted archive, open the `win` folder.
@@ -28,7 +31,9 @@ Choose the folder for your Python version, and then the folder for your bitness.
 Open a command prompt and run `pip install` for the `.whl` setup file. For example, a 64-bit Python 3.9 install would be `pip install cdata_connect_connector-21.0.8049-cp39-cp39-win_amd64.whl`.
 </Step>
 </Steps>
+
 ### Mac and Unix Installation
+
 <Steps>
 <Step>
 In the extracted archive, open the `mac` or `unix` folder.
@@ -37,16 +42,18 @@ In the extracted archive, open the `mac` or `unix` folder.
 Open a Python terminal and run `pip install` for the appropriate `.tar.gz` setup file. For example, a Python 3.9 install would be `pip install cdata-connect-connector-21.0.8049-python39.tar.gz`.
 </Step>
 </Steps>
+
 ## Connect to Connect AI
 
 Follow these steps for an example of how to connect to Connect AI from your Python code:
+
 <Steps>
 <Step>
 Import `cdata.connect`, create a connection object, and and pass the connection string as an argument, as in the example below:
 
 ```python
 import cdata.connect as mod
-conn = mod.connect("AuthScheme=OAuth;")
+ conn = mod.connect("AuthScheme=OAuth;")
 ```
 </Step>
 <Step>
@@ -57,19 +64,20 @@ You can execute SQL statements using this connection. For example, the commands 
 
 ```python
 cur = conn.execute("SELECT Id FROM MailChimp1.MailChimp.AuthorizedApps")
-rs = cur.fetchall()
-for row in rs:
-    print(row)
+ rs = cur.fetchall()
+ for row in rs:
+     print(row)
 ```
 </Step>
 </Steps>
+
 ## Connect to a Workspace
 
 You can connect the Python client to a specific [workspace](/ja/Workspaces) as follows:
 
 ```python
 import cdata.connect as mod
-conn = mod.connect("AuthScheme=OAuth;Workspace=MyWorkspace")
+   conn = mod.connect("AuthScheme=OAuth;Workspace=MyWorkspace")
 ```
 
 ## Learn More
