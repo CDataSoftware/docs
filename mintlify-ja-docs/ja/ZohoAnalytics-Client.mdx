@@ -1,0 +1,52 @@
+---
+title: "Zoho Analytics"
+description: "このページではZoho Analytics をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI に接続する
+
+Zoho Analytics からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
+
+<Steps>
+<Step>
+Log in to Zoho Analytics.
+</Step>
+<Step>
+Create a new connection and select **Other Cloud Services** to open the connection dialog.
+</Step>
+<Step>
+Enter the following information:
+	- **Database Type**—select *MS SQL Server*.
+	- **Endpoint**—enter *tds.cdata.com*
+	- **SQL Server Instance Name**—leave this blank.
+	- **Port**—enter *14333*
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **Database Name**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Connection Type**—select *Data Import*.
+		<Frame>
+		  <img src="/images/zoho_analytics_connection.png" alt="Zoho Analytics connection" />
+		</Frame>
+</Step>
+<Step>
+Click **Next** to test and create your connection.
+</Step>
+<Step>
+Continue through each step of the connection dialog to import your data as needed.
+</Step>
+</Steps>
+
+When the data import process finishes, your data will be available to use in Zoho Analytics.
+
+<Note>
+**Note:** If your table contains underscores, such as `account_move`, you need to first create a derived view for that table without an underscore in the name. Then load the derived view instead. Zoho Analytics cannot load tables whose names include underscores.
+</Note>

@@ -1,0 +1,44 @@
+---
+title: "Polybase"
+description: "This page outlines the steps to connect Polybase to Connect AI. Ensure Polybase has been installed and enabled before beginning these steps."
+---
+
+
+<Steps>
+<Step>
+Create a database scoped `CREDENTIAL` for connecting to the SQL Server. It should map `IDENTITY` and `SECRET` to your database's Username and Password respectively. Follow the example below.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL SqlServerCredentials
+ WITH IDENTITY = 'yourusername', SECRET = 'yourpassword';
+```
+</Step>
+<Step>
+Using `CREATE EXTERNAL DATASOURCE`, create an external datasource that names the instance, identifies the external data source, and sets whether computation should be pushed via `PUSHDOWN` to source by default. This uses the `CREDENTIAL` created above. Use the below example as a template.
+
+```sql
+CREATE EXTERNAL DATA SOURCE SQLServerInstance
+ WITH ( LOCATION = 'sqlserver://tds.cdata.com:14333',
+ PUSHDOWN = ON,
+ CREDENTIAL = SQLServerCredentials);
+```
+</Step>
+<Step>
+Create the external table using `CREATE EXTERNAL TABLE`. The statement needs collation and the location must be in three-part notation `<database>.<schema>.<table>`. See below for a functional example.
+
+```sql
+CREATE EXTERNAL TABLE DatabasesExternal (
+     name VARCHAR(128) COLLATE SQL_Latin1_General_CP1_CI_AS)
+   WITH (LOCATION = 'QuickBooksOnline1.QuickBooksOnline.Accounts',
+   DATA_SOURCE = SQLServerInstance);
+```
+</Step>
+<Step>
+For optimal query performance, you can create statistics on external table columns, as per the code example below.
+
+```sql
+CREATE STATISTICS statistics_name ON customer (C_CUSTKEY)
+ WITH FULLSCAN;
+```
+</Step>
+</Steps>

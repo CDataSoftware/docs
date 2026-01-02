@@ -1,0 +1,152 @@
+---
+title: "SELECT Statements"
+sidebarTitle: "SELECT"
+description: "A SELECT statement can consist of the following basic clauses:"
+---
+
+
+
+- SELECT
+- INTO
+- FROM
+- JOIN
+- WHERE
+- GROUP BY
+- HAVING
+- UNION
+- ORDER BY
+- LIMIT
+
+## SELECT Syntax
+
+The following syntax diagram outlines the syntax supported by the SQL engine of the provider:
+
+```bash expandable
+SELECT {
+  [ TOP <numeric_literal> | DISTINCT ]
+  { 
+    * 
+    | { 
+        <expression> [ [ AS ] <column_reference> ] 
+        | { <table_name> | <correlation_name> } .* 
+      } [ , ... ] 
+  }
+  [ INTO csv:// [ filename= ] <file_path> [ ;delimiter=tab ] ]
+  { 
+    FROM <table_reference> [ [ AS ] <identifier> ] 
+  } [ , ... ]
+  [ [  
+      INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } 
+    ] JOIN <table_reference> [ ON <search_condition> ] [ [ AS ] <identifier> ] 
+  ] [ ... ] 
+  [ WHERE <search_condition> ]
+  [ GROUP BY <column_reference> [ , ... ]
+  [ HAVING <search_condition> ]
+  [ UNION [ ALL ] <select_statement> ]
+  [ 
+    ORDER BY 
+    <column_reference> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST ]
+  ]
+  [ 
+    LIMIT <expression>
+    [ 
+      { OFFSET | , }
+      <expression> 
+    ]
+  ] 
+} | SCOPE_IDENTITY()
+
+<expression> ::=
+  | <column_reference>
+  | @ <parameter>
+  | ?
+  | COUNT( * | { [ DISTINCT ] <expression> } )
+  | { AVG | MAX | MIN | SUM | COUNT } ( <expression> )
+  | NULLIF ( <expression> , ... )
+  | CASE <expression>
+      WHEN { <expression> | <search_condition> } THEN { <expression> | NULL } [ ... ]
+    [ ELSE { <expression> | NULL } ]
+    END
+  | <literal>
+  | <sql_function>
+
+<search_condition> ::=
+  {
+    <expression> { = | > | < | >= | <= | <> | != | LIKE | NOT LIKE | IN | NOT IN | IS NULL | IS NOT NULL | AND | OR |  
+    CONTAINS | BETWEEN } [ <expression> ]
+  } [ { AND | OR } ... ]
+```
+
+## Examples
+
+1. Return all columns:
+
+```bash
+SELECT * FROM [Connection Name].[Schema].[Table Name]
+```
+
+2. Rename a column:
+
+```bash
+SELECT [Name] AS MY_Name FROM Account
+```
+
+3. Cast a column's data as a different data type:
+
+```bash
+SELECT CAST(AnnualRevenue AS VARCHAR) AS Str_AnnualRevenue FROM Account
+```
+
+4. Search data:
+
+```bash
+SELECT * FROM Account WHERE Industry = \`\`'Floppy Disks'\`\`
+```
+
+5. Return the number of items matching the query criteria:
+
+```bash
+SELECT COUNT(*) AS MyCount FROM Account
+```
+
+6. Return the number of unique items matching the query criteria:
+
+```bash
+SELECT COUNT(DISTINCT Name) FROM Account
+```
+
+7. Return the unique items matching the query criteria:
+
+```bash
+SELECT DISTINCT Name FROM Account
+```
+
+8. Summarize data:
+
+```bash
+SELECT Name, MAX(AnnualRevenue) FROM Account GROUP BY Name
+```
+
+9. Retrieve data from multiple tables.
+
+```bash
+SELECT Customers.ContactName, Orders.OrderDate FROM Customers, Orders WHERE Customers.CustomerId=Orders.CustomerId
+```
+
+10. Sort a result set in ascending order:
+
+```bash
+SELECT BillingState, Name FROM Account ORDER BY Name ASC
+```
+
+11. Restrict a result set to the specified number of rows:
+
+```bash
+SELECT BillingState, Name FROM Account LIMIT 10
+```
+
+12. Parameterize a query to pass in inputs at execution time. This enables you to create prepared statements and mitigate SQL injection attacks.
+
+```bash
+SELECT * FROM Account WHERE Industry = @param
+```

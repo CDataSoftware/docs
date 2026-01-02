@@ -1,0 +1,313 @@
+---
+title: "Google Sheets（スプレッドシート）"
+sidebarTitle: "Google Sheets"
+description: "このページはGoogle Sheets（スプレッドシート） 用のCData Connect Spreadsheets アドオンをインストールおよび設定する手順の概要を説明します。インストールが完了すると、Google Sheets（スプレッドシート） はCData Connect Spreadsheets アカウントに接続されたデータソースからデータを取得できます。"
+---
+
+
+<Note>
+**Note:** Connect AI でGoogle Sheets（スプレッドシート） を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
+</Note>
+
+**Connect AI ユーザーのみ：** また、ワークスペースとDerived View をインポートすることもできます。ワークスペースを作成するには、[Workspaces](/ja/Workspaces) の指示に従ってください。Derived view を作成するには（管理者のみ）、[Derived View の作成](/ja/Data-Explorer#derived-view-の作成)の指示に従ってください。
+
+## インストールとセットアップ
+
+<Steps>
+<Step>
+[Google スプレッドシート](https://docs.google.com/spreadsheets/) にサインインして、スプレッドシートを開くか新しいスプレッドシートを作成します。
+</Step>
+<Step>
+スプレッドシートが開いたら、**拡張機能** > **アドオン** > **アドオンを取得**を選択します。
+<Frame>
+  <img src="/images/sheets_getaddon.png" alt="Sheets get addon" />
+</Frame>
+</Step>
+<Step>
+検索バーで**CData** と検索し、**CData Connect Spreadsheets** アドオンをクリックします。
+<Frame>
+  <img src="/images/google_sheets_marketplace.png" alt="Google Sheets marketplace" />
+</Frame>
+</Step>
+<Step>
+ポップアップ画面で、**インストール**をクリックし、**続ける**をクリックします。
+</Step>
+<Step>
+必要であればGoogle アカウントを選択しサインインします。コネクション承認用のプロンプトが表示されたら、**許可**をクリックします。
+</Step>
+<Step>
+スプレッドシートに戻ります。**拡張機能** > **CData Connect Spreadsheets** > **開く**を選択します。
+</Step>
+<Step>
+スプレッドシートの右側に設定画面が表示されます。**Authorize** をクリックしCData Connect Spreadsheets にサインインします。
+</Step>
+<Step>
+CData Connect Spreadsheets の認証情報を入力し、**Continue** をクリックします。
+</Step>
+<Step>
+認証成功のメッセージが表示されたら、タブを閉じてGoogle スプレッドシートに戻ります。
+</Step>
+</Steps>
+
+コネクションを確立すると、CData Connect Spreadsheets のナビゲーションメニューが表示されます：
+<Columns cols={2}>
+<Frame>
+  <img src="/images/connect_spreadsheets_full.png" alt="Connect spreadsheets full" />
+</Frame>
+</Columns>
+## 接続の設定
+
+まだCData Connect Spreadsheets に必要なデータを接続していない場合は、設定する必要があります。
+
+<Steps>
+<Step>
+アドインペインで**Connections** をクリックします。**Add Connection**をクリックします。
+</Step>
+<Step>
+Google Sheets（スプレッドシート） に接続するデータ用のコネクタを選択します。
+</Step>
+<Step>
+データ接続文字列を入力します。保存して接続をテストします。
+	接続に成功したら、[データのインポート](#データのインポート)ができます。
+</Step>
+</Steps>
+
+## データのインポート
+
+データ接続からデータをインポートするには、以下の手順に従います：
+<Steps>
+<Step>
+**Import** をクリックします。
+</Step>
+<Step>
+ドロップダウンメニューからオプションを1つ選択します：**Connections**、**Workspaces**、**Derived Views**。次に、選択した各オプションの手順に従います。
+<Note>
+**Note:** ワークスペースおよびDerived view にアクセスできるのは、Connect AI ユーザーのみです。
+</Note>
+
+</Step>
+</Steps>
+
+
+### Connections のインポート
+
+<Steps>
+<Step>
+ドロップダウンリストから**Connection** を選択します。
+</Step>
+<Step>
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+	- Query Builder では、スキーマ（複数ある場合）、テーブル、およびカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+    <Columns cols={2}>
+	<Frame>
+	  <img src="/images/sheets_querybuilder.png" alt="Sheets query builder" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+### [Workspaces](/ja/Workspaces) のインポート（Connect AI ユーザーのみ）
+
+<Steps>
+<Step>
+ドロップダウンリストからワークスペースを選択します。
+</Step>
+<Step>
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+- Query Builder では、表示するワークスペースとカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+### [Derived Views](/ja/Data-Explorer#derived-view-の設定) のインポート（Connect AI ユーザーのみ）
+
+<Steps>
+<Step>
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+	- Query Builder では、表示するDerived View とカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+## データのリフレッシュ
+
+元のデータソースからスプレッドシートにインポート済みのデータをアップデートするには、CData Connect Spreadsheets アドオンのメインメニューにある**Refresh** をクリックします。（必要に応じて、戻る矢印をクリックしてアドオンのメインメニューに戻ります。）続いて、以下の手順に従います：
+
+<Steps>
+<Step>
+アップデートしたいスプレッドシートの隣にあるチェックボックスを選択します。
+    <Columns cols={2}>
+	<Frame>
+	  <img src="/images/sheets_refresh.png" alt="Sheets refresh" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+更新のオプションを選択します：
+	- **Refresh Now** をクリックすると手動でデータを即座に更新します。
+	- **Auto Refresh** をクリックすると自動更新の間隔を1時間単位で選択できるダイアログが開きます。ここで設定した間隔は自動更新を使用するすべてのスプレッドシートに適用されます。
+</Step>
+<Step>
+選択したスプレッドシートのデータが最新にアップデートされます。
+</Step>
+</Steps>
+
+<Note>
+**Note:** Auto Refresh が選択されると新たにAuto Refresh Status のフィールドが表示されます。このフィールドでは更新の間隔と更新の対象となるスプレッドシートが記載されます。**Reset Auto Refresh** ボタンで現在の自動更新を停止し、新しい自動更新を設定できます。
+</Note>
+<Columns cols={2}>
+<Frame>
+  <img src="/images/sheets_autorefresh.png" alt="Sheets auto refresh" />
+</Frame>
+</Columns>
+## データの更新
+
+Google Sheets スプレッドシートから元のデータ接続に変更をプッシュできます。スプレッドシートを更新するには、データに少なくとも1つの主キーが含まれていなければならないことに注意してください。また、ソースデータを更新するための適切な権限が必要です。元のデータ接続の読み取り専用フィールドは更新できません。
+
+自動更新機能を使用している場合は、データを頻繁に更新してください。そうしないと、変更が元のデータ接続によって上書きされる可能性があります。
+
+<Note>
+**Note:** CData Connect Spreadsheets はビューの更新をサポートしていません（テーブルのみ）。
+</Note>
+
+スプレッドシートのデータを更新するには、以下の手順に従います：
+
+<Steps>
+<Step>
+Google Sheets スプレッドシートに変更を加えます。データを更新すると、そのデータが元のデータ接続にまだ更新されていないことを示すために赤色でハイライト表示されます。
+</Step>
+<Step>
+選択した行のみを更新する場合は、更新するセルまたは行をハイライト表示します。
+</Step>
+<Step>
+**CData Connect Spreadsheets** アドオンペインで**Update** をクリックします。
+</Step>
+<Step>
+選択した行を更新**Update Selected** するか、すべての行を更新**Update All** するか決定します。
+</Step>
+<Step>
+**Execute** をクリックします。**Confirm** をクリックして続行します。このアクションにより、元のデータ接続が更新され、元に戻すことはできません。
+</Step>
+<Step>
+CData Connect Spreadsheets は、更新が成功したかどうかのメッセージを返します。失敗した場合、CData Connect Spreadsheets は更新に失敗した理由を表示します。
+</Step>
+<Step>
+更新が成功すると、赤色のデータが黒色に変わります。これは、元のデータ接続でデータが更新されたことを示します。
+</Step>
+</Steps>
+
+## データの挿入
+
+スプレッドシートに行を挿入するには、以下の手順に従います：
+
+<Steps>
+<Step>
+必要に応じて、CData Connect Spreadsheets アドオンのメインメニューに戻ります。
+</Step>
+<Step>
+Google スプレッドシートの機能を使用して、スプレッドシートに行を挿入します（**挿入** > **行**）。
+</Step>
+<Step>
+行に情報を入力します。データを追加すると、そのデータが元のデータ接続にまだ更新されていないことを示すために赤色でハイライト表示されます。
+</Step>
+<Step>
+挿入した行のみを更新する場合は、その行をハイライト表示します。
+</Step>
+<Step>
+**CData Connect Spreadsheets** アドオンペインで**Update** をクリックします。
+</Step>
+<Step>
+選択した行を更新**Update Selected** するか、すべての行を更新**Update All** するか決定します。
+</Step>
+<Step>
+**Execute** をクリックします。**Confirm** をクリックして続行します。このアクションにより、元のデータ接続にデータが挿入され、元に戻すことはできません。
+</Step>
+<Step>
+CData Connect Spreadsheets は、挿入が成功したかどうかのメッセージを返します。失敗した場合、CData Connect Spreadsheets は挿入に失敗した理由を表示します。
+</Step>
+<Step>
+挿入が成功すると、赤色のデータが黒色に変わります。これは、元のデータ接続でデータが更新されたことを示します。
+</Step>
+</Steps>
+
+## データの削除
+
+スプレッドシートから行を削除するには、以下の手順に従います：
+
+<Steps>
+<Step>
+必要に応じて、CData Connect Spreadsheets アドオンのメインメニューに戻ります。
+</Step>
+<Step>
+削除する行を選択し、**Delete** をクリックします。行内の任意のセルを選択すると、CData Connect Spreadsheets は行全体を削除します。CData Connect Spreadsheets は、指定した行数を削除してもよいかどうかを確認するプロンプトを表示します。
+<Note>
+**Note:** 行の削除を元に戻すことはできません。
+</Note>
+</Step>
+<Step>
+削除を続行するには**Confirm** をクリックします。CData Connect Spreadsheets は、行の削除に成功したかどうかを表示します。
+</Step>
+</Steps>
+
+## ログ
+
+**Logs** をクリックすると以下の項目を含む直近の3つのクエリが一覧表示されるダイアログが開きます：
+
+- クエリを実行した日時
+- クエリ結果（成功 / 失敗）
+- クエリの内容とパラメータ
+
+詳しくは[Logs](/ja/Logs) を参照してください。
+
+## クエリの詳細設定
+
+データをインポートする際、クエリをビルドするために[フィルタ](#フィルタ) と[ソート](#ソート) が使用できます。
+
+### フィルタ
+
+フィルタを追加するには、**Filters** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにフィルタを追加することができ、フィルタの横にあるゴミ箱のアイコンをクリックすると、フィルタを削除できます。
+<Columns cols={2}>
+<Frame>
+  <img src="/images/sheets_filter.png" alt="Sheets filter" />
+</Frame>
+</Columns>
+各フィルタには以下の3つの入力項目があります：
+
+- **Column**—フィルタをかけたいカラムをテーブルから選択します。
+- **Op**—フィルタが実行するオペレーションを選択します。オプション：*equals*、*does not equal*、*contains*、*does not contain*、*less than*、*less than or equal to*、*greater than*、*greater than or equal to*
+- **Value**—フィルタ操作の値を表示します。
+
+例えば、AccountValues が$100,000を超えるものを取り出したい場合、Column を*AccountValues*、Op を*greater than*、そしてValue を*100,000* にそれぞれ設定します。この設定をすることでクエリを実行したときにフィルタにマッチした結果のみが返されます。
+
+フィルタのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。
+
+### ソート
+
+クエリ結果にソートルールを追加するには、**Sort By** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにソートルールを追加することができ、ソートルールの横にあるゴミ箱のアイコンをクリックすると、ソートルールを削除できます。
+<Columns cols={2}>
+<Frame>
+  <img src="/images/sheets_sort.png" alt="Sheets sort" />
+</Frame>
+</Columns>
+各ソートルールは**Column** と**Order**（昇順または降順）の選択が必要です。複数のソートルールを追加する場合は、ルールが表示されている順で結果がソートされます。クエリは、最初のルールを最も優先してソートし、次に2番目のルール、といった順番でソートされます。
+
+ソートのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。

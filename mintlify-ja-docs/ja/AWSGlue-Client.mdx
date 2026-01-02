@@ -1,0 +1,134 @@
+---
+title: "AWS Glue"
+description: "このページでは、AWS Glue からConnect AI アカウントに接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI への接続
+
+AWS Glue からConnect AI へのコネクションを確立するには以下の手順に従います。
+
+<Steps>
+<Step>
+AWS Glue にログインします。
+</Step>
+<Step>
+ナビゲーションペインで、**ETL** 配下の **AWS Glue Studio** を選択します。
+</Step>
+<Step>
+AWS Glue Studio ページで**View Connectors** をクリックします。
+</Step>
+<Step>
+**Marketplace Connectors** ボックスで、**Go to AWS Marketplace** をクリックします。
+</Step>
+<Step>
+Marketplace 検索バーで*Connect AI* を入力します。
+</Step>
+<Step>
+**CData AWS Glue Connector for CData Connect** を選択します。ブラウザの新しいタブでコネクタページが開きます。
+</Step>
+<Step>
+コネクタページの上の、**Continue to Subscribe** をクリックします。
+</Step>
+<Step>
+次のページで、**Continue to Configuration** をクリックし、**Continue to Launch** をクリックします。
+</Step>
+<Step>
+**Launch this software** ページで、**Usage Instructions** をクリックします。ダイアログが表示されたら、**Activate the connector with AWS Glue Studio** をクリックします。
+</Step>
+<Step>
+Glue Studio がブラウザの新しいタブとして開きます。接続情報を以下のように設定します。
+	- **Name**—接続名を任意で入力します。
+	- **Description**—入力は任意ですが、接続の説明を入力することができます。
+	- **Connection credential type**—**connect\_cloud** を選択します。
+	- **AWS Secret**—不要です。
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **defaultCatalog**—接続したいCData Connect Cloud のConnection Name を入力します。例：*Salesforce1*。
+</Step>
+<Step>
+ページの一番下の**Create connection and activate connector** をクリックします。
+</Step>
+</Steps>
+
+これで、Glue Studio 上で**Connections** リスト上に本接続が表示されるようになります。
+
+## IAM ロールを作成する
+
+AWS Glue のデータにアクセスするには、適切なアクセス許可を持つIAM ロールが必要です。AWS Glue でIAM ロールを作成していない場合は、[IAM ロールを作成するAWS のガイド](https://docs.aws.amazon.com/ja_jp/glue/latest/dg/create-an-iam-role.html)の手順に従ってください。
+
+アクセス権限ポリシーを選択する際は、少なくとも以下のAWS マネージドポリシーを選択してください。
+
+- **AmazonS3FullAccess**
+- **AmazonEC2ContainerRegistryReadOnly**
+- **AWSGlueServiceRole**
+
+AWS Secrets Manager を使用して機密性の高い接続情報を保存している場合は、次のようなインラインポリシーを作成および追加し、AWS Glue ジョブで必要となる特定のシークレットへのアクセスを許可します。
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:ListSecretVersionIds"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-2:111222333:secret:CDataSecret-abcdef"
+            ]
+        }
+    ]
+}
+```
+
+AWS Glue でジョブを作成する際に、このロールを使用します。
+
+## AWS Glue で接続を使用する
+
+Connect AI への接続を作成すると、その接続を使って、ジョブを作成することができます。以下のようにしてGlue のジョブを作成します：
+
+<Steps>
+<Step>
+**Connections** リストから使用する接続を選択します。
+</Step>
+<Step>
+**Create Job** をクリックします。
+</Step>
+<Step>
+ビジュアルフローで、**CData AWS Glue Connector for CData Connect** を選択します。
+</Step>
+<Step>
+**Data source properties - Connector** タブで
+	- 先に作成したコネクションを選択します。
+	- **Enter table name** または**Write a query** のいずれかを選択します。
+		- Enter table name を選択した場合、**Table name** フィールドに、アクセスしたいテーブルの完全修飾名を*ConnectionName.ConnectionType.TableName* の形式で入力します。例えば、*Salesforce1.Salesforce.Customers* です。
+		- Write a query を選択した場合、クエリを記述する際に、アクセスしたいテーブルの完全修飾名を使用します。
+	- **Job bookmark options** を開きます。**Enter key** フィールドに、アクセスするテーブルの主キー名を入力します。または、**Job details** タブを開き、**Job bookmark** を*Disable* に設定することもできます。
+</Step>
+<Step>
+ビジュアルフローで、**Job details** を選択します。
+</Step>
+<Step>
+ジョブの名前を入力します。
+</Step>
+<Step>
+**IAM Role** フィールドで、[先に作成したIAM ロール](#iam-ロールを作成する)を入力します。
+</Step>
+<Step>
+ジョブを保存します。
+</Step>
+</Steps>
+
+これで、AWS Glue フローとしてジョブを実行することが可能になります。

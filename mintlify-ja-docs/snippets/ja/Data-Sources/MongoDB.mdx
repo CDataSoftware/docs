@@ -1,0 +1,92 @@
+## 前提条件
+
+#### CData IP をホワイトリストに登録
+
+MongoDB への接続を確立するには、CData のIP 経由でMongoDB へのアクセスを許可する必要があります。MongoDB をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
+
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
+
+#### MongoDB が一般にアクセス可能であることを確認
+
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## セットアップガイド
+
+以下の手順で、MongoDB をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *MongoDB* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter MongoDB サーバーのホスト名またはIP アドレス in the **Server** field.
+</Step>
+<Step>
+Specify MongoDB サーバーに接続するためのポート in the **Port** field. By default this is set to 27017.
+</Step>
+<Step>
+Enter the name of the MongoDB **Database**.
+</Step>
+<Step>
+Select the **Auth Scheme** you use to connect to MongoDB. Options are: `MONGODB-CR`, `SCRAM-SHA-1`, `SCRAM-SHA-256`, and `X509`.
+</Step>
+<Step>
+Enter 認証用のMongoDB ユーザー名 in the **User** field.
+</Step>
+<Step>
+In the **Password** field, enter ユーザーパスワード.
+</Step>
+<Step>
+(Optional) If the authentication database is different from the database to retreive data from, enter it into the **Auth Database** field.
+</Step>
+<Step>
+MongoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add MongoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### Connect to Replica Sets
+
+<Steps>
+<Step>
+To connect to a replica set, click on **Advanced Settings**.
+</Step>
+<Step>
+Set **Replica Set** to a list of comma-separated list of secondary servers, specified by address and port.
+</Step>
+<Step>
+Set **Slave OK** to `True`.
+</Step>
+<Step>
+Set **Read Preference** to determine how the provider reads from the secondary servers.
+	- `primary` executes all SELECT queries against the primary server.
+	- `primaryprefered` executes SELECT queries from a secondary server when the primary is not available.
+	- `secondary` executes SELECT queries on secondary servers only.
+	- `secondary prefered` executes SELECT queries on the primary server in the event no secondaries are available.
+	- `nearest` executes SELECT queries on whichever server has the least latency.
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とMongoDB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DGK/jp/cloud/default.htm#default)を参照してください。

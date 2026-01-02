@@ -1,0 +1,1025 @@
+openapi: 3.1.0
+info:
+  title: CData Connect AI REST API
+  version: v1
+
+servers:
+  - url: https://cloud.cdata.com/api
+    description: Production base URL
+
+paths:
+  /log/query/list:
+    post:
+      summary: List query log
+      tags:
+        - Log
+      operationId: listQueryLog
+      description: >
+        Retrieves a list of query logs for an account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuerySearchCriteria"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuerySearchResult"
+  /log/query/get/{queryId}:
+    get:
+      summary: Download query log
+      tags:
+        - Log
+      operationId: getQueryLog
+      description: >
+        Download a query log file for troubleshooting.
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /log/audit/list:
+    post:
+      summary: List audit log
+      tags:
+        - Log
+      operationId: listAuditLog
+      description: >
+        Retrieves a list of audit logs for an account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuditEventSearchCriteria"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuerySearchResult"
+  /catalogs:
+    get:
+      tags:
+        - Metadata
+      summary: List catalogs
+      description: >
+        This operation returns information about available catalogs.  Catalogs are connections that the user has setup in their account.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /schemas:
+    get:
+      tags:
+        - Metadata
+      summary: List schemas
+      description: >
+        This operation returns a list of schemas for a given catalog.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /tables:
+    get:
+      tags:
+        - Metadata
+      summary: List tables and views
+      description: >
+        This operation returns a list of tables and views for a given schema.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: tableType
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /columns:
+    get:
+      tags:
+        - Metadata
+      summary: List columns
+      description: >
+        This operation returns a list of columns for a given table or view.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: columnName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /primaryKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List primary keys
+      description: >
+        This operation returns information about a table's primary keys.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /importedKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List imported keys
+      description: >
+        This operation returns information about primary keys referenced by a table's foreign keys.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /exportedKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List exported keys
+      description: >
+        This operation returns information about foreign keys referenced by a table's primary keys.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /indexes:
+    get:
+      tags:
+        - Metadata
+      summary: List indexes
+      description: >
+        This operation returns information about available indexes for a given table.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: indexName
+          in: query
+          schema:
+            type: string
+        - name: unique
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /procedures:
+    get:
+      tags:
+        - Metadata
+      summary: List stored procedures
+      description: >
+        This operation returns information about available stored procedures for a given schema.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: procedureName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /procedureParameters:
+    get:
+      tags:
+        - Metadata
+      summary: List procedure parameters
+      description: >
+        This operation returns information about a stored procedure's parameters.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: procedureName
+          in: query
+          schema:
+            type: string
+        - name: paramName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /query:
+    post:
+      tags:
+        - Query
+      summary: Execute query
+      description: >
+        The query operation allows you to execute a SQL query against one or more data sources configured in your Connect AI account. SELECT, INSERT, UPDATE, DELETE, and EXEC statements are all supported (though the /exec operation should be preferred for the latter).
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /batch:
+    post:
+      tags:
+        - Query
+      summary: Execute multiple queries
+      description: >
+        The batch operation allows you to execute batch INSERTs, UPDATEs, and DELETEs against your data sources using a single request.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BatchRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /exec:
+    post:
+      tags:
+        - Query
+      summary: Execute stored procedure
+      description: >
+        The execute operation allows you to execute stored procedures for any of the data sources configured in your Connect AI account.
+      parameters:
+        - name: workspace
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExecRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+components:
+  schemas:
+    AuditEventSearchCriteria:
+      type: object
+      properties:
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    AuditEventType:
+      enum:
+        - 0
+        - 500
+        - 501
+        - 502
+        - 1000
+        - 1001
+        - 1002
+        - 1003
+        - 1004
+        - 1005
+        - 1050
+        - 1051
+        - 1052
+        - 1060
+        - 1061
+        - 1062
+        - 1063
+        - 1070
+        - 1071
+        - 1072
+        - 1073
+        - 1080
+        - 1081
+        - 1082
+        - 1083
+        - 1084
+        - 1085
+        - 1090
+        - 1091
+        - 1092
+        - 1093
+        - 1094
+        - 1100
+        - 1101
+        - 1102
+        - 1103
+        - 1105
+        - 1106
+        - 1107
+        - 1108
+        - 1109
+        - 1110
+        - 1111
+        - 1112
+        - 1113
+        - 1114
+        - 1115
+        - 1116
+        - 1200
+        - 1201
+        - 1202
+        - 1220
+        - 1221
+        - 1222
+        - 1223
+        - 1224
+        - 1230
+        - 1231
+      type: integer
+      format: int32
+    BatchRequest:
+      required:
+        - query
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: "#/components/schemas/Parameter"
+          nullable: true
+        query:
+          minLength: 1
+          type: string
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    BillingStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      type: integer
+      format: int32
+    ColumnInfo:
+      type: object
+      properties:
+        catalogName:
+          type: string
+          nullable: true
+        columnLabel:
+          type: string
+          nullable: true
+        columnName:
+          type: string
+          nullable: true
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        dataTypeName:
+          type: string
+          nullable: true
+        length:
+          type: integer
+          format: int32
+        nullable:
+          type: boolean
+        ordinal:
+          type: integer
+          format: int32
+        precision:
+          type: integer
+          format: int32
+          nullable: true
+        scale:
+          type: integer
+          format: int32
+          nullable: true
+        schemaName:
+          type: string
+          nullable: true
+        tableName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DataType:
+      enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+      type: integer
+      format: int32
+    Direction:
+      enum:
+        - 1
+        - 2
+        - 4
+        - 5
+      type: integer
+      format: int32
+    ErrorCode:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+        - 63
+        - 64
+        - 65
+        - 66
+        - 67
+        - 68
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+      type: integer
+      format: int32
+    ErrorDetail:
+      type: object
+      properties:
+        code:
+          $ref: "#/components/schemas/ErrorCode"
+        message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ExecParameter:
+      type: object
+      properties:
+        direction:
+          $ref: "#/components/schemas/Direction"
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        value:
+          nullable: true
+      additionalProperties: false
+    ExecRequest:
+      required:
+        - procedure
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ExecParameter"
+          nullable: true
+        procedure:
+          minLength: 1
+          type: string
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    Parameter:
+      type: object
+      properties:
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        value:
+          nullable: true
+      additionalProperties: false
+    QueryRecord:
+      type: object
+      properties:
+        credential:
+          type: string
+          nullable: true
+        duration:
+          type: integer
+          format: int64
+        drivers:
+          type: string
+          nullable: true
+        errorCode:
+          type: string
+          nullable: true
+        errorMessage:
+          type: string
+          nullable: true
+        logVerbosity:
+          type: integer
+          format: int32
+          nullable: true
+        query:
+          type: string
+          nullable: true
+        queryId:
+          type: string
+          format: uuid
+        queryType:
+          $ref: "#/components/schemas/QueryType"
+        rowsAffected:
+          type: integer
+          format: int64
+        rowsReturned:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+        userAgent:
+          type: string
+          nullable: true
+      additionalProperties: false
+    QueryRequest:
+      required:
+        - query
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/Parameter"
+          nullable: true
+        query:
+          minLength: 1
+          type: string
+        schemaOnly:
+          type: boolean
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    QueryResult:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/ResultSet"
+          nullable: true
+        error:
+          $ref: "#/components/schemas/ErrorDetail"
+      additionalProperties: false
+    QuerySearchCriteria:
+      type: object
+      properties:
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        queryType:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryType"
+          nullable: true
+          default: 2
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    QuerySearchResult:
+      type: object
+      properties:
+        queries:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryRecord"
+          nullable: true
+      additionalProperties: false
+    QueryType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 20
+        - 100
+        - 101
+        - 102
+        - 103
+        - 104
+        - 105
+        - 106
+        - 107
+        - 108
+        - 109
+        - 200
+        - 201
+        - 202
+        - 203
+        - 204
+        - 205
+        - 210
+        - 211
+        - 212
+        - 220
+        - 230
+        - 231
+        - 232
+      type: integer
+      format: int32
+    QueryUserInfo:
+      type: object
+      properties:
+        accountName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        usage:
+          $ref: "#/components/schemas/QueryUserUsageLimits"
+      additionalProperties: false
+    QueryUserUsageLimits:
+      type: object
+      properties:
+        connectionsOverLimit:
+          type: boolean
+        dataSourcesOverLimit:
+          type: boolean
+        usersOverLimit:
+          type: boolean
+        isSpreadsheetsPlan:
+          type: boolean
+        billingStatus:
+          $ref: "#/components/schemas/BillingStatus"
+        billingStatusName:
+          type: string
+          readOnly: true
+        nextBillTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    ResultSet:
+      type: object
+      properties:
+        affectedRows:
+          type: integer
+          format: int32
+        schema:
+          type: array
+          items:
+            $ref: "#/components/schemas/ColumnInfo"
+          nullable: true
+        rows:
+          type: array
+          items:
+            type: array
+            items: {}
+          nullable: true
+      additionalProperties: false
+    WorkspaceList:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        workspaces:
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkspaceListItem"
+          nullable: true
+      additionalProperties: false
+    WorkspaceListItem:
+      type: object
+      properties:
+        childCount:
+          type: integer
+          format: int32
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
+      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+    #OAuth2:
+    #  type: oauth2
+    #  flows:
+    #    authorizationCode:
+    #      authorizationUrl: https://cloud-login.clouddataos.com/authorize
+    #      tokenUrl: https://cloud-login.clouddataos.com/oauth/token
+    #      refreshUrl: https://cloud-login.clouddataos.com/oauth/refresh
+    #      scopes: []
+          # Optional tool-specific hint for PKCE
+          #x-usePkce: true
+security:
+  - Basic: []
+  #- OAuth2: []

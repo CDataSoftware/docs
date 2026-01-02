@@ -1,0 +1,98 @@
+---
+title: "Tableau Cloud"
+description: "This page outlines the steps to connect Tableau Cloud to the Connect AI Virtual SQL Server API."
+---
+
+
+
+## Prerequisites
+
+Before you connect, you must first do the following:
+
+- Connect a data source to your Connect AI account. See [Connections](/ja/Sources) for more information.
+- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- If you want to connect to a workspace rather than a data source, first [Add a workspace](/ja/Workspaces#add-a-workspace) to Workspaces.
+
+## Connect to Connect AI
+
+To establish a connection from Tableau Cloud to the Connect AI Virtual SQL Server API, follow these steps.
+
+<Steps>
+<Step>
+Log in to Tableau Cloud.
+</Step>
+<Step>
+On the **Home** tab, click **New** > **Workbook**.
+    <Columns colss={2}>
+	<Frame>
+	  <img src="/images/tableau_cloud_newconnection.png" alt="Tableau Cloud new connection" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+On the **Connect to Data** dialog, select the **Connectors** tab. In the connectors list, select **Microsoft SQL Server**.
+	<Frame>
+	  <img src="/images/tableau_cloud_selectsource.png" alt="Tableau Cloud select source" />
+	</Frame>
+</Step>
+<Step>
+Enter the connection settings.
+	- **Server**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
+	- **Database**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Authentication**—leave this as username and password.
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **Require SSL**—leave this selected.
+</Step>
+<Step>
+Click **Sign In**.
+</Step>
+<Step>
+Once the connection succeeds, your data is available to use in your workbook. Follow these steps to access it:
+	
+	a. In the **Connections** section of the data pane to the left of the workbook, select your connection.
+	
+	b. In the **Database** section of the data pane, select the data source that you want to use. The tables for that data source populate in the **Table** section.
+	
+	c. Drag your tables into the workbook space or perform queries as needed.
+</Step>
+</Steps>
+
+## Modify a Connection
+
+You can modify your connection by following these steps:
+
+<Steps>
+<Step>
+In your workbook, click the drop-down arrow next to your connection in the **Connections** section.
+</Step>
+<Step>
+Select **Edit Connection**.
+    <Columns colss={2}>
+	<Frame>
+	  <img src="/images/tableau_cloud_editconnection.png" alt="Tableau Cloud edit connection" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+Edit your connection details and click **Sign In** when you are finished.
+</Step>
+</Steps>
+
+## Connect to a Workspace
+
+To connect Tableau Cloud to a specific [workspace](/ja/Workspaces) in Connect AI, you specify the workspace name after the Connect AI username in the format of `[your_email_address]@[workspace_name]`:
+
+<Frame>
+  <img src="/images/tableau_cloud_workspace.png" alt="Tableau Cloud workspace" />
+</Frame>
+
+You can copy the **Username** from the **Virtual SQL Server** tab of the **Endpoints** dialog for your workspace and paste it in the Tableau Cloud **Username** field.
+
+<Frame>
+  <img src="/images/tableau_cloud_endpoints.png" alt="Tableau Cloud endpoints" />
+</Frame>
+
+## Learn More
+
+For more information about Tableau Cloud, please see the [Tableau Cloud help pages](https://help.tableau.com/current/online/en-us/tableau-online-home.htm).

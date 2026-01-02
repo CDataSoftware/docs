@@ -1,0 +1,81 @@
+## セットアップガイド
+
+以下の手順で、HubSpot をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *HubSpot* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select which **Schema** to connect to.
+</Step>
+<Step>
+If your **Schema** is **HubSpotV3**, you can choose to **Expand Associations** and/or **Include Custom Tables**. Note that in the **HubSpotV3** schema, certain tables are only accessible using the **PrivateAppToken** authentication method.
+</Step>
+<Step>
+Select your **Auth Scheme** and follow the instructions in the relevant section below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、HubSpot のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+HubSpot アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add HubSpot Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+### PrivateAppToken
+
+Enter the Hubspot Private App Token in the **OAuth Access Token** field.
+
+You can generate a HubSpot Private App Token by following the steps below.
+<Steps>
+<Step>
+In your HubSpot account, click the **Settings** icon in the main navigation bar.
+</Step>
+<Step>
+n the left sidebar menu, navigate to **Integrations > Private Apps**.
+</Step>
+<Step>
+Click **Create private app**.
+</Step>
+<Step>
+On the **Basic Info** tab, configure the details of your application (name, logo, and description).
+</Step>
+<Step>
+On the **Scopes** tab, select **Read** or **Write** for each scope you want your private application to be able to access. This determines the data the driver has access to retrieve.
+</Step>
+<Step>
+After you are done configuring your application, click **Create app** in the top right. Review the information about your application’s access token, click **Continue creating**, and then **Show token**.
+</Step>
+<Step>
+Connect AI **Add HubSpot Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とHubSpot の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DHM/jp/cloud/default.htm#default)を参照してください。

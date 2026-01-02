@@ -1,0 +1,85 @@
+---
+title: "機能"
+description: "Embedded Cloud は、高度なユーザーや組織がワークフローに求めるパワフルな機能をサポートしています。このページでは、それらの機能の一部をご紹介します。"
+---
+
+
+## Derived View
+
+Embedded Cloud はDerived view をサポートしています。Derived view は、使用時にデータを動的に入力する保存されたクエリです。[Data Explorer](/ja/Data-Explorer#derived-view-の作成)でDerived view を作成したら、お好みの[Integrations](/ja/Integrations-Embedded) から、あたかも他のコネクションであるかのようにクエリできます。Derived view をクエリする場合、構文は`CData.DerivedViews.derivedViewName`の形式になります。
+
+アカウントにDerived view が保存されると、すべてのユーザーのDerived view リストに表示されます。ただし、Derived view に対してクエリを発行するユーザーは、Derived view がクエリする各データソースに対して適切な[権限](/ja/Sources-Embedded#権限の付与)を持っている必要があります。ユーザーが適切な権限を持っていない場合、クエリを発行するとエラーが表示されます。
+
+### Derived View の例
+
+削除済みとしてマークされたSalesforce コネクション内のすべてのアカウントを返すDerived view を作成したい場合、Derived view には次のクエリが含まれることがあります。
+
+```sql
+SELECT * FROM [Salesforce1].[Salesforce].[Accounts] WHERE Deleted = 'true'
+```
+
+このDerived view をDeletedAccounts として保存した場合、クライアントから次のクエリを発行して、削除されたすべてのアカウントを返すことができます。
+
+```sql
+SELECT * FROM [CData].[DerivedViews].[DeletedAccounts]
+```
+
+このDerived view は、クエリパラメータを毎回再入力することなく削除されたアカウントの最新リストにアクセスするための、便利で一貫した方法を提供します。
+
+## クエリフェデレーション
+
+Embedded Cloud では、必要に応じて異なるデータソースのデータを直接組み合わせるクエリを作成できます。
+
+多くのアドホックなシナリオでは、データを結合するためにパイプラインを構築することは非現実的です。クエリフェデレーションを使用すると、お好みのデータ分析ツールから複数データソースをまたいでクエリを作成することで、カスタムパイプラインの必要性を回避できます。
+
+詳しくは、[SQL Federated Queries](/ja/SQL-Reference#federated-queries) を参照してください。
+
+## シングルサインオン（SSO）
+
+Embedded Cloud は、シングルサインオン（SSO）をサポートしています。アカウントでSSO が有効になっている場合、ユーザーはEmbedded Cloud のログイン資格情報を使用する代わりに、選択したSSO プロバイダー経由でサインインします。
+
+Embedded Cloud は、次のSSO プロバイダーをサポートしています：
+
+- SAML
+- OpenID Connect
+- Google Workspace
+- Microsoft Entra ID（旧称 Azure AD）
+- Active Directory Federation Services（ADFS）
+- Active Directory/LDAP
+- Ping Federate
+- Okta Workforce Identity Cloud
+
+アカウントでSSO を有効にするには、CData セールスデスク sales@cdata.co.jp までお問い合わせください。
+
+## ユーザー資格情報
+
+デフォルトでは、アカウントのすべてのユーザーは、同じログイン資格情報でデータソースのデータにアクセスできます。例えばSalesforce へのコネクションがある場合、すべてのユーザーアカウントは、そのSalesforce コネクション用に作成されたSalesforce アカウントのデータにアクセスできます。クエリの権限をユーザーごとにカスタマイズして利用可能な操作を制限できますが、これらの制限の下で、すべてのユーザーが同じデータにアクセスします。
+
+一部のデータソースでは、アカウントの各ユーザーが自分のログイン資格情報でコネクションにログインすることを強制する機能をサポートしています。この機能により、ユーザーはアクセスする必要があるアカウントのデータのみにアクセスすることになります。さらに、この方法でコネクションが設定されている場合、アカウントの最大数に対して1つのコネクションスロットとしてのみカウントされます。
+
+データソースがユーザー資格情報をサポートしている場合、コネクション設定の**Authentication** セクションに**Data Credentials** ラベルが表示されます。このラベルの横にある設定をクリックすると、接続に必要なモードを設定するためのダイアログが開きます。
+
+<Frame>
+<img src="/images/user_credentials_modal.png" alt="User credentials modal" />
+</Frame>
+
+<Note>
+**Note:** この機能には次の制約が適用されます。
+
+- この機能は、次のデータソースでのみ利用可能です。リストにないデータソースでこの機能が必要な場合は、サポートチームまでお問い合わせください。
+	- Paylocity
+	- RedShift
+	- Sage Intacct
+	- Salesforce
+	- SharePoint
+	- Snowflake
+	- Workday
+- データソースを共有資格情報とユーザー資格情報の間で切り替えることができるのは管理者ユーザーのみですが、すべてのロールのユーザーは、ユーザー資格情報接続に自分の資格情報でログインすることができます。
+- [OData API](/ja/OData-Dashboard) を使用する場合、ユーザー資格情報はサポートされません。データソースをOData API に接続するには、共有資格情報を使用する必要があります。
+</Note>
+
+## ワークスペース
+
+ワークスペース機能の中核は、Embedded Cloud 内の接続されたデータソースからデータカタログを作成する組織スキームです。仮想データセットを使用すると、関連するデータ項目をシンプルかつスケーラブルな方法で個別にバンドルすることが可能となり、同時にデータのサイロ化を減らしてチーム間の相乗効果を促進します。
+
+ワークスペースには、テーブル、ビュー、Derived View を含めることができます。これらはすべて変換なしで直接公開されるため、カラム名やその他のプロパティは同じままです。任意のテーブル、ビュー、Derived View を、任意の数のワークスペースに追加できます。これらは一意のエイリアスで参照できます。ワークスペースであるテーブルは、完全なCRUD 機能をサポートします。

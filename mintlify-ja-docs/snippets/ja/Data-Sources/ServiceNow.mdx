@@ -1,0 +1,182 @@
+## セットアップガイド
+
+以下の手順で、ServiceNow をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *ServiceNow* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter the base **URL** of your ServiceNow instance (for example, `https://MyInstance12345.service-now.com/`).
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Basic
+
+<Steps>
+<Step>
+Enter 認証用のServiceNow ユーザー名 in the **User** Field.
+</Step>
+<Step>
+In **Password**, enter ユーザーパスワード.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### OAuth
+
+<Steps>
+<Step>
+Enter the **OAuth Client Id** in your app settings.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** in your app settings.
+</Step>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、ServiceNow のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+ServiceNow アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### OauthPassword
+
+<Steps>
+<Step>
+Enter 認証用のServiceNow ユーザー名 in the **User** Field.
+</Step>
+<Step>
+In **Password**, enter ユーザーパスワード.
+</Step>
+<Step>
+Enter the **OAuth Client Id** in your app settings.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** in your app settings.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### OKTA
+
+<Steps>
+<Step>
+Enter the OKTA **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Set the **SSO Login URL** to the URL use by the SSO provider.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### ADFS
+
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Set the **SSO Login URL** to the URL use by the SSO provider.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### OneLogin
+
+<Steps>
+<Step>
+Enter the OneLogin **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### PingFederate
+
+<Steps>
+<Step>
+Enter the PingFederate **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Set the **SSO Login URL** to the URL use by the SSO provider.
+</Step>
+<Step>
+Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+</Step>
+<Step>
+Connect AI **Add ServiceNow Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とServiceNow の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/BNK/jp/cloud/default.htm#default)を参照してください。

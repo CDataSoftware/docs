@@ -1,0 +1,85 @@
+## Prerequisites
+
+In Dynamics CRM, [create a custom OAuth application](##create-a-custom-oauth-application).
+
+## セットアップガイド
+
+以下の手順で、Dynamics CRM をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Dynamics CRM* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter the following information:
+	- **CRM Version**—the CRM version. Choose either **CRM2011+** or **CRMOnline** from the drop-down list.
+	- **URL**—the root URL of the organization. The formatting of this URL depends on the version of CRM that you use.
+	- **OAuth Client Id**—the Application (client) Id from your OAuth application.
+	- **OAuth Client Secret**—the Client Secret from your OAuth application.
+</Step>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Dynamics CRM のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Dynamics CRM アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Dynamics CRM Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## Create a Custom OAuth Application
+
+Follow these steps to create a custom OAuth Application in Dynamics CRM:
+
+<Steps>
+<Step>
+Open your Azure portal and open the navigation pane. Select **Azure Active Directory**, then **App Registrations**.
+</Step>
+<Step>
+Click **New Registration**.
+</Step>
+<Step>
+Enter the following information:
+	- **Name**—a name for the application (for example, *Connect AI*).
+	- **Supported account types**—select **Accounts in any organization directory**.
+	- **Redirect URI**—select **Web** and enter *`https://oauth.cdata.com/oauth/`*
+</Step>
+<Step>
+Click **Register** to create the application.
+</Step>
+<Step>
+In the application view, select **Certificates & Secrets**.
+</Step>
+<Step>
+Select **New Client Secret**, set a duration, and save it. When the key value appears, copy it down to use when establishing the connection.
+</Step>
+<Step>
+Select **API permissions** and click **Add a permission**.
+</Step>
+<Step>
+Select **Dynamics CRM** and choose **Delegated permissions**. Select **user\_impersonation** in the permissions list.
+</Step>
+<Step>
+Click **Add permissions** to save your changes.
+</Step>
+<Step>
+Select **Overview** and copy down the value for **Application (client) ID**.
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とDynamics CRM の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/RMK/jp/cloud/default.htm#default)を参照してください。

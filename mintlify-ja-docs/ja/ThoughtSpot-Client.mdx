@@ -1,0 +1,62 @@
+---
+title: "ThoughtSpot"
+description: "このページではThoughtSpot をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI に接続する
+
+ThoughtSpot からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
+
+<Steps>
+<Step>
+Log in to ThoughtSpot.
+</Step>
+<Step>
+On the top navigation bar, click **Data**.
+</Step>
+<Step>
+Click **Create new** > **Connection**.
+    <Columns cols={2}>
+	<Frame>![](/images/thoughtspot_client_01.png)</Frame>
+    </Columns>
+</Step>
+<Step>
+Name the connection and click “SQL Server”.
+	<Frame>![](/images/thoughtspot_client_02.png)</Frame>
+</Step>
+<Step>
+Click **Continue** on the top right.
+</Step>
+<Step>
+Enter the connection settings.
+	- **Host**—*tds.cdata.com*
+	- **Port**—*14333*
+	- **User**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **Database**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+<Frame>
+  <img src="/images/thoughtspot_client_03.png" alt="ThoughtSpot client 03" />
+</Frame>
+</Step>
+<Step>
+Click **Continue**.
+</Step>
+<Step>
+If the connection succeeds, a list of tables is displayed as shown below.
+<Frame>
+  <img src="/images/thoughtspot_client_04.png" alt="ThoughtSpot client 04" />
+</Frame>
+</Step>
+<Step>
+Click **Create Connection**.
+</Step>
+</Steps>

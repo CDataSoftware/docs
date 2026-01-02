@@ -1,0 +1,69 @@
+## セットアップガイド
+
+以下の手順で、NetSuite SuiteAnalytics をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *NetSuite SuiteAnalytics* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter the following information:
+	- **Server**—the host name or IP address of the server.
+	- **AccountId**—the company account your username is associated with on NetSuite.
+	- **RoleId**—the InternalId of the role that is used to log in to NetSuite. Obtain the RoleId by logging in to NetSuite and navigating to **Setup** > **Integration** > **Web Services Preferences**. The RoleId is displayed next to the specified role.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### Basic
+
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—認証用のNetSuite SuiteAnalytics ユーザー名
+	- **Password**—ユーザーパスワード
+</Step>
+<Step>
+Connect AI **Add NetSuite SuiteAnalytics Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### Token
+
+<Steps>
+<Step>
+Enter the following information:
+	- **Consumer Key**—The consumer key for the integration record. This string was created when you created the integration record.
+	- **Consumer Secret**—The consumer secret for the integration record. This string was created when you created the integration record.
+	- **TokenKey**—The token key used to authenticate requests to the data source.
+	- **TokenSecret**—The token secret used to authenticate requests to the data source.
+</Step>
+<Step>
+Connect AI **Add NetSuite SuiteAnalytics Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## Advanced Settings Tab
+
+### Authentication
+
+Optionally, enter any **Native Driver Properties** in the **Advanced Settings** tab. These are any extra NetSuite SuiteAnalytics properties you want to add to the connection string, along with the other properties from the **Basic Settings** tab.

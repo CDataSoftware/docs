@@ -1,0 +1,79 @@
+## セットアップガイド
+
+以下の手順で、Bullhorn CRM をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Bullhorn CRM* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter the **Data Center Code** where your account data is hosted. This code appears at the beginning of the Bullhorn CRM URL when you are logged in. For example, if your URL is `https://cls21.bullhornstaffing.com/BullhornSTAFFING/MainFrame.jsp`, your code is `CLS21`.
+</Step>
+<Step>
+Contact Bullhorn CRM to set up a custom OAuth application with the correct redirect URI for Connect AI, which is *`https://oauth.cdata.com/oauth/`*.
+	<Note>
+	 **Note:** Bullhorn CRM does not allow users to configure custom OAuth applications themselves. You must contact Bullhorn CRM for this step.
+	</Note>
+</Step>
+<Step>
+After setting up your OAuth application, enter your **OAuth Client Id** and **OAuth Client Secret** in Connect AI.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+### OAuth
+
+<Steps>
+<Step>
+Toggle **Include Custom Fields** on or off, depending on whether you want to include custom fields in the column listing.
+</Step>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Bullhorn CRM のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Bullhorn CRM アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Bullhorn CRM Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+### OAuthPassword
+
+<Steps>
+<Step>
+Enter 認証用のBullhorn CRM ユーザー名.
+</Step>
+<Step>
+Enter ユーザーパスワード.
+</Step>
+<Step>
+Toggle **Include Custom Fields** on or off, depending on whether you want to include custom fields in the column listing.
+</Step>
+<Step>
+Connect AI **Add Bullhorn CRM Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とBullhorn CRM の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/HAK/jp/cloud/default.htm#default)を参照してください。

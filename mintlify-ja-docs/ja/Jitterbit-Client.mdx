@@ -1,0 +1,70 @@
+---
+title: "Jitterbit"
+description: "このページでは、[OData](/ja/OData-Dashboard) プロトコルを使用してJitterbit をConnect AI に接続する手順の概要を示します。これには、ワークスペースを使う必要があります。詳しくは、[Workspaces](/ja/Workspaces) ヘルプを参照してください。"
+---
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [ワークスペース](/ja/Workspaces)を作成します。後の手順で、(*`https://cloud.cdata.com/api/odata/{workspace_name}`*) ページの**OData Service URL** と関連するワークスペース名を使用してコネクションを確立します。 [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI への接続
+
+OData プロトコルを使用してJitterbit からConnect AI へのコネクションを確立するには、以下の手順に従います。
+
+<Steps>
+<Step>
+Log in to Jitterbit.
+</Step>
+<Step>
+Create a project in Cloud Studio and provide a workspace environment for it.
+
+<Frame>
+![](/images/jitterbit_open_project.png)
+</Frame>
+</Step>
+<Step>
+Click **Connections** and enter OData in the search bar.
+</Step>
+<Step>
+Select the **OData** connector.
+</Step>
+<Step>
+Enter the OData connection properties.
+	- **Connection Name**—enter a connection name.
+	- **OData Metadata URL**—enter the metadata URL: *`https://cloud.cdata.com/api/odata/{workspace_name}/$metadata`*.
+	- **Authentication**—select **Basic Auth**.
+	- **User Name**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+
+<Frame>
+![](/images/jitterbit_configure_OData.png)
+</Frame>
+</Step>
+<Step>
+Click **Test** to test the connection, and then click **Save Changes**.
+</Step>
+<Step>
+Choose the operation you want to perform and drag it to the workflow in your project.
+<Columns cols={2}>
+<Frame>
+![](/images/jitterbit_query.png)
+</Frame>
+</Columns>
+</Step>
+<Step>
+Double-click the query operation to see all the tables and derived views available in your OData endpoint.
+
+<Frame>
+![](/images/jitterbit_tables.png)
+</Frame>
+</Step>
+<Step>
+Select a table and configure the query.
+
+You can now transform and integrate your data.
+</Step>
+</Steps>

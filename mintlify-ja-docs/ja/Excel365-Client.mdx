@@ -1,0 +1,316 @@
+---
+title: "Excel"
+sidebarTitle: "Overview"
+description: "このページは、Excel デスクトップ版およびExcel Web 版を含む、Excel 用のCData Connect Spreadsheets アドインをインストールおよび設定する手順の概要を説明します。インストールが完了すると、Excel はCData Connect Spreadsheets アカウントに接続されたデータソースからデータを取得できます。"
+---
+
+
+<Note>
+**Note:** CData Connect Spreadsheets でExcel を設定し、使用する前にデータソースをCData Connect Spreadsheets アカウントに接続する必要があります。詳しくは、[接続の設定](#接続の設定)を参照してください。
+</Note>
+
+**Connect AI ユーザーのみ：** また、ワークスペースとDerived View をインポートすることもできます。ワークスペースを作成するには、[Workspaces](/ja/Workspaces#ワークスペースを追加) の指示に従ってください。Derived view を作成するには（管理者のみ）、[Derived View の作成](/ja/Data-Explorer#derived-view-の作成)の指示に従ってください。
+
+## アドインのインストール
+
+Excel アドインは[CData Connect Spreadsheets のダッシュボート](#cdata-connect-spreadsheets-ダッシュボードから)もしくは[Excel](#microsoft-excel-から) からインストールできます。
+
+### CData Connect Spreadsheets ダッシュボードから
+
+<Steps>
+<Step>
+ダッシュボードの **Integrations** ページを開きます。
+</Step>
+<Step>
+**Excel** タイルを見つけるか、検索バーを使用します。
+</Step>
+<Step>
+**Get Started** をクリックします。Excel のアドインページが開きます。
+</Step>
+<Step>
+**今すぐ入手する** をクリックします。プロンプト画面が表示された場合はMicrosoft アカウントでサインインします。
+</Step>
+<Step>
+**開始** ページで、（Excel Web 版用）**Office Online を使用してみてください** をクリックします。
+	<Frame>
+	  <img src="/images/excel_365_switch.png" alt="Excel 365 switch" />
+	</Frame>
+	次に、**Excel Online で開く** をクリックします。
+	Excel デスクトップ版を使用している場合は、**Excel で開く**をクリックします。
+	<Frame>
+	  <img src="/images/excel_download_online.png" alt="Excel download online" />
+	</Frame>
+</Step>
+<Step>
+アドインを認証するよう指示がある場合は、認証します。
+</Step>
+<Step>
+どちらのバージョンのExcel でも、ブックを開くか新しいブックを作成します。
+</Step>
+<Step>
+ナビゲーションリボンから **ホーム** タブを選択し、**アドイン** をクリックします。**個人用アドイン** ウィンドウが開きます。
+	<Columns cols={2}>
+	<Frame>
+	  <img src="/images/ExcelMyAddin.png" alt="Excel my addin" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+[CData Connect Spreadsheets への接続](#cdata-connect-spreadsheets-への接続)の手順へ続きます。
+</Step>
+</Steps>
+
+### Microsoft Excel から
+
+<Steps>
+<Step>
+Microsoft Excel（デスクトップ版またはWeb 版）で新規もしくは既存のブックを開きます。
+</Step>
+<Step>
+ナビゲーションリボンの**ファイル**タブをクリックします。
+</Step>
+<Step>
+**アドインを取得**をクリックします。表示されるアドインのリストから**すべて**をクリックします。
+</Step>
+<Step>
+ウィンドウで*CData* を検索します。検索結果で**CData Connect Spreadsheets** の隣の**追加**をクリックします。
+	<Frame>
+	  <img src="/images/excel_addin_store.png" alt="Excel addin store" />
+	</Frame>
+</Step>
+<Step>
+**続行**をクリックしてライセンス条項に同意します。Excel ブックで認証ダイアログが開きます。
+</Step>
+<Step>
+**Authorize** をクリックします。
+</Step>
+<Step>
+資格情報を入力してダイアログの**Continue** をクリックします。
+</Step>
+<Step>
+[CData Connect Spreadsheets への接続](#cdata-connect-spreadsheets-への接続)の手順へ続きます。
+</Step>
+</Steps>
+
+## CData Connect Spreadsheets への接続
+
+Excel アドインをインストールしたら、以下の手順に従ってCData Connect Spreadsheets アカウントに接続します：
+
+<Steps>
+<Step>
+Excel のナビゲーションリボンの**データ**タブを開き**CData Connect Spreadsheets** をクリックします。
+	<Frame>
+	  <img src="/images/excel_addin_getdata.png" alt="Excel addin get data" />
+	</Frame>
+</Step>
+<Step>
+CData Connect Spreadsheets アドインを承認します。
+	Excel ワークブックの右側にCData アドインペインが表示されます。
+	<Columns cols={2}>
+	<Frame>
+	  <img src="/images/connect_spreadsheets_full.png" alt="Connect spreadsheets full" />
+	</Frame>
+	</Columns>
+</Step>
+</Steps>
+
+## 接続の設定
+
+まだCData Connect Spreadsheets に必要なデータを接続していない場合は、設定する必要があります。
+<Steps>
+<Step>
+アドインペインで**Connections** をクリックします。**Add Connection**をクリックします。
+</Step>
+<Step>
+Excel に接続するデータ用のコネクタを選択します。
+</Step>
+<Step>
+データ接続文字列を入力します。保存して接続をテストします。
+	接続に成功したら、[データのインポート](#データのインポート)ができます。
+</Step>
+</Steps>
+## データのインポート
+
+CData Connect Spreadsheets からExcel へデータをインポートするには以下の手順に従います：
+
+<Steps>
+<Step>
+**Import** をクリックします。
+</Step>
+<Step>
+ドロップダウンメニューからオプションを1つ選択します：**Connections**、**Workspaces**、**Derived Views**。次に、選択した各オプションの手順に従います。
+
+</Step>
+</Steps>
+	
+<Note>
+**Note:** ワークスペースおよびDerived view にアクセスできるのは、Connect AI ユーザーのみです。
+</Note>
+
+### Connections のインポート
+
+<Steps>
+<Step>
+ドロップダウンリストからコネクションを選択します。
+</Step>
+<Step>
+画面の指示に沿ってクエリを作成する場合は**Query Builder** を、クエリを手動で入力する場合は**Custom SQL** を選択します。
+	- Query Builder では、スキーマ（複数ある場合）、テーブル、およびカラムを選択します。カラム名で検索できます。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+		<Columns cols={2}>
+		<Frame>
+		  <img src="/images/excel_addin_search_columns.png" alt="Excel addin search columns" />
+		</Frame>
+		</Columns>
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+### Workspaces のインポート（Connect AI ユーザーのみ）
+
+<Steps>
+<Step>
+ドロップダウンリストからワークスペースを選択します。
+</Step>
+<Step>
+画面の指示に沿ってクエリを作成する場合は**Query Builder** を、クエリを手動で入力する場合は**Custom SQL** を選択します。
+	- Query Builder では、表示するワークスペースとカラムを選択します。カラム名で検索できます。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+### Derived Views のインポート（Connect AI ユーザーのみ）
+<Steps>
+<Step>
+画面の指示に沿ってクエリを作成する場合は**Query Builder** を、クエリを手動で入力する場合は**Custom SQL** を選択します。
+	- Query Builder では、表示するワークスペースとカラムを選択します。カラム名で検索できます。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+## データのリフレッシュ
+
+データがインポートされたら、自動で定期的にリフレッシュされるように設定できます。スプレッドシートのデータを手動でリフレッシュすることも可能です。自動更新は、コミットされていないデータを上書きします。データの読み込みだけであれば自動更新は問題ありません。自動更新を有効化済みでデータを書き込む場合は、**更新**ボタンを使って変更を頻繁にコミットしてください。
+
+自動更新が正しく機能するには、Excel ブックをブラウザで開いておく必要があります。また、ブックが15分以上アイドル状態の場合、自動更新は実行されません。
+
+<Steps>
+<Step>
+**CData Connect Spreadsheets** 画面で**Refresh** を選択します。
+</Step>
+<Step>
+リフレッシュするデータシートを選択します。
+    <Columns cols={2}>
+	<Frame>
+	  <img src="/images/ExcelRefresh01.png" alt="Excel refresh 01" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+手動でリフレッシュするには、**Refresh Now** をクリックします。自動更新を設定するには、**Auto Refresh** をクリックします。
+	<Columns cols={2}>
+	<Frame>
+	  <img src="/images/ExcelRefresh02.png" alt="Excel refresh 02" />
+	</Frame>
+	</Columns>
+</Step>
+</Steps>
+
+<Note>
+リフレッシュ間隔は時間単位で設定でき、最小間隔は1時間であることに注意してください。自動更新が失敗した場合、Excel Add-In はさらに2回自動更新を試みます。3回失敗すると、その次の自動更新は、次にユーザーが設定した間隔で試行されます。
+</Note>
+
+クエリを選択して**Remove** をクリックすることで、更新リストからクエリを削除することもできます。
+
+## データの更新
+
+Excel スプレッドシートから元のデータソースに変更をプッシュできます。スプレッドシートを更新するには、データに少なくとも1つの主キーが含まれていなければならないことに注意してください。また、ソースデータを更新するための適切な権限が必要です。
+
+自動更新機能を使用している場合は、データを頻繁に更新するようにしてください。そうしないと、変更が上書きされる可能性があります。
+
+<Note>
+**Note:** CData Connect Spreadsheets はビューの更新をサポートしていません（テーブルのみ）。
+</Note>
+
+スプレッドシートのデータを更新するには、以下の手順に従います：
+
+<Steps>
+<Step>
+Excel スプレッドシートに変更を加えます。
+</Step>
+<Step>
+**CData Connect Spreadsheets** アドインペインで**Update** をクリックします。スプレッドシート全体を更新するか、選択した行のみ更新するかを選択できます。**Confirm** をクリックします。
+</Step>
+</Steps>
+
+## ログ
+
+**Logs** をクリックすると以下の項目を含む直近のクエリが一覧表示されるダイアログが開きます：
+
+- クエリを実行した日時
+- クエリ結果（成功 / 失敗）
+- クエリの内容とパラメータ
+
+詳しくは[Logs](/ja/Logs) を参照してください。
+
+## クエリの詳細設定
+
+データをインポートする際、クエリをビルドするために[フィルタ](#フィルタ) と[ソート](#ソート) が使用できます。SQL クエリでは、詳細設定オプションの[パラメタライズドクエリ](#パラメタライズドクエリの記述)および[検索可能なスプレッドシート](#検索可能なスプレッドシートの作成)を使用できます。
+
+### フィルタ
+
+フィルタを追加するには、**Filters** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにフィルタを追加することができ、フィルタの横にあるゴミ箱のアイコンをクリックすると、フィルタを削除できます。
+<Columns cols={2}>
+<Frame>
+  <img src="/images/excel_365_filter.png" alt="Excel 365 filter" />
+</Frame>
+</Columns>
+各フィルタには以下の3つの入力項目があります：
+
+- **Column**—フィルタをかけたいカラムをテーブルから選択します。
+- **Operator**—フィルタが実行するオペレーションを選択します。オプション：*equals*、*does not equal*、*contains*、*does not contain*、*less than*、*less than or equal to*、*greater than*、*greater than or equal to*
+- **Value**—フィルタ操作の値を表示します。
+
+例えば、AccountValues が$100,000を超えるものを取り出したい場合、Column を*AccountValues*、Operator を*greater than*、そしてValue を*100,000* にそれぞれ設定します。この設定をすることでクエリを実行したときにフィルタにマッチした結果のみが返されます。
+
+フィルタのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。
+
+### ソート
+
+クエリ結果にソートルールを追加するには、**Sort By** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにソートルールを追加することができ、ソートルールの横にあるゴミ箱のアイコンをクリックすると、ソートルールを削除できます。
+<Columns cols={2}>
+<Frame>
+  <img src="/images/excel_365_sort.png" alt="Excel 365 sort" />
+</Frame>
+</Columns>
+各ソートルールは**Column** と**Order**（昇順または降順）の選択が必要です。複数のソートルールを追加する場合は、ルールが表示されている順で結果がソートされます。クエリは、最初のルールを最も優先してソートし、次に2番目のルール、といった順番でソートされます。
+
+ソートのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。
+
+### パラメタライズドクエリの記述
+
+カスタムSQL ステートメントでセルを参照することで、動的スプレッドシートを作成できます。Excel アドインは、ステートメントをパラメータ化されたクエリとして実行します。シート内の値を変更すると、Excel アドインは新しいクエリを実行します。
+
+### 検索可能なスプレッドシートの作成
+
+パラメータ化されたSELECT WHERE クエリを使用して、セルを編集するとデータを動的にフィルタリングするスプレッドシートを作成します。次のフィルタ条件は`@InputSheet!A2` パラメータを参照します。これは、シート`InputSheet` のセル`A2` です。`@` プレフィックスは、`Industry` が必須パラメータであることを示します。
+
+```bash
+SELECT BillingState, Name FROM Account WHERE Industry = @InputSheet!A2
+```

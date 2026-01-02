@@ -1,0 +1,159 @@
+---
+title: "Settings"
+description: "ダッシュボードの右上にある歯車アイコンをクリックすると、*Settings* ページにアクセスできます。"
+---
+
+
+<Columns cols={3}>
+<Frame>
+  <img src="/images/access_settings.png" alt="Access settings" />
+</Frame>
+</Columns>
+Settings ページは次の4つのタブに分かれています：
+
+- **Profile**
+- **Account**
+- **Access Tokens**
+- **Billing**
+<Columns cols={2}>
+<Frame>
+  <img src="/images/settings_tabs.png" alt="Settings tabs" />
+</Frame>
+</Columns>
+以下のセクションで、これらのタブについて説明します。
+
+## Profile
+
+**Profile** タブはSettings ページにアクセスするとデフォルトで開きます。このタブには、現在ログインしているユーザーの設定が含まれています。
+
+<Frame>
+  <img src="/images/settings_profile.png" alt="Settings profile" />
+</Frame>
+
+**User Profile** セクションでは現在のユーザーの名前と名字を編集できます。**Role** テキストボックスにユーザーロールが表示されますが、このページでは編集できません。ロールの詳細については、[Users](/ja/Users) を参照してください。
+
+パスワードをリセットするには**Reset Password** をクリックします。クリックすると、**Email** に表示されているE メールアドレスにパスワードリセット用のメールが送信されます。
+
+**Grant Support Access** セクションでは、管理者がサポートアクセスをON に切り替えることができ、CData サポートチームがログインして管理者のアカウント内のユーザーの問題のトラブルシューティングを支援することができます。サポートアクセスは、指定された日付で自動的に期限切れになります。ただし管理者は、この設定を無効にすることでいつでもアクセスを取り消すことができます。**Save Changes** をクリックして選択内容を保存します。**Grant Support Access** ダイアログで**Accept** をクリックし、サポートアクセスを許可する条件に同意します。
+<Note>
+**Note:** この機能は管理者のみ利用できます。クエリユーザーは、管理者に連絡してサポートにアクセス権を付与してもらうことが可能です。
+</Note>
+## Account
+
+**Account** タブでは、アカウント全体の設定やトラブルシューティングの機能にアクセスできます。
+
+<Frame>
+  <img src="/images/settings_account.png" alt="Settings account" />
+</Frame>
+
+以下はこのページの各セクションの概要です。
+
+### Details
+
+**Details** セクションには、以下のグローバルアカウント情報が記載されています：
+
+- Organization Name（法人名）
+- Country（国名）
+
+### Primary Contact Information
+
+このセクションには、請求書、お知らせ、およびその他のコミュニケーションのためのアカウントの主要な連絡先を定義する次のフィールドが含まれています：
+
+- First name（名）
+- Last name（姓）
+- Email（E メール）
+- Phone Number（電話番号）
+- Country（国名）
+
+<Note>
+**Note:** これらのフィールドは管理者のみ編集できます。
+</Note>
+
+### Delete Account
+
+Connect AI のアカウントとデータをすべて削除したい場合は、**Contact Sales** をクリックしてお問い合わせください。
+
+<Note>
+**Notes:**
+
+- 一度アカウントを削除すると二度と元に戻せません。アカウント削除後Connect AI を再度ご利用になる場合は、新しいアカウントの作成が必要です。
+</Note>
+
+## Access Tokens
+
+Personal Access Tokens (PAT) は、[REST API](/ja/REST-API)、[OData プロトコル](/ja/OData-Dashboard)、または[仮想SQL Server](/ja/SQL-Server) を介してデータに接続する際に使用します。このタブでPAT の作成と管理ができます。
+
+<Frame>
+  <img src="/images/settings_accesstokens.png" alt="Settings access tokens" />
+</Frame>
+
+### PAT の作成
+
+新しいPAT を作成するには、次の手順を実行してください：
+
+<Steps>
+<Step>
+**Create PAT** をクリックします。
+</Step>
+<Step>
+表示されたダイアログにPAT の名前を入力します。目的を示す名称を入力すると便利です。
+</Step>
+<Step>
+**Create** をクリックして別のダイアログを開きます。
+</Step>
+<Step>
+表示されたダイアログにあるコピーアイコンをクリックし、PAT をクリップボードにコピーします。アイコンはトークンフィールドの右側にあります。
+	<Note>
+	 **Note:** このダイアログを閉じた後、再度PAT を表示することはできません。
+	</Note>
+	<Frame>
+	  <img src="/images/pat_created.png" alt="PAT created" />
+	</Frame>
+</Step>
+<Step>
+**OK** をクリックしてダイアログを閉じます。
+</Step>
+</Steps>
+
+### PAT の再生成
+
+PAT を再生成するには、PAT リストの再生成アイコンをクリックし、表示されるプロンプトに従います。
+
+<Frame>
+  <img src="/images/pat_regen.png" alt="PAT regenerate" />
+</Frame>
+
+<Note>
+**Note:** PAT の再生成を行うと、PAT を使用しているすべてのアプリケーションのアクセスが無効になります。そのため、新しく生成されたPAT の入力が再度必要になります。
+</Note>
+
+### PAT の削除
+
+使用しないPAT を削除するには、PAT リストの削除アイコンをクリックします。
+
+<Frame>
+  <img src="/images/pat_delete.png" alt="PAT delete" />
+</Frame>
+
+表示される確認ダイアログで**Confirm** をクリックします。削除に成功したことを示すダイアログで**OK** をクリックします。
+
+<Note>
+**Note:** PAT の削除を行うと、PAT を使用しているすべてのアプリケーションのアクセスが無効になります。そのため、アクセスを回復するには、新しいPAT を作成してアプリケーションに入力する必要があります。
+</Note>
+
+## Billing
+
+**Billing** タブでは、アカウントのプランと使用状況に関する情報を確認および管理できます。
+
+<Frame>
+  <img src="/images/settings_billing.png" alt="Settings billing" />
+</Frame>
+
+このタブは以下で構成されています：
+
+- **Billing** セクションには、プランの情報と次回の請求日が表示されます。
+	- CData Connect Spreadsheets ユーザーがアップグレードプランを比較できる**Compare Plans** [リンク](https://www.cdata.com/spreadsheets/pricing/)があります。
+	- **Manage Payment Method** をクリックすると、Stripe のアカウントが開きます。支払い方法や請求先住所など、請求設定を管理できます。サブスクリプション期間が終了している場合は、Connect AI を引き続き使用するにはプランを再アクティブ化する必要があります。
+	- 右側には**Update Plan** セクションがあります。Connect AI セールスチームへのお問い合わせは、sales@cdata.co.jp 宛にE メールでご連絡ください。
+	- トライアル期間中の場合は、このセクションにはトライアル情報が表示されます。
+- **Your Plan Details** セクションには、現在のプランに含まれる内容が表示されます。

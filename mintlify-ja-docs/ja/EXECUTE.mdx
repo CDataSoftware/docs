@@ -1,0 +1,39 @@
+---
+title: "EXECUTE Statements"
+sidebarTitle: "EXECUTE"
+description: "To execute stored procedures, you can use EXECUTE or EXEC statements."
+---
+
+
+
+EXEC and EXECUTE assign stored procedure inputs, referenced by name, to values or parameter names.
+
+## Stored Procedure Syntax
+
+To execute a stored procedure as an SQL statement, use the following syntax:
+
+```bash
+{ EXECUTE | EXEC } <stored_proc_name>
+{
+  [ @ ] <input_name> = <expression>
+} [ , ... ]
+ 
+<expression> ::=
+  | @ <parameter>
+  | ?
+  | <literal>
+```
+
+## Example Statements
+
+Below is an example of how to reference stored procedure inputs by name:
+
+```bash
+EXECUTE my_proc @second = 2, @first = 1, @third = 3;
+```
+
+Below is an example of how to execute a parameterized stored procedure statement:
+
+```bash
+EXECUTE my_proc second = @p1, first = @p2, third = @p3;
+```
