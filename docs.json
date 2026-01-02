@@ -283,6 +283,7 @@
               {
                 "group": "Explore and Model",
                 "pages": [
+                  "en/Data-Copilot",
                   "en/Data-Explorer",
                   "en/QueryBuilder"
                 ]
@@ -1207,6 +1208,7 @@
               {
                 "group": "Explore and Model",
                 "pages": [
+                  "ja/Data-Copilot",
                   "ja/Data-Explorer",
                   "ja/QueryBuilder"
                 ]
