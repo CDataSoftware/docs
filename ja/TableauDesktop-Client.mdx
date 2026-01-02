@@ -1,201 +1,202 @@
 ---
 title: "Tableau Desktop"
-description: "This page outlines the steps to connect Tableau Desktop to Connect AI."
+description: "このページでは、Tableau Desktop をConnect AI に接続する手順の概要を示します。"
 ---
 
 
-
 <Note>
-Before you can configure and use Tableau Desktop with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+**Note:** Connect AI でTableau Desktop を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
-There are two ways to establish this connection, each with its own benefits and drawbacks:
+このコネクションを確立するには2つの方法があり、それぞれにメリットとデメリットがあります。
 
-- **Using the Tableau Desktop Connector**: This method provides the best performance for your reports. However, reports created using this method cannot be published, so they are limited to the local environment. This method is recommended unless you need to publish your reports.
-- **Using the Virtual SQL Server API**: This method allows you to publish your reports outside the local environment. However, the performance of this method might not meet the same standard as the connector. This method is only recommended if you need to publish your reports.
+- **Tableau Desktop コネクタを使用**：この方法は、レポートに最高のパフォーマンスを提供します。ただし、この方法を使って作成したレポートはパブリッシュできないため、ローカル環境での利用に限定されます。レポートをパブリッシュする必要がない場合に限り、この方法をお勧めします。
+- **仮想SQL Server API を使用**：この方法では、ローカル環境の外部にレポートをパブリッシュできます。ただし、この方法を使った場合のパフォーマンスは、コネクタと同じ基準を満たさない場合があります。レポートをパブリッシュする必要がある場合のみ、この方法をお勧めします。
 
-Follow the steps below for your chosen connection method.
+選択した接続方法について、以下の手順に従ってください。
 
-## Method 1: Use the Connector
+## 方法1：コネクタを使用
 
-The Tableau Desktop Connector for Connect AI can be used to establish a connection in both the desktop and server editions of Tableau. The connector includes comprehensive high-performance data access, real-time integration, extensive metadata discovery, and robust SQL-92 support.
+Tableau Desktop Connector for Connect AI はTableau のデスクトップ版およびサーバー版の両方でコネクションの確立に使用できます。コネクタは包括的な高性能データアクセス、リアルタイム連携、高度なメタデータ検出、および強固なSQL-92 サポートを搭載しています。
 
-### Step 1: Install the Connector
+### 手順1：コネクタをインストールする
 
-Follow the directions below for your environment.
+利用環境に応じて以下の手順に従ってください。
 
 #### Tableau Desktop
 
-**Prerequisites**
+**前提条件**
 
-Before you start, you must have a supported Tableau application installed. Supported applications include:
+開始する前にサポートされているTableau アプリケーションをインストールする必要があります。サポートされているアプリケーションは以下のとおりです。
 
-- Tableau Desktop 2020.1 or later
-- Tableau Prep 2020.4.1 or later.
+- Tableau Desktop 2020.1 以降
+- Tableau Prep 2020.4.1 以降
 
-For older versions of Tableau Desktop, please use either [ODBC](/ja/ODBC-Client) or [JDBC](/ja/JDBC-Client) instead.
+上記より古いバージョンのTableau Desktop の場合は、[ODBC](/ja/ODBC-Client) もしくは[JDBC](/ja/JDBC-Client) のいずれかを使用してください。
 
-**Installation Instructions**
+**インストール方法**
 
-Once the prerequisites are satisfied, follow these steps to install the connector:
+前提条件を満たしていることが確認できたら、次の手順に従ってコネクタをインストールします。
 
 <Steps>
 <Step>
-Open the **Integrations** page of Connect AI.
+Connect AI の**Integrations** ページを開きます。
 </Step>
 <Step>
-In the **BI and Reporting Tools** section, click **Tableau Desktop**.
+**BI and Reporting Tools** セクションで、**Tableau Desktop** をクリックします。
 </Step>
 <Step>
-Download and run the setup file. If Tableau Desktop is running during installation, you will need to close and reopen it after the installation finishes.
+セットアップファイルをダウンロードして実行します。インストール中にTableau Desktop が起動している場合は、インストール終了後にTableau Desktop を終了し再度起動する必要があります。
 </Step>
 <Step>
-Once the installation is complete, click **Finish**.
+インストールが完了したら、**Finish** をクリックします。
 </Step>
 </Steps>
 
-If you have Tableau Desktop 2020.3 or later, the setup automatically attempts to register the driver with your Tableau install. By default, the driver `.jar` file is placed into:
+Tableau Desktop 2020.3 以降であれば、セットアップファイルが自動的にドライバーをTableau インストールに登録します。デフォルトではドライバー`.jar` ファイルは以下に配置されます。
 
 - Windows: `C:\Program Files\Tableau\Drivers`
 - Mac: `/Users/myuser/Library/Tableau/Drivers`
 
-By default, the connector `.taco` file is placed into:
+デフォルトではコネクタ`.jar` ファイルは以下に配置されます。
 
 - Windows: `C:\Users\myuser\Documents\My Tableau Repository\Connectors`
 - Mac: `/Users/myuser/Documents/My Tableau Repository/Connectors`
 
-**Manual Registration**
+**手動登録**
 
-If you are using Tableau Prep or a version of Tableau Desktop earlier than 2020.3, the Connect AI Connector setup will not be able to detect your Tableau install. After completing setup, you will need to register the connector manually by following these steps:
+Tableau Prep または2020.3 より前のバージョンのTableau Desktop を使用している場合、Connect AI Connector のセットアップはTableau のインストールを検出することができません。セットアップ完了後に、次の手順に従ってコネクタを手動で登録する必要があります。
 
 <Steps>
 <Step>
-Find the connector install directory. By default, this is `C:\Program Files\CData\Tableau Connector for CData Connect 2021` for Windows and `/Applications/Tableau Connector for CData Connect 2021` for MacOS.
+コネクタのインストール先ディレクトリを見つけます。デフォルトではお使いのプラットフォームに応じて、Windows では`C:\Program Files\CData\Tableau Connector for CData Connect 2021`、MacOS では`/Applications/Tableau Connector for CData Connect 2021` となります。
 </Step>
 <Step>
-Find your Tableau repository. Your repository is usually located in your documents folder with the name `My Tableau Repository`. If you are using Prep, it is called `My Tableau Prep Repository`.
+Tableau リポジトリを見つけます。リポジトリは通常、ドキュメントフォルダに`My Tableau Repository` という名前で配置されます。Prep を使用している場合は、`My Tableau Prep Repository` という名前になります。
 </Step>
 <Step>
-Open the Tableau install directory and open the `lib` directory. Copy `cdata.Cloud.legacy.taco` into the `Connectors` directory within your Tableau repository.
+Tableau のインストール先ディレクトリを開き、`lib` ディレクトリを開きます。`cdata.Cloud.legacy.taco` をTableau リポジトリ内の`Connectors` にコピーします。
 </Step>
 </Steps>
 
 <Note>
-As of Tableau Prep 21.2+, standard taco files are supported instead of legacy taco files.
+**Note:** Tableau Prep 21.2 以降のバージョンでは、レガシーtaco ファイルの代わりに標準taco ファイルがサポートされます。
 </Note>
 
 #### Tableau Server
 
-**Prerequisites**
+**前提条件**
 
-Before you start, you must have a supported Tableau application installed. This includes Tableau Server 2020.1 or later.
+開始する前にサポートされているTableau アプリケーションをインストールする必要があります。2020.1 以降のバージョンのTableau Server がサポートされています。
 
-For older versions of Tableau Server, please use either the [CData ODBC Driver](/ja/ODBC-Client) or the [JDBC driver for Connect AI](/ja/JDBC-Client) instead.
+上記より古いバージョンのTableau Server の場合は、[ODBC](/ja/ODBC-Client) もしくは[JDBC](/ja/JDBC-Client) のいずれかを使用してください。
 
 <Note>
-If a connector has the same class as a connector previously registered, the new one will be rejected.
+**Note:** 過去に同じクラスのコネクタの登録がある場合、新しいものは拒否されます。
 </Note>
 
-**Install Instructions**
+**インストール方法**
 
-Once the prerequisites are satisfied, follow these steps to install the connector:
+前提条件を満たしていることが確認できたら、次の手順に従ってコネクタをインストールします。
 
 <Steps>
 <Step>
-Open the **Integrations** page.
+**Integrations** ページを開きます。
 </Step>
 <Step>
-In the **BI and Reporting Tools** section, click **Tableau Desktop**.
+**BI and Reporting Tools** セクションで、**Tableau Desktop** をクリックします。
 </Step>
 <Step>
-Download and run the setup file. If Tableau Server is running during installation, you will need to close and reopen it after the installation finishes.
+セットアップファイルをダウンロードして実行します。インストール中にTableau Server が起動している場合は、インストール終了後にTableau Server を終了し再度起動する必要があります。
 </Step>
 <Step>
-Once the installation is complete, click **Finish**.
+インストールが完了したら、**Finish** をクリックします。
 </Step>
 <Step>
-A JAR file will be automatically placed in the Drivers directory, which is `C:\Program Files\Tableau\Drivers` by default. This file needs to remain here for the connector to function properly.
+デフォルトでは`C:\Program Files\Tableau\Drivers` というパスのDrivers ディレクトリにJAR ファイルが自動的に配置されます。コネクタが正常に機能するためには、このファイルをこの場所に配置しておく必要があります。
 </Step>
 <Step>
-Make sure that the license file (.lic) is placed alongside the JAR in the `Drivers` folder.
+license ファイル（.lic）がJAR と一緒に`Drivers` フォルダに配置されていることを確認します。
 </Step>
 <Step>
-Drop the `.taco` file into `[RootDirectory]/data/tabsvc/vizqlserver/Connectors`. The root directory is likely to be `ProgramData` on the drive Tableau Server is installed on.
+`.taco` ファイルを`[RootDirectory]/data/tabsvc/vizqlserver/Connectors` に配置します。ルートディレクトリは通常、Tableau Server がインストールされているドライブにある`ProgramData` です。
 </Step>
 <Step>
-Restart the server.
+サーバーを再起動します。
 </Step>
 <Step>
-To use an unsigned packaged connector, optionally disable signature verification by setting `native_api.disable_verify_connector_plugin_signature` to `true` via TSM.
+署名されていないパッケージコネクタを使用するには、オプションでTSM から`native_api.disable_verify_connector_plugin_signature` を`true` に設定し、署名検証を無効にします。
 </Step>
 </Steps>
 
-### Step 2: Connecting to Connect AI
+### 手順2：Connect AI に接続する
 
-Once the connector is installed, open Tableau Desktop or Tableau Server and perform the following steps:
-
+コネクタをインストールしたら、Tableau Desktop またはTableau Server を開き次の手順に従います。
 <Steps>
 <Step>
-In the **Connect** sidebar menu, under the **To a Server** category, click **More…**
+サイドバーの**接続**メニューの**サーバーへ**カテゴリの下にある**その他…**をクリックします。
 </Step>
 <Step>
-Use the search field or locate and click **CData Connect by CData**.
+検索フィールドを使用するか、**CData によるCData Connect** を探してクリックします。
 </Step>
 <Step>
-A sign-in prompt appears. Click **Sign In**.
+サインインのプロンプトが表示されます。**サインイン**をクリックします。
 </Step>
 <Step>
-Sign in to your Connect AI account.
+Connect AI アカウントにサインインします。
 </Step>
 <Step>
-After signing in, or if you are already signed in, your connection appears in the **Connections** pane on the left.
+サインイン完了後、またはすでにサインインしている場合、左側の**接続**ペインにコネクションが表示されます。
 </Step>
 </Steps>
+Tableau でコネクションを使用するスキーマを選択できるようになりました。
 
-You can now use the desired Schema in Tableau.
+## 方法2：仮想SQL Server を使用
 
-## Method 2: Use Virtual SQL Server
+コネクタをダウンロードしてインストールする代わりに、Connect AI 仮想SQL Server API に接続できます。レポートをパブリッシュする必要がある場合のみ、この方法をお勧めします。
 
-As an alternative to downloading and installing the connector, you can connect to the Connect AI Virtual SQL Server API. This method is only recommended if you need to publish your reports.
+### 前提条件
 
-### Prerequisites
+Tableau に接続する前に、Microsoft ODBC Driver for SQL Server の最新版がシステムにインストールされていることを確認してください。最新版であることを確認するには、**ODBC データ ソース アドミニストレーター** > **ドライバー**タブを開きます。
 
-Before you connect, you must first generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page of Connect AI. Copy this down, as it acts as your password during authentication.
-<img src="./images/tableau_desktop_prereq.png"/>
-### Connect to Connect AI
+<Frame>
+  <img src="./images/tableau_desktop_prereq.png" alt="Tableau Desktop prerequisite" />
+</Frame>
 
-To establish a connection from Tableau Desktop to the Connect AI Virtual SQL Server API, follow these steps.
+使用しているドライバーがSQL Server またはSQL Server Native Client の場合は、Microsoft ODBC Driver 18 for SQL Server にアップグレードしてください。[ここ](https://learn.microsoft.com/ja-jp/sql/connect/odbc/download-odbc-driver-for-sql-server) をクリックしてダウンロードできます。
+
+- Connect AI の[Settings](/ja/Settings#access-tokens) ページでPersonal Access Token（PAT）を生成することも必要です。PAT をコピーし、認証時にパスワードとして使用します。
+
+### Connect AI への接続
+
+Tableau Desktop からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
 
 <Steps>
 <Step>
-In Tableau Desktop, open a new book. Under **To a Server**, select **More**, then **Microsoft SQL Server**.
+Tableau Desktop で新しいワークブックを開きます。**サーバーへ**から**その他**を選択し、**Microsoft SQL Server** を選択します。
 <Frame>
   <img src="./images/tableau_desktop_sql.png" alt="Tableau Desktop SQL" />
 </Frame>
 </Step>
 <Step>
-Enter your credentials:
-- **Server**—enter the Virtual SQL Server endpoint and port separated by a comma: *tds.cdata.com*,*14333*
-- **Database**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
-- **Authentication**—select **Use a specific username and password**.
-- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
-- **Require SSL**—leave this selected.
+クレデンシャルを入力します。
+	- **Server**—次のように仮想SQL Server のエンドポイントとポートをカンマで区切って入力します。例：*tds.cdata.com*,*14333*
+	- **Database**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Authentication**—**Use a specific username and password** を選択します。
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	- **Require SSL**—選択したままにしておきます。
 <Frame>
-  <img src="./images/tableau_desktop_login.png" alt="Tableau Desktop Login" />
+  <img src="./images/tableau_desktop_login.png" alt="Tableau Desktop login" />
 </Frame>
 </Step>
 <Step>
-Click **Sign In**. The authentication process may take a few minutes.
+**サインイン**をクリックします。認証プロセスには数分かかる場合があります。
 </Step>
 </Steps>
 
+サインインに成功したら、Tableau Desktop サイドバーのデータにアクセスして、レポートを作成およびパブリッシュできます。
 
+## 詳細
 
-
-
-After you successfully sign in, you can access your data in the Tableau Desktop sidebar to create and publish reports.
-
-## Learn More
-
-To learn more information about using the Tableau Connector for Connect AI, click [here](https://cdn.cdata.com/help/LFG/tableau/default.htm).
+Tableau Connector for Connect AI の使用についての詳細は、[こちら](https://cdn.cdata.com/help/LFG/tableau/default.htm)を参照してください。

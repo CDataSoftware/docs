@@ -1,73 +1,72 @@
 ---
-title: "Features"
-description: "Embedded Cloud supports powerful features that advanced users and organizations rely on for their workflows. This page outlines some of these features."
+title: "機能"
+description: "Embedded Cloud は、高度なユーザーや組織がワークフローに求めるパワフルな機能をサポートしています。このページでは、それらの機能の一部をご紹介します。"
 ---
 
 
+## Derived View
 
-## Derived Views
+Embedded Cloud はDerived view をサポートしています。Derived view は、使用時にデータを動的に入力する保存されたクエリです。[Data Explorer](/ja/Data-Explorer#derived-view-の作成)でDerived view を作成したら、お好みの[Integrations](/ja/Integrations-Embedded) から、あたかも他のコネクションであるかのようにクエリできます。Derived view をクエリする場合、構文は`CData.DerivedViews.derivedViewName`の形式になります。
 
-Embedded Cloud supports derived views, which are saved queries that dynamically populate data when you use them. After you create a derived view in [Data Explorer](/ja/Data-Explorer#configuring-derived-views), you can query it from your choice of [Integrations](/ja/Integrations-Embedded) as though it were any other connection. When querying a derived view, the syntax follows the format `CData.DerivedViews.derivedViewName`.
+アカウントにDerived view が保存されると、すべてのユーザーのDerived view リストに表示されます。ただし、Derived view に対してクエリを発行するユーザーは、Derived view がクエリする各データソースに対して適切な[権限](/ja/Sources-Embedded#権限の付与)を持っている必要があります。ユーザーが適切な権限を持っていない場合、クエリを発行するとエラーが表示されます。
 
-When a derived view is saved in an account, it appears in the derived views list for all users. However, users who issue queries to derived views must have appropriate [permissions](/ja/Sources-Embedded#assigning-permissions) for each data source that the derived view queries. If a user lacks appropriate permissions, they will receive an error when issuing a query.
+### Derived View の例
 
-### Example Derived View
-
-If you wanted to create a derived view to return all of the accounts in your Salesforce connection that were marked as deleted, your derived view might contain the following query:
+削除済みとしてマークされたSalesforce コネクション内のすべてのアカウントを返すDerived view を作成したい場合、Derived view には次のクエリが含まれることがあります。
 
 ```sql
 SELECT * FROM [Salesforce1].[Salesforce].[Accounts] WHERE Deleted = 'true'
 ```
 
-If you saved this derived view as DeletedAccounts, you could issue the following query from a Client to return all of the deleted accounts:
+このDerived view をDeletedAccounts として保存した場合、クライアントから次のクエリを発行して、削除されたすべてのアカウントを返すことができます。
 
 ```sql
 SELECT * FROM [CData].[DerivedViews].[DeletedAccounts]
 ```
 
-This derived view provides a convenient, consistent way to access an up-to-date list of deleted accounts without the need to re-enter the query parameters every time.
+このDerived view は、クエリパラメータを毎回再入力することなく削除されたアカウントの最新リストにアクセスするための、便利で一貫した方法を提供します。
 
-## Query Federation
+## クエリフェデレーション
 
-Embedded Cloud enables you to write queries that combine data from different sources directly, on-demand.
+Embedded Cloud では、必要に応じて異なるデータソースのデータを直接組み合わせるクエリを作成できます。
 
-In many ad hoc scenarios, it is impractical to build pipelines to consolidate data. With query federation, you can bypass the need for custom pipelines by creating queries across data sources from the reporting tool of your choice.
+多くのアドホックなシナリオでは、データを結合するためにパイプラインを構築することは非現実的です。クエリフェデレーションを使用すると、お好みのデータ分析ツールから複数データソースをまたいでクエリを作成することで、カスタムパイプラインの必要性を回避できます。
 
-See [SQL Federated Queries](/ja/SQL-Reference#federated-queries) for more information.
+詳しくは、[SQL Federated Queries](/ja/SQL-Reference#federated-queries) を参照してください。
 
-## Single Sign-On (SSO)
+## シングルサインオン（SSO）
 
-Embedded Cloud supports Single Sign-On (SSO). When SSO is enabled for your account, users sign in through your chosen SSO provider instead of using Embedded Cloud login credentials.
+Embedded Cloud は、シングルサインオン（SSO）をサポートしています。アカウントでSSO が有効になっている場合、ユーザーはEmbedded Cloud のログイン資格情報を使用する代わりに、選択したSSO プロバイダー経由でサインインします。
 
-Embedded Cloud supports the following SSO providers:
+Embedded Cloud は、次のSSO プロバイダーをサポートしています：
 
 - SAML
 - OpenID Connect
 - Google Workspace
-- Microsoft Entra ID (formerly Azure AD)
-- Active Directory Federation Services (ADFS)
+- Microsoft Entra ID（旧称 Azure AD）
+- Active Directory Federation Services（ADFS）
 - Active Directory/LDAP
 - Ping Federate
 - Okta Workforce Identity Cloud
 
-To enable SSO for your account, contact the CData sales team at sales@cdata.com.
+アカウントでSSO を有効にするには、CData セールスデスク sales@cdata.co.jp までお問い合わせください。
 
-## User Credentials
+## ユーザー資格情報
 
-By default, all users on an account can access data from a data source through the same login credentials. For example, if you have a connection to Salesforce, all user accounts can access the data from the Salesforce account created for that Salesforce connection. Query permissions can be customized per-user to restrict available operations, but all users access the same data under these restrictions.
+デフォルトでは、アカウントのすべてのユーザーは、同じログイン資格情報でデータソースのデータにアクセスできます。例えばSalesforce へのコネクションがある場合、すべてのユーザーアカウントは、そのSalesforce コネクション用に作成されたSalesforce アカウントのデータにアクセスできます。クエリの権限をユーザーごとにカスタマイズして利用可能な操作を制限できますが、これらの制限の下で、すべてのユーザーが同じデータにアクセスします。
 
-Certain data sources support the ability to force each user on an account to log in to a connection with their own login credentials. This feature ensures that users can only access the data from accounts that they need to access. Furthermore, when a connection is configured in this way, it only counts as a single connection slot toward your account maximum.
+一部のデータソースでは、アカウントの各ユーザーが自分のログイン資格情報でコネクションにログインすることを強制する機能をサポートしています。この機能により、ユーザーはアクセスする必要があるアカウントのデータのみにアクセスすることになります。さらに、この方法でコネクションが設定されている場合、アカウントの最大数に対して1つのコネクションスロットとしてのみカウントされます。
 
-If a data source supports User Credentials, a **Data Credentials** label appears in the **Authentication** section of the connection settings. Clicking the setting next to this label opens a dialog that allows you to set the desired mode for the connection.
+データソースがユーザー資格情報をサポートしている場合、コネクション設定の**Authentication** セクションに**Data Credentials** ラベルが表示されます。このラベルの横にある設定をクリックすると、接続に必要なモードを設定するためのダイアログが開きます。
 
 <Frame>
-  <img src="./images/user_credentials_modal.png" alt="User Credentials Modal" />
+<img src="./images/user_credentials_modal.png" alt="User credentials modal" />
 </Frame>
 
 <Note>
-**Note:** The following restrictions apply to this feature:
+**Note:** この機能には次の制約が適用されます。
 
-- This feature is only available for the following data sources. If this feature is desired for a data source that is not listed, please contact our support team to request it.
+- この機能は、次のデータソースでのみ利用可能です。リストにないデータソースでこの機能が必要な場合は、サポートチームまでお問い合わせください。
 	- Paylocity
 	- RedShift
 	- Sage Intacct
@@ -75,12 +74,12 @@ If a data source supports User Credentials, a **Data Credentials** label appears
 	- SharePoint
 	- Snowflake
 	- Workday
-- Only administrator users can toggle a data source between Shared Credentials and User Credentials, but users of all roles can log in to a User Credentials connection with their own credentials.
-- User Credentials are not supported when using the [OData API](/ja/OData-Dashboard). To connect a data source to the OData API, you must use Shared Credentials.
+- データソースを共有資格情報とユーザー資格情報の間で切り替えることができるのは管理者ユーザーのみですが、すべてのロールのユーザーは、ユーザー資格情報接続に自分の資格情報でログインすることができます。
+- [OData API](/ja/OData-Dashboard) を使用する場合、ユーザー資格情報はサポートされません。データソースをOData API に接続するには、共有資格情報を使用する必要があります。
 </Note>
 
-## Workspaces
+## ワークスペース
 
-The workspaces feature at its core is an organization scheme that creates a data catalog from connected data sources in Embedded Cloud. Virtual datasets make it possible to bundle related data items separately in a simple and scalable way, while reducing data silos and promoting synergy across teams.
+ワークスペース機能の中核は、Embedded Cloud 内の接続されたデータソースからデータカタログを作成する組織スキームです。仮想データセットを使用すると、関連するデータ項目をシンプルかつスケーラブルな方法で個別にバンドルすることが可能となり、同時にデータのサイロ化を減らしてチーム間の相乗効果を促進します。
 
-These workspaces can include tables, views, and derived views. All of these are exposed directly without transformations, so the column names and other properties remain the same. Any table, view, or derived view can be added to any number of workspaces. They can be referenced by a unique alias. Tables that are workspaces support full CRUD capabilities.
+ワークスペースには、テーブル、ビュー、Derived View を含めることができます。これらはすべて変換なしで直接公開されるため、カラム名やその他のプロパティは同じままです。任意のテーブル、ビュー、Derived View を、任意の数のワークスペースに追加できます。これらは一意のエイリアスで参照できます。ワークスペースであるテーブルは、完全なCRUD 機能をサポートします。

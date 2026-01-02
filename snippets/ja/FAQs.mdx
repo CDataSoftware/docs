@@ -1,36 +1,37 @@
 <AccordionGroup>
-  <Accordion title="What is the rate limit for issuing requests to connections?">
-    The Connect AI rate limit is 100 requests per user per minute. This limit is shared across all data sources, so if a user issues 70 requests in a minute to one connection, that user can only issue 30 more requests to another connection in the same minute. Note that requests with excessively long response times might time out. If your request times out, please refine the query to reduce the time it takes to execute.
-  </Accordion>
+<Accordion title="コネクションへのリクエスト発行のレートリミットは？">
 
-  <Accordion title="What static IP addresses does Connect AI use?">
-    Connect AI uses a range of static IP addresses to communicate with external data sources. To ensure that you can access your data, you must whitelist these static IP addresses in your data sources. The table below lists these IP addresses.
+Connect AI のレートリミットは、ユーザーあたり毎分100リクエストです。この制限はすべてのデータソース間で共有されるため、あるユーザーがあるコネクションに対して1分間に70リクエストを発行した場合、そのユーザーは同じ1分間に別のコネクションに対して残りの30リクエストのみ発行できます。応答時間が過度に長いリクエストはタイムアウトになる可能性があることに注意してください。リクエストがタイムアウトした場合は、クエリを絞り込んで実行時間を短縮してください。
+</Accordion>
+<Accordion title="Connect AI はどの固定IP アドレスを使用しますか？">
 
-    | IP Addresses (CIDR) | IP Addresses (Range) |
-    |:------------------- |:-------------------- |
-    | 52.224.0.160/28 | 52.224.0.160 - 52.224.0.175 |
-    | 4.154.117.160/28 | 4.154.117.160 - 4.154.117.175 |
-  </Accordion>
+Connect AI は、一連の固定IP アドレスを使用して外部データソースと通信します。データに確実にアクセスできるようにするには、データソースでこれらの固定IP アドレスをホワイトリストに登録する必要があります。以下のテーブルは、IP アドレスのリストです。
 
-  <Accordion title="How do I change the email address on my account?">
-    To change the primary contact for your Connect AI account, click your username in the upper right corner and choose **Settings**. Select the **Account** tab and change the **Primary Contact Information** details.
+| IP Addresses (CIDR) | IP Addresses (Range) |
+| --- | --- |
+| 52.224.0.160/28 | 52.224.0.160 - 52.224.0.175 |
+| 4.154.117.160/28 | 4.154.117.160 - 4.154.117.175 |
+</Accordion>
+<Accordion title="アカウントのE メールアドレスを変更するにはどうすればよいですか？">
 
-    To change the email address for your own account, click **Users** in the left menu. Click **Invite Users** to open the user invitation dialog. Send an invitation to your new email and follow the steps to accept the invitation. Once your new account is active, return to the **Users** page and delete your original account. For more information, review [invite users](/ja/Users#invite-users).
-  </Accordion>
+Connect AI アカウントの第一連絡先を変更するには、右上隅のユーザー名をクリックして**Settings** を選択します。**Account** タブを選択し、**Primary Contact Information** の詳細を変更します。
 
-  <Accordion title="Why is my data not available in my integration tool?">
-    First, check that you can access your data from your connection using [Data Explorer](/ja/Data-Explorer). If you cannot, there may be an issue with the connection to your data source. Check your connection details and ensure that you have set the permissions for the connection correctly.
+自分のアカウントのE メールアドレスを変更するには、左側のメニューの**Users** をクリックします。**Invite Users** をクリックして、ユーザー招待画面を表示します。新しいE メールに招待を送信し、手順に従って招待を受け入れます。新しいアカウントがアクティブになったら、**Users** ページに戻り元のアカウントを削除します。詳しくは、[ユーザーの招待](/ja/Users##ユーザーの招待)を参照してください。
+</Accordion>
+<Accordion title="インテグレーションツールでデータが利用できないのはなぜですか？">
 
-    If you can access your data in Data Explorer, there may be an issue with the configuration of your integration tool. Check your integration tool configuration according to the instructions in the [documentation](/ja/Integrations-Embedded).
+まず、[Data Explorer](/ja/Data-Explorer) を使用して、コネクションからデータにアクセスできることを確認してください。アクセスできない場合は、データソースへの接続に問題がある可能性があります。コネクションの詳細を確認し、接続の権限が正しく設定されていることを確認してください。
 
-    If your data is still not accessible, please contact CData Technical Support.
-  </Accordion>
+Data Explorer でデータにアクセスできる場合は、インテグレーションツールの設定に問題がある可能性があります。[ヘルプ](/ja/Integrations)の指示に従って、インテグレーションツールの設定を確認してください。
 
-  <Accordion title="Are there currently any known service outages?">
-    The [Connect AI Status page](https://status.cdata.com/) shows the current status and incident history for the application services.
-  </Accordion>
+それでもデータにアクセスできない場合は、CData テクニカルサポートまでお問い合わせください。
+</Accordion>
+<Accordion title="現在、既知のサービス障害はありますか？">
 
-  <Accordion title="How do I contact CData Technical Support?">
-    The [CData Technical Support](https://www.cdata.com/support/submit.aspx) contact form allows you to send a message to our Technical Support team. You also access this form by clicking the **Support** link at the bottom of the dashboard.
-  </Accordion>
+[Connect AI のステータスページ](https://status.cdata.com/)で、アプリケーションサービスの現在のステータスおよびインシデントの履歴を確認できます。
+</Accordion>
+<Accordion title="CData テクニカルサポートに連絡するにはどうすればよいですか？">
+
+[CData テクニカルサポート](https://jp.cdata.com/support/submit.aspx) のお問い合わせフォームより、弊社テクニカルサポートチームにメッセージを送信できます。ダッシュボード下部にある**Support** リンクをクリックすると、US のテクニカルサポートフォームにアクセスします。
+</Accordion>
 </AccordionGroup>

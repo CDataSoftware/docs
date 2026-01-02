@@ -23,10 +23,10 @@ To establish a connection from AWS App Studio to Connect AI via OpenAPI, follow 
 <Step>
 In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/ja/OpenAPI) for more information.
 <Note>
-You must use OpenAPI version 3.0.
+**Note:** You must use OpenAPI version 3.0.
 </Note>
 <Frame>
-![](./images/aws_appstudio_client_endpoints.png)
+  <img src="./images/aws_appstudio_client_endpoints.png" alt="AWS App Studio client endpoints" />
 </Frame>
 </Step>
 <Step>
@@ -47,8 +47,8 @@ In the **OpenAPI Connector Configuration** page, configure the following:
 	- **Description**—if desired, enter a description for the connection.
 	- **Base URL**—the URL of the OpenAPI Specification file.
 	- **Authentication method**—select **Basic**.
-	- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-	- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
 	- **OpenAPI Specification file**—import the OpenAPI Specification file you downloaded from Connect AI.
 </Step>
 <Step>
@@ -71,13 +71,13 @@ Click **Add automation**.
 <Step>
 In the **Actions** tab to the right of the application creation screen, click **Invoke API** and add it to a flow.
 <Frame>
-![](./images/aws_appstudio_client_automation.png)
+  <img src="./images/aws_appstudio_client_automation.png" alt="AWS App Studio client automation" />
 </Frame>
 </Step>
 <Step>
 In the **Properties** tab to the right of the application creation screen, select the OpenAPI connector you created.
 <Frame>
-![](./images/aws_appstudio_client_properties.png)
+  <img src="./images/aws_appstudio_client_properties.png" alt="AWS App Studio client properties" />
 </Frame>
 </Step>
 <Step>

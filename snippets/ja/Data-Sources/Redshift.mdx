@@ -1,37 +1,37 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to Amazon Redshift, you need to allow access to Amazon Redshift via CData’s IP. When hosting Amazon Redshift behind a firewall, you must safelist these IP addresses in your firewall.
+Amazon Redshift への接続を確立するには、CData のIP 経由でAmazon Redshift へのアクセスを許可する必要があります。Amazon Redshift をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure Amazon Redshift Is Publicly Accessible
+#### Amazon Redshift が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect Amazon Redshift to your Connect AI account:
+以下の手順で、Amazon Redshift をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *Amazon Redshift* into the search field, then click the data source name.
+検索フィールドに *Amazon Redshift* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 Enter the the host name or IP address of the Amazon Redshift cluster into the **Server** field.
@@ -46,41 +46,40 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-<Tabs>
-  <Tab title="Basic">
+### Basic
+
 <Steps>
 <Step>
-Enter the Amazon Redshift username for authentication in the **User** field.
+Enter 認証用のAmazon Redshift ユーザー名 in the **User** field.
 </Step>
 <Step>
-Enter the user password.
+Enter ユーザーパスワード.
 </Step>
 <Step>
-Enter the port for connecting to the Amazon Redshift server in the **Port** field.
+Enter Amazon Redshift サーバーに接続するためのポート in the **Port** field.
 </Step>
 <Step>
 Enter the **AWS Principal ARN** to use during authentication if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
-In Amazon Redshift, add the Connect AI static IP addresses to your connection whitelist.
+Amazon Redshift で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add Amazon Redshift Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon Redshift Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="ADFS">
+### ADFS
+
 <Steps>
 <Step>
-Enter the Amazon Redshift username for authentication in the **User** field.
+Enter 認証用のAmazon Redshift ユーザー名 in the **User** field.
 </Step>
 <Step>
-Enter the user password.
+Enter ユーザーパスワード.
 </Step>
 <Step>
 Enter the **SSO Login URL**.
@@ -89,28 +88,27 @@ Enter the **SSO Login URL**.
 Enter all relevant **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
 </Step>
 <Step>
-Enter the port for connecting to the Amazon Redshift server in the **Port** field.
+Enter Amazon Redshift サーバーに接続するためのポート in the **Port** field.
 </Step>
 <Step>
 Enter the **AWS Principal ARN** to use during authentication if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
-In Amazon Redshift, add the Connect AI static IP addresses to your connection whitelist.
+Amazon Redshift で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add Amazon Redshift Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon Redshift Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="IAMCredentials">
+### IAMCredentials
+
 <Steps>
 <Step>
-Enter the Amazon Redshift username for authentication in the **User** field.
+Enter 認証用のAmazon Redshift ユーザー名 in the **User** field.
 </Step>
 <Step>
 Enter your **AWS Access Key**.
@@ -119,31 +117,30 @@ Enter your **AWS Access Key**.
 Enter your **AWS Secret Key**.
 </Step>
 <Step>
-Enter the port for connecting to the Amazon Redshift server in the **Port** field.
+Enter Amazon Redshift サーバーに接続するためのポート in the **Port** field.
 </Step>
 <Step>
 Enter the **AWS Principal ARN** to use during authentication if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
-In Amazon Redshift, add the Connect AI static IP addresses to your connection whitelist.
+Amazon Redshift で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add Amazon Redshift Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon Redshift Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="PingFederate">
+### PingFederate
+
 <Steps>
 <Step>
-Enter the Amazon Redshift username for authentication in the **User** field.
+Enter 認証用のAmazon Redshift ユーザー名 in the **User** field.
 </Step>
 <Step>
-Enter the user password.
+Enter ユーザーパスワード.
 </Step>
 <Step>
 Enter the **SSO Login URL**.
@@ -155,28 +152,27 @@ Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=
 Add the **SSO Exchange URL**.
 </Step>
 <Step>
-Enter the port for connecting to the Amazon Redshift server in the **Port** field.
+Enter Amazon Redshift サーバーに接続するためのポート in the **Port** field.
 </Step>
 <Step>
 Enter the **AWS Principal ARN** to use during authentication if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
-In Amazon Redshift, add the Connect AI static IP addresses to your connection whitelist.
+Amazon Redshift で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add Amazon Redshift Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon Redshift Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AzureAD">
+### AzureAD
+
 <Steps>
 <Step>
-Enter the Amazon Redshift username for authentication in the **User** field.
+Enter 認証用のAmazon Redshift ユーザー名 in the **User** field.
 </Step>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -194,30 +190,28 @@ Enter your **OAuth Client Secret**.
 Enter the **Scope**. For v1.0 OAuth tokens, this matches the **Scopes** field in the Expose of an API page of your OAuth app. For v2.0 OAuth tokens, it is the same as the app's Client Id.
 </Step>
 <Step>
-Enter the port for connecting to the Amazon Redshift server in the **Port** field.
+Enter Amazon Redshift サーバーに接続するためのポート in the **Port** field.
 </Step>
 <Step>
 Enter the **AWS Principal ARN** to use during authentication if you have multiple Identity Providers in your AWS account.
 </Step>
 <Step>
-Click **Sign in** to connect securely through OAuth. This action opens the Amazon Redshift sign-in page in a new tab.
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Amazon Redshift のサインインページが新しいタブで開かれます。
 </Step>
 <Step>
-Log in to your Amazon Redshift account and provide the requested permissions (if applicable).
+Amazon Redshift アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
 <Step>
-In Amazon Redshift, add the Connect AI static IP addresses to your connection whitelist.
+Amazon Redshift で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 <Step>
-At the top of the Connect AI **Add Amazon Redshift Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Amazon Redshift Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-</Tabs>
-## More Information
 
-For more information about interactions between Connect AI and Amazon Redshift, see [this information page](https://cdn.cdata.com/help/FRK/cloud/default.htm#default).
+## 詳細について
+
+Connect AI とAmazon Redshift の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/FRK/jp/cloud/default.htm#default)を参照してください。

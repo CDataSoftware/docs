@@ -1,8 +1,9 @@
 <Note>
-**Note:** Before you can configure and use ODBC with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
+**Note:** Connect AI でODBC を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 ## Install the Driver
+
 <Steps>
 <Step>
 Download and run the ODBC setup file for your operating system.
@@ -14,6 +15,7 @@ Download and run the ODBC setup file for your operating system.
 After installation, follow the steps for your platform below.
 </Step>
 </Steps>
+
 ## Create a DSN
 
 The following guides show how to use the standard tools to configure data source names (DSN). You will need to configure the DSN to use the driver.
@@ -21,6 +23,7 @@ The following guides show how to use the standard tools to configure data source
 ### Windows
 
 Follow these steps to edit the DSN configuration using the Microsoft ODBC Data Source Administrator:
+
 <Steps>
 <Step>
 Open the Start menu and enter *ODBC Data Sources* in the Search box.
@@ -53,6 +56,7 @@ When the **OAuth Authorization Successful** message appears, close the web brows
 Click **OK** on the success message, **OK** in the DSN Configuration window, then **OK** in the ODBC Data Source Administrator window.
 </Step>
 </Steps>
+
 <Note>
 **Note:** For .NET Framework 4.0, the driver distributes Microsoft Visual C++ 2017 Redistributable. For .NET Framework 3.5, the driver distributes Microsoft Visual C++ 2008 Redistributable.
 </Note>
@@ -66,6 +70,7 @@ Click **OK** on the success message, **OK** in the DSN Configuration window, the
 On macOS, the ODBC Driver for Connect AI is pre-configured for use with the iODBC driver manager. You can find the latest version of iODBC on the [iODBC site](http://www.iodbc.org/).
 
 Follow these steps to configure the driver:
+
 <Steps>
 <Step>
 Install iODBC and ODBC Driver for the Connect AI.
@@ -76,9 +81,11 @@ Launch the iODBC Data Source Administrator.
 	- If the driver does not appear automatically, follow the steps under [Manually Add the Driver](#manually-add-the-driver).
 </Step>
 </Steps>
+
 #### Logging In
 
 Follow the steps below to connect the driver to your Connect AI account:
+
 <Steps>
 <Step>
 In the iODBC Data Source Administrator, click on the driver entry on the **User DSN** or **System DSN** tab to select it.
@@ -99,6 +106,7 @@ When the OAuth success page appears, close the window and return to iODBC.
 Click **OK** on the success message, and click **OK** to close the iODBC Data Source Administrator.
 </Step>
 </Steps>
+
 You can now use the configured connection in any tools or applications that support ODBC connectivity.
 
 #### Manually Add the Driver
@@ -110,6 +118,7 @@ If the ODBC Driver for Connect AI does not automatically appear in the iODBC Dat
 
 **Files Do Not Exist**  
 If the files do not already exist in either of the directories above, follow these steps:
+
 <Steps>
 <Step>
 Navigate to the driver install directory. By default, this is `/Applications/CData ODBC Driver for CData Connect/`.
@@ -129,8 +138,10 @@ Quit and re-launch the iODBC Data Source Administrator.
 Follow the steps for [Logging in](#logging-in) to complete setup.
 </Step>
 </Steps>
+
 **Files Already Exist**  
 If you already have ODBC configuration files in one of the directories above, follow these steps:
+
 <Steps>
 <Step>
 Navigate to the driver install directory. By default, this is `/Applications/CData ODBC Driver for CData Connect/`.
@@ -141,13 +152,7 @@ Open the `etc` folder and then open the `odbc.ini` file. Copy the contents to yo
 <Step>
 Open the existing `odbc.ini` file in the DSN directory.
 	- If it is in the User DSN directory (`/Users/[myuser]/Library/ODBC/`), you can open the file directly through Finder.
-	- If it is in the System DSN directory (`/Library/ODBC/`), you will need to open the file with elevated permissions. Open a Terminal window and enter:
-
-```bash
-sudo nano /Library/ODBC/odbc.ini
-```
-
-Provide your password when prompted.
+	- If it is in the System DSN directory (`/Library/ODBC/`), you will need to open the file with elevated permissions. Open a Terminal window and enter `sudo nano /Library/ODBC/odbc.ini`, providing your password when prompted.
 </Step>
 <Step>
 Paste the contents of the `odbc.ini` file from the Driver installation directory into the bottom of the existing `odbc.ini` file in the DSN directory.
@@ -165,6 +170,7 @@ Quit and re-launch the iODBC Data Source Administrator.
 Follow the steps for [Logging in](#logging-in) to complete setup.
 </Step>
 </Steps>
+
 ### Linux
 
 Click [here](https://cdn.cdata.com/help/LFG/odbc/pg_connectionodbclinux.htm) for documentation on configuring a DSN on Linux.

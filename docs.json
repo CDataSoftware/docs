@@ -982,12 +982,12 @@
             "icon": "book",
             "pages": [
               {
-                "group": "Getting Started",
+                "group": "はじめに",
                 "pages": [
                   "ja/docs",
                   "ja/Quick-Start-Guide",
                   {
-                    "group": "Navigation Menu",
+                    "group": "ナビゲーションメニュー",
                     "pages": [
                       "ja/Navigation-Menu",
                       "ja/Users",
@@ -998,7 +998,7 @@
                 ]
               },
               {
-                "group": "Data Sources",
+                "group": "データソース",
                 "pages": [
                   "ja/Salesforce",
                   "ja/GoogleBigQuery",
@@ -1212,7 +1212,7 @@
                 ]
               },
               {
-                "group": "Integrations",
+                "group": "インテグレーション",
                 "pages": [
                   "ja/Integrations",
                   "ja/ChatGPT-Client",
@@ -1222,7 +1222,7 @@
                     "group": "More",
                     "pages": [
                       {
-                        "group": "AI Tools",
+                        "group": "AI ツール",
                         "pages": [
                           "ja/AITools",
                           "ja/AgentBricks-Client",
@@ -1241,7 +1241,7 @@
                         ]
                       },
                       {
-                        "group": "BI and Reporting Tools",
+                        "group": "BI とデータ分析ツール",
                         "pages": [
                           "ja/BIReportingTools",
                           "ja/Alteryx-Client",
@@ -1278,7 +1278,7 @@
                         ]
                       },
                       {
-                        "group": "No-Code Tools",
+                        "group": "ノーコードツール",
                         "pages": [
                           "ja/NoCodeTools",
                           "ja/AppSheet-Client",
@@ -1299,7 +1299,7 @@
                         ]
                       },
                       {
-                        "group": "ETL Tools",
+                        "group": "ETL ツール",
                         "pages": [
                           "ja/ETLTools",
                           "ja/Airbyte-Client",
@@ -1310,7 +1310,7 @@
                         ]
                       },
                       {
-                        "group": "Dev Tools",
+                        "group": "開発者向けツール",
                         "pages": [
                           "ja/DevTools",
                           "ja/ADO.NET-Client",
@@ -1330,7 +1330,7 @@
                         ]
                       },
                       {
-                        "group": "iPaaS Tools",
+                        "group": "iPaaS ツール",
                         "pages": [
                           "ja/iPaaSTools",
                           "ja/Jitterbit-Client",
@@ -1351,7 +1351,7 @@
                 ]
               },
               {
-                "group": "Virtual Databases",
+                "group": "仮想データベース",
                 "pages": [
                   "ja/Virtual-Databases",
                   {
@@ -1387,18 +1387,18 @@
             "icon": "cloud",
             "pages": [
               {
-                "group": "Getting Started",
+                "group": " はじめに",
                 "pages": [
                   "ja/docs-Embedded",
                   {
-                    "group": "Quick Start Guide",
+                    "group": "クイックスタートガイド",
                     "pages": [
                       "ja/Embedded-Cloud",
                       "ja/Connection-Flow"
                     ]
                   },
                   {
-                    "group": "Navigation",
+                    "group": "ナビゲーション",
                     "pages": [
                       "ja/Navigation-Embedded",
                       "ja/Logs-Embedded"
@@ -1410,7 +1410,7 @@
                 ]
               },
               {
-                "group": "Data Sources",
+                "group": "データソース",
                 "pages": [
                   "ja/Salesforce-Embedded",
                   "ja/GoogleBigQuery-Embedded",
@@ -1617,11 +1617,11 @@
                 ]
               },
               {
-                "group": "Integrations",
+                "group": "インテグレーション",
                 "pages": [
                   "ja/Integrations-Embedded",
                   {
-                    "group": "AI Tools",
+                    "group": "AI ツール",
                     "pages": [
                       "ja/AITools-Embedded",
                       "ja/ClaudeCode-Client-Embedded",
@@ -1638,7 +1638,7 @@
                     ]
                   },
                   {
-                    "group": "Dev Tools",
+                    "group": "開発者向けツール",
                     "pages": [
                       "ja/DevTools-Embedded",
                       "ja/ADO.NET-Client-Embedded",
@@ -1662,7 +1662,7 @@
                 ]
               },
               {
-                "group": "DDL Commands",
+                "group": " DDL コマンド",
                 "pages": [
                   "ja/CREATE-DERIVED-VIEW",
                   "ja/DROP-DERIVED-VIEW",
@@ -1670,7 +1670,7 @@
                 ]
               },
               {
-                "group": "SQL Commands",
+                "group": "SQL コマンド",
                 "pages": [
                   "ja/SELECT",
                   "ja/INSERT",
@@ -1685,7 +1685,7 @@
                 ]
               },
               {
-                "group": "SQL Functions",
+                "group": "SQL 関数",
                 "pages": [
                   "ja/STRING-Functions",
                   "ja/DATE-Functions",
@@ -1759,7 +1759,7 @@
                     "pages": [
                       "ja/OData-Dashboard",
                       {
-                        "group": "Metadata",
+                        "group": "メタデータ",
                         "pages": [
                           "ja/OData-Metadata",
                           "ja/odata-service-url",
@@ -1768,7 +1768,7 @@
                         ]
                       },
                       {
-                        "group": "OData Operations",
+                        "group": "OData 操作",
                         "pages": [
                           "ja/OData-Operations",
                           "ja/put--",

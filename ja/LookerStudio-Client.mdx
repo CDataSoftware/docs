@@ -5,7 +5,7 @@ description: "This page outlines the steps to install and configure the Connect 
 
 
 <Note>
-Before you can configure and use Looker Studio with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+**Note:** Connect AI でLooker Studio を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 <Steps>
@@ -33,39 +33,33 @@ Close the authorization window when prompted.
 </Step>
 <Step>
 Open the *Connection* drop-down menu, select a connection, and click **Next**.
+<Columns cols={2}>
 <Frame>
-  <img src="./images/google_ds_connectionselect.png" alt="Google DS Connection Select" />
+  <img src="./images/google_ds_connectionselect.png" alt="Google DS connection select" />
 </Frame>
-
+</Columns>
 </Step>
 <Step>
 Use the Table drop-down menu to select the table you want to import.
 </Step>
 <Step>
 (Optional) By default, all data in the table will be imported. If you want to use a custom query for the data instead of retrieving all data, check the **Use custom query** box and enter the parameters in the Custom Query box.
+<Columns cols={2}>
 <Frame>
-  <img src="./images/google_table.png" alt="Google Table" />
+  <img src="./images/google_table.png" alt="Google table" />
 </Frame>
+</Columns>
 </Step>
 <Step>
-(Optional) If you want to use the current user's email within a custom query, use the parameter token `@DS_USER_EMAIL` in the query, as follows:
-
-```bash
-Select * from Sales WHERE sales-rep-email = @DS_USER_EMAIL;
-```
-Connect AI replaces the parameter with the current user's email address.
-
-
+ (Optional) If you want to use the current user’s email within a custom query, use the parameter token `@DS_USER_EMAIL` in the query, as follows:
+	```sql
+	Select * from Sales WHERE sales-rep-email = @DS_USER_EMAIL;
+	```
+	Connect AI replaces the parameter with the current user’s email address.
 </Step>
 <Step>
 Click **Connect** in the top-right corner of the page. Looker Studio opens an overview of the imported data.
-<Frame>
-  <img src="./images/google_ds_imported.png" alt="Google DS Imported" />
-</Frame>
+	<Frame>![](./images/google_ds_imported.png)</Frame>
 </Step>
 </Steps>
-
-
-
-
 You can now sort, filter, and explore your data and generate reports. For more information about using Looker Studio, please see [Google’s help topics](https://support.google.com/looker-studio/).

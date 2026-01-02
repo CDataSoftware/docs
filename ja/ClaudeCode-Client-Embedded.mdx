@@ -8,9 +8,10 @@ description: "Claude Code is Anthropic’s AI programming mode, built into Claud
 
 Before you can configure and use Claude Code with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
 
-Generate an [OAuth JWT bearer token](/ja/Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+[OAuth JWT bearer token](/ja/Authentication-Embedded) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
 ## Connect to Connect AI
+
 <Steps>
 <Step>
 Open PowerShell as an Administrator and run the following command:
@@ -20,17 +21,11 @@ npm install -g @anthropic-ai/claude-code
 ```
 </Step>
 <Step>
-Once the installation is done, try running the following command in your terminal to confirm the installation:
-
-```bash
-npm list -g @anthropic-ai/claude-code
-```
-
-You should see something like this:
+Once the installation is done, try running: `npm list -g @anthropic-ai/claude-code` in your terminal to confirm the installation. You should see something like this:
 
 ```bash
 C:\Users\ConnectAIUser\AppData\Roaming\npm\
-`-- @anthropic-ai/claude-code@2.0.28
+-- @anthropic-ai/claude-code@2.0.28
 ```
 </Step>
 <Step>
@@ -46,17 +41,12 @@ claude mcp add --transport http connectmcp https://mcp.cloud.cdata.com/mcp --hea
 This creates a JSON file with your MCP Server.
 </Step>
 <Step>
-Type:
-
-```bash
-claude
-```
-
-A welcome screen appears:
-
+Type `claude`. A welcome screen appears:
+<Columns cols={2}>
 <Frame>
-  <img src="./images/claudecode_client_welcome.png" alt="Claude Code Client Welcome" />
+<img src="./images/claudecode_client_welcome.png" alt="Claude Code welcome screen" />
 </Frame>
+</Columns>
 </Step>
 <Step>
 Choose a text style and login method. Claude Code opens the browser to log in to Claude.
@@ -65,7 +55,7 @@ Choose a text style and login method. Claude Code opens the browser to log in to
 You can now interact with the MCP server:
 
 <Frame>
-  <img src="./images/claudecode_client_prompt.png" alt="Claude Code Client Prompt" />
+<img src="./images/claudecode_client_prompt.png" alt="Claude Code prompt" />
 </Frame>
 </Step>
 </Steps>

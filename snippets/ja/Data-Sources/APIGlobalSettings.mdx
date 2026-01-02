@@ -7,114 +7,131 @@ Global settings apply to all the tables that can be discovered through an API co
 By default, an API connector is set to No Auth for its Authentication Type. If no authentication is required to access your API endpoints, click **Create** to save the connector. Afterwards, you can create any required [Headers](#headers) or set the [Pagination](#pagination) type for your connector before proceeding to create [Tables](/ja/APICreateTable). If authentication is required, select the Authentication method and follow the instructions in the relevant section.
 
 <Note>
-  The authentication method you choose applies to every table added to this connector.
+  **Note**: The authentication method you choose applies to every table added to
+  this connector.
 </Note>
 
 ### Basic Auth
 
 <Steps>
-<Step>
-In the **User** field, enter the Global Settings username for authentication.
-</Step>
-<Step>
-Enter the user password in the **Password** field.
-</Step>
-<Step>
-At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
-</Step>
-<Step>
-After saving the connection, click **Tables** to move on to creating [Tables](/ja/APICreateTable).
-</Step>
+  <Step>In the **User** field, enter 認証用のGlobal Settings ユーザー名.</Step>
+  <Step>Enter ユーザーパスワード in the **Password** field.</Step>
+  <Step>
+    At the top of the Connect AI **Add Global Settings Connection** page, click
+    **Create** to save the connection.
+  </Step>
+  <Step>
+    After saving the connection, click **Tables** to move on to creating
+    [Tables](/ja/APICreateTable).
+  </Step>
 </Steps>
 
 ### Digest Auth
 
 <Steps>
-<Step>
-In the **User** field, enter the Global Settings username for authentication.
-</Step>
-<Step>
-Enter the user password in the **Password** field.
-</Step>
-<Step>
-At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
-</Step>
-<Step>
-After saving the connection, click **Tables** to move on to creating [Tables](/ja/APICreateTable).
-</Step>
+  <Step>In the **User** field, enter 認証用のGlobal Settings ユーザー名.</Step>
+  <Step>Enter ユーザーパスワード in the **Password** field.</Step>
+  <Step>
+    At the top of the Connect AI **Add Global Settings Connection** page, click
+    **Create** to save the connection.
+  </Step>
+  <Step>
+    After saving the connection, click **Tables** to move on to creating
+    [Tables](/ja/APICreateTable).
+  </Step>
 </Steps>
 
 ### OAuth 1.0
 
 <Steps>
-<Step>
-The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
-</Step>
-<Step>
-Enter the **OAuth Client Id** assigned when you registered for OAuth.
-</Step>
-<Step>
-Enter the **OAuth Client Secret** assigned when you registered for OAuth.
-</Step>
-<Step>
-Enter your **OAuth Request Token URL** to retrieve request tokens from.
-</Step>
-<Step>
-Enter your **OAuth Authorization URL** so request tokens can be authorized on sign in.
-</Step>
-<Step>
-Enter your **OAuth Access Token URL** so authorized request tokens can be exchanged for access tokens.
-</Step>
-<Step>
-Click **Sign in** to connect securely through OAuth. This action opens the Global Settings sign-in page in a new tab.
-</Step>
-<Step>
-Log in to your Global Settings account and provide the requested permissions (if applicable).
-</Step>
-<Step>
-At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
-</Step>
-<Step>
-After saving the connection, click **Tables** to move on to creating [Tables](/ja/APICreateTable).
-</Step>
+  <Step>
+    The **Callback URL**, or Redirect URL, is the URL you need
+    (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this
+    URL and paste it into your OAuth app.
+  </Step>
+  <Step>
+    Enter the **OAuth Client Id** assigned when you registered for OAuth.
+  </Step>
+  <Step>
+    Enter the **OAuth Client Secret** assigned when you registered for OAuth.
+  </Step>
+  <Step>
+    Enter your **OAuth Request Token URL** to retrieve request tokens from.
+  </Step>
+  <Step>
+    Enter your **OAuth Authorization URL** so request tokens can be authorized
+    on sign in.
+  </Step>
+  <Step>
+    Enter your **OAuth Access Token URL** so authorized request tokens can be
+    exchanged for access tokens.
+  </Step>
+  <Step>
+    OAuth でセキュアに接続するには、**Sign in**
+    をクリックします。これにより、Global Settings
+    のサインインページが新しいタブで開かれます。
+  </Step>
+  <Step>
+    Global Settings
+    アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+  </Step>
+  <Step>
+    At the top of the Connect AI **Add Global Settings Connection** page, click
+    **Create** to save the connection.
+  </Step>
+  <Step>
+    After saving the connection, click **Tables** to move on to creating
+    [Tables](/ja/APICreateTable).
+  </Step>
 </Steps>
 
 ### OAuth 2.0
 
 <Steps>
-<Step>
-The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
-</Step>
-<Step>
-Enter the **OAuth Client Id** assigned when you registered for OAuth.
-</Step>
-<Step>
-Enter the **OAuth Client Secret** assigned when you registered for OAuth.
-</Step>
-<Step>
-Enter your **OAuth Authorization URL** so users can be authorized on sign in.
-</Step>
-<Step>
-Enter your **OAuth Access Token URL** so authorization tokens can be exchanged for access tokens.
-</Step>
-<Step>
-Enter your **OAuth Refresh Token URL** so refresh tokens can be exchanged for access tokens when old access tokens expire.
-</Step>
-<Step>
-Enter the **Header Prefix**. The header prefix is incorporated into the Authorization header before the token. The default value is `Bearer`.
-</Step>
-<Step>
-Click **Sign in** to connect securely through OAuth. This action opens the Global Settings sign-in page in a new tab.
-</Step>
-<Step>
-Log in to your Global Settings account and provide the requested permissions (if applicable).
-</Step>
-<Step>
-At the top of the Connect AI **Add Global Settings Connection** page, click **Create** to save the connection.
-</Step>
-<Step>
-After saving the connection, click **Tables** to move on to creating [Tables](/ja/APICreateTable).
-</Step>
+  <Step>
+    The **Callback URL**, or Redirect URL, is the URL you need
+    (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this
+    URL and paste it into your OAuth app.
+  </Step>
+  <Step>
+    Enter the **OAuth Client Id** assigned when you registered for OAuth.
+  </Step>
+  <Step>
+    Enter the **OAuth Client Secret** assigned when you registered for OAuth.
+  </Step>
+  <Step>
+    Enter your **OAuth Authorization URL** so users can be authorized on sign
+    in.
+  </Step>
+  <Step>
+    Enter your **OAuth Access Token URL** so authorization tokens can be
+    exchanged for access tokens.
+  </Step>
+  <Step>
+    Enter your **OAuth Refresh Token URL** so refresh tokens can be exchanged
+    for access tokens when old access tokens expire.
+  </Step>
+  <Step>
+    Enter the **Header Prefix**. The header prefix is incorporated into the
+    Authorization header before the token. The default value is `Bearer`.
+  </Step>
+  <Step>
+    OAuth でセキュアに接続するには、**Sign in**
+    をクリックします。これにより、Global Settings
+    のサインインページが新しいタブで開かれます。
+  </Step>
+  <Step>
+    Global Settings
+    アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+  </Step>
+  <Step>
+    At the top of the Connect AI **Add Global Settings Connection** page, click
+    **Create** to save the connection.
+  </Step>
+  <Step>
+    After saving the connection, click **Tables** to move on to creating
+    [Tables](/ja/APICreateTable).
+  </Step>
 </Steps>
 
 #### OAuth 2.0 Custom Parameters
@@ -122,14 +139,9 @@ After saving the connection, click **Tables** to move on to creating [Tables](/j
 To add custom parameters to associated requests in OAuth 2.0, do the following:
 
 <Steps>
-<Step>
-Enter the parameter name in the **Name** field.
-</Step>
-<Step>
-Enter the value of the parameter in the **Value** field.
-</Step>
+  <Step>Enter the parameter name in the **Name** field.</Step>
+  <Step>Enter the value of the parameter in the **Value** field.</Step>
 </Steps>
-
 To add more parameters, click **Add Parameter** and repeat the above steps as required.
 
 ## Headers
@@ -137,12 +149,8 @@ To add more parameters, click **Add Parameter** and repeat the above steps as re
 To add HTTP headers that are sent with all API calls, do the following:
 
 <Steps>
-<Step>
-Enter the header name in the **Name** field.
-</Step>
-<Step>
-Specify the value of the header in the **Value** field.
-</Step>
+  <Step>Enter the header name in the **Name** field.</Step>
+  <Step>Specify the value of the header in the **Value** field.</Step>
 </Steps>
 
 To add more headers, click **Add Header** and repeat the above steps as required.
@@ -165,7 +173,7 @@ When using offset paging, Connect AI defines the page size and the number of rec
 
 #### Example
 
-In the request below, the user has set **Offset Param** to "pageOffset", **Page Size Param** to "pageSize", and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the offset.
+In the request below, the user has set **Offset Param** to “pageOffset”, **Page Size Param** to “pageSize”, and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the offset.
 
 ```bash
 https://myapi?pageOffset=5000&pageSize=1000
@@ -181,7 +189,7 @@ When using page numbers to control paging, set the following values:
 
 #### Example
 
-In the request below, the user has set **Page Number Param** to "pageNum", **Page Size Param** to "pageSize", and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the page.
+In the request below, the user has set **Page Number Param** to “pageNum”, **Page Size Param** to “pageSize”, and **Page Size** to 1000. This example is showing the request for page 6 of data because the connector automatically increments the page.
 
 ```bash
 https://myapi?pageNum=6&pageSize=1000
@@ -209,7 +217,7 @@ https://myapi?pageToken=123456
 
 **Response:**
 
-```json
+```bash
 {
   "results": [
     {

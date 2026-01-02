@@ -1,37 +1,37 @@
-## Prerequisites
+## 前提条件
 
-#### Whitelist CData IPs
+#### CData IP をホワイトリストに登録
 
-To establish a connection to MySQL, you need to allow access to MySQL via CData’s IP. When hosting MySQL behind a firewall, you must safelist these IP addresses in your firewall.
+MySQL への接続を確立するには、CData のIP 経由でMySQL へのアクセスを許可する必要があります。MySQL をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
 
-- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
-- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
 
-#### Ensure MySQL Is Publicly Accessible
+#### MySQL が一般にアクセス可能であることを確認
 
-Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
 
 - `10.0.0.0` to `10.255.255.255`
 - `172.16.0.0` to `172.31.255.255`
 - `192.168.0.0` to `192.168.255.255`
 - `127.0.0.1` (aka ‘localhost’)
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect MySQL to your Connect AI account:
+以下の手順で、MySQL をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *MySQL* into the search field, then click the data source name.
+検索フィールドに *MySQL* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 If your MySQL connection is behind a firewall, set the **Connection Type** to **SSH Tunnel** and follow the instructions in [SSH Tunnel Instructions](#ssh-tunnel-instructions). Then continue with these instructions. Otherwise, leave the **Connection Type** as **Direct**.
@@ -39,7 +39,7 @@ If your MySQL connection is behind a firewall, set the **Connection Type** to **
 <Step>
 Enter the following information:
 	- **Server**—the host name or IP address of the MySQL server. Cluster servers are supported (for example, `192.168.0.1,192.168.0.2`).
-	- **Port**—the port for connecting to the MySQL server.
+	- **Port**—MySQL サーバーに接続するためのポート.
 </Step>
 <Step>
 Select the Authentication method, then proceed to the relevant section and follow those instructions.
@@ -48,68 +48,64 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-<Tabs>
-  <Tab title="Password">
+### Password
+
 <Steps>
 <Step>
 Enter the following information:
-	- **User**—the MySQL username for authentication.
-	- **Password**—the user password.
+	- **User**—認証用のMySQL ユーザー名.
+	- **Password**—ユーザーパスワード.
 	- **Database**—(Optional) the name of the MySQL database.
 </Step>
 <Step>
-At the top of the Connect AI **Add MySQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add MySQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="AzureAD">
+### AzureAD
+
 <Steps>
 <Step>
 Enter the following information:
-	- **User**—the MySQL username for authentication.
+	- **User**—認証用のMySQL ユーザー名.
 	- **Azure Tenant**—the MySQL tenant that you want to use to access data.
 	- **Database**—(Optional) the name of the MySQL database.
 </Step>
 <Step>
-Click **Sign in** to connect securely through OAuth. This action opens the MySQL sign-in page in a new tab.
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、MySQL のサインインページが新しいタブで開かれます。
 </Step>
 <Step>
-Log in to your MySQL account and provide the requested permissions (if applicable).
+MySQL アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
 <Step>
-At the top of the Connect AI **Add MySQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add MySQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
 
-  <Tab title="Azure Password">
+### Azure Password
+
 <Steps>
 <Step>
 Enter the following information:
-	- **User**—the MySQL username for authentication.
-	- **Password**—the user password.
+	- **User**—認証用のMySQL ユーザー名.
+	- **Password**—ユーザーパスワード.
 	- **Azure Tenant**—the MySQL tenant that you want to use to access data.
 	- **Database**—(Optional) the name of the MySQL database.
 </Step>
 <Step>
-At the top of the Connect AI **Add MySQL Connection** page, click **Save & Test**.
-
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add MySQL Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-  </Tab>
-</Tabs>
+
 ## SSH Tunnel Instructions
 
 If your MySQL data source is behind a firewall, follow these instructions.
@@ -131,6 +127,6 @@ Continue with the authentication instructions in the [Setup Guide](#setup-guide)
 </Step>
 </Steps>
 
-## More Information
+## 詳細について
 
-For more information about interactions between Connect AI and MySQL, see [this information page](https://cdn.cdata.com/help/DMK/cloud/default.htm#default).
+Connect AI とMySQL の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DMK/jp/cloud/default.htm#default)を参照してください。

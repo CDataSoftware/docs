@@ -1,316 +1,313 @@
 ---
-title: "Google Sheets"
-description: "This page outlines the steps to install and configure the CData Connect Spreadsheets add-on for Google Sheets. After installation, Google Sheets is able to pull data from sources that you have connected to your CData Connect Spreadsheets account."
+title: "Google Sheets（スプレッドシート）"
+sidebarTitle: "Google Sheets"
+description: "このページはGoogle Sheets（スプレッドシート） 用のCData Connect Spreadsheets アドオンをインストールおよび設定する手順の概要を説明します。インストールが完了すると、Google Sheets（スプレッドシート） はCData Connect Spreadsheets アカウントに接続されたデータソースからデータを取得できます。"
 ---
 
 
 <Note>
-Before you can configure and use Google Sheets with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+**Note:** Connect AI でGoogle Sheets（スプレッドシート） を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
-**Connect AI Customers Only:** You can also import Workspaces and Derived Views. To create a workspace, follow the instructions in [Workspaces](/ja/Workspaces). To create a derived view (administrators only), follow the instructions in [Create a Derived View](Data-Explorer#create-a-derived-view).
+**Connect AI ユーザーのみ：** また、ワークスペースとDerived View をインポートすることもできます。ワークスペースを作成するには、[Workspaces](/ja/Workspaces) の指示に従ってください。Derived view を作成するには（管理者のみ）、[Derived View の作成](/ja/Data-Explorer#derived-view-の作成)の指示に従ってください。
 
-## Installation and Setup
+## インストールとセットアップ
 
 <Steps>
 <Step>
-Sign in to [Google Sheets](https://docs.google.com/spreadsheets/) and either open a spreadsheet or create a new spreadsheet.
+[Google スプレッドシート](https://docs.google.com/spreadsheets/) にサインインして、スプレッドシートを開くか新しいスプレッドシートを作成します。
 </Step>
 <Step>
-With a spreadsheet open, select **Extensions** > **Add-ons** > **Get add-ons**.
+スプレッドシートが開いたら、**拡張機能** > **アドオン** > **アドオンを取得**を選択します。
 <Frame>
-  <img src="./images/sheets_getaddon.png" alt="Sheets Get Add-on" />
+  <img src="./images/sheets_getaddon.png" alt="Sheets get addon" />
 </Frame>
 </Step>
 <Step>
-Search for *CData* in the search bar and click the **CData Connect Spreadsheets** add-on.
+検索バーで**CData** と検索し、**CData Connect Spreadsheets** アドオンをクリックします。
+<Frame>
+  <img src="./images/google_sheets_marketplace.png" alt="Google Sheets marketplace" />
+</Frame>
+</Step>
+<Step>
+ポップアップ画面で、**インストール**をクリックし、**続ける**をクリックします。
+</Step>
+<Step>
+必要であればGoogle アカウントを選択しサインインします。コネクション承認用のプロンプトが表示されたら、**許可**をクリックします。
+</Step>
+<Step>
+スプレッドシートに戻ります。**拡張機能** > **CData Connect Spreadsheets** > **開く**を選択します。
+</Step>
+<Step>
+スプレッドシートの右側に設定画面が表示されます。**Authorize** をクリックしCData Connect Spreadsheets にサインインします。
+</Step>
+<Step>
+CData Connect Spreadsheets の認証情報を入力し、**Continue** をクリックします。
+</Step>
+<Step>
+認証成功のメッセージが表示されたら、タブを閉じてGoogle スプレッドシートに戻ります。
+</Step>
+</Steps>
 
+コネクションを確立すると、CData Connect Spreadsheets のナビゲーションメニューが表示されます：
+<Columns cols={2}>
 <Frame>
-  <img src="./images/google_sheets_marketplace.png" alt="Google Sheets Marketplace" />
+  <img src="./images/connect_spreadsheets_full.png" alt="Connect spreadsheets full" />
 </Frame>
+</Columns>
+## 接続の設定
+
+まだCData Connect Spreadsheets に必要なデータを接続していない場合は、設定する必要があります。
+
+<Steps>
+<Step>
+アドインペインで**Connections** をクリックします。**Add Connection**をクリックします。
 </Step>
 <Step>
-Click **Install** and then **Continue** on the pop-up.
+Google Sheets（スプレッドシート） に接続するデータ用のコネクタを選択します。
 </Step>
 <Step>
-Select your Google account and sign in if needed. When prompted to approve the connection, click **Allow**.
+データ接続文字列を入力します。保存して接続をテストします。
+	接続に成功したら、[データのインポート](#データのインポート)ができます。
+</Step>
+</Steps>
+
+## データのインポート
+
+データ接続からデータをインポートするには、以下の手順に従います：
+<Steps>
+<Step>
+**Import** をクリックします。
 </Step>
 <Step>
-Return to the spreadsheet. Select **Extensions** > **CData Connect Spreadsheets** > **Open**.
-</Step>
-<Step>
-The configuration pane appears to the right of your spreadsheet. Click **Authorize** to sign in to CData Connect Spreadsheets.
-</Step>
-<Step>
-Enter your CData Connect Spreadsheets credentials and click **Continue**.
-</Step>
-<Step>
-When a success message appears, close the tab and return to Google Sheets.
+ドロップダウンメニューからオプションを1つ選択します：**Connections**、**Workspaces**、**Derived Views**。次に、選択した各オプションの手順に従います。
+<Note>
+**Note:** ワークスペースおよびDerived view にアクセスできるのは、Connect AI ユーザーのみです。
+</Note>
+
 </Step>
 </Steps>
 
 
-
-After you establish a connection, the CData Connect Spreadsheets navigation menu appears:
-
-<Frame>
-  <img src="./images/connect_spreadsheets_full.png" alt="Connect Spreadsheets Full" />
-</Frame>
-
-## Set Up Connection
-
-If you do not yet have the data connection you need for CData Connect Spreadsheets, you need to set one up.
+### Connections のインポート
 
 <Steps>
 <Step>
-In the add-in pane, click **Connections**. Click **Add Connection**.
+ドロップダウンリストから**Connection** を選択します。
 </Step>
 <Step>
-Select the connector for the data you want to connect to Google Sheets.
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+	- Query Builder では、スキーマ（複数ある場合）、テーブル、およびカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
 </Step>
 <Step>
-Enter your data connection settings. Save and test your connection.
-After you have a successful connection, you can [Import Data](#import-data).
+**Execute** をクリックします。
+    <Columns cols={2}>
+	<Frame>
+	  <img src="./images/sheets_querybuilder.png" alt="Sheets query builder" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
 </Step>
 </Steps>
 
-## Import Data
-
-To import data from a data connection, follow these steps:
+### [Workspaces](/ja/Workspaces) のインポート（Connect AI ユーザーのみ）
 
 <Steps>
 <Step>
-Click **Import**.
+ドロップダウンリストからワークスペースを選択します。
 </Step>
 <Step>
-Select an option from the drop-down menu: **Connections**, **Workspaces**, or **Derived Views**. Then follow the directions for the option you selected.
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+- Query Builder では、表示するワークスペースとカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+### [Derived Views](/ja/Data-Explorer#derived-view-の設定) のインポート（Connect AI ユーザーのみ）
+
+<Steps>
+<Step>
+**Query Builder** または**Custom SQL** のいずれかを選択します。
+	- Query Builder では、表示するDerived View とカラムを選択します。必要に応じて[フィルタ](#フィルタ)、[ソート](#ソート)、およびLimit を設定できます。生成されたクエリを表示し、必要に応じて調整します。
+	- Custom SQL では、SQL ステートメントを所定のテーブルに入力します。
+</Step>
+<Step>
+**Execute** をクリックします。
+</Step>
+<Step>
+プロンプトが表示されたら、現在のスプレッドシートまたは新しいスプレッドシートのいずれかをデータの出力先として選択します。
+</Step>
+</Steps>
+
+## データのリフレッシュ
+
+元のデータソースからスプレッドシートにインポート済みのデータをアップデートするには、CData Connect Spreadsheets アドオンのメインメニューにある**Refresh** をクリックします。（必要に応じて、戻る矢印をクリックしてアドオンのメインメニューに戻ります。）続いて、以下の手順に従います：
+
+<Steps>
+<Step>
+アップデートしたいスプレッドシートの隣にあるチェックボックスを選択します。
+    <Columns cols={2}>
+	<Frame>
+	  <img src="./images/sheets_refresh.png" alt="Sheets refresh" />
+	</Frame>
+	</Columns>
+</Step>
+<Step>
+更新のオプションを選択します：
+	- **Refresh Now** をクリックすると手動でデータを即座に更新します。
+	- **Auto Refresh** をクリックすると自動更新の間隔を1時間単位で選択できるダイアログが開きます。ここで設定した間隔は自動更新を使用するすべてのスプレッドシートに適用されます。
+</Step>
+<Step>
+選択したスプレッドシートのデータが最新にアップデートされます。
 </Step>
 </Steps>
 
 <Note>
-Only Connect AI customers can access workspaces and derived views.
+**Note:** Auto Refresh が選択されると新たにAuto Refresh Status のフィールドが表示されます。このフィールドでは更新の間隔と更新の対象となるスプレッドシートが記載されます。**Reset Auto Refresh** ボタンで現在の自動更新を停止し、新しい自動更新を設定できます。
 </Note>
-
-### Import Connections
-
-<Steps>
-<Step>
-Select a **Connection** from the drop-down list.
-</Step>
-<Step>
-Select either **Query Builder** or **Custom SQL**.
-- For Query Builder, select a schema (if there are multiple schemas), table, and columns. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
-- For Custom SQL, enter the SQL Statement in the provided field.
-</Step>
-<Step>
-Click **Execute**.
+<Columns cols={2}>
 <Frame>
-  <img src="./images/sheets_querybuilder.png" alt="Sheets Query Builder" />
+  <img src="./images/sheets_autorefresh.png" alt="Sheets auto refresh" />
 </Frame>
-</Step>
-<Step>
-When prompted, choose to output the data in either the current spreadsheet or a new one.
-</Step>
-</Steps>
+</Columns>
+## データの更新
 
+Google Sheets スプレッドシートから元のデータ接続に変更をプッシュできます。スプレッドシートを更新するには、データに少なくとも1つの主キーが含まれていなければならないことに注意してください。また、ソースデータを更新するための適切な権限が必要です。元のデータ接続の読み取り専用フィールドは更新できません。
 
-
-### Import [Workspaces](/ja/Workspaces) (Connect AI Customers Only)
-
-<Steps>
-<Step>
-Select a workspace from the drop-down list.
-</Step>
-<Step>
-Select either **Query Builder** or **Custom SQL**.
-- For Query Builder, select a workspace and the columns to display. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
-- For Custom SQL, enter the SQL Statement in the provided field.
-</Step>
-<Step>
-Click **Execute**.
-</Step>
-<Step>
-When prompted, choose to output the data in either the current spreadsheet or a new one.
-</Step>
-</Steps>
-
-### Import [Derived Views](/ja/Data-Explorer#configuring-derived-views) (Connect AI Customers Only)
-
-<Steps>
-<Step>
-Select either **Query Builder** or **Custom SQL**.
-- For Query Builder, select a derived view and the columns to display. If desired, you can also set [filters](#filters), [sorting options](#sorting), and limits. View the generated query and adjust if necessary.
-- For Custom SQL, enter the SQL Statement in the provided field.
-</Step>
-<Step>
-Click **Execute**.
-</Step>
-<Step>
-When prompted, choose to output the data in either the current spreadsheet or a new one.
-</Step>
-</Steps>
-
-## Refresh Data
-
-To update the imported data in your spreadsheets from the originating source, click **Refresh** in the main menu of the CData Connect Spreadsheets add-on. (Click the back arrow to return to the main menu of the add-on, if necessary.) Then follow these steps:
-
-<Steps>
-<Step>
-Select the checkboxes next to the Google Sheets spreadsheets that you want to update.
-<Frame>
-  <img src="./images/sheets_refresh.png" alt="Sheets Refresh" />
-</Frame>
-</Step>
-<Step>
-Select a refresh option:
-- Click **Refresh Now** to manually refresh the data as soon as possible.
-- Click **Auto Refresh** to open a dialog where you can select the auto-refresh interval in hours. Please note that this interval applies to all spreadsheets that use Auto Refresh.
-</Step>
-<Step>
-The data in the selected Google Sheets spreadsheets update with new data.
-</Step>
-</Steps>
-
-
+自動更新機能を使用している場合は、データを頻繁に更新してください。そうしないと、変更が元のデータ接続によって上書きされる可能性があります。
 
 <Note>
-If Auto Refresh is selected, a new Auto Refresh Status field appears. It lists the refresh interval and the affected spreadsheets. A **Reset Auto Refresh** button allows you to stop the auto refresh and set up a new one.
+**Note:** CData Connect Spreadsheets はビューの更新をサポートしていません（テーブルのみ）。
 </Note>
 
-<Frame>
-  <img src="./images/sheets_autorefresh.png" alt="Sheets Auto Refresh" />
-</Frame>
+スプレッドシートのデータを更新するには、以下の手順に従います：
 
-## Update Data
+<Steps>
+<Step>
+Google Sheets スプレッドシートに変更を加えます。データを更新すると、そのデータが元のデータ接続にまだ更新されていないことを示すために赤色でハイライト表示されます。
+</Step>
+<Step>
+選択した行のみを更新する場合は、更新するセルまたは行をハイライト表示します。
+</Step>
+<Step>
+**CData Connect Spreadsheets** アドオンペインで**Update** をクリックします。
+</Step>
+<Step>
+選択した行を更新**Update Selected** するか、すべての行を更新**Update All** するか決定します。
+</Step>
+<Step>
+**Execute** をクリックします。**Confirm** をクリックして続行します。このアクションにより、元のデータ接続が更新され、元に戻すことはできません。
+</Step>
+<Step>
+CData Connect Spreadsheets は、更新が成功したかどうかのメッセージを返します。失敗した場合、CData Connect Spreadsheets は更新に失敗した理由を表示します。
+</Step>
+<Step>
+更新が成功すると、赤色のデータが黒色に変わります。これは、元のデータ接続でデータが更新されたことを示します。
+</Step>
+</Steps>
 
-You can push changes from the Google Sheets spreadsheet to the originating data connection. Note that in order to update a spreadsheet, the data must contain at least one primary key. You must also have the proper permissions to update the source data. You cannot update read-only fields in the originating data connection.
+## データの挿入
 
-Be sure to update your data frequently if you are using the auto refresh feature, or your changes may be overwritten by the originating data connection.
+スプレッドシートに行を挿入するには、以下の手順に従います：
 
+<Steps>
+<Step>
+必要に応じて、CData Connect Spreadsheets アドオンのメインメニューに戻ります。
+</Step>
+<Step>
+Google スプレッドシートの機能を使用して、スプレッドシートに行を挿入します（**挿入** > **行**）。
+</Step>
+<Step>
+行に情報を入力します。データを追加すると、そのデータが元のデータ接続にまだ更新されていないことを示すために赤色でハイライト表示されます。
+</Step>
+<Step>
+挿入した行のみを更新する場合は、その行をハイライト表示します。
+</Step>
+<Step>
+**CData Connect Spreadsheets** アドオンペインで**Update** をクリックします。
+</Step>
+<Step>
+選択した行を更新**Update Selected** するか、すべての行を更新**Update All** するか決定します。
+</Step>
+<Step>
+**Execute** をクリックします。**Confirm** をクリックして続行します。このアクションにより、元のデータ接続にデータが挿入され、元に戻すことはできません。
+</Step>
+<Step>
+CData Connect Spreadsheets は、挿入が成功したかどうかのメッセージを返します。失敗した場合、CData Connect Spreadsheets は挿入に失敗した理由を表示します。
+</Step>
+<Step>
+挿入が成功すると、赤色のデータが黒色に変わります。これは、元のデータ接続でデータが更新されたことを示します。
+</Step>
+</Steps>
+
+## データの削除
+
+スプレッドシートから行を削除するには、以下の手順に従います：
+
+<Steps>
+<Step>
+必要に応じて、CData Connect Spreadsheets アドオンのメインメニューに戻ります。
+</Step>
+<Step>
+削除する行を選択し、**Delete** をクリックします。行内の任意のセルを選択すると、CData Connect Spreadsheets は行全体を削除します。CData Connect Spreadsheets は、指定した行数を削除してもよいかどうかを確認するプロンプトを表示します。
 <Note>
-CData Connect Spreadsheets does not support updates for views (only tables).
+**Note:** 行の削除を元に戻すことはできません。
 </Note>
-
-To update data in your spreadsheet, follow these steps:
-
-<Steps>
-<Step>
-Make your changes to the Google Sheets spreadsheet. When you update data, the data is highlighted in red to signify that it is not yet updated to the originating data connection.
 </Step>
 <Step>
-If you want to update only select rows, highlight the cells or rows to be updated.
-</Step>
-<Step>
-On the **CData Connect Spreadsheets** add-on pane, click **Update**.
-</Step>
-<Step>
-Determine whether you want to **Update Selected** rows or **Update All**.
-</Step>
-<Step>
-Click **Execute**. Click **Confirm** to continue. This action updates the originating data connection and cannot be undone.
-</Step>
-<Step>
-CData Connect Spreadsheets returns a message whether the update was successful. If unsuccessful, CData Connect Spreadsheets displays the reason the update failed.
-</Step>
-<Step>
-If the update is successful, the data in red turns black. This indicates that the data is updated in the originating data connection.
+削除を続行するには**Confirm** をクリックします。CData Connect Spreadsheets は、行の削除に成功したかどうかを表示します。
 </Step>
 </Steps>
 
-## Insert Data
+## ログ
 
-To insert a row or rows in a spreadsheet, follow these steps:
+**Logs** をクリックすると以下の項目を含む直近の3つのクエリが一覧表示されるダイアログが開きます：
 
-<Steps>
-<Step>
-If necessary, return to the main menu of the CData Connect Spreadsheets add-on.
-</Step>
-<Step>
-Use the Google Sheets function to insert rows in your spreadsheet (**Insert** > **Rows**).
-</Step>
-<Step>
-Enter the information into the row or rows. When you add data, the data is highlighted in red to signify that it is not yet updated to the originating data connection.
-</Step>
-<Step>
-If you want to update only the inserted row(s), highlight the row(s).
-</Step>
-<Step>
-On the **CData Connect Spreadsheets** add-on pane, click **Update**.
-</Step>
-<Step>
-Determine whether you want to **Update Selected** rows or **Update All**.
-</Step>
-<Step>
-Click **Execute**. Click **Confirm** to continue. This action inserts the data into the originating data connection and cannot be undone.
-</Step>
-<Step>
-CData Connect Spreadsheets returns a message whether the insertion was successful. If unsuccessful, CData Connect Spreadsheets displays the reason the insertion failed.
-</Step>
-<Step>
-If the insertion is successful, the data in red turns black. This indicates that the data is updated in the originating data connection.
-</Step>
-</Steps>
+- クエリを実行した日時
+- クエリ結果（成功 / 失敗）
+- クエリの内容とパラメータ
 
-## Delete Data
+詳しくは[Logs](/ja/Logs) を参照してください。
 
-To delete rows from a spreadsheet, follow these steps:
+## クエリの詳細設定
 
-<Steps>
-<Step>
-If necessary, return to the main menu of the CData Connect Spreadsheets add-on.
-</Step>
-<Step>
-Select the rows you want to delete and click **Delete**. You can select any cell(s) in the row and CData Connect Spreadsheets deletes the entire row. CData Connect Spreadsheets prompts if you are sure you want to delete the given number of rows.
-</Step>
-<Step>
-Click **Confirm** to continue with the deletion. CData Connect Spreadsheets displays whether it deleted the rows successfully.
-</Step>
-</Steps>
+データをインポートする際、クエリをビルドするために[フィルタ](#フィルタ) と[ソート](#ソート) が使用できます。
 
-<Note>
-You cannot undo the row deletion.
-</Note>
+### フィルタ
 
-## Logs
-
-Click **Logs** to open a dialog that lists the three most recent queries, including:
-
-- The time and date they occurred
-- Their results (success or failure)
-- The contents and parameters of the queries
-
-See [Logs](/ja/Logs) for more information.
-
-## Advanced Query Settings
-
-When importing data, you can use [Filters](#filters) and [Sorting](#sorting) to build your query.
-
-### Filters
-
-To add a filter, click the **+** next to the **Filters** header. You can add more filters by clicking the **+** again, and you can delete a filter by clicking the trash can icon next to it.
-
+フィルタを追加するには、**Filters** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにフィルタを追加することができ、フィルタの横にあるゴミ箱のアイコンをクリックすると、フィルタを削除できます。
+<Columns cols={2}>
 <Frame>
-  <img src="./images/sheets_filter.png" alt="Sheets Filter" />
+  <img src="./images/sheets_filter.png" alt="Sheets filter" />
 </Frame>
+</Columns>
+各フィルタには以下の3つの入力項目があります：
 
-Each filter has three fields to fill out:
+- **Column**—フィルタをかけたいカラムをテーブルから選択します。
+- **Op**—フィルタが実行するオペレーションを選択します。オプション：*equals*、*does not equal*、*contains*、*does not contain*、*less than*、*less than or equal to*、*greater than*、*greater than or equal to*
+- **Value**—フィルタ操作の値を表示します。
 
-- **Column**—select the column from your table that you want to filter.
-- **Op**—the operation the filter performs. Options are *equals*, *does not equal*, *contains*, *does not contain*, *less than*, *less than or equal to*, *greater than*, and *greater than or equal to*.
-- **Value**—the value for the filter operation.
+例えば、AccountValues が$100,000を超えるものを取り出したい場合、Column を*AccountValues*、Op を*greater than*、そしてValue を*100,000* にそれぞれ設定します。この設定をすることでクエリを実行したときにフィルタにマッチした結果のみが返されます。
 
-For example, if you wanted to retrieve AccountValues above $100,000, you might set the Column to *AccountValues*, the Op to *greater than*, and the Value to *100,000*. Then, when you execute the query, only results matching this filter will be returned.
+フィルタのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。
 
-As you enter your filter parameters, the **Generated Query** at the bottom of the pane automatically updates.
+### ソート
 
-### Sorting
-
-To add a sorting rule to your query results, click the **+** next to the **Sort By** header. You can add more sorting rules by clicking the **+** again, and you can delete a sorting rule by clicking the trash can icon next to it.
-
+クエリ結果にソートルールを追加するには、**Sort By** ヘッダーの隣の **+** をクリックします。**+** を再度クリックすることでさらにソートルールを追加することができ、ソートルールの横にあるゴミ箱のアイコンをクリックすると、ソートルールを削除できます。
+<Columns cols={2}>
 <Frame>
-  <img src="./images/sheets_sort.png" alt="Sheets Sort" />
+  <img src="./images/sheets_sort.png" alt="Sheets sort" />
 </Frame>
+</Columns>
+各ソートルールは**Column** と**Order**（昇順または降順）の選択が必要です。複数のソートルールを追加する場合は、ルールが表示されている順で結果がソートされます。クエリは、最初のルールを最も優先してソートし、次に2番目のルール、といった順番でソートされます。
 
-Each sorting rule requires a **Column** and a sorting **Order** (ascending or descending). If you add multiple sorting rules, the results are sorted in the order that the rules appear. The query gives highest sorting priority to the first rule, then the second rule, etc.
-
-As you enter your sorting parameters, the **Generated Query** at the bottom of the pane automatically updates.
+ソートのパラメータを入力すると、画面下部の**Generated Query** が自動的にアップデートされます。

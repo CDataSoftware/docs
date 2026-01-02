@@ -1,6 +1,6 @@
 ## Prerequisites
 
-Before you use the Blackbaud Raiser’s Edge NXT connector, you must configure your own custom OAuth application via the Blackbaud SKY Developer Portal.
+Before you use the Blackbaud Raiser's Edge NXT connector, you must configure your own custom OAuth application via the Blackbaud SKY Developer Portal.
 
 In your [SKY API Developer account](https://developer.blackbaud.com/):
 
@@ -8,7 +8,7 @@ In your [SKY API Developer account](https://developer.blackbaud.com/):
 <Step>
 On the **My subscriptions** page, locate your subscription Id (primary access key).
 	<Frame>
-	  <img src="./images/blackbaud_oauth_setup.png" alt="Blackbaud OAuth setup" />
+	![](./images/blackbaud_oauth_setup.png)
 	</Frame>
 </Step>
 <Step>
@@ -17,33 +17,33 @@ On the **My applications** page, click **+New application** to configure a new O
 <Step>
 In the **Add application** dialog, enter the information about the OAuth application as needed for your organization and click **Save**.
 	<Frame>
-	  <img src="./images/blackbaud_add_application.png" alt="Blackbaud add application" />
+	![](./images/blackbaud_add_application.png)
 	</Frame>
 </Step>
 <Step>
 On the next page, do the following:
-	- Add the CData redirect URI (https://oauth.cdata.com/oauth/).
+	- Add the CData redirect URI `(https://oauth.cdata.com/oauth/)`.
 	- Copy the OAuth **Client Id** and **Client Secret** to paste into Connect AI.
 	- Edit **Scopes** to the desired level of data access.
 </Step>
 </Steps>
 
-## Setup Guide
+## セットアップガイド
 
-Follow these steps to connect Blackbaud Raiser's Edge NXT to your Connect AI account:
+以下の手順で、Blackbaud Raiser's Edge NXT をConnect AI アカウントに接続します。
 
 <Steps>
 <Step>
-Open the **Connections** page of the Connect AI dashboard.
+Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-Click **\+ Add Connection** in the upper-right corner.
+右上の **+ Add Connection** をクリックします。
 </Step>
 <Step>
-Type *Blackbaud Raiser's Edge NXT* into the search field, then click the data source name.
+検索フィールドに *Blackbaud Raiser's Edge NXT* と入力し、データソース名をクリックします。
 </Step>
 <Step>
-On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
 </Step>
 <Step>
 Enter your **Subscription Key**. This key is found in your BlackBaud Raiser's Edge NXT Profile, after subscribing to SKY API Standard Edition.
@@ -52,19 +52,19 @@ Enter your **Subscription Key**. This key is found in your BlackBaud Raiser's Ed
 Paste the **Client Id** and **Client Secret** that you created in the prerequisites.
 </Step>
 <Step>
-Click **Sign in** to connect securely through OAuth. This action opens the Blackbaud Raiser's Edge NXT sign-in page in a new tab.
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Blackbaud Raiser's Edge NXT のサインインページが新しいタブで開かれます。
 </Step>
 <Step>
-Log in to your Blackbaud Raiser's Edge NXT account and provide the requested permissions (if applicable).
+Blackbaud Raiser's Edge NXT アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
 <Step>
-At the top of the Connect AI **Add Blackbaud Raiser's Edge NXT Connection** page, click **Save & Test**.
-	- If the connection test succeeds, a **Connection successfully saved** message appears, indicating that your connection has been created. The **Status** on the **Edit Connection** page also changes to **Authenticated**. View the data model of your successful connection in the right pane of the **Edit Connection** page, in the **Data Model** tab.
-	- If the connection test fails, ensure that you entered your login information correctly with no stray spaces or other characters. Connect AI displays error messages under the required fields with missing data. Some data sources require that you sign in directly to the source website. If you did not, an error message appears under the **Sign in** button. Correct the errors and try again.
-	- Unsuccessful connections are saved as drafts and have a **Status** of **Not Authenticated**. You can return to the connection and authenticate it later.
+Connect AI **Add Blackbaud Raiser's Edge NXT Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
 
-## More Information
+## 詳細について
 
-For more information about interactions between Connect AI and Blackbaud Raiser’s Edge NXT, see [this information page](https://cdn.cdata.com/help/JZK/cloud/default.htm#default).
+Connect AI とBlackbaud Raiser’s Edge NXT の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/JZK/jp/cloud/default.htm#default)を参照してください。

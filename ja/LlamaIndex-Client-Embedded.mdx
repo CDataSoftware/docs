@@ -9,12 +9,13 @@ description: "LlamaIndex is a framework for building LLM-powered applications th
 
 Before you can configure and use LlamaIndex with Connect AI, you must do the following:
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
-- Generate an [OAuth JWT bearer token](/ja/Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
+- [OAuth JWT bearer token](/ja/Authentication-Embedded) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 - Obtain an OpenAI API key: [https://platform.openai.com](https://platform.openai.com/).
 - Make sure you have Python >= 3.10 in order to install the LlamaIndex packages.
 
 ## Create the Python Files
+
 <Steps>
 <Step>
 Create a folder for LlamaIndex MCP.
@@ -24,6 +25,8 @@ Create a Python file within the folder called `llamaindex.py`.
 </Step>
 <Step>
 In `llamaindex.py`, set up your MCP server and MCP client to call the tools and prompts. For `Authorization`, you need to change `Basic` to `Bearer` and provide the JWT bearer token from the prerequisites.
+</Step>
+</Steps>
 
 ```python expandable
 from llama_index.llms.openai import OpenAI
@@ -49,24 +52,17 @@ async def main():
 
 asyncio.run(main())
 ```
-</Step>
-</Steps>
+
+
 ## Install the LlamaIndex Packages
 
-Run the following command in your project terminal:
-
-```bash
-pip install llama-index llama-index-llms-openai llama-index-tools-mcp
-```
+Run `pip install llama-index llama-index-llms-openai llama-index-tools-mcp` in your project terminal.
 
 ## Run the Python Script
+
 <Steps>
 <Step>
-When the installation finishes, run the following command to execute the script:
-
-```bash
-python llamaindex.py
-```
+When the installation finishes, run `python llamaindex.py` to execute the script.
 </Step>
 <Step>
 The script discovers the Connect AI MCP tools needed for the LLM to query the connected data.
@@ -75,7 +71,7 @@ The script discovers the Connect AI MCP tools needed for the LLM to query the co
 Supply a prompt for the agent. The agent provides a response.
 
 <Frame>
-  <img src="./images/llamaindex_client_terminal.png" alt="LlamaIndex Client Terminal" />
+<img src="./images/llamaindex_client_terminal.png" alt="LlamaIndex client terminal" />
 </Frame>
 </Step>
 </Steps>

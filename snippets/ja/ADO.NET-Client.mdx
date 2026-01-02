@@ -1,10 +1,11 @@
 <Note>
-Before you can configure and use ADO.NET with Connect AI, you must first connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
+**Note:** Connect AI でADO.NET を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
 </Note>
 
 ## Install the Provider
 
 Follow these steps to download and install the provider:
+
 <Steps>
 <Step>
 [Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-A/setup.exe&name=ADO.NET%20Provider%20for%20CData%20Connect&tag=Download-ado) and run the ADO.NET setup file.
@@ -16,9 +17,11 @@ The installer can automatically detect software that supports ADO.NET, such as V
 After installation, the ADO.NET Provider will be available in the software that you selected during installation.
 </Step>
 </Steps>
+
 ## Connect to Connect AI
 
 Connect AI uses OAuth to establish a connection between the ADO.NET Provider and your account. The steps below provide an example of configuring the ADO.NET Provider in Visual Studio 2022:
+
 <Steps>
 <Step>
 In Visual Studio, click **Tools** > **Connect to Database**.
@@ -41,6 +44,7 @@ Click **Test Connection**.
 Click **OK** on the success message and **OK** in the **Add Connection** window.
 </Step>
 </Steps>
+
 Your connection appears in the **Server Explorer** pane under the **Data Connections** section.
 
 ## Connect to a Workspace
@@ -50,6 +54,7 @@ To connect the ADO client to a specific [workspace](/ja/Workspaces), you specify
 <Frame>
   <img src="./images/ado_specify_workspace.png" alt="ADO.NET Specify Workspace" />
 </Frame>
+
 
 ## Connect to Connect AI
 

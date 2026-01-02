@@ -1,175 +1,184 @@
 ---
 title: "Sources"
-description: "The ***Sources*** page enables you to create and manage connections to your data sources."
+description: "***Sources*** ページでは、[データソース](/ja/Data-Sources) へのコネクションを作成・管理することができます。"
 ---
 
-<Frame>
-  <img src="./images/sources.png" alt="Sources" />
-</Frame>
-
-The **Sources** page contains the following information about each connection:
-
-- **Connection Name**—the user-defined name of the connection.
-- **Data Source**—the data source type of the connection, along with whether the data source supports custom reports.
-- **Status**—The status of the connection, which can be one of the following:
-	- **Authenticated**—the connection to the data source is successful.
-	- **Not Authenticated**—the connection was created in Connect AI, but is not successfully connected to the data source. You can return to the connection's edit screen to authenticate the connection. Note that Query users need to contact an administrator to authenticate a connection.
-	- **Conditional**—the connection is conditional based on the global settings and tables added to the connector. This occurs with the API connector.
-- **Last Modified**—the date and time a user last modified the connection.
-
-## Add a Connection
-
-To add a new connection, complete the following steps:
-
-<Steps>
-<Step>
-On the **Sources** page, click **Add Connection**. This action displays the **Add Connection** dialog.
-</Step>
-<Step>
-Select a data source from the list in the dialog, or search for a connection by name.
-	<Frame>
-	  <img src="./images/add_connection.png" alt="Add connection" />
-	</Frame>
-</Step>
-</Steps>
-
-After you select a data source, the **Edit Connection** page for your data source appears.
-
-<Steps>
-<Step>
-Configure the connection according to the instructions for the data source. The instructions for setting up the connection appear in the right pane of the configuration page, in the **Documentation** tab.
-</Step>
-<Step>
-Click **Save and Test**.
-</Step>
-</Steps>
-
-If the connection succeeds, a **Connection successfully saved** message appears. You can also view the data model of your connection in the right pane of the **Edit Connection** page, in the **Data Model** tab. When you return to the main **Sources** page, you will see the new connection in the Sources list. You can modify or delete a connection at any time by clicking the edit or delete icons in the list.
-
-If the connection fails, the user interface displays error messages under the fields with missing data. Some data sources require that you sign in directly to the data source’s website. If you did not sign in, the user interface displays an error message under the **Sign in** button.
-
-In some situations, refreshing your metadata cache for a connection can help fix loading or performance issues with your Connect AI application. To refresh your metadata cache, click **Refresh Metadata** at the top of the **Edit Connection** page. A success banner is displayed to indicate that the metadata cache has been refreshed. <Note>If you attempt to modify or delete a connection and Connect AI finds a cached job from the current connection, you are prompted with a warning. You can choose to cancel or continue with the changes. If you save the changes, Connect AI clears the cached data from the current connection.</Note>
-
-If the connection fails, it is saved as a draft. A draft connection appears on the **Edit Connection** page and on the main **Sources** page as **Not Authenticated**. You can edit the connection later and finish the authentication process. <Note>Query users need to contact an administrator of the account to have a draft connection authenticated.</Note>
-
-## Assign Permissions
-
-When you create or edit a connection, the **Permissions** tab displays a list of available users and allows you to assign permissions to each one. Permissions are described in the list below:
-
-- **Select:** Enables you to select rows from tables in a connection.
-- **Insert:** Enables you to insert rows into tables of a connection.
-- **Update:** Enables you to update rows in tables of a connection.
-- **Delete:** Enables you to delete rows from tables in a connection.
-- **Execute:** Enables users to execute stored procedures in a connection.
-	<Frame>
-	  <img src="./images/connection_permissions.png" alt="Connection permissions" />
-	</Frame>
-
-You can toggle the permissions in four ways:
-
-- Click an individual box in the table to toggle that permission for a single user.
-- Click the double check mark at the top of a table column to toggle that permission for every user.
-- Click the double check mark at the right side of the table to toggle all permissions for a single user.
-- Click the double check mark that is labeled **All** in the top-right corner of the table to toggle all permissions for all users.
-
-## Configure Custom Reports
-
-Some data sources support *custom reports*, which allow you to configure pre-defined reports that you can query as views within your connections. Each report has a unique set of required inputs, and you provide these inputs when you configure the report in your Connect AI account.
-
-Custom reports are generally useful in two types of scenarios:
-
-- For ad or analytics data sources, they can be used to show aggregated reports on performance data by allowing you to pre-define a set of metrics and dimensions.
-- Other types of data sources let you pre-define parameters to create data reports. For example, an accounting API might allow you to create a general ledger report in QuickBooks.
-
-### Create a Custom Report
-
-If a data source supports custom reports, a **Custom Reports** tab appears on the connection settings page. Clicking this tab opens the custom reports interface, as shown below:
 
 <Frame>
-  <img src="./images/customReports_empty.png" alt="Custom reports" />
+<img src="./images/sources.png" alt="Sources" />
 </Frame>
 
-To add a custom report, follow these steps:
+**Sources** ページには、各コネクションに関する次の情報が含まれています：
+
+- **Connection Name**—ユーザーが定義したコネクション名。
+- **Data Source**—コネクションのデータソースの種類と、データソースがカスタムレポートをサポートしているかどうか。
+- **Status**—コネクションのステータス。次のいずれかになります：
+	- **Authenticated**—データソースへの接続は成功している。
+	- **Not Authenticated**—Embedded Cloud でコネクションは作成されたが、データソースの接続に成功していない。コネクションの編集画面に戻って認証することができます。Query ユーザーは、接続を認証するために管理者に連絡する必要があることに注意してください。
+	- **Conditional**—接続は、コネクタに追加されたグローバル設定とテーブルに基づいて条件付きである。これはAPI コネクタで発生します。
+- **Last Modified**—ユーザーが最後にコネクションを更新した日時。
+
+## コネクションの追加
+
+新しいコネクションを追加するには、次の手順を実行します。
 
 <Steps>
 <Step>
-Click **Add** above the report table. A dialog appears with a list of the custom reports available for your chosen data source.
-	<Frame>
-	  <img src="./images/customReports_addReport.png" alt="Add custom report" />
-	</Frame>
+**Sources** ページで**Add Connection** をクリックします。これにより**Add Connection** ダイアログが表示されます。
 </Step>
 <Step>
-Select the report you want to use and click **Confirm**. A list of required and optional fields appear for the custom report.
-</Step>
-<Step>
-Enter the requested information, and then click **Save** to save the custom report to your account.
+ダイアログ内のリストからデータソースを選択するか、名前でコネクションを検索します。
+
+<Frame>
+<img src="./images/add_connection.png" alt="Add connection" />
+</Frame>
 </Step>
 </Steps>
 
-After you save a custom report, it appears in the list of tables for your connection. You can delete custom reports and add new ones as needed.
+データソースを選択すると、当該データソース用の**Edit Connection** ページが表示されます。
+
+<Steps>
+<Step>
+[データソースの説明](/ja/Data-Sources-Embedded) に従ってコネクションを設定します。コネクションを設定するための手順は、設定ページの右側のペインの**Documentation** タブに表示されます。
+</Step>
+<Step>
+**Save and Test** をクリックします。
+</Step>
+</Steps>
+
+接続に成功すると、**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの右ペインにある**Data Model** タブで、コネクションのデータモデルを表示することもできます。メインの**Sources** ページに戻ると、Sources 一覧に新しいコネクションが表示されます。一覧の編集または削除用アイコンをクリックすることで、いつでもコネクションを編集または削除することができます。
+
+接続に失敗すると、ユーザーインターフェースには、データが不足しているフィールドの下にエラーメッセージが表示されます。一部のデータソースでは、データソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、ユーザーインターフェースには、**Sign in** ボタンの下にエラーメッセージが表示されます。
+
+状況によっては、コネクションのメタデータキャッシュをリフレッシュすることで、Embedded Cloud アプリケーションの読み込みやパフォーマンスの問題を解決できる場合があります。メタデータキャッシュをリフレッシュするには、**Edit Connection** ページの上部にある**Refresh Metadata** をクリックします。メタデータキャッシュのリフレッシュが成功したことを示すバナーが表示されます。
 
 <Note>
-  Custom reports are not shared across multiple connections to the same data source. For example, if you have two separate connections to Adobe Analytics, both connections will have their own lists of custom reports.
+ コネクションを編集または削除しようとしたときに、Embedded Cloud が現在のコネクションからキャッシュされたジョブを見つけた場合は、警告が表示されます。キャンセルするか、変更を続行するかを選択できます。変更を保存すると、Embedded Cloud は現在のコネクションからキャッシュされたデータをクリアします。
 </Note>
 
-### Using a Custom Report
+接続に失敗すると、下書きとして保存されます。下書きのコネクションは**Edit Connection** ページとメインの**Sources** ページに**Not Authenticated** として表示されます。後でコネクションを編集して認証プロセスを完了できます。Query ユーザーは、下書きのコネクションを認証するためにアカウントの管理者に連絡する必要があることに注意してください。
 
-You can query saved custom reports by passing the name of the custom report in the table field for your query. For example, if you have a custom report called *Customer Accounts List* on your QuickBooks Online connection, you could select all of its results with this query:
+## 権限の付与
+
+コネクションを作成または編集する場合、**Permissions** タブに利用可能なユーザーのリストが表示され、それぞれに権限を割り当てることができます。権限の内容は以下のとおりです。
+
+- **Select：** コネクション内のテーブルから行を選択できます。
+- **Insert：** コネクションのテーブルに行を挿入できます。
+- **Update：** コネクションのテーブル内の行を更新できます。
+- **Delete：** コネクション内のテーブルから行を削除できます。
+- **Execute：** ユーザーがコネクション内のストアドプロシージャを実行できます。
+
+<Frame>
+<img src="./images/connection_permissions.png" alt="Connection permissions" />
+</Frame>
+
+4つの方法で権限を切り替えることができます。
+
+- テーブル内の個々のボックスをクリックすると、1人のユーザーに対してその権限が有効 / 無効になります。
+- テーブルのカラム上部にあるダブルチェックマークをクリックすると、すべてのユーザーに対してその権限が有効 / 無効になります。
+- テーブルの右側にあるダブルチェックマークをクリックすると、1人のユーザーに対するすべての権限が有効 / 無効になります。
+- テーブルの右上にある**All** と書かれたダブルチェックマークをクリックすると、全ユーザーのすべての権限が有効 / 無効になります。
+
+## カスタムレポートの設定
+
+一部のデータソースは*カスタムレポート* をサポートしています。これにより、コネクション内でビューとしてクエリできる定義済みレポートを構成できます。各レポートには固有の必須インプットセットがあり、Embedded Cloud アカウントでレポートを構成するときにこれらのインプットを指定します。
+
+カスタムレポートは、一般的に次の2種類のシナリオで役立ちます。
+
+- 広告や分析データソースの場合、一連のメトリクスやディメンションを事前定義しておくことで、パフォーマンスデータの集計レポートを表示できます。
+- その他の種類のデータソースでは、パラメータを事前定義してデータレポートを作成できます。例えば、会計API を使用すると、QuickBooks で総勘定元帳レポートを作成できる場合があります。
+
+### カスタムレポートの作成
+
+データソースがカスタムレポートをサポートしている場合、コネクションの設定ページに**Custom Reports** タブが表示されます。このタブをクリックすると、以下に示すようなカスタムレポートのインターフェースが表示されます。
+
+<Frame>
+<img src="./images/customReports_empty.png" alt="Custom reports empty" />
+</Frame>
+
+カスタムレポートを追加するには、以下の手順に従います。
+
+<Steps>
+<Step>
+Report テーブルの上にある**Add** をクリックします。選択したデータソースで利用可能なカスタムレポートのリストを含むダイアログが表示されます。
+
+<Frame>
+<img src="./images/customReports_addReport.png" alt="Custom reports add report" />
+</Frame>
+</Step>
+<Step>
+使用するレポートを選択し、**Confirm** をクリックします。カスタムレポートの必須フィールドとオプションフィールドのリストが表示されます。
+</Step>
+<Step>
+必要な情報を入力し、**Save** をクリックして、アカウントにカスタムレポートを保存します。
+</Step>
+</Steps>
+
+カスタムレポートを保存すると、コネクションのテーブルのリストに表示されます。必要に応じて、カスタムレポートを削除したり新しいレポートを追加したりできます。
+
+<Note>
+**Note:** カスタムレポートは、同じデータソースへの複数のコネクションにまたがって共有されることはありません。例えば、Adobe Analytics に2つの別々のコネクションがある場合、各コネクションにはそれぞれ独自のカスタムレポートのリストが存在します。
+</Note>
+
+### カスタムレポートの使用
+
+クエリのテーブルフィールドにカスタムレポートの名前を渡すことで、保存されたカスタムレポートをクエリできます。例えば、QuickBooks Online コネクションに*Customer Accounts List* というカスタムレポートがある場合、次のクエリでその結果をすべてSELECT できます。
 
 ```sql
 SELECT * FROM [QuickBooksOnline1].[QuickBooksOnline].[Customer Accounts List]
 ```
 
-### Editing a Custom Report
+### カスタムレポートの編集
 
-To edit an existing custom report, follow these steps:
+既存のカスタムレポートを編集するには、以下の手順に従います。
 
 <Steps>
 <Step>
-In the report table, find the report you want to edit.
+レポートテーブルで、編集するレポートを見つけます。
 </Step>
 <Step>
-Click the report name or type, or click the edit button.
+レポートの名前または種類をクリック、もしくは編集ボタンをクリックします。
 </Step>
 <Step>
-In **Edit Custom Report**, add or change report parameters.
+**Edit Custom Report** で、レポートパラメータを追加または変更します。
 </Step>
 <Step>
-Click **Save Changes**.
+**変更を保存**をクリックします。
 </Step>
 </Steps>
 
-### Duplicating a Custom Report from an Existing Report
+### カスタムレポートを既存のレポートから複製
 
-To duplicate an existing custom report, follow these steps:
+既存のカスタムレポートを複製するには、以下の手順に従います。
 
 <Steps>
 <Step>
-In the report table, find the report you want to duplicate.
-	<Frame>
-	  <img src="./images/customReports_duplicate.png" alt="Duplicate custom report" />
-	</Frame>
+レポートテーブルで、複製するレポートを見つけます。
+
+<Frame>
+<img src="./images/customReports_duplicate.png" alt="Custom reports duplicate" />
+</Frame>
 </Step>
 <Step>
-Click the duplicate button. Connect AI creates a duplicate custom report for the data source with a new name.
+複製ボタンをクリックします。Embedded Cloud は、新しい名前でデータソースの複製カスタムレポートを作成します。
 </Step>
 <Step>
-Edit the **Report Name**, if desired, and click **Save**.
+必要に応じて**Report Name** を編集し、**Save** をクリックします。
 </Step>
 </Steps>
 
-### Deleting a Custom Report
+### カスタムレポートの削除
 
-To delete an existing custom report, follow these steps:
+既存のカスタムレポートを削除するには、以下の手順に従います。
 
 <Steps>
 <Step>
-In the report table, find the report you want to delete.
+レポートテーブルで、削除するレポートを見つけます。
 </Step>
 <Step>
-Click the delete button to the right of the report. Alternatively, you can click **Delete** on the **Edit Custom Report** page.
+レポートの右側にある削除ボタンをクリックします。あるいは、**Edit Custom Report** ページで**Delete** をクリックすることもできます。
 </Step>
 <Step>
-Click **Delete** again in the dialog to confirm.
+ダイアログで再度**Delete** をクリックして確定します。
 </Step>
 </Steps>

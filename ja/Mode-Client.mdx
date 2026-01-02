@@ -1,20 +1,20 @@
 ---
 title: "Mode"
-description: "This page outlines the steps to connect Mode to the Connect AI Virtual SQL Server API."
+description: "このページではMode をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
 ---
 
 
 
-## Prerequisites
+## 前提条件
 
-Before you connect, you must first do the following:
+接続する前にまず以下を実行します。
 
-- Connect a data source to your Connect AI account. See [Sources](/ja/Sources) for more information.
-- Generate a Personal Access Token (PAT) on the [Settings](/ja/Settings#access-tokens) page. Copy this down, as it acts as your password during authentication.
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 
-## Connect to Connect AI
+## Connect AI に接続する
 
-To establish a connection from Mode to the Connect AI Virtual SQL Server API, follow these steps.
+Mode からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
 
 <Steps>
 <Step>
@@ -22,30 +22,28 @@ Log in to Mode.
 </Step>
 <Step>
 On the **Discover** page of Mode, click **Connect a Database**.
-<Frame>
-  <img src="./images/mode_client_connect_database.png" alt="Mode Client Connect Database" />
-</Frame>
-
+	<Frame>
+	  <img src="./images/mode_client_connect_database.png" alt="Mode client connect database" />
+	</Frame>
 </Step>
 <Step>
 On the next screen, select **Microsoft SQL Server**.
-<Frame>
-  <img src="./images/mode_client_sql_server.png" alt="Mode Client SQL Server" />
-</Frame>
-
+	<Frame>
+	  <img src="./images/mode_client_sql_server.png" alt="Mode client SQL Server" />
+	</Frame>
 </Step>
 <Step>
 Enter the following Microsoft SQL Server settings.
-- **Display name**—enter the name of your connection for display purposes.
-- **Host**—*tds.cdata.com*
-- **Port**—*14333*
-- **Database name**—enter the Connection Name of the Connect AI data source you want to connect to (for example, *Salesforce1*).
-- **Username**—enter your Connect AI username. This is displayed in the top-right corner of the Connect AI interface. For example, *test@cdata.com*.
-- **Password**—enter the PAT you generated on the [Settings](/ja/Settings#access-tokens) page.
-Leave the rest of the connections settings at their default values unless you need to modify them.
-<Frame>
-  <img src="./images/mode_client_connection_credentials.png" alt="Mode Client Connection Credentials" />
-</Frame>
+	- **Display name**—enter the name of your connection for display purposes.
+	- **Host**—*tds.cdata.com*
+	- **Port**—*14333*
+	- **Database name**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+	Leave the rest of the connections settings at their default values unless you need to modify them.
+	<Frame>
+	  <img src="./images/mode_client_connection_credentials.png" alt="Mode client connection credentials" />
+	</Frame>
 </Step>
 <Step>
 Click **Connect**. If the connection succeeds, a success message appears. Your connection is now available for use in Mode.
@@ -55,35 +53,25 @@ Repeat the steps above to connect to additional Connect AI sources, changing the
 </Step>
 </Steps>
 
-
-
 You can now create a Mode visualization with the Connect AI data. Follow the steps below.
 
 <Steps>
 <Step>
 After your connection succeeds, click **New Report**. The SQL query text editor appears.
-<Frame>
-  <img src="./images/mode_client_create_report.png" alt="Mode Client Create Report" />
-</Frame>
+	<Frame>
+	  <img src="./images/mode_client_create_report.png" alt="Mode client create report" />
+	</Frame>
 </Step>
 <Step>
-Enter a SQL query for your data, such as:
+Enter a SQL query for your data, such as `SELECT * FROM [Sharepoint].[MyCustomList];`.
 </Step>
-</Steps>
-
-```sql
-SELECT * FROM [Sharepoint].[MyCustomList];
-```
-
-<Steps>
 <Step>
 Click **Run** to run the query. The data appears below.
 </Step>
 <Step>
 Click **+New chart** to create visualizations from the data.
-<Frame>
-  <img src="./images/mode_client_create_chart.png" alt="Mode Client Create Chart" />
-</Frame>
+	<Frame>
+	  <img src="./images/mode_client_create_chart.png" alt="Mode client create chart" />
+	</Frame>
 </Step>
 </Steps>
-

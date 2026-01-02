@@ -9,7 +9,7 @@ description: "CrewAI is an open-source Python framework for building multi-agent
 Before you can configure and use CrewAI with Connect AI, you must do the following:
 
 - Connect a data source to your Connect AI account. See [Sources](/ja/Sources-Embedded) for more information.
-- Generate an [OAuth JWT bearer token](/ja/Authentication-Embedded). Copy this down, as it acts as your password during authentication.
+- [OAuth JWT bearer token](/ja/Authentication-Embedded) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
 - Obtain an OpenAI API key: [https://platform.openai.com/](https://platform.openai.com/).
 - Make sure you have Python >= 3.10 in order to use the CrewAI tools.
 
@@ -23,7 +23,7 @@ Create a folder named `cdata-mcp-crew-agent`.
 Create a file with the extension `.env` in the `cdata-mcp-crew-agent` folder.
 </Step>
 <Step>
-Copy and paste the content below. Instead of MCP_USERNAME and MCP_PASSWORD, use the OAuth JWT token from the prerequisites to authenticate. Your OpenAI API key can be found at [https://platform.openai.com/](https://platform.openai.com/).
+Copy and paste the content below. For Embedded Cloud, you do not need the `MCP_USERNAME` and `MCP_PASSWORD`. Use the OAuth JWT token from the prerequisites to authenticate. Your OpenAI API key can be found at [https://platform.openai.com/](https://platform.openai.com/).
 
 ```bash
 # CData MCP Server Configuration
@@ -34,15 +34,13 @@ OPENAI_API_KEY="OPEN_API_KEY"  # Your OPEN AI API Key
 ```
 </Step>
 </Steps>
+
 ## Install the CrewAI Libraries
 
-Run the following command in your terminal:
-
-```bash
-pip install crewai requests python-dotenv
-```
+Run `pip install crewai requests python-dotenv` in your terminal.
 
 ## Create and Run the CrewAI Agent
+
 <Steps>
 <Step>
 Create a file called `crew-agent.py`. This is the CrewAI agent.
@@ -138,14 +136,10 @@ if __name__ == "__main__":
 ```
 </Step>
 <Step>
-Run the following command in the terminal. The output displays the results of the task:
-
-```bash
-python crew-agent.py
-```
+Run `python crew-agent.py` in the terminal. The output displays the results of the task:
 
 <Frame>
-  <img src="./images/crewai_client_output.png" alt="CrewAI Client Output" />
+<img src="./images/crewai_client_output.png" alt="CrewAI client output" />
 </Frame>
 </Step>
 </Steps>
