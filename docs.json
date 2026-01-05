@@ -763,9 +763,9 @@
               {
                 "group": "SQL Functions",
                 "pages": [
-                  "en/STRING-Functions",
-                  "en/DATE-Functions",
-                  "en/MATH-Functions",
+                  "en/String-Functions",
+                  "en/Date-Functions",
+                  "en/Math-Functions",
                   "en/Conversion-Functions",
                   "en/Aggregate-Functions",
                   "en/Window-Functions",
@@ -1681,9 +1681,9 @@
               {
                 "group": "SQL 関数",
                 "pages": [
-                  "ja/STRING-Functions",
-                  "ja/DATE-Functions",
-                  "ja/MATH-Functions",
+                  "ja/String-Functions",
+                  "ja/Date-Functions",
+                  "ja/Math-Functions",
                   "ja/Conversion-Functions",
                   "ja/Aggregate-Functions",
                   "ja/Window-Functions",
