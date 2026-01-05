@@ -12,7 +12,7 @@ servers:
 paths:
   /tools/list:
     get:
-      summary: List available MCP tools
+      summary: List Available Tools
       tags:
         - MCP
       description: Returns a list of tools (functions or APIs) exposed by this MCP server.
@@ -31,7 +31,7 @@ paths:
 
   /tools/call:
     post:
-      summary: Invoke a tool
+      summary: Invoke a Tool
       tags:
         - MCP
       description: Executes a registered tool by name, passing JSON arguments.

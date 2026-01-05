@@ -9,7 +9,7 @@ servers:
 
 paths:
   /log/query/list:
-    get:
+    post:
       summary: List query log
       tags:
         - Log
@@ -30,7 +30,7 @@ paths:
                 $ref: "#/components/schemas/QuerySearchResult"
   /log/query/get/{queryId}:
     get:
-      summary: Download query log
+      summary: Get query log
       tags:
         - Log
       operationId: getQueryLog
@@ -399,6 +399,7 @@ paths:
           in: query
           schema:
             type: string
+            description: "If your query contains a workspace, the workspace name must be specified here."
       requestBody:
         content:
           application/json:
@@ -423,6 +424,7 @@ paths:
           in: query
           schema:
             type: string
+            description: "If your query contains a workspace, the workspace name must be specified here."
       requestBody:
         content:
           application/json:
@@ -447,6 +449,7 @@ paths:
           in: query
           schema:
             type: string
+            description: "If your query contains a workspace, the workspace name must be specified here."
       requestBody:
         content:
           application/json:
@@ -593,6 +596,7 @@ components:
               $ref: "#/components/schemas/Parameter"
           nullable: true
         query:
+          description: "The SQL query to execute. Must be a valid SQL query."
           minLength: 1
           type: string
         timeout:
@@ -803,6 +807,7 @@ components:
             $ref: "#/components/schemas/ExecParameter"
           nullable: true
         procedure:
+          description: "The name of the stored procedure to execute. Must be a valid stored procedure name."
           minLength: 1
           type: string
         timeout:
@@ -879,6 +884,7 @@ components:
             $ref: "#/components/schemas/Parameter"
           nullable: true
         query:
+          description: "The SQL query to execute. Must be a valid SQL query."
           minLength: 1
           type: string
         schemaOnly:
