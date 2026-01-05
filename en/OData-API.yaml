@@ -12,7 +12,7 @@ paths:
     get:
       tags:
         - OData
-      summary: OData service URL
+      summary: Get Service Root
       description: >
         Each workspace has its own OData service URL. This endpoint returns the list of OData resources for a given workspace.
 
@@ -30,7 +30,7 @@ paths:
     get:
       tags:
         - OData
-      summary: OData metadata URL
+      summary: List Metadata
       description: >
         This operation returns the OData metadata for a given workspace.  The metadata describes the resources available in the workspace.
       parameters:
@@ -46,7 +46,7 @@ paths:
     get:
       tags:
         - OData
-      summary: OData resource URL
+      summary: Get Resource
       description: >
         This URL can query the OData resource with any applicable filters.
       parameters:
@@ -66,6 +66,7 @@ paths:
     delete:
       tags:
         - OData
+      summary: Delete Resource
       parameters:
         - name: workspaceName
           in: path
@@ -83,27 +84,7 @@ paths:
     post:
       tags:
         - OData
-      parameters:
-        - name: workspaceName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: resourcePath
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema: {}
-      responses:
-        "200":
-          description: OK
-    put:
-      tags:
-        - OData
+      summary: Create Resource
       parameters:
         - name: workspaceName
           in: path
@@ -125,6 +106,7 @@ paths:
     patch:
       tags:
         - OData
+      summary: Update Resource
       parameters:
         - name: workspaceName
           in: path

@@ -834,26 +834,20 @@
                     "group": "OData",
                     "pages": [
                       "en/OData-Dashboard",
+                      "en/OData-Query-Options",
                       {
                         "group": "Metadata",
                         "pages": [
                           "en/OData-Metadata",
                           "en/odata-service-url",
                           "en/odata-metadata-url",
-                          "en/odata-resource-url"
-                        ]
-                      },
-                      {
-                        "group": "OData Operations",
-                        "pages": [
-                          "en/OData-Operations",
-                          "en/put--",
+                          "en/odata-resource-url",
                           "en/post--",
                           "en/delete--",
                           "en/patch--"
                         ]
-                      },
-                      "en/OData-Query-Options"
+                      }
+                      
                     ]
                   },
                   {
@@ -1758,26 +1752,20 @@
                     "group": "OData",
                     "pages": [
                       "ja/OData-Dashboard",
+                      "ja/OData-Query-Options",
                       {
-                        "group": "メタデータ",
+                        "group": "Metadata",
                         "pages": [
                           "ja/OData-Metadata",
                           "ja/odata-service-url",
                           "ja/odata-metadata-url",
-                          "ja/odata-resource-url"
-                        ]
-                      },
-                      {
-                        "group": "OData 操作",
-                        "pages": [
-                          "ja/OData-Operations",
-                          "ja/put--",
+                          "ja/odata-resource-url",
                           "ja/post--",
                           "ja/delete--",
                           "ja/patch--"
                         ]
-                      },
-                      "ja/OData-Query-Options"
+                      }
+                      
                     ]
                   },
                   {
