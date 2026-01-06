@@ -16,9 +16,9 @@
     "mdx": {
       "auth": {
         "method": "bearer"
+      }
     }
-  }
-},
+  },
   "background": {
     "decoration": "gradient"
   },
@@ -835,19 +835,12 @@
                     "pages": [
                       "en/OData-Dashboard",
                       "en/OData-Query-Options",
-                      {
-                        "group": "Metadata",
-                        "pages": [
-                          "en/OData-Metadata",
-                          "en/odata-service-url",
-                          "en/odata-metadata-url",
-                          "en/odata-resource-url",
-                          "en/post--",
-                          "en/delete--",
-                          "en/patch--"
-                        ]
-                      }
-                      
+                      "en/odata-service-url",
+                      "en/odata-metadata-url",
+                      "en/odata-resource-url",
+                      "en/post--",
+                      "en/delete--",
+                      "en/patch--"
                     ]
                   },
                   {
@@ -1753,19 +1746,12 @@
                     "pages": [
                       "ja/OData-Dashboard",
                       "ja/OData-Query-Options",
-                      {
-                        "group": "Metadata",
-                        "pages": [
-                          "ja/OData-Metadata",
-                          "ja/odata-service-url",
-                          "ja/odata-metadata-url",
-                          "ja/odata-resource-url",
-                          "ja/post--",
-                          "ja/delete--",
-                          "ja/patch--"
-                        ]
-                      }
-                      
+                      "ja/odata-service-url",
+                      "ja/odata-metadata-url",
+                      "ja/odata-resource-url",
+                      "ja/post--",
+                      "ja/delete--",
+                      "ja/patch--"
                     ]
                   },
                   {
