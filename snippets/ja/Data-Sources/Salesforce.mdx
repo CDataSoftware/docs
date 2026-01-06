@@ -36,8 +36,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Basic
 
+<Tabs>
+  <Tab title="Basic">
 <Steps>
 <Step>
 Enter 認証用のSalesforce ユーザー名.
@@ -58,9 +59,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuth
-
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Set the **Use Sandbox** field to **True** (if you are connecting to a sandbox account). Otherwise, leave it as **False**.
@@ -78,9 +79,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthPassword
-
+  <Tab title="OAuthPassword">
 <Steps>
 <Step>
 Enter 認証用のSalesforce ユーザー名.
@@ -101,9 +102,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthJWT
-
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 Enter your **OAuth JWT Certificate**. This is multi-line and in PEM format.
@@ -133,9 +134,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OneLogin
-
+  <Tab title="OneLogin">
 <Steps>
 <Step>
 Enter the OneLogin **User** Id.
@@ -159,9 +160,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### PingFederate
-
+  <Tab title="PingFederate">
 <Steps>
 <Step>
 Enter the PingFederate **User** Id.
@@ -185,9 +186,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OKTA
-
+  <Tab title="OKTA">
 <Steps>
 <Step>
 Enter the OKTA **User** Id.
@@ -211,9 +212,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### ADFS
-
+  <Tab title="ADFS">
 <Steps>
 <Step>
 Enter the ADFS **User** Id.
@@ -237,9 +238,9 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **SSO Properties**, with the format 'ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
@@ -269,7 +270,8 @@ Connect AI **Add Salesforce Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とSalesforce の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/RFK/jp/cloud/default.htm#default)を参照してください。

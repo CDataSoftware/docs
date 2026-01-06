@@ -55,8 +55,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Password
 
+<Tabs>
+  <Tab title="Password">
 <Steps>
 <Step>
 In the **User** field, enter 認証用のSQL Server ユーザー名.
@@ -71,9 +72,9 @@ Connect AI **Add SQL Server Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzurePassword
-
+  <Tab title="AzurePassword">
 <Steps>
 <Step>
 In the **User** field, enter 認証用のSQL Server ユーザー名.
@@ -82,9 +83,9 @@ In the **User** field, enter 認証用のSQL Server ユーザー名.
 In the **Password** field, enter ユーザーパスワード.
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **Azure Tenant** Id. This value is the directory Id in **Azure Portal** > **Azure Active Directory** > **Properties**. If not specified, the default tenant is used.
@@ -102,9 +103,9 @@ Connect AI **Add SQL Server Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipal
-
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Copy the client Id from SQL Server and paste it in the **OAuth Client Id** field in Connect AI.
@@ -122,9 +123,9 @@ Connect AI **Add SQL Server Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipalCert
-
+  <Tab title="AzureServicePrincipalCert">
 <Steps>
 <Step>
 Copy the OAuth JWT certificate store contents and paste it in the **OAuth JWT Cert** field. This is a multi-line key with the format shown.
@@ -142,7 +143,8 @@ Enter the **OAuth JWT Cert Subject** for your SQL Server account. This is the su
 Enter your **OAuth Client Id** assigned when you registered your SQL Server account.
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## SSH Tunnel Instructions
 
 If your SQL Server data source is behind a firewall, follow these instructions.

@@ -22,8 +22,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Token
 
+<Tabs>
+  <Tab title="Token">
 <Steps>
 <Step>
 Enter the **API Key** for your Google Cloud account. You can create an API key in the Google Cloud Console by clicking **Create credentials > API key**.
@@ -38,9 +39,9 @@ Connect AI **Add Google Sheets（スプレッドシート） Connection** ペー
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuth
-
+  <Tab title="OAuth">
 <Steps>
 <Step>
 (Optional) To improve performance, fill out either the **Spreadsheet** field with a comma separated list of sheet names or Ids or enter a **Folder Name**.
@@ -58,9 +59,9 @@ Connect AI **Add Google Sheets（スプレッドシート） Connection** ペー
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthJWT
-
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 Enter the OAuth JWT Cert. This is multi-line and should be in the following format:
@@ -93,7 +94,8 @@ Connect AI **Add Google Sheets（スプレッドシート） Connection** ペー
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とGoogle Sheets（スプレッドシート） の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/RLK/jp/cloud/default.htm#default)を参照してください。

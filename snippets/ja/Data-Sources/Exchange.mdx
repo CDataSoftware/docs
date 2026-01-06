@@ -25,8 +25,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Exchange のサインインページが新しいタブで開かれます。
@@ -41,9 +42,9 @@ Connect AI **Add Exchange Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 (Optional) Enter the **Azure Tenant** Id being used to access data. This value is the directory Id in the **Azure Portal** > **Azure Active Directory** > **Properties**.
@@ -61,9 +62,9 @@ Connect AI **Add Exchange Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipal
-
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your application with an OAuth authorization server.
@@ -81,9 +82,9 @@ Connect AI **Add Exchange Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipalCert
-
+  <Tab title="AzureServicePrincipalCert">
 <Steps>
 <Step>
 Enter the following information:
@@ -100,7 +101,8 @@ Connect AI **Add Exchange Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とExchange の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/CEK/jp/cloud/default.htm#default)を参照してください。

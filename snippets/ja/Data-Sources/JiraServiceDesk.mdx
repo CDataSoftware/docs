@@ -22,8 +22,9 @@ Select an **AuthScheme** and follow the relevant instructions below.
 
 ## Authentication Methods
 
-### Basic
 
+<Tabs>
+  <Tab title="Basic">
 <Steps>
 <Step>
 Enter the following information:
@@ -38,9 +39,9 @@ Connect AI **Add Jira Service Desk Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuth
-
+  <Tab title="OAuth">
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
 
 <Steps>
@@ -63,9 +64,9 @@ Connect AI **Add Jira Service Desk Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### APIToken
-
+  <Tab title="APIToken">
 <Steps>
 <Step>
 Enter the following information:
@@ -80,9 +81,9 @@ Connect AI **Add Jira Service Desk Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Crowd
-
+  <Tab title="Crowd">
 <Steps>
 <Step>
 Enter the following information:
@@ -101,25 +102,8 @@ Connect AI **Add Jira Service Desk Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-### Okta
-<Steps>
-<Step>
-Enter the following information:
-	- **User**—認証用のJira Service Desk ユーザー名.
-	- **Password**—ユーザーパスワード.
-	- **SSO Login URL**—the login URL associated with the Okta account. You can find the IDP URL by navigating to **your application** > **SSO** > **SSO information** > **Identity provider single sign-on URL**.
-- **SSO Properties**—enter all relevant properties with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
-- **SSO Exchange URL**—the URL used used to exchange the SAML token for Jira Service Desk cookies. This URL may have the following formats: `https://<authority of Jira Service Desk instance>/plugins/servlet/samlconsumer` or `https://<authority of Jira Service Desk instance>/plugins/servlet/samlsso`.
-- **URL**—the URL to your Jira Service Desk endpoint (for example, `https://yoursitename.atlassian.net`).
-</Step>
-<Step>
-Connect AI **Add Jira Service Desk Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
-</Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とJira Service Desk の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/GKM/jp/cloud/default.htm#default)を参照してください。

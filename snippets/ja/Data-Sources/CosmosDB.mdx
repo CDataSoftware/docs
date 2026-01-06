@@ -25,8 +25,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### AccountKey
 
+<Tabs>
+  <Tab title="AccountKey">
 <Steps>
 <Step>
 Enter the master key token or resource token for connecting to the Cosmos DB REST API in the **Account Key** field.
@@ -44,9 +45,9 @@ Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** を
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your Cosmos DB account for OAuth.
@@ -64,9 +65,9 @@ Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** を
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipal
-
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -87,7 +88,8 @@ Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** を
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とCosmos DB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/EHK/jp/cloud/default.htm#default)を参照してください。

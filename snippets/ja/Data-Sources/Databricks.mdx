@@ -22,8 +22,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### PersonalAccessToken
 
+<Tabs>
+  <Tab title="PersonalAccessToken">
 <Steps>
 <Step>
 Enter your Databricks access token into the **Token** field. To obtain the token, navigate to the **User Settings** page of your Databricks instance and open the **Access Tokens** tab.
@@ -50,9 +51,9 @@ Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Basic
-
+  <Tab title="Basic">
 <Steps>
 <Step>
 Enter the **User** name for Databricks.
@@ -73,9 +74,9 @@ Enter the **Server** URL or IP address of the Databricks instance .
 (Optional) Enter the name of the **Database** to connect to.
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipal
-
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **Azure Tenant Id** of your Azure application.
@@ -117,9 +118,9 @@ Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
@@ -146,7 +147,8 @@ Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とDatabricks の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/LKK/jp/cloud/default.htm#default)を参照してください。

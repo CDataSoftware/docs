@@ -29,8 +29,9 @@ Choose an **Auth Scheme** for your connection type and follow the instructions b
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 To connect Workday to Connect AI using OAuth, you must first create an OAuth app in Workday. [Create an OAuth app in Workday](#create-an-oauth-app-in-workday) shows how to create a standard OAuth app. For other types of OAuth custom apps, refer to [this information page](https://cdn.cdata.com/help/JWK/cloud/default.htm#pg_connectiondatahubh).
 
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
@@ -56,9 +57,9 @@ Connect AI **Add Workday Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthISU
-
+  <Tab title="OAuthISU">
 <Steps>
 <Step>
 Enter the following information:
@@ -75,9 +76,9 @@ Connect AI **Add Workday Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthJWT
-
+  <Tab title="OAuthJWT">
 <Steps>
 <Step>
 Enter the following information:
@@ -99,9 +100,9 @@ Connect AI **Add Workday Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureAD
-
+  <Tab title="AzureAD">
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
 
 <Steps>
@@ -125,9 +126,9 @@ Connect AI **Add Workday Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Basic (SOAP Connection Type Only)
-
+  <Tab title="Basic (SOAP Connection Type Only)">
 <Steps>
 <Step>
 Enter the following information:
@@ -143,7 +144,8 @@ Connect AI **Add Workday Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## Create an OAuth App in Workday
 
 OAuth connections to Workday require a custom OAuth application. Follow these steps to create a standard OAuth app:

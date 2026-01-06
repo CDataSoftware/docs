@@ -113,8 +113,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、NetSuite のサインインページが新しいタブで開かれます。
@@ -129,9 +130,9 @@ Connect AI **Add NetSuite Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Token
-
+  <Tab title="Token">
 <Steps>
 <Step>
 In NetSuite, navigate to **Setup** > **Company** > **Enable Features**.
@@ -194,9 +195,9 @@ Connect AI **Add NetSuite Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Basic
-
+  <Tab title="Basic">
 <Note>
 *Note: This version is only supported on older versions of NetSuite and is not recommended.*
 </Note>
@@ -215,7 +216,8 @@ Connect AI **Add NetSuite Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## Troubleshooting
 
 **When logging in through OAuth, I receive the error “Your role does not support OAuth2 login, please select a different one.”**

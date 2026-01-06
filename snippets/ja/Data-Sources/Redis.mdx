@@ -28,8 +28,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Password
 
+<Tabs>
+  <Tab title="Password">
 <Steps>
 <Step>
 Enter ユーザーパスワード in the **Password** field.
@@ -44,9 +45,9 @@ Connect AI **Add Redis Connection** ページ上部の、**Save & Test** をク�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### ACL
-
+  <Tab title="ACL">
 <Steps>
 <Step>
 In the **User** field, enter 認証用のRedis ユーザー名.
@@ -64,7 +65,8 @@ Connect AI **Add Redis Connection** ページ上部の、**Save & Test** をク�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とRedis の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/EIM/jp/cloud/default.htm#default)を参照してください。

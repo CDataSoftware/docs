@@ -25,8 +25,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### Basic
 
+<Tabs>
+  <Tab title="Basic">
 <Steps>
 <Step>
 In the **User** field, enter 認証用のSplunk ユーザー名.
@@ -41,9 +42,9 @@ Connect AI **Add Splunk Connection** ページ上部の、**Save & Test** をク
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Access Token
-
+  <Tab title="Access Token">
 <Steps>
 <Step>
 Enter your **Access Token**. You can find your token on the Users and Authentications page of the Splunk UI.
@@ -55,9 +56,9 @@ Connect AI **Add Splunk Connection** ページ上部の、**Save & Test** をク
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### HTTP Event Collector Token
-
+  <Tab title="HTTP Event Collector Token">
 <Steps>
 <Step>
 Enter your **HTTP Event Collector Token**. You can find your token on the **Data Inputs > HTTP Event Collector Token** page of the Splunk UI.
@@ -69,7 +70,8 @@ Connect AI **Add Splunk Connection** ページ上部の、**Save & Test** をク
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とSplunk の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/FUK/jp/cloud/default.htm#default)を参照してください。

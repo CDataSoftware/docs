@@ -22,8 +22,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Enter the following information:
@@ -44,9 +45,9 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Basic
-
+  <Tab title="Basic">
 <Note>
 **Note:** Basic authentication is only applicable for Server instances. For Cloud instances, use APIToken authentication.
 </Note>
@@ -65,9 +66,9 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### APIToken
-
+  <Tab title="APIToken">
 <Note>
 **Note:** APIToken is only applicable for Cloud instances. For Server instances, use Basic authentication.
 </Note>
@@ -86,9 +87,9 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Crowd
-
+  <Tab title="Crowd">
 <Steps>
 <Step>
 Enter the following information:
@@ -109,9 +110,9 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Okta
-
+  <Tab title="Okta">
 <Steps>
 <Step>
 Enter the following information:
@@ -131,9 +132,9 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### PAT
-
+  <Tab title="PAT">
 <Steps>
 <Step>
 In your Atlassian account, go to **Profile** > **Personal Access Tokens** > **Create token**. Copy and paste the PAT here.
@@ -145,7 +146,8 @@ Connect AI **Add Confluence Connection** ページ上部の、**Save & Test** �
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とConfluence の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/UGK/jp/cloud/default.htm#default)を参照してください。

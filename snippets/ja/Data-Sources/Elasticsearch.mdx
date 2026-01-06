@@ -32,8 +32,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### BASIC
 
+<Tabs>
+  <Tab title="BASIC">
 <Steps>
 <Step>
 Enter 認証用のElasticsearch ユーザー名 in the **User** field.
@@ -51,9 +52,9 @@ Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AWS RootKeys
-
+  <Tab title="AWS RootKeys">
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account.
@@ -74,9 +75,9 @@ Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AWSIAMRoles
-
+  <Tab title="AWSIAMRoles">
 <Steps>
 <Step>
 Enter the **AWS Access Key** associated with the AWS root account.
@@ -103,9 +104,9 @@ Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### API Key
-
+  <Tab title="API Key">
 <Steps>
 <Step>
 Enter the **API Key** received from ElasticSearch.
@@ -123,7 +124,8 @@ Connect AI **Add Elasticsearch Connection** ページ上部の、**Save & Test**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とElasticsearch の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/EEM/jp/cloud/default.htm#default)を参照してください。
