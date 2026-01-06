@@ -25,8 +25,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### SharePointOnlineCookies
 
+<Tabs>
+  <Tab title="SharePointOnlineCookies">
 <Steps>
 <Step>
 Enter 認証用のMicrosoft Project ユーザー名 in the **User** field.
@@ -47,9 +48,9 @@ Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuth
-
+  <Tab title="OAuth">
 <Steps>
 <Step>
 Enter the **OAuth Client Id** assigned when you registered your Microsoft Project account for OAuth.
@@ -70,9 +71,9 @@ Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### ADFS
-
+  <Tab title="ADFS">
 <Steps>
 <Step>
 Enter the ADFS **User** Id.
@@ -96,85 +97,8 @@ Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-### OKTA
-<Steps>
-<Step>
-Enter 認証用のMicrosoft Project ユーザー名 in the **User** field.
-</Step>
-<Step>
-Enter ユーザーパスワード in the **Password** field.
-</Step>
-<Step>
-Enter the **SSO Login URL**.
-</Step>
-<Step>
-Enter all relevant **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
-</Step>
-<Step>
-Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
-</Step>
-<Step>
-(Optional) Enter the default **Project Id** name to define it for all operations which require one.
-</Step>
-<Step>
-Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
-</Steps>
-### OneLogin
-<Steps>
-<Step>
-Enter 認証用のMicrosoft Project ユーザー名 in the **User** field.
-</Step>
-<Step>
-Enter ユーザーパスワード in the **Password** field.
-</Step>
-<Step>
-Enter all relevant **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
-</Step>
-<Step>
-Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
-</Step>
-<Step>
-(Optional) Enter the default **Project Id** name to define it for all operations which require one.
-</Step>
-<Step>
-Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
-</Steps>
-### AzureAD
-<Steps>
-<Step>
-Enter the **Azure Tenant** Id that you will use to access data.
-</Step>
-<Step>
-Enter all relevant **SSO Properties**, with the format ‘ssoproperty1=value1;sooproperty2=value2;sooproperty3=value3;’. Make sure to separate all property-value pairs with semicolons.
-</Step>
-<Step>
-Enter your **OAuth Client Id**.
-</Step>
-<Step>
-Enter your **OAuth Client Secret**.
-</Step>
-<Step>
-Select a **Schema** from the drop down. ODataV1 includes more granular data, while ODataV2 can be used for full CRUD operations.
-</Step>
-<Step>
-(Optional) Enter the default **Project Id** name to define it for all operations which require one.
-</Step>
-<Step>
-Connect AI **Add Microsoft Project Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
-</Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とMicrosoft Project の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/COM/jp/cloud/default.htm#default)を参照してください。

@@ -22,8 +22,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### AzureAD
 
+<Tabs>
+  <Tab title="AzureAD">
 <Steps>
 <Step>
 Enter the **Sharepoint URL** to connect to Excel files on a SharePoint site. Leave this field blank to connect to Excel files on your OneDrive.
@@ -41,9 +42,9 @@ Connect AI **Add Excel for the web Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipal
-
+  <Tab title="AzureServicePrincipal">
 <Steps>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -67,9 +68,9 @@ Connect AI **Add Excel for the web Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### AzureServicePrincipalCert
-
+  <Tab title="AzureServicePrincipalCert">
 <Steps>
 <Step>
 Enter the **Azure Tenant** Id to connect to.
@@ -99,7 +100,8 @@ Connect AI **Add Excel for the web Connection** ページ上部の、**Save & Te
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## Issue Queries
 
 In some configurations of Excel for the web, tables are accessible under the schema name OneDrive instead of ExcelOnline. For example, when querying a Excel for the web table, the fully-qualified table name might be `[ExcelOnline1].[OneDrive].[TableName]`. You can use [Data Explorer](/ja/Data-Explorer) to view your schemas to see if this applies to your configuration.

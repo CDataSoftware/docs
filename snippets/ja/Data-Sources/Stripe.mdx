@@ -22,8 +22,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Stripe のサインインページが新しいタブで開かれます。
@@ -38,9 +39,9 @@ Connect AI **Add Stripe Connection** ページ上部の、**Save & Test** をク
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### APIKey
-
+  <Tab title="APIKey">
 <Steps>
 <Step>
 Enter your **Live API Key**. To find your key, navigate to **Developers > API Keys > Secret key** in your Stripe account and click `Reveal Live API Key`.
@@ -52,7 +53,8 @@ Connect AI **Add Stripe Connection** ページ上部の、**Save & Test** をク
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とStripe の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/BOK/jp/cloud/default.htm#default)を参照してください。

@@ -28,8 +28,9 @@ Enter a **Subdomain**. Your subdomain is specified in the Authentication Base UR
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 To use this data source, you must supply a **Callback URL** when setting up your OAuth app. This is sometimes referred to as a 'Redirect URL'. On Connect AI, this is marked as `https://oauth.cdata.com/oauth/`. Use this when you configure your OAuth app on Salesforce Marketing Cloud.
@@ -46,9 +47,9 @@ Connect AI **Add Salesforce Marketing Cloud Connection** ページ上部の、**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthClient
-
+  <Tab title="OAuthClient">
 <Steps>
 <Step>
 Enter the following information:
@@ -62,9 +63,9 @@ Connect AI **Add Salesforce Marketing Cloud Connection** ページ上部の、**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Basic (SOAP schema only)
-
+  <Tab title="Basic (SOAP schema only)">
 <Steps>
 <Step>
 Enter the **User** and **Password** for Salesforce Marketing Cloud.
@@ -76,7 +77,8 @@ Connect AI **Add Salesforce Marketing Cloud Connection** ページ上部の、**
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とSalesforce Marketing Cloud の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/FEK/jp/cloud/default.htm#default)を参照してください。

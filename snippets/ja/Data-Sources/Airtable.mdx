@@ -21,8 +21,8 @@ By default, **Enable Metadata API** (in the **Advanced Settings** tab) is set to
 
 ## Authentication Methods
 
-## PersonalAccessToken
-
+<Tabs>
+  <Tab title="PersonalAccessToken">
 <Steps>
 <Step>
 Enter the Airtable Personal Access Token in the **OAuth Access Token** field. To obtain the token, log in to your [Airtable user account](https://airtable.com/), navigate to the token creation page, and click **Create new token**. Add all the workspaces and bases that you want the token to have access to. Copy and save the generated token, as it will only be shown once.
@@ -37,9 +37,9 @@ Connect AI **Add Airtable Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-## OAuthPKCE
-
+  <Tab title="OAuthPKCE">
 <Steps>
 <Step>
 Enter your Airtable Base Id in the **Base Id** field. The Base Id can be found in the [Airtable API Reference](https://airtable.com/api).
@@ -51,6 +51,8 @@ Connect AI **Add Airtable Connection** ページ上部の、**Save & Test** を�
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
+</Tabs>
 
 ## 詳細について
 

@@ -55,8 +55,9 @@ Select the Authentication method, then proceed to the relevant section and follo
 
 ## Authentication Methods
 
-### OAuthClient
 
+<Tabs>
+  <Tab title="OAuthClient">
 <Steps>
 <Step>
 Enter the **OAuthClientId** assigned when you configured the service principal (in the prerequisites).
@@ -71,9 +72,9 @@ Connect AI **Add Databricks Lakebase Connection** ページ上部の、**Save & 
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### OAuthPKCE
-
+  <Tab title="OAuthPKCE">
 <Steps>
 <Step>
 Enter the **User** Id of the authenticating user. The user obtains a temporary code from the authorization server.
@@ -85,3 +86,5 @@ Connect AI **Add Databricks Lakebase Connection** ページ上部の、**Save & 
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
+</Tabs>

@@ -56,8 +56,9 @@ Under **Data Credentials**, determine if you want to allow shared credentials or
 
 ## Authentication Methods
 
-### OAuth
 
+<Tabs>
+  <Tab title="OAuth">
 <Steps>
 <Step>
 In the **User** field, enter your Snowflake user name.
@@ -90,9 +91,9 @@ Connect AI **Add Snowflake Connection** ページ上部の、**Save & Test** を
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
+  </Tab>
 
-### Password
-
+  <Tab title="Password">
 <Warning>
 **Important:** Any new Snowflake account starting with bundle "2024\_08" will no longer support Password authentication. Please use other authentication methods, such as OAuth or Private Key.
 </Warning>
@@ -117,9 +118,9 @@ Connect AI **Add Snowflake Connection** ページ上部の、**Save & Test** を
 Snowflake で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 </Steps>
+  </Tab>
 
-### Private Key
-
+  <Tab title="Private Key">
 Follow these steps to configure private key authentication:
 
 <Steps>
@@ -154,9 +155,9 @@ Connect AI **Add Snowflake Connection** ページ上部の、**Save & Test** を
 Snowflake で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 </Steps>
+  </Tab>
 
-### Okta
-
+  <Tab title="Okta">
 <Steps>
 <Step>
 Enter the following information:
@@ -187,9 +188,9 @@ Connect AI **Add Snowflake Connection** ページ上部の、**Save & Test** を
 Snowflake で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
 </Step>
 </Steps>
+  </Tab>
 
-### PingFederate
-
+  <Tab title="PingFederate">
 <Steps>
 <Step>
 In the **User** field, enter 認証用のSnowflake ユーザー名.
@@ -213,7 +214,8 @@ Connect AI **Add Snowflake Connection** ページ上部の、**Save & Test** を
 	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
 </Step>
 </Steps>
-
+  </Tab>
+</Tabs>
 ## 詳細について
 
 Connect AI とSnowflake の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/OWK/jp/cloud/default.htm#default)を参照してください。
