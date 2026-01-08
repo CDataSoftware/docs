@@ -781,6 +781,7 @@
             "pages": [
               {
                 "group": "Connect AI API",
+                
                 "pages": [
                   "en/API/API",
                   "en/API/Authentication",
@@ -796,7 +797,7 @@
                     "group": "REST API",
                     
                     "pages": [
-                      "en/API/REST-API",
+                      "en/API/REST-API-Embedded",
                       {
                         "group": "Log API",
                         "pages": [
@@ -1783,7 +1784,7 @@
                   {
                     "group": "REST API",
                     "pages": [
-                      "ja/API/REST-API",
+                      "ja/API/REST-API-Embedded",
                       {
                         "group": "Account API",
                         "pages": [
