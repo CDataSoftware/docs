@@ -782,51 +782,52 @@
               {
                 "group": "Connect AI API",
                 "pages": [
-                  "en/API",
-                  "en/Authentication",
+                  "en/API/API",
+                  "en/API/Authentication",
                   {
                     "group": "MCP",
                     "pages": [
-                      "en/MCP",
-                      "en/list-available-mcp-tools",
-                      "en/invoke-a-tool"
+                      "en/API/MCP",
+                      "en/API/list-available-mcp-tools",
+                      "en/API/invoke-a-tool"
                     ]
                   },
                   {
                     "group": "REST API",
+                    
                     "pages": [
-                      "en/REST-API",
+                      "en/API/REST-API",
                       {
                         "group": "Log API",
                         "pages": [
-                          "en/Audit-API",
-                          "en/Log-API",
-                          "en/download-query-log"
+                          "en/API/Audit-API",
+                          "en/API/Log-API",
+                          "en/API/download-query-log"
                         ]
                       },
                       {
                         "group": "Metadata",
                         "pages": [
-                          "en/Metadata-API",
-                          "en/Catalogs",
-                          "en/Columns",
-                          "en/Exported-Keys",
-                          "en/Imported-Keys",
-                          "en/Indexes",
-                          "en/Primary-Keys",
-                          "en/Procedure-Parameters",
-                          "en/Procedures",
-                          "en/Schemas",
-                          "en/Tables"
+                          "en/API/Metadata-API",
+                          "en/API/Catalogs",
+                          "en/API/Columns",
+                          "en/API/Exported-Keys",
+                          "en/API/Imported-Keys",
+                          "en/API/Indexes",
+                          "en/API/Primary-Keys",
+                          "en/API/Procedure-Parameters",
+                          "en/API/Procedures",
+                          "en/API/Schemas",
+                          "en/API/Tables"
                         ]
                       },
                       {
                         "group": "SQL API",
                         "pages": [
-                          "en/SQL-API",
-                          "en/Query-Operation",
-                          "en/Batch-Operation",
-                          "en/Execute-Procedures"
+                          "en/API/SQL-API",
+                          "en/API/Query-Operation",
+                          "en/API/Batch-Operation",
+                          "en/API/Execute-Procedures"
                         ]
                       }
                     ]
@@ -834,21 +835,21 @@
                   {
                     "group": "OData",
                     "pages": [
-                      "en/OData-Dashboard",
-                      "en/OData-Query-Options",
-                      "en/odata-service-url",
-                      "en/odata-metadata-url",
-                      "en/odata-resource-url",
-                      "en/post--",
-                      "en/delete--",
-                      "en/patch--"
+                      "en/API/OData-Dashboard",
+                      "en/API/OData-Query-Options",
+                      "en/API/odata-service-url",
+                      "en/API/odata-metadata-url",
+                      "en/API/odata-resource-url",
+                      "en/API/post--",
+                      "en/API/delete--",
+                      "en/API/patch--"
                     ]
                   },
                   {
                     "group": "OpenAPI",
                     "pages": [
-                      "en/OpenAPI",
-                      "en/openapi-url"
+                      "en/API/OpenAPI",
+                      "en/API/openapi-url"
                     ]
                   }
                 ]
@@ -856,86 +857,87 @@
               {
                 "group": "Embedded Cloud",
                 "pages": [
-                  "en/API-Embedded",
-                  "en/Authentication-Embedded",
+                  "en/API/API-Embedded",
+                  "en/API/Authentication-Embedded",
                   {
                     "group": "MCP",
                     "pages": [
-                      "en/MCP-Embedded",
-                      "en/list-available-mcp-tools",
-                      "en/invoke-a-tool"
+                      "en/API/MCP-Embedded",
+                      "en/API/list-available-mcp-tools-embedded",
+                      "en/API/invoke-a-tool-embedded"
                     ]
                   },
                   {
                     "group": "REST API",
                     "pages": [
-                      "en/REST-API",
+                      "en/API/REST-API-Embedded",
                       {
                         "group": "Account API",
                         "pages": [
-                          "en/Account-API",
-                          "en/List-Accounts",
-                          "en/Delete-Account"
+                          "en/API/Account-API",
+                          "en/API/List-Accounts",
+                          "en/API/Delete-Account"
                         ]
                       },
                       
                       {
                         "group": "Connection API",
                         "pages": [
-                          "en/Connection-API",
-                          "en/Edit-Connection",
-                          "en/List-Connections",
-                          "en/Delete-Connection",
-                          "en/Clear-Connection-Metadata",
-                          "en/Data-Explorer-API"
+                          "en/API/Connection-API",
+                          "en/API/Edit-Connection",
+                          "en/API/List-Connections",
+                          "en/API/Delete-Connection",
+                          "en/API/Clear-Connection-Metadata",
+                          "en/API/Data-Sources-API",
+                          "en/API/Data-Explorer-API"
                         ]
                       },
                       {
                         "group": "Job API",
                         "pages": [
-                          "en/Job-API",
-                          "en/Create-Cache-Connection",
-                          "en/List-Jobs",
-                          "en/Describe-Job",
-                          "en/Create-Job",
-                          "en/Update-Job",
-                          "en/Delete-Job",
-                          "en/Run-Job",
-                          "en/Stop-Job"
+                          "en/API/Job-API",
+                          "en/API/Create-Cache-Connection",
+                          "en/API/List-Jobs",
+                          "en/API/Describe-Job",
+                          "en/API/Create-Job",
+                          "en/API/Update-Job",
+                          "en/API/Delete-Job",
+                          "en/API/Run-Job",
+                          "en/API/Stop-Job"
                         ]
                       },
                       {
                         "group": "Log API",
                         "pages": [
-                          "en/Audit-API",
-                          "en/Log-API",
-                          "en/download-query-log"
+                          "en/API/Audit-API-Embedded",
+                          "en/API/Log-API-Embedded",
+                          "en/API/download-query-log-embedded"
                         ]
                       },
                       {
                         "group": "Metadata API",
                         "pages": [
-                          "en/Metadata-API",
-                          "en/Catalogs",
-                          "en/Columns",
-                          "en/Data-Sources-API",
-                          "en/Exported-Keys",
-                          "en/Imported-Keys",
-                          "en/Indexes",
-                          "en/Primary-Keys",
-                          "en/Procedure-Parameters",
-                          "en/Procedures",
-                          "en/Schemas",
-                          "en/Tables"
+                          "en/API/Metadata-API",
+                          "en/API/Catalogs-Embedded",
+                          "en/API/Columns-Embedded",
+                        
+                          "en/API/Exported-Keys-Embedded",
+                          "en/API/Imported-Keys-Embedded",
+                          "en/API/Indexes-Embedded",
+                          "en/API/Primary-Keys-Embedded",
+                          "en/API/Procedure-Parameters-Embedded",
+                          "en/API/Procedures-Embedded",
+                          "en/API/Schemas-Embedded",
+                          "en/API/Tables-Embedded"
                         ]
                       },
                       {
                         "group": "SQL API",
                         "pages": [
-                          "en/SQL-API",
-                          "en/Query-Operation",
-                          "en/Batch-Operation",
-                          "en/Execute-Procedures"
+                          "en/API/SQL-API",
+                          "en/API/Query-Operation-Embedded",
+                          "en/API/Batch-Operation-Embedded",
+                          "en/API/Execute-Procedures-Embedded"
                         ]
                       }
                     ]
@@ -1694,51 +1696,51 @@
               {
                 "group": "Connect AI API",
                 "pages": [
-                  "ja/API",
-                  "ja/Authentication",
+                  "ja/API/API",
+                  "ja/API/Authentication",
                   {
                     "group": "MCP",
                     "pages": [
-                      "ja/MCP",
-                      "ja/list-available-mcp-tools",
-                      "ja/invoke-a-tool"
+                      "ja/API/MCP",
+                      "ja/API/list-available-mcp-tools",
+                      "ja/API/invoke-a-tool"
                     ]
                   },
                   {
                     "group": "REST API",
                     "pages": [
-                      "ja/REST-API",
+                      "ja/API/REST-API",
                       {
                         "group": "Log API",
                         "pages": [
-                          "ja/Audit-API",
-                          "ja/Log-API",
-                          "ja/download-query-log"
+                          "ja/API/Audit-API",
+                          "ja/API/Log-API",
+                          "ja/API/download-query-log"
                         ]
                       },
                       {
                         "group": "Metadata",
                         "pages": [
-                          "ja/Metadata-API",
-                          "ja/Catalogs",
-                          "ja/Columns",
-                          "ja/Exported-Keys",
-                          "ja/Imported-Keys",
-                          "ja/Indexes",
-                          "ja/Primary-Keys",
-                          "ja/Procedure-Parameters",
-                          "ja/Procedures",
-                          "ja/Schemas",
-                          "ja/Tables"
+                          "ja/API/Metadata-API",
+                          "ja/API/Catalogs",
+                          "ja/API/Columns",
+                          "ja/API/Exported-Keys",
+                          "ja/API/Imported-Keys",
+                          "ja/API/Indexes",
+                          "ja/API/Primary-Keys",
+                          "ja/API/Procedure-Parameters",
+                          "ja/API/Procedures",
+                          "ja/API/Schemas",
+                          "ja/API/Tables"
                         ]
                       },
                       {
                         "group": "SQL API",
                         "pages": [
-                          "ja/SQL-API",
-                          "ja/Query-Operation",
-                          "ja/Batch-Operation",
-                          "ja/Execute-Procedures"
+                          "ja/API/SQL-API",
+                          "ja/API/Query-Operation",
+                          "ja/API/Batch-Operation",
+                          "ja/API/Execute-Procedures"
                         ]
                       }
                     ]
@@ -1746,21 +1748,21 @@
                   {
                     "group": "OData",
                     "pages": [
-                      "ja/OData-Dashboard",
-                      "ja/OData-Query-Options",
-                      "ja/odata-service-url",
-                      "ja/odata-metadata-url",
-                      "ja/odata-resource-url",
-                      "ja/post--",
-                      "ja/delete--",
-                      "ja/patch--"
+                      "ja/API/OData-Dashboard",
+                      "ja/API/OData-Query-Options",
+                      "ja/API/odata-service-url",
+                      "ja/API/odata-metadata-url",
+                      "ja/API/odata-resource-url",
+                      "ja/API/post--",
+                      "ja/API/delete--",
+                      "ja/API/patch--"
                     ]
                   },
                   {
                     "group": "OpenAPI",
                     "pages": [
-                      "ja/OpenAPI",
-                      "ja/openapi-url"
+                      "ja/API/OpenAPI",
+                      "ja/API/openapi-url"
                     ]
                   }
                 ]
@@ -1768,85 +1770,86 @@
               {
                 "group": "Embedded Cloud",
                 "pages": [
-                  "ja/API-Embedded",
-                  "ja/Authentication-Embedded",
+                  "ja/API/API-Embedded",
+                  "ja/API/Authentication-Embedded",
                   {
                     "group": "MCP",
                     "pages": [
-                      "ja/MCP-Embedded",
-                      "ja/list-available-mcp-tools",
-                      "ja/invoke-a-tool"
+                      "ja/API/MCP-Embedded",
+                      "ja/API/list-available-mcp-tools-embedded",
+                      "ja/API/invoke-a-tool-embedded"
                     ]
                   },
                   {
                     "group": "REST API",
                     "pages": [
-                      "ja/REST-API",
+                      "ja/API/REST-API",
                       {
                         "group": "Account API",
                         "pages": [
-                          "ja/Account-API",
-                          "ja/List-Accounts",
-                          "ja/Delete-Account"
+                          "ja/API/Account-API",
+                          "ja/API/List-Accounts",
+                          "ja/API/Delete-Account"
                         ]
                       },
                       {
                         "group": "Connection API",
                         "pages": [
-                          "ja/Connection-API",
-                          "ja/Edit-Connection",
-                          "ja/List-Connections",
-                          "ja/Delete-Connection",
-                          "ja/Clear-Connection-Metadata",
-                          "ja/Data-Explorer-API"
+                          "ja/API/Connection-API",
+                          "ja/API/Edit-Connection",
+                          "ja/API/List-Connections",
+                          "ja/API/Delete-Connection",
+                          "ja/API/Clear-Connection-Metadata",
+                          "ja/API/Data-Sources-API",
+                          "ja/API/Data-Explorer-API"
                         ]
                       },
                       {
                         "group": "Job API",
                         "pages": [
-                          "ja/Job-API",
-                          "ja/Create-Cache-Connection",
-                          "ja/List-Jobs",
-                          "ja/Describe-Job",
-                          "ja/Create-Job",
-                          "ja/Update-Job",
-                          "ja/Delete-Job",
-                          "ja/Run-Job",
-                          "ja/Stop-Job"
+                          "ja/API/Job-API",
+                          "ja/API/Create-Cache-Connection",
+                          "ja/API/List-Jobs",
+                          "ja/API/Describe-Job",
+                          "ja/API/Create-Job",
+                          "ja/API/Update-Job",
+                          "ja/API/Delete-Job",
+                          "ja/API/Run-Job",
+                          "ja/API/Stop-Job"
                         ]
                       },
                       {
                         "group": "Log API",
                         "pages": [
-                          "ja/Audit-API",
-                          "ja/Log-API",
-                          "ja/download-query-log"
+                          "ja/API/Audit-API-Embedded",
+                          "ja/API/Log-API-Embedded",
+                          "ja/API/download-query-log-embedded"
                         ]
                       },
                       {
                         "group": "Metadata API",
                         "pages": [
-                          "ja/Metadata-API",
-                          "ja/Catalogs",
-                          "ja/Columns",
-                          "ja/Data-Sources-API",
-                          "ja/Exported-Keys",
-                          "ja/Imported-Keys",
-                          "ja/Indexes",
-                          "ja/Primary-Keys",
-                          "ja/Procedure-Parameters",
-                          "ja/Procedures",
-                          "ja/Schemas",
-                          "ja/Tables"
+                          "ja/API/Metadata-API",
+                          "ja/API/Catalogs-Embedded",
+                          "ja/API/Columns-Embedded",
+                          
+                          "ja/API/Exported-Keys-Embedded",
+                          "ja/API/Imported-Keys-Embedded",
+                          "ja/API/Indexes-Embedded",
+                          "ja/API/Primary-Keys-Embedded",
+                          "ja/API/Procedure-Parameters-Embedded",
+                          "ja/API/Procedures-Embedded",
+                          "ja/API/Schemas-Embedded",
+                          "ja/API/Tables-Embedded"
                         ]
                       },
                       {
                         "group": "SQL API",
                         "pages": [
-                          "ja/SQL-API",
-                          "ja/Query-Operation",
-                          "ja/Batch-Operation",
-                          "ja/Execute-Procedures"
+                          "ja/API/SQL-API",
+                          "ja/API/Query-Operation-Embedded",
+                          "ja/API/Batch-Operation-Embedded",
+                          "ja/API/Execute-Procedures-Embedded"
                         ]
                       }
                     ]

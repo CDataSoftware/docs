@@ -1,0 +1,1981 @@
+openapi: 3.1.0
+info:
+  title: CData Connect AI REST API Embedded
+  version: v1
+
+servers:
+  - url: https://cloud.cdata.com/api
+    description: Production base URL
+
+paths:
+  /log/query/list:
+    post:
+      summary: List query log
+      tags:
+        - Log
+      operationId: listQueryLog
+      description: >
+        Retrieves a list of query logs for an account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuerySearchCriteria"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuerySearchResult"
+  /log/query/get/{queryId}:
+    get:
+      summary: Get Query Log
+      tags:
+        - Log
+      operationId: getQueryLog
+      description: >
+        Download a query log file for troubleshooting.
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /log/audit/list:
+    post:
+      summary: List audit log
+      tags:
+        - Log
+      operationId: listAuditLog
+      description: >
+        Retrieves a list of audit logs for an account.
+      parameters:
+        - name: startTime
+          in: query
+          description: 'Timestamp in UTC (ISO 8601 format). Example: "2025-08-18T00:00:00Z"'
+          schema:
+            type: string
+            format: date-time
+        - name: endTime
+          in: query
+          description: 'Timestamp in UTC (ISO 8601 format). Example: "2025-08-18T23:59:59Z"'
+          schema:
+            type: string
+            format: date-time
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuditSearchResult"
+  /poweredby/account/list:
+    get:
+      summary: List Accounts
+      tags:
+        - Account
+      operationId: listAccounts
+      description: >
+        List Accounts lists the child accounts within the parent account.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountListResult"
+              example:
+                accounts:
+                  - id: "fee1ce9d-c40c-4ef6-8f8c-77461315713d"
+                    externalId: "ExternalId"
+                    created: "2023-07-13T20:42:56.317Z"
+                  - id: "c6cc4c16-35c8-4657-90c6-f93d401b0ae9"
+                    externalId: "GlobeInc"
+                    created: "2024-07-16T18:03:19.622Z"
+  /poweredby/account/create:
+    post:
+      summary: Create Account
+      tags:
+        - Account
+      operationId: createAccount
+      description: >
+        Create Account creates a child account for the parent account in the Embedded Cloud product.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAccountRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateAccountResult"
+              example:
+                accountId: "8744e71e-ee33-4d4e-916f-0a21eba65902"
+                externalId: "MyExternalId"
+                createdTime: "2024-07-10T19:10:52.139Z"
+  /poweredby/account/delete/{id}:
+    delete:
+      summary: Delete Account
+      tags:
+        - Account
+      operationId: deleteAccount
+      description: >
+        Delete Account deletes a child account from the Embedded Cloud product.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The child account Id.
+      responses:
+        "200":
+          description: OK
+  /poweredby/connection/create:
+    post:
+      summary: Create Connection
+      tags:
+        - Connection
+      operationId: createConnection
+      description: >
+        Create Connection requests the Connection Create Flow from the Embedded Cloud product. Create Connection validates the JWT and returns a string containing the URL to redirect the user to. If you include the parameter `dataSource`, the URL redirects the user to an **Add Connection** page for the data source. If you omit `dataSource`, the URL redirects the user to a general **Add Connection** page where the user can select a connection to add from the connections list.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateConnectionRequest"
+            example:
+              dataSource: "ExcelOnline"
+              redirectURL: "https://www.google.com"
+              name: "ExcelConnection"
+      responses:
+        "200":
+          description: A string containing the URL to redirect the user to.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RedirectURLResponse"
+              example:
+                redirectURL: "https://cloud.cdata.com/oem/user/connections/edit?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IkV4Y2VsT25saW5lIiwibmJmIjoxNzIxMTU0ODY1LCJleHAiOjE3MjExNTUwNDUsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.Yjph-6HkExJ3eIc3d2pgjZUYMx-GvYcCuuRx8NfKBXkCo_LHZdg8Hn9tcYDr4dEUuL8JTFMzNVgLa-KMQ9PNFmF-R43LSEY3rPXw0iI-9AjYiWOf_fqZe79b-8ig-gnHRKYtHyohVbB4JoXKcICitNBW58gvxc3w7D6XkykAAKRugvVdTJYsaYOwcHar8J7hxtUYaiwmNfP11xo-i1HFkxubUbi3OXr02eGURXidSCAgDxEL7wEXFjLAIxN4sXvbNiAy_OVNSUYnjEhJNxRJiDD7-XZbSVK-Uw68ohv3h4HPnVCKW8DSRWOGhu6kZ_yMQ0buI8qli3tt_YONyAazhw&driver=ExcelOnline&redirectUrl=https%3A%2F%2Fwww.google.com"
+  /poweredby/connection/list:
+    get:
+      summary: List Data Sources
+      tags:
+        - Connection
+      operationId: listDataSources
+      description: >
+        List Data Sources requests a list of data sources supported by Embedded Cloud.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DataSourceListResult"
+              example:
+                dataSources:
+                  - dataSource: "AmazonMarketplace"
+                  - dataSource: "OracleSalesCloud"
+                  - dataSource: "ZohoInventory"
+                  - dataSource: "MariaDB"
+                  - dataSource: "Monday"
+                  - dataSource: "AlloyDB"
+                  - dataSource: "GoogleContacts"
+                  - dataSource: "ZohoCRM"
+                  - dataSource: "SAPSuccessFactors"
+                  - dataSource: "YahooAds"
+                  - dataSource: "Salesforce"
+                  - dataSource: "FreshDesk"
+                  - dataSource: "ShipStation"
+                  - dataSource: "Instagram"
+                  - dataSource: "HubSpot"
+                  - dataSource: "ConnectCache"
+                  - dataSource: "SendGrid"
+                  - dataSource: "PayPal"
+                  - dataSource: "SAPByDesign"
+                  - dataSource: "Sage200"
+                  - dataSource: "BullhornCRM"
+                  - dataSource: "Xero"
+                  - dataSource: "Informix"
+                  - dataSource: "WordPress"
+                  - dataSource: "ADP"
+                  - dataSource: "GoogleAds"
+                  - dataSource: "Splunk"
+                  - dataSource: "ActOn"
+                  - dataSource: "Ebay"
+                  - dataSource: "PostgreSQL"
+                  - dataSource: "WooCommerce"
+                  - dataSource: "Zuora"
+                  - dataSource: "GoogleBigQuery"
+                  - dataSource: "OracleSCM"
+                  - dataSource: "ZohoBooks"
+                  - dataSource: "MicrosoftProject"
+                  - dataSource: "FacebookAds"
+                  - dataSource: "YahooDS"
+                  - dataSource: "TSheets"
+                  - dataSource: "AdobeCommerce"
+                  - dataSource: "SurveyMonkey"
+                  - dataSource: "OracleERP"
+                  - dataSource: "SAPHANA"
+                  - dataSource: "GMOMakeShop"
+                  - dataSource: "D365BusinessCentral"
+                  - dataSource: "AzureAD"
+                  - dataSource: "FinancialEdgeNXT"
+                  - dataSource: "FreshBooks"
+                  - dataSource: "OneNote"
+                  - dataSource: "DocuSign"
+                  - dataSource: "SageIntacct"
+                  - dataSource: "Kintone"
+                  - dataSource: "ServiceNow"
+                  - dataSource: "OracleServiceCloud"
+                  - dataSource: "QuickBase"
+                  - dataSource: "ExactOnline"
+                  - dataSource: "Dynamics365"
+                  - dataSource: "YouTubeAnalytics"
+                  - dataSource: "EpicorERP"
+                  - dataSource: "Confluence"
+                  - dataSource: "SparkSQL"
+                  - dataSource: "Redis"
+                  - dataSource: "GoogleSheets"
+                  - dataSource: "MSTeams"
+                  - dataSource: "Twitter"
+                  - dataSource: "Presto"
+                  - dataSource: "GoogleCalendar"
+                  - dataSource: "MYOB"
+                  - dataSource: "BingAds"
+                  - dataSource: "Elasticsearch"
+                  - dataSource: "OracleOci"
+                  - dataSource: "SageBCAccounting"
+                  - dataSource: "Databricks"
+                  - dataSource: "SharePoint"
+                  - dataSource: "TableauCRM"
+                  - dataSource: "JIRA"
+                  - dataSource: "Marketo"
+                  - dataSource: "Workday"
+                  - dataSource: "SQL"
+                  - dataSource: "Outreach"
+                  - dataSource: "ADLSSync"
+                  - dataSource: "RaiserEdgeNXT"
+                  - dataSource: "Smartsheet"
+                  - dataSource: "Backlog"
+                  - dataSource: "Domino"
+                  - dataSource: "SAPHybrisC4C"
+                  - dataSource: "Slack"
+                  - dataSource: "PCASales"
+                  - dataSource: "BigCommerce"
+                  - dataSource: "Couchbase"
+                  - dataSource: "NetSuite"
+                  - dataSource: "ActiveDirectory"
+                  - dataSource: "AzureSynapse"
+                  - dataSource: "SalesforcePardot"
+                  - dataSource: "ExcelOnline"
+                  - dataSource: "AAS"
+                  - dataSource: "Asana"
+                  - dataSource: "ActCRM"
+                  - dataSource: "ZohoCreator"
+                  - dataSource: "SAPBusinessOne"
+                  - dataSource: "TwitterAds"
+                  - dataSource: "DynamicsCRM"
+                  - dataSource: "GoogleCM"
+                  - dataSource: "QuickBooksOnline"
+                  - dataSource: "Twilio"
+                  - dataSource: "MailChimp"
+                  - dataSource: "FHIR"
+                  - dataSource: "OracleEloqua"
+                  - dataSource: "Exchange"
+                  - dataSource: "Square"
+                  - dataSource: "ZohoProjects"
+                  - dataSource: "GoogleSpanner"
+                  - dataSource: "MongoDB"
+                  - dataSource: "GoogleAdsManager"
+                  - dataSource: "Shopify"
+                  - dataSource: "CosmosDB"
+                  - dataSource: "PowerBIXMLA"
+                  - dataSource: "LinkedInAds"
+                  - dataSource: "AzureTables"
+                  - dataSource: "Office365"
+                  - dataSource: "Odoo"
+                  - dataSource: "MicrosoftPlanner"
+                  - dataSource: "Zendesk"
+                  - dataSource: "Snowflake"
+                  - dataSource: "GoogleAnalytics"
+                  - dataSource: "VeevaVault"
+                  - dataSource: "GraphQL"
+                  - dataSource: "AdobeAnalytics"
+                  - dataSource: "AzureDevOps"
+                  - dataSource: "OracleHCM"
+                  - dataSource: "MySQL"
+                  - dataSource: "OData"
+                  - dataSource: "AmazonAthena"
+                  - dataSource: "LinkedIn"
+                  - dataSource: "ActiveCampaign"
+                  - dataSource: "AmazonDynamoDB"
+                  - dataSource: "SAPConcur"
+                  - dataSource: "Sansan"
+                  - dataSource: "Trello"
+                  - dataSource: "Greenplum"
+                  - dataSource: "ApacheImpala"
+                  - dataSource: "Smaregi"
+                  - dataSource: "SugarCRM"
+                  - dataSource: "Paylocity"
+                  - dataSource: "Bing"
+                  - dataSource: "XeroWorkflowMax"
+                  - dataSource: "AmazonS3Sync"
+                  - dataSource: "Redshift"
+                  - dataSource: "MFExpense"
+                  - dataSource: "CDS"
+                  - dataSource: "Acumatica"
+                  - dataSource: "GitHub"
+                  - dataSource: "BCart"
+                  - dataSource: "SFMarketingCloud"
+                  - dataSource: "ApacheHive"
+                  - dataSource: "CockroachDB"
+                  - dataSource: "Airtable"
+                  - dataSource: "SingleStore"
+                  - dataSource: "SnapchatAds"
+                  - dataSource: "Cloudant"
+                  - dataSource: "Gmail"
+                  - dataSource: "Stripe"
+                  - dataSource: "GoogleSearch"
+                  - dataSource: "Facebook"
+                  - dataSource: "GoogleDirectory"
+                  - dataSource: "JiraServiceDesk"
+  /poweredby/connection/edit/{connectionId}:
+    post:
+      summary: Edit Connection
+      tags:
+        - Connection
+      operationId: editConnection
+      description: >
+        Edit Connection edits a connection in the Embedded Cloud product. Returns a string containing the URL to redirect the user to.
+      parameters:
+        - name: connectionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The connection Id created in Create Connection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EditConnectionRequest"
+            example:
+              redirectURL: "https://www.google.com"
+      responses:
+        "200":
+          description: A string containing the URL to redirect the user to.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RedirectURLResponse"
+              example:
+                redirectURL: "https://cloud.cdata.com/oem/user/connections/edit/eeef6211-5d6f-4347-b5bb-f99d574e75e5?driver=MailChimp&token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6InVwZGF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJjb25uZWN0aW9uSWQiOiJlZWVmNjIxMS01ZDZmLTQzNDctYjViYi1mOTlkNTc0ZTc1ZTUiLCJuYmYiOjE3MjExNTQ2MTUsImV4cCI6MTcyMTE1NDc5NSwiaXNzIjoiY2RhdGEuY29ubmVjdC5hY2NvdW50c2VydmljZSIsImF1ZCI6ImNkYXRhLmNvbm5lY3Qub2VtIn0.JHkjo7tMBrwfoYRrPLUMXoW08Na6CU4EeZS374qvoaO5VGcUef5yyCssC49ca6lIH6DDXgb0a039XPPfIvj9ezqeeVPAt1iJo2TahUTilWwnNeFpkJ8Nh12X29yquzrWJFUYPhDdCKgHpaV0yPqHTZ0V5k8DoDIcTWFtA5xExo9_alpAmfYeIggtu_6pmlRbRWJHRpTWvSiadAzwWeDdMyGlwPjuDE06GjTIByelbH2fpYehlGedh7rganCxNLyjhtuKWlv7VqCQh2S6NOpAXFRgl6Fqy6byp9oIhyb3HeuWptvTig_YClN4_EP0Moq1lHV2v2LE-PBj6ixPoI0i-w&redirectUrl=https%3A%2F%2Fwww.google.com"
+  /poweredby/connection/delete/{id}:
+    delete:
+      summary: Delete Connection
+      tags:
+        - Connection
+      operationId: deleteConnection
+      description: >
+        Delete Connection deletes a child account's connection from the Embedded Cloud product.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The connection Id to delete.
+      responses:
+        "200":
+          description: OK
+  /poweredby/connection/{id}/metadata:
+    delete:
+      summary: Clear Connection Metadata
+      tags:
+        - Connection
+      operationId: clearConnectionMetadata
+      description: >
+        Clear Connection Metadata clears the metadata cache for the specified connection. In some situations, clearing the metadata cache can help fix loading or performance issues.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The connection Id of the connection in which to clear the metadata.
+      responses:
+        "200":
+          description: OK
+  /poweredby/dataExplorer:
+    post:
+      summary: Generate Data Explorer URL
+      tags:
+        - Data Explorer
+      operationId: generateDataExplorerURL
+      description: >
+        Generate Data Explorer URL redirects you to the Data Explorer page of Connect AI.
+      responses:
+        "200":
+          description: A string containing the URL to redirect the user to.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RedirectURLResponse"
+              example:
+                redirectURL: "https://cloud.cdata.com/oem/user/dataexplorer?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJvZW1TdWJBY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImRhdGFFeHBsb3JlciIsImFjY291bnRJZCI6ImZlZTFjZTlkLWM0MGMtNGVmNi04ZjhjLTc3NDYxMzE1NzEzZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy9hY2NvdW50X25hbWUiOiJDRGF0YU9FTVVzZXIiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvdXNlcl90eXBlIjoiMCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX2lkIjoiNGJiYmJiYmItM2M1Yy01NmY4LWFhZTQtYjk4N2Q4ZWEzOTdhIiwibmFtZSI6Ik9FTVN1YkFjY291bnRVc2VyIENvbm5lY3RDbG91ZCIsImVtYWlsIjoib2VtLTRiYmJiYmJiLTNjNWMtNTZmOC1hYWU0LWI5ODdkOGVhMzk3YUBmYWtlZW1haWwuY29tIiwiY29ubmVjdGlvbklkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwibmJmIjoxNzY3MTIwMzkyLCJleHAiOjE3NjcxMjA1NzIsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.S7UtQ3qlgeogzYRnNQQA1rtsyR-G-SfXNVRzCJayg2eL3qaWahIOjJCTZYyfNAWkKyh5RRtxfyhJOgGm0AMf9xaltvl04AOMJILJWcinnptcIhEFeetGnrJEdT6nOVhpj2o7wGv28Nv395a2wv6Ns4z7IT-0rzbVa8UU9jqu3zANw5FoqIm7kr1SILVPpsan-q4yFjf-MBIzfswGB4EfWylc894nO9IThnZxfjCL0-XOzxnRI8o1gj2zlJM5inizoEGxFlTzpuhmt0ArMFlESOdze4dJUP6JmFcPJ-9v2fiEraX_QP-lWeujcxz386Qtk37sd08l-BhZITLR8iXqmA"
+  /job/cacheConnection:
+    post:
+      summary: Update Cache Connection
+      tags:
+        - Cache
+      operationId: updateCacheConnection
+      description: >
+        Create/update the cache connection used by the other caching API calls.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CacheConnectionRequest"
+      responses:
+        "200":
+          description: OK
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/cacheConnection/formLink:
+    post:
+      summary: Generate Cache Connection URL
+      tags:
+        - Cache
+      operationId: generateCacheConnectionURL
+      description: >
+        Generates a URL for users to create or update their cache connection. Returns a string containing the URL to redirect the user to. Users can then add their PostgreSQL connection information to this page.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EditConnectionRequest"
+      responses:
+        "200":
+          description: A string containing the URL to redirect the user to. Users can then add their PostgreSQL connection information to this page.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RedirectURLResponse"
+              example:
+                redirectURL: "https://cloud.cdata.com/oem/user/cacheConnection?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJvZW1TdWJBY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IlBvc3RncmVTUUwiLCJuYmYiOjE3NjI4OTYxNTEsImV4cCI6MTc2Mjg5NjMzMSwiaXNzIjoiY2RhdGEuY29ubmVjdC5hY2NvdW50c2VydmljZSIsImF1ZCI6ImNkYXRhLmNvbm5lY3Qub2VtIn0.Wucf_8YhzGlggHr3DXMsJJYD7BpvcJTxFhJrYcWo9hF28gt684XES0Jh6VZ3YReFb0HVvQlqB_Vf7pkSC_seIPLXC4J7gVaX8oRBKgT6S8aIrNiyi_kZDueeRnBo3sVezUCmzCenEMcHA61H8H8-B7PDhMgOwaKWyFZCpL_ATHH7kTVYAVl8AoeG-z4A1RlwcSnbsoP4RZRgeOv9XEpz_0naviJ7TUyz54WlPAvdFwG6As_R0oI1oU6Nw7aXetphiTqmq3pAYk3FP__8KIkUSliEQv6-VxO6Ugc7CF97Dplzl7arBYkoGkVpv3Rk7jdteZYw0m_uRjKNjhfeB1Vexg&driver=PostgreSQL&redirectUrl=https%3A%2F%2Fwww.google.com&connectionName=OEMCacheConnection"
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/list:
+    get:
+      summary: List Jobs
+      tags:
+        - Job
+      operationId: listJobs
+      description: >
+        Administrators, impersonating a service user, can request a list of jobs for a child account.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobListResult"
+              example:
+                jobs:
+                  - jobType: "Caching"
+                    id: "string"
+                    name: "string"
+                    enabled: true
+                    created: "2024-01-01T00:00:00Z"
+                    lastModified: "2024-01-01T00:00:00Z"
+                    nextRunTime: "2024-01-01T00:00:00Z"
+                    intervalUnit: "Hour"
+                    intervalValue: 1
+                    logVerbosity: 1
+                    lastRun:
+                      dateTime: "0001-01-01T00:00:00Z"
+                      duration: 63894847975
+                      status: "JOB_QUEUED"
+                      rowsAffected: 0
+                      nextRunTime: "0001-01-01T00:00:00Z"
+                    params:
+                      timeCheckColumn: ""
+                      autoTruncateStrings: "false"
+                      sourceConnection: "f6f3cfe6-72e2-4edb-914f-4409c01c1418"
+                      sourceConnectionName: "MailChimp1"
+                      sourceName: "MailChimp"
+                      sourceSchema: "MailChimp"
+                      sourceTable: "Conversations"
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/{jobId}:
+    get:
+      summary: Get Job
+      tags:
+        - Job
+      operationId: getJob
+      description: >
+        Retrieve the details for a specific job.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Id of the job you want to retrieve details from.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobListResult"
+              example:
+                jobs:
+                  - jobType: "Caching"
+                    id: "string"
+                    name: "string"
+                    enabled: true
+                    created: "2024-01-01T00:00:00Z"
+                    lastModified: "2024-01-01T00:00:00Z"
+                    nextRunTime: "2024-01-01T00:00:00Z"
+                    intervalUnit: "Hour"
+                    intervalValue: 1
+                    logVerbosity: 1
+                    lastRun:
+                      dateTime: "0001-01-01T00:00:00Z"
+                      duration: 63894847975
+                      status: "JOB_QUEUED"
+                      rowsAffected: 0
+                      nextRunTime: "0001-01-01T00:00:00Z"
+                    params:
+                      timeCheckColumn: ""
+                      autoTruncateStrings: "false"
+                      sourceConnection: "f6f3cfe6-72e2-4edb-914f-4409c01c1418"
+                      sourceConnectionName: "MailChimp1"
+                      sourceName: "MailChimp"
+                      sourceSchema: "MailChimp"
+                      sourceTable: "Conversations"
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/create:
+    post:
+      summary: Create Job
+      tags:
+        - Job
+      operationId: createJob
+      description: >
+        Administrators, impersonating a service user, can use this call to create a new job.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateJobRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobListResult"
+              example:
+                jobs:
+                  - id: "string"
+                    name: "string"
+                    enabled: true
+                    created: "2024-01-01T00:00:00Z"
+                    lastModified: "2024-01-01T00:00:00Z"
+                    nextRunTime: "2024-01-01T00:00:00Z"
+                    intervalUnit: "Hour"
+                    intervalValue: 1
+                    logVerbosity: 1
+                    lastRun:
+                      dateTime: "0001-01-01T00:00:00Z"
+                      duration: 63894847975
+                      status: "JOB_QUEUED"
+                      rowsAffected: 0
+                      nextRunTime: "0001-01-01T00:00:00Z"
+                    params:
+                      timeCheckColumn: ""
+                      autoTruncateStrings: "false"
+                      sourceConnection: "f6f3cfe6-72e2-4edb-914f-4409c01c1418"
+                      sourceConnectionName: "MailChimp1"
+                      sourceName: "MailChimp"
+                      sourceSchema: "MailChimp"
+                      sourceTable: "Conversations"
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/{jobId}/update:
+    put:
+      summary: Update Job
+      tags:
+        - Job
+      operationId: updateJob
+      description: >
+        Administrators, impersonating a service user, can use this call to update a specified job.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Id of the job you want to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateJobRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobListResult"
+              example:
+                jobs:
+                  - id: "string"
+                    name: "string"
+                    enabled: true
+                    created: "2024-01-01T00:00:00Z"
+                    lastModified: "2024-01-01T00:00:00Z"
+                    nextRunTime: "2024-01-01T00:00:00Z"
+                    intervalUnit: "Hour"
+                    intervalValue: 1
+                    logVerbosity: 1
+                    lastRun:
+                      dateTime: "0001-01-01T00:00:00Z"
+                      duration: 63894847975
+                      status: "JOB_QUEUED"
+                      rowsAffected: 0
+                      nextRunTime: "0001-01-01T00:00:00Z"
+                    params:
+                      timeCheckColumn: ""
+                      autoTruncateStrings: "false"
+                      sourceConnection: "f6f3cfe6-72e2-4edb-914f-4409c01c1418"
+                      sourceConnectionName: "MailChimp1"
+                      sourceName: "MailChimp"
+                      sourceSchema: "MailChimp"
+                      sourceTable: "Conversations"
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/{jobId}/delete:
+    delete:
+      summary: Delete Job
+      tags:
+        - Job
+      operationId: deleteJob
+      description: >
+        Administrators, impersonating a service user, can use this call to delete a specified job.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Id of the job you want to delete.
+      responses:
+        "200":
+          description: OK
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/{jobId}/run:
+    post:
+      summary: Run Job
+      tags:
+        - Job
+      operationId: runJob
+      description: >
+        Administrators, impersonating a service user, can use this call to put the specified job in the queue to be run.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Id of the job you want to put in the queue to be run.
+      responses:
+        "200":
+          description: OK
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /job/{jobId}/stop:
+    post:
+      summary: Stop Job
+      tags:
+        - Job
+      operationId: stopJob
+      description: >
+        Administrators, impersonating a service user, can use this call to stop the specified job.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Id of the job you want to stop.
+      responses:
+        "200":
+          description: OK
+      servers:
+        - url: https://cloud.cdata.com/api
+          description: Production base URL for job endpoints
+  /catalogs:
+    get:
+      tags:
+        - Metadata
+      summary: List catalogs
+      description: >
+        This operation returns information about available catalogs.  Catalogs are connections that the user has setup in their account.
+      
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+              example:
+                results:
+                  - affectedRows: -1
+                    schema:
+                      - catalogName: CData
+                        columnLabel: TABLE_CATALOG
+                        columnName: TABLE_CATALOG
+                        dataType: 5
+                        dataTypeName: VARCHAR
+                        length: 255
+                        nullable: true
+                        ordinal: 0
+                        precision: 255
+                        scale: 0
+                        schemaName: QueryFederation
+                        tableName: sys_catalogs
+                    rows:
+                      - - Salesforce1
+  /schemas:
+    get:
+      tags:
+        - Metadata
+      summary: List schemas
+      description: >
+        This operation returns a list of schemas for a given catalog.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /tables:
+    get:
+      tags:
+        - Metadata
+      summary: List tables and views
+      description: >
+        This operation returns a list of tables and views for a given schema.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: tableType
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /columns:
+    get:
+      tags:
+        - Metadata
+      summary: List columns
+      description: >
+        This operation returns a list of columns for a given table or view.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: columnName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /primaryKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List primary keys
+      description: >
+        This operation returns information about a table's primary keys.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /importedKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List imported keys
+      description: >
+        This operation returns information about primary keys referenced by a table's foreign keys.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /exportedKeys:
+    get:
+      tags:
+        - Metadata
+      summary: List exported keys
+      description: >
+        This operation returns information about foreign keys referenced by a table's primary keys.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /indexes:
+    get:
+      tags:
+        - Metadata
+      summary: List indexes
+      description: >
+        This operation returns information about available indexes for a given table.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: tableName
+          in: query
+          schema:
+            type: string
+        - name: indexName
+          in: query
+          schema:
+            type: string
+        - name: unique
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /procedures:
+    get:
+      tags:
+        - Metadata
+      summary: List stored procedures
+      description: >
+        This operation returns information about available stored procedures for a given schema.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: procedureName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /procedureParameters:
+    get:
+      tags:
+        - Metadata
+      summary: List procedure parameters
+      description: >
+        This operation returns information about a stored procedure's parameters.
+      parameters:
+        - name: catalogName
+          in: query
+          schema:
+            type: string
+        - name: schemaName
+          in: query
+          schema:
+            type: string
+        - name: procedureName
+          in: query
+          schema:
+            type: string
+        - name: paramName
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /query:
+    post:
+      tags:
+        - Query
+      summary: Execute query
+      description: >
+        The query operation allows you to execute a SQL query against one or more data sources configured in your Connect AI account. SELECT, INSERT, UPDATE, DELETE, and EXEC statements are all supported (though the /exec operation should be preferred for the latter).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /batch:
+    post:
+      tags:
+        - Query
+      summary: Execute multiple queries
+      description: >
+        The batch operation allows you to execute batch INSERTs, UPDATEs, and DELETEs against your data sources using a single request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BatchRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+  /exec:
+    post:
+      tags:
+        - Query
+      summary: Execute stored procedure
+      description: >
+        The execute operation allows you to execute stored procedures for any of the data sources configured in your Connect AI account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExecRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueryResult"
+components:
+  schemas:
+    AuditEvent:
+      type: object
+      properties:
+        eventType:
+          $ref: "#/components/schemas/AuditEventType"
+        timestamp:
+          type: string
+          format: date-time
+        relatedId:
+          type: string
+          nullable: true
+        relatedName:
+          type: string
+          nullable: true
+        relatedType:
+          type: integer
+          format: int32
+          nullable: true
+        targetId:
+          type: string
+          nullable: true
+        targetName:
+          type: string
+          nullable: true
+        targetType:
+          type: integer
+          format: int32
+          nullable: true
+        userId:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        userType:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    AuditEventSearchCriteria:
+      type: object
+      properties:
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    AuditEventType:
+      enum:
+        - 0
+        - 500
+        - 501
+        - 502
+        - 1000
+        - 1001
+        - 1002
+        - 1003
+        - 1004
+        - 1005
+        - 1050
+        - 1051
+        - 1052
+        - 1060
+        - 1061
+        - 1062
+        - 1063
+        - 1070
+        - 1071
+        - 1072
+        - 1073
+        - 1080
+        - 1081
+        - 1082
+        - 1083
+        - 1084
+        - 1085
+        - 1090
+        - 1091
+        - 1092
+        - 1093
+        - 1094
+        - 1100
+        - 1101
+        - 1102
+        - 1103
+        - 1105
+        - 1106
+        - 1107
+        - 1108
+        - 1109
+        - 1110
+        - 1111
+        - 1112
+        - 1113
+        - 1114
+        - 1115
+        - 1116
+        - 1200
+        - 1201
+        - 1202
+        - 1220
+        - 1221
+        - 1222
+        - 1223
+        - 1224
+        - 1230
+        - 1231
+      type: integer
+      format: int32
+    BatchRequest:
+      required:
+        - query
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: "#/components/schemas/Parameter"
+          nullable: true
+        query:
+          description: "The SQL query to execute. Must be a valid SQL query."
+          minLength: 1
+          type: string
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    BillingStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      type: integer
+      format: int32
+    ColumnInfo:
+      type: object
+      properties:
+        catalogName:
+          type: string
+          nullable: true
+        columnLabel:
+          type: string
+          nullable: true
+        columnName:
+          type: string
+          nullable: true
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        dataTypeName:
+          type: string
+          nullable: true
+        length:
+          type: integer
+          format: int32
+        nullable:
+          type: boolean
+        ordinal:
+          type: integer
+          format: int32
+        precision:
+          type: integer
+          format: int32
+          nullable: true
+        scale:
+          type: integer
+          format: int32
+          nullable: true
+        schemaName:
+          type: string
+          nullable: true
+        tableName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DataType:
+      enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+      type: integer
+      format: int32
+    Direction:
+      enum:
+        - 1
+        - 2
+        - 4
+        - 5
+      type: integer
+      format: int32
+    ErrorCode:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+        - 63
+        - 64
+        - 65
+        - 66
+        - 67
+        - 68
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+      type: integer
+      format: int32
+    ErrorDetail:
+      type: object
+      properties:
+        code:
+          $ref: "#/components/schemas/ErrorCode"
+        message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ExecParameter:
+      type: object
+      properties:
+        direction:
+          $ref: "#/components/schemas/Direction"
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        value:
+          nullable: true
+      additionalProperties: false
+    ExecRequest:
+      required:
+        - procedure
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ExecParameter"
+          nullable: true
+        procedure:
+          description: "The name of the stored procedure to execute. Must be a valid stored procedure name."
+          minLength: 1
+          type: string
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    Parameter:
+      type: object
+      properties:
+        dataType:
+          $ref: "#/components/schemas/DataType"
+        value:
+          nullable: true
+      additionalProperties: false
+    QueryRecord:
+      type: object
+      properties:
+        credential:
+          type: string
+          nullable: true
+        duration:
+          type: integer
+          format: int64
+        drivers:
+          type: string
+          nullable: true
+        errorCode:
+          type: string
+          nullable: true
+        errorMessage:
+          type: string
+          nullable: true
+        logVerbosity:
+          type: integer
+          format: int32
+          nullable: true
+        query:
+          type: string
+          nullable: true
+        queryId:
+          type: string
+          format: uuid
+        queryType:
+          $ref: "#/components/schemas/QueryType"
+        rowsAffected:
+          type: integer
+          format: int64
+        rowsReturned:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+        userAgent:
+          type: string
+          nullable: true
+      additionalProperties: false
+    QueryRequest:
+      required:
+        - query
+      type: object
+      properties:
+        defaultCatalog:
+          type: string
+          nullable: true
+        defaultSchema:
+          type: string
+          nullable: true
+        parameters:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/Parameter"
+          nullable: true
+        query:
+          description: "The SQL query to execute. Must be a valid SQL query."
+          minLength: 1
+          type: string
+        schemaOnly:
+          type: boolean
+        timeout:
+          maximum: 300
+          minimum: 1
+          type: integer
+          format: int32
+      additionalProperties: false
+    QueryResult:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/ResultSet"
+          nullable: true
+        error:
+          $ref: "#/components/schemas/ErrorDetail"
+      additionalProperties: false
+    QuerySearchCriteria:
+      type: object
+      properties:
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        queryType:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryType"
+          nullable: true
+          default: 2
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    QuerySearchResult:
+      type: object
+      properties:
+        queries:
+          type: array
+          items:
+            $ref: "#/components/schemas/QueryRecord"
+          nullable: true
+      additionalProperties: false
+    AuditSearchResult:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuditEvent"
+          nullable: true
+      additionalProperties: false
+    QueryType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 20
+        - 100
+        - 101
+        - 102
+        - 103
+        - 104
+        - 105
+        - 106
+        - 107
+        - 108
+        - 109
+        - 200
+        - 201
+        - 202
+        - 203
+        - 204
+        - 205
+        - 210
+        - 211
+        - 212
+        - 220
+        - 230
+        - 231
+        - 232
+      type: integer
+      format: int32
+    QueryUserInfo:
+      type: object
+      properties:
+        accountName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        usage:
+          $ref: "#/components/schemas/QueryUserUsageLimits"
+      additionalProperties: false
+    QueryUserUsageLimits:
+      type: object
+      properties:
+        connectionsOverLimit:
+          type: boolean
+        dataSourcesOverLimit:
+          type: boolean
+        usersOverLimit:
+          type: boolean
+        isSpreadsheetsPlan:
+          type: boolean
+        billingStatus:
+          $ref: "#/components/schemas/BillingStatus"
+        billingStatusName:
+          type: string
+          readOnly: true
+        nextBillTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    ResultSet:
+      type: object
+      properties:
+        affectedRows:
+          type: integer
+          format: int32
+        schema:
+          type: array
+          items:
+            $ref: "#/components/schemas/ColumnInfo"
+          nullable: true
+        rows:
+          type: array
+          items:
+            type: array
+            items: {}
+          nullable: true
+      additionalProperties: false
+    AccountListResult:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/AccountInfo"
+          nullable: true
+      additionalProperties: false
+    AccountInfo:
+      type: object
+      required:
+        - id
+        - externalId
+        - created
+      properties:
+        id:
+          type: string
+          description: The internal Connect AI account Id.
+        externalId:
+          type: string
+          description: The Embedded Cloud external account identifier.
+        created:
+          type: string
+          format: date-time
+          description: The time this account was created.
+      additionalProperties: false
+    CreateAccountRequest:
+      type: object
+      required:
+        - externalId
+      properties:
+        externalId:
+          type: string
+          description: The external Id of the account to be created.
+      additionalProperties: false
+    CreateAccountResult:
+      type: object
+      required:
+        - accountId
+        - externalId
+        - createdTime
+      properties:
+        accountId:
+          type: string
+          description: The internal Connect AI account Id.
+        externalId:
+          type: string
+          description: The customer's identifier.
+        createdTime:
+          type: string
+          format: date-time
+          description: The time when the account was created.
+      additionalProperties: false
+    CreateConnectionRequest:
+      type: object
+      required:
+        - redirectURL
+      properties:
+        dataSource:
+          type: string
+          description: "(Optional) The type of data source (For example: Snowflake, ActOn, or Salesforce). You can obtain data source names from List Connections. If you omit this parameter, the user can select from a list of available data sources."
+          nullable: true
+        redirectURL:
+          type: string
+          description: The URL to redirect the customer once the customer has created the connection through the Connect AI UI.
+        name:
+          type: string
+          description: "(Optional) If provided, the connection name."
+          nullable: true
+      additionalProperties: false
+    EditConnectionRequest:
+      type: object
+      required:
+        - redirectURL
+      properties:
+        redirectURL:
+          type: string
+          description: The URL to redirect the customer once the customer has edited the connection through the Connect AI UI.
+      additionalProperties: false
+    RedirectURLResponse:
+      type: object
+      required:
+        - redirectURL
+      properties:
+        redirectURL:
+          type: string
+          description: A string containing the URL to redirect the user to.
+      additionalProperties: false
+    CacheConnectionRequest:
+      type: object
+      required:
+        - connectionString
+      properties:
+        connectionString:
+          type: string
+          description: The connection string used to configure the user's PostgreSQL connection.
+      additionalProperties: false
+    DataSourceListItem:
+      type: object
+      required:
+        - dataSource
+      properties:
+        dataSource:
+          type: string
+          description: The name of the data source.
+      additionalProperties: false
+    DataSourceListResult:
+      type: object
+      properties:
+        dataSources:
+          type: array
+          items:
+            $ref: "#/components/schemas/DataSourceListItem"
+          description: A list of data sources supported by Embedded Cloud.
+      additionalProperties: false
+    JobListResult:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: "#/components/schemas/JobInfo"
+          nullable: true
+      additionalProperties: false
+    JobInfo:
+      type: object
+      required:
+        - jobType
+        - id
+        - name
+        - enabled
+        - created
+        - lastModified
+        - nextRunTime
+        - intervalUnit
+        - intervalValue
+        - logVerbosity
+      properties:
+        jobType:
+          type: string
+          description: The type of job the user wants to run.
+        id:
+          type: string
+          description: The job's Id.
+        name:
+          type: string
+          description: The job's name.
+        enabled:
+          type: boolean
+          description: A Boolean value indicating whether the job is enabled.
+        created:
+          type: string
+          format: date-time
+          description: The date and time the job was created.
+        lastModified:
+          type: string
+          format: date-time
+          description: The date and time the job was last modified.
+        nextRunTime:
+          type: string
+          format: date-time
+          description: The date and time the job is scheduled to be run next.
+        intervalUnit:
+          type: string
+          description: A string representing the interval unit for the job (Hour/Day/Week/Month).
+        intervalValue:
+          type: integer
+          format: int32
+          description: An integer that represents how many of the selected interval unit the job should wait before running again.
+        logVerbosity:
+          type: integer
+          format: int32
+          description: A number indicating the level of log verbosity (1-5).
+        lastRun:
+          $ref: "#/components/schemas/JobLastRun"
+        params:
+          $ref: "#/components/schemas/JobParams"
+      additionalProperties: false
+    JobLastRun:
+      type: object
+      properties:
+        dateTime:
+          type: string
+          format: date-time
+          nullable: true
+        duration:
+          type: integer
+          format: int64
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        rowsAffected:
+          type: integer
+          format: int64
+          nullable: true
+        nextRunTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    JobParams:
+      type: object
+      description: An object containing job parameters. See the example.
+      additionalProperties: true
+    CreateJobRequest:
+      type: object
+      required:
+        - jobType
+        - intervalUnit
+        - intervalValue
+        - logVerbosity
+        - params
+      properties:
+        jobType:
+          type: string
+          description: The type of job that the user wants to run (Caching or ScheduledQuery).
+        intervalUnit:
+          type: string
+          description: A string representing the time interval (Hour/Day/Week/Month).
+        intervalValue:
+          type: integer
+          format: int32
+          description: An integer that represents how many of the selected frequency unit the job should wait before running again.
+        logVerbosity:
+          type: integer
+          format: int32
+          description: An enum indicating the level of log verbosity (1-5).
+        enabled:
+          type: boolean
+          description: A Boolean value indicating whether the job is enabled. The default value is true.
+        definedNextRun:
+          type: string
+          format: date-time
+          description: An optional DateTime value that can be used to set the initial start time for the job.
+        params:
+          $ref: "#/components/schemas/JobParams"
+          description: An object containing different job details depending on if the job is a cache job or a scheduled query.
+      additionalProperties: false
+    UpdateJobRequest:
+      type: object
+      required:
+        - jobType
+        - intervalUnit
+        - intervalValue
+        - logVerbosity
+        - params
+      properties:
+        jobType:
+          type: string
+          description: The type of job that the user wants to run (Caching or ScheduledQuery).
+        intervalUnit:
+          type: string
+          description: A string representing the time interval (Hour/Day/Week/Month).
+        intervalValue:
+          type: integer
+          format: int32
+          description: An integer that represents how many of the selected frequency unit the job should wait before running again.
+        logVerbosity:
+          type: integer
+          format: int32
+          description: An enum indicating the level of log verbosity (1-5).
+        enabled:
+          type: boolean
+          description: A Boolean value indicating whether the job is enabled. The default value is true.
+        definedNextRun:
+          type: string
+          format: date-time
+          description: An optional DateTime value that can be used to set the initial start time for the job.
+        params:
+          $ref: "#/components/schemas/JobParams"
+          description: An object containing different job details depending on if the job is a cache job or a scheduled query.
+      additionalProperties: false
+    WorkspaceList:
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        workspaces:
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkspaceListItem"
+          nullable: true
+      additionalProperties: false
+    WorkspaceListItem:
+      type: object
+      properties:
+        childCount:
+          type: integer
+          format: int32
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token authentication. Include the token in the Authorization header as 'Bearer <token>'.
+security:
+  - BearerAuth: []
