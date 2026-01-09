@@ -168,6 +168,31 @@ paths:
                 redirectURL: "https://cloud.cdata.com/oem/user/connections/edit?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IlNJdTlCdjVjWU1HMDRMYW84YXh3T0E2Nlk5UVlBV0dQd05YeTA5Q1hlY3MiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJ0b2tlblR5cGUiOiJwb3dlcmVkLWJ5Iiwib2VtQWRtaW5BY2NvdW50SWQiOiJkZWUxZmVlZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJmbG93VHlwZSI6ImNyZWF0ZUNvbm5lY3Rpb24iLCJhY2NvdW50SWQiOiJmZWUxY2U5ZC1jNDBjLTRlZjYtOGY4Yy03NzQ2MTMxNTcxM2QiLCJodHRwczovL2Nsb3VkLmNkYXRhLmNvbS9jbGFpbXMvYWNjb3VudF9uYW1lIjoiQ0RhdGFCU0VDaGlsZCIsImh0dHBzOi8vY2xvdWQuY2RhdGEuY29tL2NsYWltcy91c2VyX3R5cGUiOiIwIiwiaHR0cHM6Ly9jbG91ZC5jZGF0YS5jb20vY2xhaW1zL3VzZXJfaWQiOiI0YmJiYmJiYi0zYzVjLTU2ZjgtYWFlNC1iOTg3ZDhlYTM5N2EiLCJuYW1lIjoiU2VydmljZSBVc2VyIiwiZW1haWwiOiJzZXJ2aWNlQWNjY291bnRAZmFrZS5jb20iLCJmbG93RGF0YXNvdXJjZSI6IkV4Y2VsT25saW5lIiwibmJmIjoxNzIxMTU0ODY1LCJleHAiOjE3MjExNTUwNDUsImlzcyI6ImNkYXRhLmNvbm5lY3QuYWNjb3VudHNlcnZpY2UiLCJhdWQiOiJjZGF0YS5jb25uZWN0Lm9lbSJ9.Yjph-6HkExJ3eIc3d2pgjZUYMx-GvYcCuuRx8NfKBXkCo_LHZdg8Hn9tcYDr4dEUuL8JTFMzNVgLa-KMQ9PNFmF-R43LSEY3rPXw0iI-9AjYiWOf_fqZe79b-8ig-gnHRKYtHyohVbB4JoXKcICitNBW58gvxc3w7D6XkykAAKRugvVdTJYsaYOwcHar8J7hxtUYaiwmNfP11xo-i1HFkxubUbi3OXr02eGURXidSCAgDxEL7wEXFjLAIxN4sXvbNiAy_OVNSUYnjEhJNxRJiDD7-XZbSVK-Uw68ohv3h4HPnVCKW8DSRWOGhu6kZ_yMQ0buI8qli3tt_YONyAazhw&driver=ExcelOnline&redirectUrl=https%3A%2F%2Fwww.google.com"
   /poweredby/connection/list:
     get:
+      summary: List Connections
+      tags:
+        - Connection
+      operationId: listConnections
+      description: >
+        List Connections returns a list of connections for the account.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConnectionListResult"
+              example:
+                connections:
+                  - id: "880dc1a2-03c3-4288-9857-6f5c029d897c"
+                    name: "ExcelOnline1"
+                    dataSource: "ExcelOnline"
+                    lastModified: "2024-08-02T21:30:55.154Z"
+                  - id: "eeef6211-5d6f-4347-b5bb-f99d574e75e5"
+                    name: "MailChimp1"
+                    dataSource: "MailChimp"
+                    lastModified: "2023-10-11T20:43:33.28Z"
+  /poweredby/sources/list:
+    get:
       summary: List Data Sources
       tags:
         - Connection
@@ -1757,6 +1782,38 @@ components:
         redirectURL:
           type: string
           description: A string containing the URL to redirect the user to.
+      additionalProperties: false
+    ConnectionListItem:
+      type: object
+      required:
+        - id
+        - name
+        - dataSource
+        - lastModified
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The connection Id.
+        name:
+          type: string
+          description: The connection name.
+        dataSource:
+          type: string
+          description: The data source type (e.g., ExcelOnline, MailChimp).
+        lastModified:
+          type: string
+          format: date-time
+          description: The date and time the connection was last modified.
+      additionalProperties: false
+    ConnectionListResult:
+      type: object
+      properties:
+        connections:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionListItem"
+          description: A list of connections for the account.
       additionalProperties: false
     CacheConnectionRequest:
       type: object
