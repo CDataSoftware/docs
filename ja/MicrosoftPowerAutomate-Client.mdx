@@ -20,7 +20,7 @@ To establish a connection from Microsoft Power Automate to Connect AI via OpenAP
 
 <Steps>
 <Step>
-In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/ja/OpenAPI) for more information.
+In **Workspaces** in Connect AI, select a workspace and download the OpenAPI specification for the workspace. See [OpenAPI](/ja/API/OpenAPI) for more information.
 <Note>
 **Note:** You must use OpenAPI version 2.0 and select **Convert array types to strings**.
 </Note>
@@ -63,7 +63,7 @@ The **3\. Definition** step of the connector defines all the actions of the conn
 		  <img src="./images/powerapps_request.png" alt="Power Apps request" />
 		</Frame>
 		The request includes query parameters that are appended to the URL, such as `$top`, `$filter`, and `$orderby`. You can edit and delete the query parameters here. The parameters are based on the OData protocol.
-		See [API Operations](/ja/OpenAPI#api-operations) for a complete reference.
+		See [API Operations](/ja/API/OpenAPI#api-operations) for a complete reference.
 		The **Test** step of creating a custom connector is where you can test out the query parameters.
 		Similarly, there is a POST request to create a new record. The request contains all the fields for the record. You can edit these fields in the definition.
 	- **References**—reusable parameters that are used by both actions and triggers. Each reference has a **Definition** and **Validation**.

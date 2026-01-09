@@ -32,7 +32,7 @@ The following is an overview of setting up Embedded Cloud. There are four main s
 ### Step 1: Create a Parent Account
 <Steps>
 <Step>
-The administrator of the Embedded Cloud parent account [creates a JSON Web Token (JWT)](/ja/Authentication-Embedded), which consists of a private key and a corresponding public key. The private key must be stored according to the security requirements of the product integrated with Embedded Cloud.
+The administrator of the Embedded Cloud parent account [creates a JSON Web Token (JWT)](/ja/API/Authentication-Embedded), which consists of a private key and a corresponding public key. The private key must be stored according to the security requirements of the product integrated with Embedded Cloud.
 </Step>
 <Step>
 The administrator provides the public key certificate in Privacy-Enhanced Mail (PEM) format to register the management account. They can register the public key by opening a support ticket with Connect AI.
@@ -43,7 +43,7 @@ Once registered, the administrator of the parent account can sign in to the acco
 </Steps>
 ### Step 2: Create a Child Account
 
-Use [Create Account](/ja/Account-API#create-account) in the Embedded Cloud API to create a child account. You must supply the JWT that you created in [Create a Parent Account](#step-1:-create-a-parent-account).
+Use [Create Account](/ja/API/Account-API#create-account) in the Embedded Cloud API to create a child account. You must supply the JWT that you created in [Create a Parent Account](#step-1:-create-a-parent-account).
 
 ### Step 3: Configure a Connection
 
@@ -58,8 +58,8 @@ Use one of the following Connect AI drivers to query the data:
 - [JDBC](/ja/JDBC-Client)
 - [Python](/ja/Python-Client)
 
-In addition, Embedded Cloud provides a full-featured [REST API](/ja/REST-API). You can query data directly with any REST-compatible application or integration tool capable of creating HTTP requests.
+In addition, Embedded Cloud provides a full-featured [REST API](/ja/API/REST-API). You can query data directly with any REST-compatible application or integration tool capable of creating HTTP requests.
 
 ### View Logs
 
-Use the [Log API](/ja/Log-API) to view and download a list of logs for a Embedded Cloud account.
+Use the [Log API](/ja/API/Log-API) to view and download a list of logs for a Embedded Cloud account.

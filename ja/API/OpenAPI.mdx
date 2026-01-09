@@ -64,7 +64,7 @@ The List operation invokes a GET request for all entities in the data set. The f
 
 - `$top=N` includes only the first *N* records in the result. For example, `$top=10` returns only the top ten records in the entity.
 - `$skip=N` skips the first *N* records from the result. For example, `$skip=10` skips the first ten records in the entity, and begins with the eleventh record.
-- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/ja/OData-Query-Options#filter) for a complete list of operators.
+- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/ja/API/OData-Query-Options#filter) for a complete list of operators.
 - `$orderby` sorts the records in the entity by a property or properties. Separate the properties by a comma. You can sort by `asc` (ascending) or `desc` (descending). The default value is `asc`. For example, order the data set by `Model` (ascending) and then by `Color` (descending) as follows: `$orderby=Model asc, Color desc`.
 - `$select` retrieves a subset of properties. For example, return the properties `Id` and `Model` for all records in the data set as follows: `$select=Id, Model`.
 
@@ -97,4 +97,4 @@ The Update operation invokes a PATCH request to update an entity. The following 
 
 The GetCount operation invokes a GET request to get the number of the resource. The following are the inputs for GetCount:
 
-- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/ja/OData-Query-Options#filter) for a complete list of operators.
+- `$filter` applies OData operators, such as `gt` (greater than) or `eq` (equals) to the entities in the data set. See [$filter](/ja/API/OData-Query-Options#filter) for a complete list of operators.
