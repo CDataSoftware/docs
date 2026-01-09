@@ -785,14 +785,8 @@
                 "pages": [
                   "en/API/API",
                   "en/API/Authentication",
-                  {
-                    "group": "MCP",
-                    "pages": [
-                      "en/API/MCP",
-                      "en/API/list-available-mcp-tools",
-                      "en/API/invoke-a-tool"
-                    ]
-                  },
+                  "en/API/MCP",
+                  
                   {
                     "group": "REST API",
                     
@@ -860,14 +854,8 @@
                 "pages": [
                   "en/API/API-Embedded",
                   "en/API/Authentication-Embedded",
-                  {
-                    "group": "MCP",
-                    "pages": [
-                      "en/API/MCP-Embedded",
-                      "en/API/list-available-mcp-tools-embedded",
-                      "en/API/invoke-a-tool-embedded"
-                    ]
-                  },
+                  "en/API/MCP-Embedded",
+                 
                   {
                     "group": "REST API",
                     "pages": [
@@ -1699,14 +1687,8 @@
                 "pages": [
                   "ja/API/API",
                   "ja/API/Authentication",
-                  {
-                    "group": "MCP",
-                    "pages": [
-                      "ja/API/MCP",
-                      "ja/API/list-available-mcp-tools",
-                      "ja/API/invoke-a-tool"
-                    ]
-                  },
+                  "ja/API/MCP",
+                  
                   {
                     "group": "REST API",
                     "pages": [
@@ -1773,14 +1755,8 @@
                 "pages": [
                   "ja/API/API-Embedded",
                   "ja/API/Authentication-Embedded",
-                  {
-                    "group": "MCP",
-                    "pages": [
-                      "ja/API/MCP-Embedded",
-                      "ja/API/list-available-mcp-tools-embedded",
-                      "ja/API/invoke-a-tool-embedded"
-                    ]
-                  },
+                  "ja/API/MCP-Embedded",
+                  
                   {
                     "group": "REST API",
                     "pages": [
