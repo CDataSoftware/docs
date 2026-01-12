@@ -774,7 +774,7 @@ paths:
         - Metadata
       summary: List catalogs
       description: >
-        This operation returns information about available catalogs.  Catalogs are connections that the user has setup in their account.
+        This operation returns information about available catalogs. Catalogs are connections that the user has set up in their account.
       
       responses:
         "200":
@@ -864,18 +864,22 @@ paths:
         This operation returns a list of columns for a given table or view.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: columnName
+          description: "Restricts results to the specified column."
           in: query
           schema:
             type: string

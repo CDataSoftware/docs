@@ -82,7 +82,7 @@ components:
     Basic:
       type: http
       scheme: basic
-      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+      description: Basic Authentication with username and password. Use your PAT as the password. You can get your PAT from Connect AI by selecting **Settings** > **Access Tokens**.
     
     #OAuth2:
     #  type: oauth2

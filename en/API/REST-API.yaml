@@ -79,9 +79,10 @@ paths:
         - Metadata
       summary: List Catalogs
       description: >
-        This operation returns information about available catalogs.  Catalogs are connections that the user has setup in their account.
+        This operation returns information about available catalogs. Catalogs are connections that the user has set up in their account.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
@@ -119,14 +120,17 @@ paths:
         This operation returns a list of schemas for a given catalog.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
@@ -146,22 +150,27 @@ paths:
         This operation returns a list of tables and views for a given schema.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: tableType
+          description: "Restricts results to the specified table type(s)."
           in: query
           schema:
             type: string
@@ -181,22 +190,27 @@ paths:
         This operation returns a list of columns for a given table or view.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: columnName
+          description: "Restricts results to the specified column."
           in: query
           schema:
             type: string
@@ -216,18 +230,22 @@ paths:
         This operation returns information about a table's primary keys.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -247,18 +265,22 @@ paths:
         This operation returns information about primary keys referenced by a table's foreign keys.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -278,18 +300,22 @@ paths:
         This operation returns information about foreign keys referenced by a table's primary keys.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -309,26 +335,32 @@ paths:
         This operation returns information about available indexes for a given table.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: indexName
+          description: "Restricts results to the specified index."
           in: query
           schema:
             type: string
         - name: unique
+          description: "If true, only return unique indexes. If false, only return non-unique indexes. The default value is to return all indexes."
           in: query
           schema:
             type: boolean
@@ -352,14 +384,17 @@ paths:
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: procedureName
+          description: "Restricts results to the specified procedure."
           in: query
           schema:
             type: string
@@ -379,22 +414,27 @@ paths:
         This operation returns information about a stored procedure's parameters.
       parameters:
         - name: workspace
+          description: "Restricts results to the specified workspace."
           in: query
           schema:
             type: string
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: procedureName
+          description: "Restricts results to the specified procedure."
           in: query
           schema:
             type: string
         - name: paramName
+          description: "Restricts results to the specified procedure parameter."
           in: query
           schema:
             type: string
@@ -696,6 +736,7 @@ components:
         - 17
         - 18
       type: integer
+      description: "The parameter's [data type](/en/API/REST-API#data-types)."
       format: int32
     Direction:
       enum:
@@ -896,6 +937,7 @@ components:
         defaultSchema:
           type: string
           nullable: true
+          description: "The default schema to use for the query if none is specified in the query itself."
         parameters:
           type: object
           additionalProperties:
@@ -907,6 +949,7 @@ components:
           type: string
         schemaOnly:
           type: boolean
+          description: "If true, only the schema of the result set is returned without any data rows. The default value is false."
         timeout:
           maximum: 300
           minimum: 1
@@ -1045,6 +1088,7 @@ components:
         affectedRows:
           type: integer
           format: int32
+          description: "The number of rows affected by the query, or -1 if not applicable."
         schema:
           type: array
           items:
@@ -1089,7 +1133,7 @@ components:
     Basic:
       type: http
       scheme: basic
-      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+      description: Basic Authentication with username and password. Use your PAT as the password. You can get your PAT from Connect AI by selecting **Settings** > **Access Tokens**.
     #OAuth2:
     #  type: oauth2
     #  flows:
