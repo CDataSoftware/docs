@@ -774,7 +774,7 @@ paths:
         - Metadata
       summary: List catalogs
       description: >
-        This operation returns information about available catalogs.  Catalogs are connections that the user has setup in their account.
+        This operation returns information about available catalogs. Catalogs are connections that the user has set up in their account.
       
       responses:
         "200":
@@ -810,10 +810,12 @@ paths:
         This operation returns a list of schemas for a given catalog.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
@@ -833,18 +835,22 @@ paths:
         This operation returns a list of tables and views for a given schema.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: tableType
+          description: "Restricts results to the specified table type(s)."
           in: query
           schema:
             type: string
@@ -864,18 +870,22 @@ paths:
         This operation returns a list of columns for a given table or view.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: columnName
+          description: "Restricts results to the specified column."
           in: query
           schema:
             type: string
@@ -895,14 +905,17 @@ paths:
         This operation returns information about a table's primary keys.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -922,14 +935,17 @@ paths:
         This operation returns information about primary keys referenced by a table's foreign keys.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -949,14 +965,17 @@ paths:
         This operation returns information about foreign keys referenced by a table's primary keys.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
@@ -976,22 +995,27 @@ paths:
         This operation returns information about available indexes for a given table.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: tableName
+          description: "Restricts results to the specified table."
           in: query
           schema:
             type: string
         - name: indexName
+          description: "Restricts results to the specified index."
           in: query
           schema:
             type: string
         - name: unique
+          description: "If true, only return unique indexes. If false, only return non-unique indexes. The default value is to return all indexes."
           in: query
           schema:
             type: boolean
@@ -1011,14 +1035,17 @@ paths:
         This operation returns information about available stored procedures for a given schema.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: procedureName
+          description: "Restricts results to the specified procedure."
           in: query
           schema:
             type: string
@@ -1038,18 +1065,22 @@ paths:
         This operation returns information about a stored procedure's parameters.
       parameters:
         - name: catalogName
+          description: "Restricts results to the specified catalog."
           in: query
           schema:
             type: string
         - name: schemaName
+          description: "Restricts results to the specified schema."
           in: query
           schema:
             type: string
         - name: procedureName
+          description: "Restricts results to the specified procedure."
           in: query
           schema:
             type: string
         - name: paramName
+          description: "Restricts results to the specified procedure parameter."
           in: query
           schema:
             type: string

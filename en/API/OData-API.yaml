@@ -32,7 +32,7 @@ paths:
         - OData
       summary: List Metadata
       description: >
-        This operation returns the OData metadata for a given workspace.  The metadata describes the resources available in the workspace.
+        This operation returns the OData metadata for a given workspace. The metadata describes the resources available in the workspace.
       parameters:
         - name: workspaceName
           in: path
@@ -130,7 +130,7 @@ components:
     Basic:
       type: http
       scheme: basic
-      description: Basic Authentication with username and PAT.  Use your PAT as the password, you can get your PAT from the Connect AI UI by browsing to Settings > Access Tokens.
+      description: Basic Authentication with username and password. Use your PAT as the password. You can get your PAT from Connect AI by selecting **Settings** > **Access Tokens**.
     #OAuth2:
     #  type: oauth2
     #  flows:
