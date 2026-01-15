@@ -791,7 +791,7 @@
                     "group": "REST API",
                     
                     "pages": [
-                      "en/API/REST-API-Embedded",
+                      "en/API/REST-API",
                       {
                         "group": "Log API",
                         "pages": [
