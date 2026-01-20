@@ -8,7 +8,7 @@
     "dark": "#00A0FF"
   },
   "favicon": "/favicon.ico",
-  "defaultOrigin": "https://cdata.mintlify.app",
+  "defaultOrigin": "https://docs.cloud.cdata.com",
   "appearance": {
     "default": "light"
   },
@@ -1893,5 +1893,6 @@
       "facebook": "https://www.facebook.com/cdatasoftware",
       "instagram": "https://www.instagram.com/cdatasoftware"
     }
-  }
+  },
+  "description": "Connect AI documentation"
 }
