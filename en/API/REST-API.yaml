@@ -1050,16 +1050,19 @@ components:
           type: string
           format: date-time
           nullable: true
+          description: The end time of the query.
         queryType:
           type: array
           items:
             $ref: "#/components/schemas/QueryType"
           nullable: true
           default: 2
+          description: The type of query.
         startTime:
           type: string
           format: date-time
           nullable: true
+          description: The start time of the query.
       additionalProperties: false
     QuerySearchResult:
       type: object
