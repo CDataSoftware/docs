@@ -10,7 +10,7 @@ servers:
 paths:
   /log/query/list:
     post:
-      summary: List query log
+      summary: List Query Log
       tags:
         - Log
       operationId: listQueryLog
@@ -65,7 +65,7 @@ paths:
           description: OK and the zipped log file.
   /log/audit/list:
     post:
-      summary: List audit log
+      summary: List Audit Log
       tags:
         - Log
       operationId: listAuditLog
@@ -653,6 +653,19 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/CreateJobRequest"
+            example:
+              jobType: "Caching"
+              intervalUnit: "Hour"
+              intervalValue: "1"
+              logVerbosity: "1"
+              enabled: "true"
+              params:
+                timeCheckColumn: ""
+                autoTruncateStrings: "false"
+                sourceConnection: "36b2c04f-70f4-44a1-876a-29e42237ee63"
+                sourceName: "OData1"
+                sourceSchema: "OData"
+                sourceTable: "Categories"
       responses:
         "200":
           description: OK
@@ -811,7 +824,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List catalogs
+      summary: List Catalogs
       description: >
         This operation returns information about available catalogs. Catalogs are connections that the user has set up in their account.
       
@@ -844,7 +857,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List schemas
+      summary: List Schemas
       description: >
         This operation returns a list of schemas for a given catalog.
       parameters:
@@ -867,7 +880,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List tables and views
+      summary: List Tables
       description: >
         This operation returns a list of tables and views for a given schema.
       parameters:
@@ -898,7 +911,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List columns
+      summary: List Columns
       description: >
         This operation returns a list of columns for a given table or view.
       parameters:
@@ -933,7 +946,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List primary keys
+      summary: List Primary Keys
       description: >
         This operation returns information about a table's primary keys.
       parameters:
@@ -960,7 +973,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List imported keys
+      summary: List Imported Keys
       description: >
         This operation returns information about primary keys referenced by a table's foreign keys.
       parameters:
@@ -987,7 +1000,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List exported keys
+      summary: List Exported Keys
       description: >
         This operation returns information about foreign keys referenced by a table's primary keys.
       parameters:
@@ -1014,7 +1027,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List indexes
+      summary: List Indexes
       description: >
         This operation returns information about available indexes for a given table.
       parameters:
@@ -1049,7 +1062,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List stored procedures
+      summary: List Procedures
       description: >
         This operation returns information about available stored procedures for a given schema.
       parameters:
@@ -1076,7 +1089,7 @@ paths:
     get:
       tags:
         - Metadata
-      summary: List procedure parameters
+      summary: List Procedure Parameters
       description: >
         This operation returns information about a stored procedure's parameters.
       parameters:
@@ -1107,7 +1120,7 @@ paths:
     post:
       tags:
         - Query
-      summary: Execute query
+      summary: Execute Query
       description: >
         The query operation allows you to execute a SQL query against one or more data sources configured in your Connect AI account. SELECT, INSERT, UPDATE, DELETE, and EXEC statements are all supported (though the /exec operation should be preferred for the latter).
       requestBody:
@@ -1126,7 +1139,7 @@ paths:
     post:
       tags:
         - Query
-      summary: Execute multiple queries
+      summary: Execute Batch Query
       description: >
         The batch operation allows you to execute batch INSERTs, UPDATEs, and DELETEs against your data sources using a single request.
       requestBody:
@@ -1145,7 +1158,7 @@ paths:
     post:
       tags:
         - Query
-      summary: Execute stored procedure
+      summary: Execute Procedure
       description: >
         The execute operation allows you to execute stored procedures for any of the data sources configured in your Connect AI account.
       requestBody:
@@ -1398,6 +1411,7 @@ components:
         - 17
         - 18
       type: integer
+      description: "The parameter's [data type](/en/API/REST-API#data-types)."
       format: int32
     Direction:
       enum:
@@ -1613,6 +1627,7 @@ components:
         defaultSchema:
           type: string
           nullable: true
+          description: "The default schema to use for the query if none is specified in the query itself."
         parameters:
           type: object
           additionalProperties:
@@ -1624,6 +1639,7 @@ components:
           type: string
         schemaOnly:
           type: boolean
+          description: "If true, only the schema of the result set is returned without any data rows. The default value is false."
         timeout:
           maximum: 300
           minimum: 1
@@ -1648,16 +1664,19 @@ components:
           type: string
           format: date-time
           nullable: true
+          description: The end time of the query.
         queryType:
           type: array
           items:
             $ref: "#/components/schemas/QueryType"
           nullable: true
           default: 2
+          description: The type of query.
         startTime:
           type: string
           format: date-time
           nullable: true
+          description: The start time of the query.
       additionalProperties: false
     QuerySearchResult:
       type: object
@@ -1762,6 +1781,7 @@ components:
         affectedRows:
           type: integer
           format: int32
+          description: "The number of rows affected by the query, or -1 if not applicable."
         schema:
           type: array
           items:
