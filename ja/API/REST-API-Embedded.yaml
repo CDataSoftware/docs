@@ -476,6 +476,22 @@ paths:
       responses:
         "200":
           description: OK
+          content:
+            application/json:
+              example:
+                connection:
+                  accountId: "fee1ce9d-c40c-4ef6-8f8c-77461315713d"
+                  connectionString: "server=<Server URL>;port=5432;user=username;password=password;database=cachedb"
+                  connectionType: 0
+                  created: "2025-11-20T15:26:43.096Z"
+                  driver: "PostgreSQL"
+                  driverVersion: "24.0.9172.0"
+                  id: "1c9b0ae6-3a6f-417a-8460-4ce5b5528540"
+                  isTested: false
+                  lastModified: "2025-11-20T15:52:32.8444712Z"
+                  name: "CacheConnection"
+                  walletFilePresent: false
+                  isCannedConnection: false
       servers:
         - url: https://cloud.cdata.com/api
           description: Production base URL for job endpoints
@@ -1826,7 +1842,8 @@ components:
       properties:
         connectionString:
           type: string
-          description: The connection string used to configure the user's PostgreSQL connection.
+          description: The connection string used to configure the user's PostgreSQL connection. The connection string contains the fields `Server`, `Port`, `User`, `Password`, and `Database`, separated by semicolons. Optionally, you can include `BrowsableSchemas` to limit the schemas.
+          example: "Server=<Server URL>;Port=5432;User=username;Password=password;Database=cachedb;"
       additionalProperties: false
     DataSourceListItem:
       type: object
