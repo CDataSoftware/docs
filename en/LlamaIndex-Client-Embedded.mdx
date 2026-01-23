@@ -23,7 +23,7 @@ Create a folder for LlamaIndex MCP.
 Create a Python file within the folder called `llamaindex.py`.
 </Step>
 <Step>
-In `llamaindex.py`, set up your MCP server and MCP client to call the tools and prompts. For `Authorization`, you need to change `Basic` to `Bearer` and provide the JWT bearer token from the prerequisites.
+In `llamaindex.py`, set up your MCP server and MCP client to call the tools and prompts. The `Authorization` is `Bearer` and the JWT bearer token from the prerequisites.
 
 ```python expandable
 from llama_index.llms.openai import OpenAI
@@ -33,7 +33,7 @@ import asyncio
 
 client = BasicMCPClient(
     "http://mcp.cloud.cdata.com/mcp",
-    headers={"Authorization": "Basic Base64-encoded (CONNECTAI_USERNAME:PAT)"}
+    headers={"Authorization": "Bearer OAUTH_JWT_TOKEN"}
 )
 
 async def main():

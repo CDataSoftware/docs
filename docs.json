@@ -704,6 +704,7 @@
                     "group": "AI Tools",
                     "pages": [
                       "en/AITools-Embedded",
+                      "en/AgentBricks-Client-Embedded",
                       "en/ClaudeCode-Client-Embedded",
                       "en/CrewAI-Client-Embedded",
                       "en/Cursor-Client-Embedded",
@@ -713,8 +714,16 @@
                       "en/LlamaIndex-Client-Embedded",
                       "en/MicrosoftCopilot-Client-Embedded",
                       "en/N8N-Client-Embedded",
-                      "en/Replit-Client-Embedded",
                       "en/Windsurf-Client-Embedded"
+                    ]
+                  },
+                  {
+                    "group": "ETL Tools",
+                    "pages": [
+                      "en/ETLTools-Embedded",
+                      "en/AWSGlue-Client-Embedded",
+                      "en/CDataSync-Client-Embedded",
+                      "en/CloudDataFusion-Client-Embedded"
                     ]
                   },
                   {
@@ -724,7 +733,8 @@
                       "en/ADO.NET-Client-Embedded",
                       "en/JDBC-Client-Embedded",
                       "en/ODBC-Client-Embedded",
-                      "en/Python-Client-Embedded"
+                      "en/Python-Client-Embedded",
+                      "en/SSIS-Client-Embedded"
                     ]
                   }
                 ]
@@ -1608,6 +1618,7 @@
                     "group": "AI ツール",
                     "pages": [
                       "ja/AITools-Embedded",
+                      "ja/AgentBricks-Client-Embedded",
                       "ja/ClaudeCode-Client-Embedded",
                       "ja/CrewAI-Client-Embedded",
                       "ja/Cursor-Client-Embedded",
@@ -1617,8 +1628,16 @@
                       "ja/LlamaIndex-Client-Embedded",
                       "ja/MicrosoftCopilot-Client-Embedded",
                       "ja/N8N-Client-Embedded",
-                      "ja/Replit-Client-Embedded",
                       "ja/Windsurf-Client-Embedded"
+                    ]
+                  },
+                  {
+                    "group": "ETL ツール",
+                    "pages": [
+                      "ja/ETLTools-Embedded",
+                      "ja/AWSGlue-Client-Embedded",
+                      "ja/CDataSync-Client-Embedded",
+                      "ja/CloudDataFusion-Client-Embedded"
                     ]
                   },
                   {
@@ -1628,7 +1647,8 @@
                       "ja/ADO.NET-Client-Embedded",
                       "ja/JDBC-Client-Embedded",
                       "ja/ODBC-Client-Embedded",
-                      "ja/Python-Client-Embedded"
+                      "ja/Python-Client-Embedded",
+                      "ja/SSIS-Client-Embedded"
                     ]
                   }
                 ]
