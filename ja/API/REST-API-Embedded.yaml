@@ -2054,6 +2054,6 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      description: JWT token authentication. Include the token in the Authorization header as 'Bearer <token>'.
+      description: JWT token authentication. Include the token in the Authorization header as `Bearer {token}`. See [Authentication](Authentication-Embedded) for more information on creating a token.
 security:
   - BearerAuth: []
