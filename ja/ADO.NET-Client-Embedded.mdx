@@ -3,16 +3,16 @@ title: "ADO.NET"
 description: "This page outlines the steps that are required to use the Microsoft ADO.NET data provider for Embedded Cloud."
 ---
 
-<Note>
+## Prerequisites
+
 Before you can configure and use ADO.NET with Embedded Cloud, you must first connect a data source to your Embedded Cloud account. See [Sources](/ja/Sources-Embedded) for more information.
-</Note>
 
 ## Install the Provider
 
 Follow these steps to download and install the provider:
 <Steps>
 <Step>
-[Download](https://www.cdata.com/download/getfile.aspx?file=free/LFRK-A/setup.exe&name=ADO.NET%20Provider%20for%20CData%20Connect&tag=Download-ado) and run the ADO.NET setup file.
+[Download](https://jp.cdata.com/download/getfile.aspx?file=free/LFRK-A/setup.exe&name=ADO.NET%20Provider%20for%20CData%20Connect&tag=Download-ado) and run the ADO.NET setup file.
 </Step>
 <Step>
 The installer can automatically detect software that supports ADO.NET, such as Visual Studio. Select the options that you want the installer to configure.
@@ -24,7 +24,9 @@ After installation, the ADO.NET Provider will be available in the software that 
 
 ## Connect to Embedded Cloud
 
-Embedded Cloud uses OAuth JWT to establish a connection between the ADO.NET Provider and your account. The steps below provide an example of configuring the ADO.NET Provider in Visual Studio 2022:
+Embedded Cloud uses OAuth JWT to establish a connection between the ADO.NET Provider and your account. 
+
+The steps below provide an example of configuring the ADO.NET Provider in Visual Studio 2022:
 <Steps>
 <Step>
 In Visual Studio, click **Tools** > **Connect to Database**.
