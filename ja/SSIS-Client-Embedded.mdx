@@ -3,9 +3,10 @@ title: "SSIS"
 description: "This page outlines the steps to use the SSIS Components for Connect AI."
 ---
 
+
 ## Prerequisites
 
-Connect AI でSSIS を設定して使用する前に、データソースをConnect AI アカウントに接続する必要があります。詳細は、[Sources](/ja/Sources) を参照してください。
+Before you can configure and use SSIS with Embedded Cloud, you must first connect a data source to your account. See [Sources](/ja/Sources-Embedded) for more information.
 
 ## Install the Provider
 
@@ -26,9 +27,9 @@ The installer can automatically detect software that supports SSIS. Select the o
 </Step>
 </Steps>
 
-## Connect to Connect AI
+## Connect to Embedded Cloud
 
-To add a new Connect AI connection to the SSIS package, follow these steps:
+To add a new connection to the SSIS package, follow these steps:
 
 <Steps>
 <Step>
@@ -43,14 +44,6 @@ The OAuth endpoint opens in your default web browser. Log in to complete the OAu
 </Steps>
 
 Alternatively, you can create a new connection directly using the Connect AI Source or the Connect AI Destination. You can set the connection properties in the Connect AI Connection Manager window.
-
-## Connect to a Workspace
-
-To connect the SSIS client to a specific [workspace](/ja/Workspaces), you specify the workspace name in the **Workspace** field of the Connect AI Connection Manager.
-
-<Frame>
-  <img src="./images/ssis_specify_workspace.png" alt="SSIS Specify Workspace" />
-</Frame>
 
 ## Learn More
 
