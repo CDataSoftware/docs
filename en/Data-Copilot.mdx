@@ -17,3 +17,17 @@ Once you submit a prompt, the remote MCP server works to access the relevant cat
 ## Save Your Prompt
 
 Prompts are saved for 30 days so you can return to them later. Click the three dots to the right to rename your prompt or delete it permanently. 
+
+## Limitations
+
+Data Copilot operates within specific boundaries, as follows:
+
+- **Permissions**: Access to data, including the ability to run queries, is based on catalog permissions granted to the user. Tools such as `getSchemas`, `getTables`,`getColumns`, and `getCatalogs` are only accessible with sufficient catalog permissions. 
+
+  <Warning>Data Copilot does not perform data deletion queries under any circumstances.</Warning>
+
+- **Query Limits**: Only SQL-92-compliant queries are supported, which includes SELECT, INSERT, UPDATE, and stored procedures. Query responses also cannot exceed 100 rows.
+
+- **Execution**: Actions are limited to the Connect AI ecosystem. Actions or queries outside of the system are ignored. 
+
+- **Privacy and Security**: Data Copilot accesses only relevant data and metadata within the Connect AI system. It does not query data or systems outside of authorized Connect AI catalogs.
