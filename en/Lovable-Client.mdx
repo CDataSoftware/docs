@@ -1,0 +1,61 @@
+---
+title: "Lovable"
+description: "Lovable is an AI platform that allows you to create apps and websites. You can build applications in Lovable based on your Connect AI data."
+---
+
+## Prerequisites
+
+Before you can configure and use Lovable with Connect AI, you must first do the following:
+
+- Ensure you are on a Business or Enterprise plan with Lovable. 
+
+- Connect a data source to your Connect AI account. See [Sources](/en/Sources) for more information.
+
+## Connect Lovable to the Connect AI MCP
+
+<Steps>
+<Step>
+In Lovable, navigate to **Settings** > **Connectors** > **Personal Connectors**.
+</Step>
+
+<Step>
+Find **New MCP server** and click **Set up**.
+<Frame>
+  <img src="./images/lovable_client_newmcp.png" alt="New MCP server" />
+</Frame>
+</Step>
+
+<Step>
+Enter the following setup details:
+- **Server Name**–enter your user-defined server name, such as *Custom MCP server*.
+- **Server URL**–enter *https://mcp.cloud.cdata.com/mcp*.
+- **Authentication**–select **OAuth**.
+</Step>
+
+<Step>
+Authenticate using your CData Connect AI account email (such as user@cdata.com) and password. Once authentication is successful, your available CData connectors appear in the connectors list.
+</Step>
+
+<Step>
+Click **Manage Permissions** to set permissions for the tools exposed by the MCP server.
+<Frame>
+  <img src="./images/lovable_client_permissions.png" alt="Manage permissions" />
+</Frame>
+</Step>
+
+<Step>
+You can now run a test prompt to make sure Lovable is successfully communicating with the CData MCP Server. For example, enter the prompt ***List all MCP tools.*** The output returns a list of tools, such as `getCatalogs`, `queryData`, and others.
+</Step>
+
+<Step>
+You can now query your connected data source(s) in Connect AI using natural language prompts, such as ***Get all data from the Dnd table from the Slack connection*** or ***Get the top 10 records from the Automations table from the MailChimp connection***.
+<Frame>
+  <img src="./images/lovable_client_prompt.png" alt="Sample Lovable prompt" />
+</Frame>
+
+<Note>
+For a list of prompt ideas, see CData's [prompt library](https://www.cdata.com/solutions/mcp/prompt-library/).
+</Note>
+</Step>
+</Steps>
+
