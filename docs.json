@@ -413,7 +413,7 @@
                       {
                         "group": "iPaaS Tools",
                         "pages": [
-                          "en/iPaaSTools",
+                          "en/Clients/iPaaSTools",
                           "en/Clients/Jitterbit-Client",
                           "en/Clients/Mulesoft-Client",
                           "en/Clients/SnapLogic-Client"
