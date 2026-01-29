@@ -1,0 +1,50 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Prerequisites
+
+#### Whitelist CData IPs
+
+To establish a connection to CockroachDB, you need to allow access to CockroachDB via CData’s IP. When hosting CockroachDB behind a firewall, you must safelist these IP addresses in your firewall.
+
+- Range: `52.224.0.160` to `52.224.0.175` and `4.154.117.160` to `4.154.117.175`.
+- CIDR notation: `52.224.0.160/28` and `4.154.117.160/28`
+
+#### Ensure CockroachDB Is Publicly Accessible
+
+Provide a public facing IP/domain to connect to this data source. The following private IP ranges do not work:
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## Setup Guide
+
+Follow these steps to connect CockroachDB to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *CockroachDB* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the following information:
+	- **Password**—the user password
+	- **User**—the CockroachDB username for authentication
+	- **Server**—the host name or IP address of the CockroachDB server
+	- **Database**—the name of the CockroachDB database you want to access, set as the default database if not specified
+	- **Port**—the port for connecting to the CockroachDB server
+</Step>
+<SaveAndTest/>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and CockroachDB, see [this information page](https://cdn.cdata.com/help/HJM/cloud/default.htm#default).

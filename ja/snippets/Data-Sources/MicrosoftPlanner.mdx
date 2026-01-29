@@ -1,0 +1,80 @@
+## セットアップガイド
+
+以下の手順で、Microsoft Planner をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Microsoft Planner* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Microsoft Planner のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Microsoft Planner アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Microsoft Planner Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipal">
+<Steps>
+<Step>
+Enter the following information:
+	- **Azure Tenant**—the Microsoft Online tenant being used to access data.
+	- **OAuth Client Id**—the Id assigned when you registered your Microsoft Planner account.
+	- **OAuth Client Secret**—the client secret for your Microsoft Planner account.
+</Step>
+<Step>
+Connect AI **Add Microsoft Planner Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipalCert">
+<Steps>
+<Step>
+Enter the following information:
+	- **Azure Tenant**—the Microsoft Online tenant being used to access data.
+	- **OAuth Client Id**—the Id assigned when you registered your Microsoft Planner account.
+	- **OAuth JWL Cert**—the contents of the JWT Certificate store. This is a multi-line key with the format shown.
+</Step>
+<Step>
+Connect AI **Add Microsoft Planner Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とMicrosoft Planner の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/UIM/ja/cloud/default.htm#default)を参照してください。

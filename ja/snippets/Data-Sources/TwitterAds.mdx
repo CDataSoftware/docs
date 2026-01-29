@@ -1,0 +1,80 @@
+## Prerequisites
+
+Before you can connect to Connect AI, you must create OAuth client credentials in Twitter Ads.
+
+<Steps>
+<Step>
+Log in to [https://developer.twitter.com/en/portal/projects-and-apps](https://developer.twitter.com/en/portal/projects-and-apps).
+</Step>
+<Step>
+Create a new Project in the Developer Portal.
+</Step>
+<Step>
+At the project you just created, click **Add App**.
+</Step>
+<Step>
+Set a name for the Application. Twitter Ads displays your keys and tokens.
+</Step>
+<Step>
+Record the values of your new keys and tokens. You will need them later for authentication.
+</Step>
+<Step>
+Navigate to the **User Application settings** and click **Set up**.
+</Step>
+<Step>
+Turn on the 'OAuth 1.0a' authentication.
+</Step>
+<Step>
+From the available Application permissions, select **Read and write and Direct message**.
+</Step>
+<Step>
+Specify the URL of the website and other optional information to be displayed to users when they connect.
+</Step>
+<Step>
+Set the Callback URL (also known as the Redirect URL) to *`https://oauth.cdata.com/oauth/`*.
+</Step>
+</Steps>
+
+## セットアップガイド
+
+以下の手順で、Twitter Ads をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Twitter Ads* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter your **OAuth Client Id** obtained from the prerequisites.
+</Step>
+<Step>
+Enter your **OAuth Client Secret** otained from the prerequisites.
+</Step>
+<Step>
+(Optional) Enter your **Account Id** if you want to restrict your connection to a specific account.
+</Step>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Twitter Ads のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Twitter Ads アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Twitter Ads Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とTwitter Ads の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/HMM/ja/cloud/default.htm#default)を参照してください。

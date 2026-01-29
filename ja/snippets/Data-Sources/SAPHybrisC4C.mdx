@@ -1,0 +1,38 @@
+## セットアップガイド
+
+以下の手順で、SAP Hybris Cloud for Customer をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *SAP Hybris Cloud for Customer* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Choose an **Auth Scheme**.
+	- If you choose **Basic**, enter the following information.
+		- **User**—認証用のSAP Hybris Cloud for Customer ユーザー名.
+		- **Password**—ユーザーパスワード.
+		- **Tenant**—the tenant to which you want to connect.
+	- If you choose **AzureAD**, enter the following information.
+		- **SSO Properties**—Single Sign-On (SSO) properties formatted like `SSOProperty1=value1;SSOProperty2=value2;`.
+		- **Tenant**—the tenant to which you want to connect.
+</Step>
+<Step>
+Connect AI **Add SAP Hybris Cloud for Customer Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とSAP Hybris Cloud for Customer の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/OHM/ja/cloud/default.htm#default)を参照してください。

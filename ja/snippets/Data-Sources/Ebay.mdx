@@ -1,0 +1,75 @@
+## セットアップガイド
+
+以下の手順で、eBay をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *eBay* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+If you have not already, join the eBay Developers Program. On the eBay Developers Program dashboard, navigate to **My Account** > **Application Access Keys**.
+	a. Copy down the values for **App ID**, **DevID**, and **Cert ID**.
+	
+	b. Click **Get a User Token Here** to generate an access token. Set the Redirect URI to *`https://oauth.cdata.com/oauth/`* and copy down your token.
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the App ID you obtained from the Application Access Keys page.
+	- **OAuth Client Secret**—the Cert ID you obtained from the Application Access Keys page.
+	- **Ru Name**—(optional) the Redirect URL name used for validation. This property is only needed if you are using the provider to allow other users to access their own data.
+	- **Use Sandbox**—set only if you are using a sandbox account.
+	- **Site ID**—the Id of the eBay site that you want to connect to. The default value of 0 is for eBay U.S.
+</Step>
+<Step>
+Connect AI **Add eBay Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AuthNAuth">
+<Steps>
+<Step>
+Enter the following information:
+	- **Dev ID**—the DevID you obtained from the Application Access Keys page.
+	- **OAuth Client Id**—the App ID you obtained from the Application Access Keys page.
+	- **OAuth Client Secret**—the Cert ID you obtained from the Application Access Keys page.
+	- **OAuth Access Token**—the access token you generated above.
+	- **Ru Name**—(optional) the Redirect URL name used for validation. This property is only needed if you are using the provider to allow other users to access their own data.
+	- **Use Sandbox**—set only if you are using a sandbox account.
+	- **Site ID**—the Id of the eBay site that you want to connect to. The default value of 0 is for eBay U.S.
+</Step>
+<Step>
+Connect AI **Add eBay Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とeBay の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/BEM/ja/cloud/default.htm#default)を参照してください。

@@ -1,0 +1,50 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Backlog to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Backlog* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="APIToken">
+<Steps>
+<Step>
+Enter the following information:
+	- **Api Key**—the API key that allows you to make requests to the Backlog API. You can generate this key by opening the Settings page in Backlog and selecting the **API** section.
+	- **URL**—the URL of the Backlog account.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the **OAuth Client Id** assigned when you registered your Backlog account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you register your Backlog account for OAuth.
+	- **URL**—the URL of the Backlog account.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Backlog, see [this information page](https://cdn.cdata.com/help/HOM/cloud/default.htm#default).

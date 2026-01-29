@@ -1,0 +1,125 @@
+## 前提条件
+
+#### CData IP をホワイトリストに登録
+
+Amazon DynamoDB への接続を確立するには、CData のIP 経由でAmazon DynamoDB へのアクセスを許可する必要があります。Amazon DynamoDB をファイアウォールの内側でホスティングする場合は、これらのIP アドレスをファイアウォールの許可リストに登録する必要があります。
+
+- 範囲：`52.224.0.160`～`52.224.0.175` および`4.154.117.160`～`4.154.117.175`
+- CIDR 表記：`52.224.0.160/28` および`4.154.117.160/28`
+
+#### Amazon DynamoDB が一般にアクセス可能であることを確認
+
+パブリックフェイシングIP / ドメインを指定して、このデータソースに接続します。次のプライベートIP の範囲は機能しません。
+
+- `10.0.0.0` to `10.255.255.255`
+- `172.16.0.0` to `172.31.255.255`
+- `192.168.0.0` to `192.168.255.255`
+- `127.0.0.1` (aka ‘localhost’)
+
+## セットアップガイド
+
+以下の手順で、Amazon DynamoDB をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Amazon DynamoDB* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="ADFS">
+<Steps>
+<Step>
+Enter the ADFS **User** Id.
+</Step>
+<Step>
+Add the **Password** for that account.
+</Step>
+<Step>
+Enter the **SSO Login URL** to the URL use by the SSO provider.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AWSRootKeys">
+<Steps>
+<Step>
+Enter the **AWS Access Key** associated with the AWS root account.
+</Step>
+<Step>
+Enter the **AWS Secret Key** associated with the AWS root account.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AWSIAMRoles">
+<Steps>
+<Step>
+Enter the **AWS Access Key** associated with the AWS root account.
+</Step>
+<Step>
+Enter the **AWS Secret Key** associated with the AWS root account.
+</Step>
+<Step>
+Enter the **AWS Role ARN** for the authenticating User Id.
+</Step>
+<Step>
+(Optional) Enter the **AWS External Id** only if emulating a different role.
+</Step>
+<Step>
+Select the **AWS Region** that hosts your AWS account.
+</Step>
+<Step>
+Amazon DynamoDB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Amazon DynamoDB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とAmazon DynamoDB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DDM/ja/cloud/default.htm#default)を参照してください。

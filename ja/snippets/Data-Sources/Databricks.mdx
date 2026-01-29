@@ -1,0 +1,154 @@
+## セットアップガイド
+
+以下の手順で、Databricks をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Databricks* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="PersonalAccessToken">
+<Steps>
+<Step>
+Enter your Databricks access token into the **Token** field. To obtain the token, navigate to the **User Settings** page of your Databricks instance and open the **Access Tokens** tab.
+</Step>
+<Step>
+Enter the Databricks **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Databricks で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="Basic">
+<Steps>
+<Step>
+Enter the **User** name for Databricks.
+</Step>
+<Step>
+Enter your Databricks access token into the **Token** field. To obtain the token, navigate to the **User Settings** page of your Databricks instance and open the **Access Tokens** tab.
+</Step>
+<Step>
+Enter the Databricks **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipal">
+<Steps>
+<Step>
+Enter the **Azure Tenant Id** of your Azure application.
+</Step>
+<Step>
+Enter the **Azure Client Id** for your Azure application.
+</Step>
+<Step>
+Enter the **Azure Client Secret** corresponding to the above Azure Client Id.
+</Step>
+<Step>
+Enter the **Azure Subscription Id** of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Azure Resource Group** name of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Azure Workspace** of your Microsoft Azure Databricks Service Workspace.
+</Step>
+<Step>
+Enter the **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Databricks で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+Enter the **Catalog** if you are using Databricks Unity Catalog. Otherwise, leave the default value.
+</Step>
+<Step>
+Enter the **HTTP Path** component of the URL endpoint.
+</Step>
+<Step>
+Enter the **Server** URL or IP address of the Databricks instance .
+</Step>
+<Step>
+(Optional) Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the Databricks sign-in page in a new tab.
+</Step>
+<Step>
+Databricks で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Databricks Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とDatabricks の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/LKM/ja/cloud/default.htm#default)を参照してください。
