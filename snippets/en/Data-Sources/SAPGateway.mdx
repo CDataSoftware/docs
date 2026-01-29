@@ -1,0 +1,100 @@
+import SaveAndTest from '/snippets/en/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect SAP Gateway to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *SAP Gateway* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **URL** for your SAP Gateway environment or the full URL of the OData service. Any additional properties must be added using **Custom URL Params**. 
+</Step>
+<Step>
+(Optional) Enter the service **Namespace** you want to retrieve data from. This is only required if the service is not specified in the **URL**.  
+</Step>
+<Step>
+(Optional) Enter the **Service**, which is a comma-delimited list of services you want to retrieve data from. If the service is set in the **URL**, this property is ignored. In cases where the service is not set in the URL or in **Service**, the SAP Gateway's catalog service is used to discover all available services.
+</Step>
+<Step>
+(Optional) Enter any **Custom URL Params** to be included with the HTTP request. The parameters should be in the form *field1=value1&field2=value2&field3=value3*.
+</Step>
+<Step>
+Select an **AuthScheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+<Tab title="Basic">
+<Steps>
+<Step>
+Enter the **User** Id for the authenticating user.
+</Step>
+<Step>
+Enter the **Password** for the authenticating user.
+</Step>
+<SaveAndTest/>
+</Steps>
+</Tab>
+
+<Tab title="OAuth">
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned to your custom OAuth application. This Id is required to identify the application to the OAuth authorization server during authentication.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** assigned to your custom OAuth application. This value is used to authenticate the custom application to the OAuth authorization server.
+</Step>
+<Step>
+Enter the **Scope**, or permission scopes, in space separated values. Scopes define what kind of access the authenicating user has, such as read or read/write. Scopes are required for OAuth 2.0.
+</Step>
+<SaveAndTest/>
+</Steps>
+</Tab>
+
+<Tab title="Token">
+<Steps>
+<Step>
+Enter the **API Key** of the application you have created. 
+</Step>
+<SaveAndTest/>
+</Steps>
+</Tab>
+
+<Tab title="OAuthPKCE">
+<Steps>
+<Step>
+Set authentication to **OAuthPKCE** to use the Proof Key of Code Exchange (PKCE) extension of the standard OAuth2 flow. Set your own PKCEVerifier or let the driver automatically generate one for you.
+</Step>
+<SaveAndTest/>
+</Steps>
+</Tab>
+
+<Tab title="SAPBTP">
+<Steps>
+<Step>
+In **Advanced Settings**, enter the **Destination URL** of the SAP BTP destination source. This URL is found in the service key of your Destination Service instance in the SAP BTP Cockpit, in the **URI** field.
+</Step>
+<Step>
+In **Advanced Settings**, enter the **Destination Name** of the SAP BTP destination to retrieve the authentication details from.
+</Step>
+<SaveAndTest/>
+</Steps>
+</Tab>
+</Tabs>
+
+## More Information
+
+For more information about interactions between Connect AI and SAP Gateway, see [this information page](https://cdn.cdata.com/help/GCM/cloud/default.htm#default).
