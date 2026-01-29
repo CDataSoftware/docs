@@ -15,13 +15,13 @@ Before you can use AI Generator, you must properly configure a connection within
 To access the generator, click **AI Generator** on the top right of the **Data Explorer** page.
 
 <Frame>
-  <img src="./images/ai_generator01.png" alt="AI Generator" />
+  <img src="/en/images/ai_generator01.png" alt="AI Generator" />
 </Frame>
 
 After you click **AI Generator**, an options pane opens on the right, as shown below:
 
 <Frame>
-  <img src="./images/ai_generator02.png" alt="AI Generator options" />
+  <img src="/en/images/ai_generator02.png" alt="AI Generator options" />
 </Frame>
 
 Configure AI Generator by following the steps below:
@@ -59,7 +59,7 @@ After you select your connection, the tables available in that connection popula
 Large Language Model (LLM) algorithms transmit data to their models by translating the characters in the request into tokens. By calculating the tokens that are required, Connect AI judges the complexity of the request and the processing power that is needed to complete it. In general, a token consists of four characters.
 
 <Frame>
-  <img src="./images/ai_generator03.png" alt="AI Generator tokens" />
+  <img src="/en/images/ai_generator03.png" alt="AI Generator tokens" />
 </Frame>
 
 Below the **SQL Prompt** text box (bottom right), you can see the total number of tokens that you use per each query. The model can process 4000 tokens per query in a single request. Since this includes both the input and result, we enforce a 2000 token limit on the input. Each user can submit thirty requests per month. That is, each user can click **Generate SQL** thirty times in total. Requests that are caused by networking errors, like timeouts, are not counted. Errors caused by invalid prompts are still counted towards the monthly credit. This limit is reset each month, but unused requests do not roll over.

@@ -1,0 +1,33 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Sansan to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Sansan* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Enter the **API Key** from Sansan.
+</Step>
+<Step>
+(Optional) You only need to click the **Include Past Bizcards** slider if you also want to see previous versions of business cards.
+</Step>
+<Step>
+(Optional) Use the **Range** field to determine which business cards to show. For example, to show only your own business cards, enter `SELECT * FROM Tags WHERE Range='me'`.
+</Step>
+<SaveAndTest/>
+</Steps>
+## More Information
+
+For more information about interactions between Connect AI and Sansan, see [this information page](https://cdn.cdata.com/help/USM/cloud/default.htm#default).

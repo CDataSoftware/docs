@@ -1,0 +1,58 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Google Ad Manager to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Ad Manager* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Choose an **Auth Scheme** and continue with the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Enter the following information:
+	- **Network Code**—this value appears in the URL after you log in to the network. For example, in the URL `https://www.google.com/dfp/1234567#delivery`, 1234567 is your network code.
+	- **Version**—the latest Google Ad Manager Api version
+</Step>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Ad Manager sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Ad Manager account.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuthJWT">
+<Steps>
+<Step>
+Enter the following information:
+	- **Network Code**—this value appears in the URL after you log in to the network. For example, in the URL `https://www.google.com/dfp/1234567#delivery`, 1234567 is your network code.
+	- **Version**—the latest Google Ad Manager Api version
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Google Ad Manager, see [this information page](https://cdn.cdata.com/help/BDM/cloud/default.htm#default).

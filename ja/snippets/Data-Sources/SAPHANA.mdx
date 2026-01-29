@@ -1,0 +1,74 @@
+## Prerequisites
+
+In SAP HANA, add the Connect AI static IP addresses to your connection whitelist.
+
+## セットアップガイド
+
+以下の手順で、SAP HANA をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *SAP HANA* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select an **AuthScheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="Password">
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—認証用のSAP HANA ユーザー名
+	- **Password**—ユーザーパスワード
+	- **Database**—the name of the SAP HANA database
+	- **Port**—SAP HANA サーバーに接続するためのポート
+	- **Server**—the host name or IP address of the server running the SAP HANA database
+	- **Schema**—(Optional) the SAP database schema
+</Step>
+<Step>
+Connect AI **Add SAP HANA Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="OKTA">
+<Steps>
+<Step>
+Enter the following information:
+	- **User**—認証用のSAP HANA ユーザー名
+	- **Password**—ユーザーパスワード
+	- **SSO Properties**—format these properties like 'SSOProperty1=value1;SSOProperty2=value2;SSOProperty3=value3;'. Make sure to separate all property-value pairs with semicolons.
+	- **Database**—the name of the SAP HANA database
+	- **Port**—SAP HANA サーバーに接続するためのポート
+	- **Server**—the host name or IP address of the server running the SAP HANA database
+	- **Schema**—(Optional) the SAP database schema
+</Step>
+<Step>
+Connect AI **Add SAP HANA Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とSAP HANA の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/SNM/ja/cloud/default.htm#default)を参照してください。

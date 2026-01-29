@@ -1,0 +1,80 @@
+---
+title: "Grafana"
+description: "このページではGrafana をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI に接続する
+
+Grafana からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
+
+<Steps>
+<Step>
+Download and install Grafana for your operating system from the [Grafana website](https://www.grafana.com/).
+</Step>
+<Step>
+Once installed, access Grafana at `http://localhost:3000/`.
+</Step>
+<Step>
+Log in to Grafana with your username and password for Grafana. If this is your first time logging in, the username is *admin* and the password is *admin*.
+</Step>
+<Step>
+On the navigation menu, click **Connections** > **Add new connection**.
+
+<Frame>
+![](/ja/images/grafana_client_add_connection.png)
+</Frame>
+</Step>
+<Step>
+Search for **Microsoft SQL Server** as your data source.
+</Step>
+<Step>
+Click **Add new data source**.
+
+<Frame>
+![](/ja/images/grafana_client_add_data_source.png)
+</Frame>
+</Step>
+<Step>
+(Optional) Enter a new name for the data source.
+</Step>
+<Step>
+Enter the following connection settings.
+	- **Host**—*tds.cdata.com*:*14333*
+	- **Database**—接続したいConnect AI データソースのConnection Name を入力します。例：*Salesforce1*
+	- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+	- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+
+<Frame>
+![](/ja/images/grafana_client_connection_settings.png)
+</Frame>
+</Step>
+<Step>
+Click **Save & test**. A **Database Connect OK** message appears.
+</Step>
+<Step>
+On the navigation menu, click **Explore**.
+</Step>
+<Step>
+Select the connection you created. Choose the tables and columns you want to query.
+
+<Frame>
+![](/ja/images/grafana_client_view_data.png)
+</Frame>
+</Step>
+<Step>
+Run the query and visualize your data as you want.
+
+<Frame>
+![](/ja/images/grafana_client_query_results.png)
+</Frame>
+</Step>
+</Steps>
