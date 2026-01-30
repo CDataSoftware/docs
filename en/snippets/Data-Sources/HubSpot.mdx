@@ -1,0 +1,76 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect HubSpot to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *HubSpot* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select which **Schema** to connect to.
+</Step>
+<Step>
+If your **Schema** is **HubSpotV3**, you can choose to **Expand Associations** and/or **Include Custom Tables**. Note that in the **HubSpotV3** schema, certain tables are only accessible using the **PrivateAppToken** authentication method.
+</Step>
+<Step>
+Select your **Auth Scheme** and follow the instructions in the relevant section below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Click **Sign in** to connect securely through OAuth. This action opens the HubSpot sign-in page in a new tab.
+</Step>
+<Step>
+Log in to your HubSpot account and provide the requested permissions (if applicable).
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="PrivateAppToken">
+Enter the Hubspot Private App Token in the **OAuth Access Token** field.
+
+You can generate a HubSpot Private App Token by following the steps below.
+
+<Steps>
+<Step>
+In your HubSpot account, click the **Settings** icon in the main navigation bar.
+</Step>
+<Step>
+In the left sidebar menu, navigate to **Integrations > Private Apps**.
+</Step>
+<Step>
+Click **Create private app**.
+</Step>
+<Step>
+On the **Basic Info** tab, configure the details of your application (name, logo, and description).
+</Step>
+<Step>
+On the **Scopes** tab, select **Read** or **Write** for each scope you want your private application to be able to access. This determines the data the driver has access to retrieve.
+</Step>
+<Step>
+After you are done configuring your application, click **Create app** in the top right. Review the information about your application's access token, click **Continue creating**, and then **Show token**.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and HubSpot, see [this information page](https://cdn.cdata.com/help/DHM/cloud/default.htm#default).

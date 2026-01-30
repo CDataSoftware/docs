@@ -1,0 +1,59 @@
+## セットアップガイド
+
+以下の手順で、Airtable をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Airtable* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+</Steps>
+
+By default, **Enable Metadata API** (in the **Advanced Settings** tab) is set to true. Enabling the Metadata API requires the ‘schema.bases:read’ scope for both PersonalAccessToken and OAuthPKCE authentication.
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="PersonalAccessToken">
+<Steps>
+<Step>
+Enter the Airtable Personal Access Token in the **OAuth Access Token** field. To obtain the token, log in to your [Airtable user account](https://airtable.com/), navigate to the token creation page, and click **Create new token**. Add all the workspaces and bases that you want the token to have access to. Copy and save the generated token, as it will only be shown once.
+</Step>
+<Step>
+Enter your Airtable **Base Id**. The Base Id can be found in the [Airtable API Reference](https://airtable.com/api).
+</Step>
+<Step>
+Connect AI **Add Airtable Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuthPKCE">
+<Steps>
+<Step>
+Enter your Airtable Base Id in the **Base Id** field. The Base Id can be found in the [Airtable API Reference](https://airtable.com/api).
+</Step>
+<Step>
+Connect AI **Add Airtable Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+
+## 詳細について
+
+Connect AI とAirtable の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/JAM/ja/cloud/default.htm#default)を参照してください。

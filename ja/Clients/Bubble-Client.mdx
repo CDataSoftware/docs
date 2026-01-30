@@ -1,0 +1,65 @@
+---
+title: "Bubble"
+description: "このページではBubble をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI に接続する
+
+Bubble からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
+<Steps>
+<Step>
+Log in to Bubble.
+</Step>
+<Step>
+On the left hand menu, click **Plugins**.
+	<Frame>![](/ja/images/bubble_client_01.png)</Frame>
+</Step>
+<Step>
+Click **Add plugins**.
+</Step>
+<Step>
+Search for “SQL Database Connector” and click **Install**.
+	<Frame>![](/ja/images/bubble_client_02.png)</Frame>
+</Step>
+<Step>
+Once it is installed, it is available to use as shown below. Click **Add a new connection**.
+	<Frame>![](/ja/images/bubble_client_03.png)</Frame>
+</Step>
+<Step>
+Enter the connection settings.
+	- **Connection name**—enter a name for the connection to Connect AI.
+	- **Database type**—select **Microsoft SQL**.
+	- **Connection string**—enter the SQL database connection string. This string includes a username and password in a format like: `sql://[Username]:[Password]@tds.cdata.com:14333/`
+
+Enter the following settings into this string.
+
+		- **Username**—Connect AI のユーザー名を入力します。ユーザー名は、Connect AI の画面の右上に表示されています。例：*`test@cdata.co.jp`*
+		- **Password**—[Settings](/ja/Settings#access-tokens) ページで生成したPAT を入力します。
+		<Note>
+		**Note:** The password portion of the connection string should not contain any forward slashes, because Bubble interprets them as separators. Replace any forward slashes with the URL-encoded string `%2F`.
+		</Note>
+		<Note>
+		 **Note:** It is also possible to add a database connection name at the end of the connection string like `sql://[Username]:[Password]@tds.cdata.com:14333/[ConnectionName]`.
+		</Note>
+<Frame>
+  <img src="/ja/images/bubble_client_04.png" alt="Bubble client 04" />
+</Frame>
+</Step>
+<Step>
+Click **Test the connection**. If the connection succeeds, this button becomes gray and says **Database connected** as shown below.
+<Columns cols={2}>
+<Frame>
+  <img src="/ja/images/bubble_client_05.png" alt="Bubble client 05" />
+</Frame>
+</Columns>
+</Step>
+</Steps>

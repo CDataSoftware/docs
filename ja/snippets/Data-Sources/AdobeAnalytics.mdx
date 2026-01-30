@@ -1,0 +1,108 @@
+## セットアップガイド
+
+以下の手順で、Adobe Analytics をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Adobe Analytics* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="OAuthClient">
+<Steps>
+<Step>
+Follow the steps below to create a custom app and obtain the connection properties to enter in this section.
+
+	a. Navigate to the following URL: [https://console.adobe.io/home](https://console.adobe.io/home).
+
+	b. Click the **Create new project** button.
+
+	c. Select the **Add API** option.
+
+	d. Select **Adobe Analytics**, click **Next**, and then select **OAuth** and then click **Next** again.
+
+	e. Select the **Web** option and supply the URL of the page to redirect to (`https://oauth.cdata.com/oauth/`).
+
+	f. Click **Save configured API**.
+
+	gour client is now created. Note that your client has an Client ID (API Key) and a Client Secret. These are added in the next step.
+</Step>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you registered your Adobe Analytics account for OAuth.
+	- **RSID**—(optional) your report suite identifier. To find your RSID, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+	- **Global Company Id**—(optional) your company identifier. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+Connect AI **Add Adobe Analytics Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuth">
+<Steps>
+<Step>
+(Optional) Enter your Report Suite Id in the **RSID** field. To find your Report Suite Id, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+</Step>
+<Step>
+(Optional) Enter your **Global Company Id**. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Adobe Analytics のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Adobe Analytics アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Adobe Analytics Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuthJWT">
+<Steps>
+<Step>
+Enter the following information:
+	- **OAuth Client Id**—the client Id assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth Client Secret**—the client secret assigned when you registered your Adobe Analytics account for OAuth.
+	- **OAuth JWT Certificate**—the contents of the public key you generated.
+	- **OAuth JWT Cert Password**—the password for the OAuth JWT certificate.
+	- **Organizaton Id**—the organization Id from the Adobe I/O Console integration, in the format of organizationid@AdobeOrg.
+	- **RSID**—(optional) your report suite identifier. To find your RSID, navigate to **Admin** > **Report Suites**. If left blank, the connection tries to detect it automatically.
+	- **Global Company Id**—(optional) your company identifier. If left blank, the connection uses the first Company Id found.
+</Step>
+<Step>
+Connect AI **Add Adobe Analytics Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とAdobe Analytics の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/SCM/ja/cloud/default.htm#default)を参照してください。

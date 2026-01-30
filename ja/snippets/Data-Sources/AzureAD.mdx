@@ -1,0 +1,99 @@
+## セットアップガイド
+
+以下の手順で、Azure Active Directory をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Azure Active Directory* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select an **Auth Scheme** and follow the relevant instructions below.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+OAuth でセキュアに接続するには、**Sign in** をクリックします。これにより、Azure Active Directory のサインインページが新しいタブで開かれます。
+</Step>
+<Step>
+Azure Active Directory アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
+</Step>
+<Step>
+Connect AI **Add Azure Active Directory Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+  </Tab>
+
+  <Tab title="AzureServicePrincipal">
+<Steps>
+<Step>
+Enter the **Azure Tenant** that you use to access data.
+</Step>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter your **OAuth Client Id** assigned when you registered your Azure Active Directory account.
+</Step>
+<Step>
+Enter your **OAuth Client Secret** assigned when you registered your Azure Active Directory account for OAuth.
+</Step>
+<Step>
+Connect AI **Add Azure Active Directory Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipalCert">
+<Steps>
+<Step>
+Enter the **Azure Tenant** that you use to access data.
+</Step>
+<Step>
+The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
+</Step>
+<Step>
+Enter your **OAuth Client Id** assigned when you registered your Azure Active Directory account.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert**, the contents of the JWT Certificate store. This is a multi-line key with the format shown.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Password** (optional) if the certificate store requires it.
+</Step>
+<Step>
+Enter the **OAuth JWT Cert Subject** (optional). This is the subject of the OAuth JWT certificate. If omitted, the first certificate in the certificate store is used.
+</Step>
+<Step>
+Connect AI **Add Azure Active Directory Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とAzure Active Directory の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/CJM/ja/cloud/default.htm#default)を参照してください。

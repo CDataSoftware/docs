@@ -1,0 +1,75 @@
+## Prerequisites
+
+Before you can connect SAP Ariba Procurement, you must create a custom OAuth app as follows:
+
+<Steps>
+<Step>
+Go to the [SAP Developer Portal](https://developer.ariba.com/) and sign in.
+</Step>
+<Step>
+Click **Manage** (bottom icon on the left).
+</Step>
+<Step>
+Click the **+** button next to the search field.
+</Step>
+<Step>
+Fill in **Application Name** and **Description**, and then click **Submit**.
+</Step>
+<Step>
+Click **Actions** > **Request API Access**.
+</Step>
+<Step>
+Select the API you want to retrieve data from. This corresponds to the API connection property.
+</Step>
+<Step>
+Select your realm.
+</Step>
+<Step>
+Click **Submit**. Wait until the request is approved.
+</Step>
+<Step>
+Once approved, click **Actions** > **Generate OAuth Secret**.
+</Step>
+<Step>
+Save the values displayed for **API key**, **OAuth Client Id**, and **OAuth Client Secret**.
+</Step>
+</Steps>
+
+## セットアップガイド
+
+以下の手順で、SAP Ariba Procurement をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *SAP Ariba Procurement* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter the following information:
+	- **API Key**—the API key created in the prerequisites.
+	- **API**—the API you want to retrieve data from.
+	- **ANID**—your SAP Ariba Network Id. [Find your ANID as a buyer](https://support.ariba.com/item/view/187831) or [find your ANID as a supplier](https://support.ariba.com/item/view/KB0392438).
+	- **OAuth Client Id**—the OAuth client Id from the prerequisites.
+	- **OAuth Client Secret**—the OAuth client secret from the prerequisites.
+	- **Max Threads**—the maximum number of concurrent requests the provider can execute to SAP Ariba.
+	- **Environment**—the environment to use when connecting to SAP Ariba, either PRODUCTION or TEST.
+</Step>
+<Step>
+Connect AI **Add SAP Ariba Procurement Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とSAP Ariba Procurement の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/PAM/ja/cloud/default.htm#default)を参照してください。

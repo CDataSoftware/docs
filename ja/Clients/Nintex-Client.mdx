@@ -1,0 +1,62 @@
+---
+title: "Nintex"
+description: "このページではNintex をConnect AI の仮想SQL Server API に接続する手順の概要を示します。"
+---
+
+
+
+## 前提条件
+
+接続する前にまず以下を実行します。
+
+- データソースをConnect AI アカウントに接続します。詳しくは、[Sources](/ja/Sources) を参照してください。
+- [Settings](/ja/Settings#access-tokens) ページでPersonal Access Token (PAT) を生成します。PAT をコピーし、認証時にパスワードとして使用します。
+
+## Connect AI に接続する
+
+Nintex からConnect AI の仮想SQL Server API へのコネクションを確立するには以下の手順に従います。
+
+<Steps>
+<Step>
+Log in to Nintex Workflow Cloud.
+</Step>
+<Step>
+In the Connections tab, click **Add New**.
+</Step>
+<Step>
+Select **Microsoft SQL Server** as the **Connector** type.
+<Frame>
+  <img src="/ja/images/NintexClient01.png" alt="Nintex Client 01" />
+</Frame>
+</Step>
+<Step>
+Click **Connect**. This opens the SQL Server connection wizard.
+<Frame>
+  <img src="/ja/images/NintexClient02.png" alt="Nintex Client 02" />
+</Frame>
+</Step>
+<Step>
+In the wizard, enter a **Connection Name**, such as *Connect AI Connection*.
+</Step>
+<Step>
+Enter your Connect AI **Username**.
+</Step>
+<Step>
+Enter your Connect AI PAT in the **Password** field.
+</Step>
+<Step>
+Enter *tds.cdata.com:14333* in **Database Host**.
+</Step>
+<Step>
+Enter the name of the **Database** to connect to.
+</Step>
+<Step>
+Click **Connect**.
+<Frame>
+  <img src="/ja/images/NintexClient03.png" alt="Nintex Client 03" />
+</Frame>
+</Step>
+<Step>
+Configure the Connect AI **Owner** and **User** permissions and click **Save Permissions** to complete the connection.
+</Step>
+</Steps>

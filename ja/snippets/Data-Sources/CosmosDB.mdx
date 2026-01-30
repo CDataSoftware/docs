@@ -1,0 +1,95 @@
+## セットアップガイド
+
+以下の手順で、Cosmos DB をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Cosmos DB* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter your Cosmos DB account URL **Account Endpoint**. You can find this URL under the **Keys** blade of the Cosmos DB account.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+
+<Tabs>
+  <Tab title="AccountKey">
+<Steps>
+<Step>
+Enter the master key token or resource token for connecting to the Cosmos DB REST API in the **Account Key** field.
+</Step>
+<Step>
+Use the **Token Type** field to specify whether the token you entered in the **Account Key** field is a **master** or **resource** token.
+</Step>
+<Step>
+Cosmos DB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureAD">
+<Steps>
+<Step>
+Enter the **OAuth Client Id** assigned when you registered your Cosmos DB account for OAuth.
+</Step>
+<Step>
+Enter the **OAuth Client Secret** for your Cosmos DB account for OAuth.
+</Step>
+<Step>
+Cosmos DB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+
+  <Tab title="AzureServicePrincipal">
+<Steps>
+<Step>
+Enter the **Azure Tenant** Id to connect to.
+</Step>
+<Step>
+Enter the **OAuth Client Id** found in your application settings.
+</Step>
+<Step>
+Enter your **OAuth Client Secret**.
+</Step>
+<Step>
+Cosmos DB で、Connect AI 静的IP アドレスを接続のホワイトリストに追加します。
+</Step>
+<Step>
+Connect AI **Add Cosmos DB Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+  </Tab>
+</Tabs>
+## 詳細について
+
+Connect AI とCosmos DB の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/EHM/ja/cloud/default.htm#default)を参照してください。

@@ -1,0 +1,122 @@
+## Prerequisites
+
+Before obtaining OAuth credentials, you need to create a custom service in Marketo if you do not already have one. This procedure involves creating a new role with REST API privileges, assigning that role to an existing or new user, and then creating a new service.
+
+<Note>
+Note that only users with Admin privileges can create a Custom Service and that the term "service" refers to the entity created to provide OAuth credentials for API access.
+</Note>
+
+**Step 1: Create a New Role for API Access**
+
+<Steps>
+<Step>
+Navigate to the Marketo application's **Admin** area.
+</Step>
+<Step>
+Navigate to the **Security** section.
+</Step>
+<Step>
+Click **Users & Roles**.
+</Step>
+<Step>
+Select the **Roles** tab.
+</Step>
+<Step>
+Click **New Role**.
+</Step>
+<Step>
+Specify a Role Name and select Role permissions. Specify Access API permissions that are specific to the REST API.
+</Step>
+</Steps>
+
+**Step 2: Assign or Create a New User for API Access**
+<Steps>
+<Step>
+Select the **Users** tab.
+</Step>
+<Step>
+To assign the role to a user, click **Invite New User**.
+</Step>
+<Step>
+Enter the new user information and assign them the role you just created with REST API access.
+</Step>
+<Step>
+To denote the user as an API Only user, select the **API Only** option.
+</Step>
+</Steps>
+**Step 3: Create the New Service**
+<Steps>
+<Step>
+Navigate to **Admin** > **Integration** and click the **LaunchPoint** option.
+</Step>
+<Step>
+Click **New Service**.
+</Step>
+<Step>
+Specify the Service Type as **Custom**.
+</Step>
+<Step>
+Enter a display name and description for the service.
+</Step>
+<Step>
+Assign the user you just created to the service.
+</Step>
+</Steps>
+
+Once you have a custom service, do the following:
+
+<Steps>
+<Step>
+Go to the **Admin** tab.
+</Step>
+<Step>
+Click the **LaunchPoint** option.
+</Step>
+<Step>
+Select the custom service and click **View Details**. Marketo displays a window that shows the authentication credentials.
+</Step>
+<Step>
+Copy and paste the Client Id as the **OAuthClientId** and the Client Secret as the **OAuthClientSecret**.
+</Step>
+</Steps>
+
+## セットアップガイド
+
+以下の手順で、Marketo をConnect AI アカウントに接続します。
+
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Marketo* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Enter your Marketo **URL**. You can locate this in **Admin** > **Integration** > **Web Services** > **REST API**. Example values: *`https://123-abc-456.mktorest.com/`* or *`https://123-abc-456.mktorest.com/rest`*.
+</Step>
+<Step>
+Paste the **OAuth Client Id** you obtained in the prerequisites.
+</Step>
+<Step>
+Paste **OAuth Client Secret** you obtained in the prerequisites.
+</Step>
+<Step>
+(Optional) Set **Use Bulk API** to True to let it handle bulk requests of certain large datasets.
+</Step>
+<Step>
+Connect AI **Add Marketo Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とMarketo の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/DKM/ja/cloud/default.htm#default)を参照してください。

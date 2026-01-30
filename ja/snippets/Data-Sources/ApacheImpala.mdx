@@ -1,0 +1,39 @@
+## セットアップガイド
+
+以下の手順で、Apache Impala をConnect AI アカウントに接続します。
+<Steps>
+<Step>
+Connect AI のダッシュボードから**Connections** ページを開きます。
+</Step>
+<Step>
+右上の **+ Add Connection** をクリックします。
+</Step>
+<Step>
+検索フィールドに *Apache Impala* と入力し、データソース名をクリックします。
+</Step>
+<Step>
+新しいコネクションの**Basic Settings** タブで、コネクション名を入力するかデフォルトの名前をそのまま使用します。
+</Step>
+<Step>
+Select a **Transport Mode** of **BINARY** or **HTTP**.
+</Step>
+<Step>
+Enter the following information:
+	- **HTTP Path**—(HTTP transport mode only) the path component of the URL endpoint. The default value is “cliservice”.
+	- **User**—認証用のApache Impala ユーザー名.
+	- **Password**—ユーザーパスワード.
+	- **Port**—Apache Impala サーバーに接続するためのポート. For HTTP transport mode, this should be set to the value of the ‘hs2\_http\_port’ property of the Impala configuration (default: 28000).
+	- **Server**—the name or network address of the SQL Server instance.
+	- **Database**—(optional) the name of the Impala database to connect to. If not specified, the default database schema is used.
+</Step>
+<Step>
+Connect AI **Add Apache Impala Connection** ページ上部の、**Save & Test** をクリックします。
+	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
+	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
+	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
+</Step>
+</Steps>
+
+## 詳細について
+
+Connect AI とApache Impala の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/GIM/ja/cloud/default.htm#default)を参照してください。

@@ -1,0 +1,66 @@
+import SaveAndTest from '/en/snippets/save-and-test.mdx';
+
+## Setup Guide
+
+Follow these steps to connect Google Calendar to your Connect AI account:
+
+<Steps>
+<Step>
+Open the **Connections** page of the Connect AI dashboard.
+</Step>
+<Step>
+Click **\+ Add Connection** in the upper-right corner.
+</Step>
+<Step>
+Type *Google Calendar* into the search field, then click the data source name.
+</Step>
+<Step>
+On the **Basic Settings** tab of the new connection, enter a connection name or keep the default name.
+</Step>
+<Step>
+Select the Authentication method, then proceed to the relevant section and follow those instructions.
+</Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="OAuth">
+<Steps>
+<Step>
+Click **Sign in with Google** to connect securely through OAuth. This action opens the Google Calendar sign-in page on a new tab.
+</Step>
+<Step>
+Log in to your Google Calendar account.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+
+  <Tab title="OAuth JWT">
+<Steps>
+<Step>
+Enter your **OAuth JWT Cert**. This is multi-line and in PEM format.
+</Step>
+<Step>
+Select the **OAuth JWT Cert Type**.
+</Step>
+<Step>
+(Optional) Enter an **OAuth JWT Cert Password**. This only needs to be done if the certificate is encrypted.
+</Step>
+<Step>
+(Optional) If required, add an **OAuth JWT Cert Subject**.
+</Step>
+<Step>
+(Optional) Enter the **OAuth JWT Issuer**. This must include the client\_id or connected app for the which the certificate is registered.
+</Step>
+<Step>
+(Optional) Enter an **OAuth JWT Subject**. It must be formatted as an email address.
+</Step>
+<SaveAndTest/>
+</Steps>
+  </Tab>
+</Tabs>
+## More Information
+
+For more information about interactions between Connect AI and Google Calendar, see [this information page](https://cdn.cdata.com/help/EGM/cloud/default.htm#default).
