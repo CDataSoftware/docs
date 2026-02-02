@@ -197,7 +197,8 @@
                         "group": "NetSuite",
                         "pages": [
                           "en/Data-Sources/NetSuite",
-                          "en/Data-Sources/NetSuiteRESTlet"
+                          "en/Data-Sources/NetSuiteRESTlet",
+                          "en/Data-Sources/NetSuiteTroubleshooting"
                         ]
                       },
                       "en/Data-Sources/NetSuiteSuiteAnalytics",
@@ -615,7 +616,8 @@
                         "group": "NetSuite",
                         "pages": [
                           "en/Data-Sources/NetSuite-Embedded",
-                          "en/Data-Sources/NetSuiteRESTlet-Embedded"
+                          "en/Data-Sources/NetSuiteRESTlet-Embedded",
+                          "en/Data-Sources/NetSuiteTroubleshooting-Embedded"
                         ]
                       },
                       "en/Data-Sources/NetSuiteSuiteAnalytics-Embedded",
@@ -1112,7 +1114,8 @@
                         "group": "NetSuite",
                         "pages": [
                           "ja/Data-Sources/NetSuite",
-                          "ja/Data-Sources/NetSuiteRESTlet"
+                          "ja/Data-Sources/NetSuiteRESTlet",
+                          "ja/Data-Sources/NetSuiteTroubleshooting"
                         ]
                       },
                       "ja/Data-Sources/NetSuiteSuiteAnalytics",
@@ -1530,7 +1533,8 @@
                         "group": "NetSuite",
                         "pages": [
                           "ja/Data-Sources/NetSuite-Embedded",
-                          "ja/Data-Sources/NetSuiteRESTlet-Embedded"
+                          "ja/Data-Sources/NetSuiteRESTlet-Embedded",
+                          "ja/Data-Sources/NetSuiteTroubleshooting-Embedded"
                         ]
                       },
                       "ja/Data-Sources/NetSuiteSuiteAnalytics-Embedded",
