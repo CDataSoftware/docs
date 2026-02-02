@@ -1,0 +1,92 @@
+## General Troubleshooting
+
+### Performance Considerations
+
+If you find NetSuite to be too slow, you can try the following to improve performance:
+
+- **Limit selected columns**
+  <p>NetSuite objects rely heavily on backend JOINs. Removing unused columns can eliminate entire JOINs and significantly improve performance.</p>
+
+- **Reduce page size**
+  <p>Lowering the **Pagesize** property returns fewer records per request and can help avoid timeouts before all the results are returned. This property is found in **Edit NetSuite Connection** > **Advanced Settings**. </p>
+
+- **Caching**
+  <p>You should also consider using the Connect AI [Caching](/en/Caching) feature for better performance.</p>
+
+### Schema Support and Performance
+
+In general, performance is best in [SuiteAnalytics](/en/Data-Sources/NetSuiteSuiteAnalytics). Connect AI uses NetSuite's native SuiteAnalytics driver. We recommend using it if you have access to it. Note that SuiteAnalytics is not supported by the NetSuite drivers.
+
+### Metadata and Custom Schemas
+
+- When using `CreateSchema`, custom schema files must be placed in schema-specific folders. Files placed directly in `C:\MySchemas` will not appear. 
+  
+  For example:
+
+  ```
+  Location = C:/MySchemas
+  Schema   = SuiteQL
+
+  Custom schemas must be placed in:
+  C:/MySchemas/SuiteQL
+  ```
+
+### Manage Integrations Visibility
+
+To see **Setup** > **Integrations** > **Manage Integrations** in NetSuite, the role must have both of these permissions:
+
+- **Integration Application (Full)** under **Setup**.
+
+- **Integration Applications (Full)** under **Lists**.
+
+## Common Errors
+
+### SuiteQL Errors
+
+<Accordion title="Unable to retrieve columns for a table (or Invalid search query).">
+
+This issue is usually a permissions issue to access the object type when using the SuiteQL schema. Note that permissions could apply to either the table or any of the columns in the table. The driver attempts to do a RowScan to determine which fields are available. 
+
+Check your NetSuite role to see if the table is included:
+
+1. Log in to your NetSuite account as an administrator.
+2. Navigate to **Setup** > **Users/Roles** > **Manage Roles**.
+3. Select the role you are using to connect with the driver.
+4. Click **Edit** > **Permissions**.
+5. Under **Setup**, add **Full** permissions for the table you need.
+
+View the complete list of permissions required by our driver [here](https://cdn.cdata.com/help/DNM/cloud/default.htm#pg_permissions).
+
+In some cases, the table may have been deprecated or removed by NetSuite. Check whether another table exposes the same data. 
+</Accordion>
+
+<Accordion title="Column not found">
+
+- If Connect AI cannot find a column, it may be due to cached or outdated metadata. Clear the metadata cache, if applicable, by clicking **Clear Metadata** on the **Edit NetSuite Connection** page. 
+- It is also possible that the **RowScanDepth** property is zero. In that case, increase the **Row Scan Depth** property in the **Advanced Settings** tab of the **Edit NetSuite Connection** page to a non-zero value.
+
+</Accordion>
+
+<Accordion title="Custom field not found">
+
+If you receive this error, you have not set the required **Custom Fields** permissions in NetSuite. See [Permissions Configurations](https://cdn.cdata.com/help/DNM/cloud/default.htm#pg_permissions).
+</Accordion>
+
+<Accordion title="Too many requests (HTTP 429)">
+
+You have exceeded the NetSuite concurrency limits. You can try adjusting the **RetryWaitTime** or **MaximumRequestRetries** via the Other property.
+</Accordion>
+
+### SuiteTalk Errors
+
+<Accordion title="Missing custom record types permission">
+
+Adjust the permissions for custom records. See [Permission Configurations](https://cdn.cdata.com/help/DNM/cloud/default.htm#pg_permissions).
+</Accordion>
+
+<Accordion title="Your role does not support OAuth2 login, please select a different one">
+
+This error appears when the role that you select during OAuth login is not configured for OAuth. If you have an OAuth-configured role, click **Choose another role** on the NetSuite authorization page and select that role. If you do not have an OAuth-configured role, follow the steps in the [Configure Roles](/en/Data-Sources/NetSuite#configure-roles) section.
+</Accordion>
+
+
