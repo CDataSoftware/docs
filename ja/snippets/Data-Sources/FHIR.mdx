@@ -1,3 +1,5 @@
+import SaveAndTest from '/ja/snippets/save-and-test.mdx';
+
 ## セットアップガイド
 
 以下の手順で、FHIR をConnect AI アカウントに接続します。
@@ -41,12 +43,7 @@ OAuth でセキュアに接続するには、**Sign in** をクリックしま�
 <Step>
 FHIR アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ### None
@@ -55,12 +52,7 @@ Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をク�
 <Step>
 Enter the **URL** for your connection. A sample generic URL is as follows: `http://my_fhir_server/r4b/`.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ## Azure Authentication Methods
@@ -77,12 +69,7 @@ OAuth でセキュアに接続するには、**Sign in** をクリックしま�
 <Step>
 FHIR アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ### AzureServicePrincipal
@@ -94,12 +81,7 @@ Enter the following information:
 	- **OAuth Client Secret**—the client secret for your FHIR account.
 	- **URL**—the URL of the FHIR server. A sample Azure URL is as follows: `https://MY_AZURE_FHIR.azurehealthcareapis.com/`.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ## AWS Authentication Methods
@@ -115,12 +97,7 @@ Enter the following information:
 	- **AWS Secret Key**—your AWS account secret key. This value is found in your AWS security credentials page.
 	- **URL**—the URL of the FHIR server. A sample AWS URL is as follows: `https://healthlake.REGION.amazonaws.com/datastore/DATASTORE_ID/r4/`.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ### AwsIAMRoles
@@ -133,12 +110,7 @@ Enter the following information:
 	- **AWS Role ARN**—the Amazon Resource Name of the role you want to use when authenticating.
 	- **URL**—the URL of the FHIR server. A sample AWS URL is as follows: `https://healthlake.REGION.amazonaws.com/datastore/DATASTORE_ID/r4/`.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ## Google Authentication Methods
@@ -155,12 +127,7 @@ Click **Sign in with Google** to connect securely through OAuth. This action ope
 <Step>
 Log in to your FHIR account.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ### OAuthJWT
@@ -172,12 +139,7 @@ Enter the following information:
 	- **OAuth JWT Subject**—(optional) the email address of the user whose data you want to access. Only set this value if the service account is part of a GSuite domain and you want to enable delegation.
 	- **URL**—the URL of the FHIR server. A sample Google URL is as follows: `https://healthcare.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/datasets/DATASET_ID/fhirStores/FHIR_STORE_ID/fhir/`.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ## InterSystems Authentication Methods
@@ -191,12 +153,7 @@ Enter the **API Key** for your FHIR account.
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ### None
@@ -205,10 +162,5 @@ Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をク�
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
-<Step>
-Connect AI **Add FHIR Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>

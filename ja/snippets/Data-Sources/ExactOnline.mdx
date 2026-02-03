@@ -1,3 +1,5 @@
+import SaveAndTest from '/ja/snippets/save-and-test.mdx';
+
 <Note>
 **Note**: Please note that currently, you cannot sign in with embedded credentials in the following regions: **Spain**, **Belgium**, **France**, and **Germany**. Please create a custom OAuth application to sign in instead. See [Creating a Custom OAuth Application](https://cdn.cdata.com/help/DYJ/cloud/default.htm#pg_oauthcustomappcreate).
 </Note>
@@ -31,12 +33,7 @@ Exact Online アカウントにログインし、リクエストされた権限�
 <Step>
 The **Division** field populates with the divisions associated with your Exact Online administration. Select a division from the drop-down list. The default value is the first division in the list.
 </Step>
-<Step>
-Connect AI **Add Exact Online Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest/>
 </Steps>
 
 ## 詳細について
