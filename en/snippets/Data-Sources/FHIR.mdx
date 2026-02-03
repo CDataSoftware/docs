@@ -23,8 +23,8 @@ Set your **Connection Type**. The connection type determines the authentication 
 </Steps>
 
 ## Generic Authentication Methods
-
-### GenericOAuth
+<Tabs>
+<Tab title="GenericOAuth">
 
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
 
@@ -45,7 +45,9 @@ Log in to your FHIR account and provide the requested permissions (if applicable
 </Step>
 <SaveAndTest/>
 </Steps>
-### None
+</Tab>
+
+<Tab title="None">
 
 <Steps>
 <Step>
@@ -53,9 +55,12 @@ Enter the **URL** for your connection. A sample generic URL is as follows: `http
 </Step>
 <SaveAndTest/>
 </Steps>
-## Azure Authentication Methods
+</Tab>
+</Tabs>
 
-### AzureAD
+## Azure Authentication Methods
+<Tabs>
+<Tab title="AzureAD">
 
 <Steps>
 <Step>
@@ -69,7 +74,9 @@ Log in to your FHIR account and provide the requested permissions (if applicable
 </Step>
 <SaveAndTest/>
 </Steps>
-### AzureServicePrincipal
+</Tab>
+
+<Tab title="AzureServicePrincipal">
 
 <Steps>
 <Step>
@@ -80,11 +87,14 @@ Enter the following information:
 </Step>
 <SaveAndTest/>
 </Steps>
+</Tab>
+</Tabs>
 ## AWS Authentication Methods
 
 Enter an **AWS Region**, and then select an **Auth Scheme**.
 
-### AwsRootKeys
+<Tabs>
+<Tab title="AwsRootKeys">
 
 <Steps>
 <Step>
@@ -95,8 +105,9 @@ Enter the following information:
 </Step>
 <SaveAndTest/>
 </Steps>
-### AwsIAMRoles
+</Tab>
 
+<Tab title="AwsIAMRoles">
 <Steps>
 <Step>
 Enter the following information:
@@ -107,9 +118,13 @@ Enter the following information:
 </Step>
 <SaveAndTest/>
 </Steps>
+</Tab>
+</Tabs>
+
 ## Google Authentication Methods
 
-### OAuth
+<Tabs>
+<Tab title="OAuth">
 
 <Steps>
 <Step>
@@ -123,7 +138,9 @@ Log in to your FHIR account.
 </Step>
 <SaveAndTest/>
 </Steps>
-### OAuthJWT
+</Tab>
+
+<Tab title="OAuthJWT">
 
 <Steps>
 <Step>
@@ -134,10 +151,13 @@ Enter the following information:
 </Step>
 <SaveAndTest/>
 </Steps>
+</Tab>
+</Tabs>
+
 ## InterSystems Authentication Methods
 
-### ApiKey
-
+<Tabs>
+<Tab title="ApiKey">
 <Steps>
 <Step>
 Enter the **API Key** for your FHIR account.
@@ -147,11 +167,18 @@ Enter the **URL** of the FHIR server.
 </Step>
 <SaveAndTest/>
 </Steps>
-### None
+</Tab>
 
+<Tab title="None">
 <Steps>
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
 <SaveAndTest/>
 </Steps>	
+</Tab>
+</Tabs>
+
+## More Information
+
+For more information about interactions between Connect AI and FHIR, see [this information page](https://cdn.cdata.com/help/KIM/cloud/default.htm#default).
