@@ -1,3 +1,5 @@
+import SaveAndTest from '/ja/snippets/save-and-test.mdx';
+
 ## セットアップガイド
 
 以下の手順で、Jira をConnect AI アカウントに接続します。
@@ -35,12 +37,7 @@ OAuth でセキュアに接続するには、**Sign in** をクリックしま�
 <Step>
 Jira アカウントにログインし、リクエストされた権限を設定します（該当する場合）。
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 
@@ -52,12 +49,7 @@ Enter 認証用のJira ユーザー名 in the **User** field.
 <Step>
 Enter the Jira **API token** for the username that you enter in the **User** field.
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 
@@ -69,12 +61,7 @@ Enter 認証用のJira ユーザー名 in the **User** field.
 <Step>
 In the **Password** field, enter ユーザーパスワード.
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 
@@ -98,12 +85,7 @@ Enter the **SSO App Name** of the application.
 <Step>
 Enter the **SSO App Password** of the application.
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 
@@ -124,12 +106,7 @@ Enter all relevant property-value pairs into the **SSO Properties** field with t
 <Step>
 Enter the **SSO Exchange URL** used to exchange the SAML token for Jira cookies. This URL can have the following format: `https://<authority of Jira instance>/plugins/servlet/samlsso`.
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 
@@ -141,12 +118,7 @@ Enter 認証用のJira ユーザー名 in the **User** field.
 <Step>
 In the **Password** field, enter ユーザーパスワード.
 </Step>
-<Step>
-Connect AI **Add Jira Connection** ページ上部の、**Save & Test** をクリックします。
-	- 接続テストに成功すると、コネクションが作成されたことを示す**Connection successfully saved** というメッセージが表示されます。**Edit Connection** ページの**Status** も**Authenticated** に変わります。**Edit Connection** ページの右ペインにある**Data Model** タブで、成功したコネクションのデータモデルを表示します。
-	- 接続テストに失敗した場合は、入力したログイン情報に余分なスペースや文字がないかを確認してください。Connect AI は、データが不足している必須フィールドの下にエラーメッセージを表示します。一部のデータソースでは、ソースのWeb サイトに直接サインインする必要があります。サインインしていない場合は、**Sign in** ボタンの下にエラーメッセージが表示されます。エラーを修正し、もう一度試してください。
-	- 失敗したコネクションは下書きとして保存され、**Status** は**Not Authenticated** になります。後でコネクションに戻って認証することができます。
-</Step>
+<SaveAndTest title="Jira"/>
 </Steps>
   </Tab>
 </Tabs>
