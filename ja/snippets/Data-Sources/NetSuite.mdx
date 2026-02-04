@@ -19,16 +19,16 @@ For performance and reliability reasons, CData recommends using SuiteTalk only i
 To configure your NetSuite connection, follow these steps:
 <Steps>
 <Step>
-Configure [user roles](#step-1:-configure-roles).
+Configure [user roles](#configure-roles).
 </Step>
 <Step>
 Choose a connection method (SuiteQL/OAuth or SuiteTalk/Token). Note that NetSuite does not support basic authentication through username and password credentials in recent versions. Connect AI recommends using OAuth or Token authorization.
 </Step>
 <Step>
-Follow the steps under [Connect to NetSuite](#step-2:-connect-to-netsuite) to establish the connection.
+Follow the steps under [Connect to NetSuite](#connect-to-netsuite) to establish the connection.
 </Step>
 </Steps>
-### Step 1: Configure Roles
+### Configure Roles
 
 Connect AI communicates with NetSuite through NetSuite Web services. If the user account that you will use for establishing the connection does not have NetSuite Web services permissions, follow these steps to create them:
 
@@ -78,7 +78,7 @@ Scroll to the top and click **Save**.
 
 Continue to Connecting to NetSuite below.
 
-### Step 2: Connect to NetSuite
+### Connect to NetSuite
 
 <Steps>
 <Step>
@@ -168,7 +168,7 @@ From the navigation bar, select **Setup** > **Users/Roles** > **Access Tokens**.
 Create a new access token. For the application name, select the integration you created.
 </Step>
 <Step>
-In the **User** and **Role** fields, use the same user and role from the [Configure Roles](#step-1:-configure-roles) section.
+In the **User** and **Role** fields, use the same user and role from the [Configure Roles](#configure-roles) section.
 </Step>
 <Step>
 Click **Save**. Copy the credentials for **Token ID** and **Token Secret**.
@@ -205,11 +205,6 @@ Enter ユーザーパスワード.
 </Steps>
   </Tab>
 </Tabs>
-## Troubleshooting
-
-**When logging in through OAuth, I receive the error “Your role does not support OAuth2 login, please select a different one.”**
-
-This error appears when the role that you select during OAuth login is not configured for OAuth. If you have an OAuth-configured role, click **Choose another role** on the NetSuite authorization page and select that role. If you do not have an OAuth-configured role, follow the steps in the [Configure Roles](#step-1:-configure-roles) section.
 
 ## 詳細について
 
