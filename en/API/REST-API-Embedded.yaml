@@ -2010,7 +2010,7 @@ components:
       properties:
         jobType:
           type: string
-          description: The type of job the user wants to run.
+          description: The type of job (Caching).
         id:
           type: string
           description: The job's Id.
@@ -2089,7 +2089,7 @@ components:
       properties:
         jobType:
           type: string
-          description: The type of job that the user wants to run (Caching or ScheduledQuery).
+          description: The type of job (Caching).
         intervalUnit:
           type: string
           description: A string representing the time interval (Hour/Day/Week/Month).
@@ -2110,7 +2110,7 @@ components:
           description: An optional DateTime value that can be used to set the initial start time for the job.
         params:
           $ref: "#/components/schemas/JobParams"
-          description: An object containing different job details depending on if the job is a cache job or a scheduled query.
+          description: An object containing job-specific parameters.
       additionalProperties: false
     UpdateJobRequest:
       type: object
@@ -2123,7 +2123,7 @@ components:
       properties:
         jobType:
           type: string
-          description: The type of job that the user wants to run (Caching or ScheduledQuery).
+          description: The type of job (Caching).
         intervalUnit:
           type: string
           description: A string representing the time interval (Hour/Day/Week/Month).
@@ -2144,7 +2144,7 @@ components:
           description: An optional DateTime value that can be used to set the initial start time for the job.
         params:
           $ref: "#/components/schemas/JobParams"
-          description: An object containing different job details depending on if the job is a cache job or a scheduled query.
+          description: An object containing job-specific parameters.
       additionalProperties: false
     WorkspaceList:
       type: object
