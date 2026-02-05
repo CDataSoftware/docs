@@ -114,7 +114,7 @@ Use **Scheduled Queries** under **Jobs** to refresh cached results for heavy wor
 Open Power BI Desktop and then select **Get Data** > **SQL Server**.
 </Step>
 <Step>
-Enter your Connect Cloud SQL endpoint (*tds.cdata.com*).
+Enter your Connect AI SQL endpoint (*tds.cdata.com*).
 </Step>
 <Step>
 Authenticate with your CData credentials.
@@ -131,7 +131,7 @@ Select tables or derived views and build visuals.
 In Excel, select **Data** > **Get Data** > **From Other Sources** > **From OData Feed**.
 </Step>
 <Step>
-Paste your Connect Cloud OData endpoint (*https://cloud.cdata.com/api/odata/{workspace\_name}*).
+Paste your Connect AI OData endpoint (*https://cloud.cdata.com/api/odata/{workspace\_name}*).
 </Step>
 <Step>
 Authenticate with your CData credentials and load data.
@@ -159,11 +159,11 @@ Expose any source as a secure API for custom apps and large language models (LLM
 	```
 - OData v4 is used for BI tools and pagination/filtering:
 	```bash
-	GET https://cloud.cdata.com/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
+	GET https://cloud.cdata.com/api/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
 	```
 - OpenAPI generates clients and validates requests:
 	```bash
-	GET https://cloud.cdata.com/openapi/Salesforce
+	GET https://cloud.cdata.com/api/openapi/Salesforce
 	```
 
 ## Step 6: Organize with Workspaces
