@@ -1,19 +1,47 @@
 ---
 title: "Data Copilot"
 sidebarTitle: "Data Copilot"
-description: "The ***Data Copilot*** page enables you to harness AI to get answers from your connected data."
+description: "The ***Data Copilot*** page enables you to harness AI to get answers from your connected data. Ask the Data Copilot a natural-language question about your Connect AI data. The AI agent performs actions on the data sources you have set up."
 ---
 
 ## Prerequisites
 
-In order to use the Connect AI Data Copilot, you must have at least one data connection, and you must have the necessary permissions to that connection.
+In order to use the Connect AI Data Copilot, you must have at least one data connection, and you must have the necessary permissions to that connection. See [Sources](/ja/Sources).
 
 ## Connect to Your Data
 
-Connect AI's Data Copilot uses Azure OpenAI as an LLM. It allows you to connect to the remote MCP server and obtain insights from your data in real time without a third-party integration tool. Simply add a prompt in the text box and click **Submit**. The Data Copilot welcome page provides some sample prompts. For a more complete list of prompt ideas, see the CData [prompt library](https://www.cdata.com/ai/prompt-library/). You can filter prompts by data source.
+Connect AI's Data Copilot uses Azure OpenAI as an LLM. It allows you to connect to the remote MCP server and obtain insights from your data in real time without a third-party integration tool. Simply add a prompt in the text box and click **Submit**. The Data Copilot welcome page provides some sample prompts. 
 
 Once you submit a prompt, the remote MCP server works to access the relevant catalogs, schemas, and tables. The Data Copilot may prompt you for more information to narrow down the data you need. Expand the results of each tool (such as `getCatalogs`, `getSchemas` or `getTables`) to obtain details about how the tool accessed the data. Click **Reset Chat** to clear the screeen.
 
 ## Save Your Prompt
 
 Prompts are saved for 30 days so you can return to them later. Click the three dots to the right to rename your prompt or delete it permanently. 
+
+## Examples
+
+The following are some of the questions you can ask Data Copilot about your data:
+
+- ***In my Salesforce connection, which deals have we closed in the past month, and what is the total?***
+
+- ***In my LinkedIn Ads connection, summarize the performance for the last 30 days by campaign.***
+
+- ***Which e-commerce products generate the highest gross margin according to NetSuite?***
+
+- ***Identify Salesforce stalled opportunities and explain why they're at risk.***
+
+For a more complete list of prompt ideas, see the CData [prompt library](https://jp.cdata.com/ai/prompt-library/). You can filter prompts by data source. 
+
+## Limitations
+
+Data Copilot operates within specific boundaries, as follows:
+
+- **Permissions**: Access to data, including the ability to run queries, is based on catalog permissions granted to the user. Tools such as `getSchemas`, `getTables`,`getColumns`, and `getCatalogs` are only accessible with sufficient catalog permissions. 
+
+  <Warning>Data Copilot does not perform data deletion queries under any circumstances.</Warning>
+
+- **Query Limits**: Only SQL-92-compliant queries are supported, which includes SELECT, INSERT, UPDATE, and stored procedures. Query responses also cannot exceed 100 rows.
+
+- **Execution**: Actions are limited to the Connect AI ecosystem. Actions or queries outside of the system are ignored. 
+
+- **Privacy and Security**: Data Copilot accesses only relevant data and metadata within the Connect AI system. It does not query data or systems outside of authorized Connect AI catalogs.
