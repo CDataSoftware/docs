@@ -1427,7 +1427,7 @@ components:
         - 17
         - 18
       type: integer
-      description: "The parameter's [data type](/en/API/REST-API#data-types)."
+      description: "The parameter's [data type](/ja/API/REST-API#data-types)."
       format: int32
     Direction:
       enum:
