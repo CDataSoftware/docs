@@ -9,7 +9,7 @@ import SaveAndTest from '/ja/snippets/save-and-test.mdx';
 Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-右上の **+ Add Connection** をクリックします。
+右上の **\+ Add Connection** をクリックします。
 </Step>
 <Step>
 検索フィールドに *Workday* と入力し、データソース名をクリックします。
@@ -31,10 +31,9 @@ Choose an **Auth Scheme** for your connection type and follow the instructions b
 
 ## Authentication Methods
 
-
 <Tabs>
   <Tab title="OAuth">
-To connect Workday to Connect AI using OAuth, you must first create an OAuth app in Workday. [Create an OAuth app in Workday](#create-an-oauth-app-in-workday) shows how to create a standard OAuth app. For other types of OAuth custom apps, refer to [this information page](https://cdn.cdata.com/help/JWK/cloud/default.htm#pg_connectiondatahubh).
+To connect Workday to Connect AI using OAuth, you must first create an OAuth app in Workday. [Create an OAuth app in Workday](#create-an-oauth-app-in-workday) shows how to create a standard OAuth app. For other types of OAuth custom apps, refer to [this information page](https://cdn.cdata.com/help/JWM/jp/cloud/default.htm#pg_connectiondatahubh).
 
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
 
@@ -144,7 +143,7 @@ For the grant type, select **Authorization Code**.
 For the access token type, select **Bearer**.
 </Step>
 <Step>
-In the **Redirection URI** field, enter *`https://oauth.cdata.com/oauth/`*
+In the **Redirection URI** field, enter *https://oauth.cdata.com/oauth/*
 </Step>
 <Step>
 In the **Scope** section, enable following scopes:
@@ -168,4 +167,4 @@ Workday loads the View API Client page that contains information about the new a
 
 ## 詳細について
 
-Connect AI とWorkday の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/JWK/ja/cloud/default.htm#default)を参照してください。
+Connect AI とWorkday の連携の詳細動作については、[こちらのページ](https://cdn.cdata.com/help/JWM/jp/cloud/default.htm#default)を参照してください。
