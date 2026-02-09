@@ -15,21 +15,7 @@ If you find NetSuite to be too slow, you can try the following to improve perfor
 
 ### Schema Support and Performance
 
-In general, performance is best in [SuiteAnalytics](/ja/Data-Sources/NetSuiteSuiteAnalytics). Connect AI uses NetSuite's native SuiteAnalytics driver. We recommend using it if you have access to it. Note that SuiteAnalytics is not supported by the NetSuite drivers.
-
-### Metadata and Custom Schemas
-
-- When using `CreateSchema`, custom schema files must be placed in schema-specific folders. Files placed directly in `C:\MySchemas` will not appear. 
-  
-  For example:
-
-  ```
-  Location = C:/MySchemas
-  Schema   = SuiteQL
-
-  Custom schemas must be placed in:
-  C:/MySchemas/SuiteQL
-  ```
+In general, performance is best in [SuiteAnalytics](/ja/Data-Sources/NetSuiteSuiteAnalytics). Connect AI exposes CData's NetSuite driver as well as NetSuite’s native SuiteAnalytics driver as separate connectors. We recommend using the native SuiteAnalytics driver, if your organization has access to it, for best performance. If you do not have access to SuiteAnalytics, use the CData's NetSuite driver.
 
 ### Manage Integrations Visibility
 
@@ -38,6 +24,8 @@ To see **Setup** > **Integrations** > **Manage Integrations** in NetSuite, the r
 - **Integration Application (Full)** under **Setup**.
 
 - **Integration Applications (Full)** under **Lists**.
+
+See [Permissions Configurations](https://cdn.cdata.com/help/DNM/jp/cloud/default.htm#pg_permissions) for more information.
 
 ## Common Errors
 
@@ -67,14 +55,18 @@ In some cases, the table may have been deprecated or removed by NetSuite. Check 
 
 </Accordion>
 
-<Accordion title="Custom field not found">
+<Accordion title="Missing rows">
 
-If you receive this error, you have not set the required **Custom Fields** permissions in NetSuite. See [Permissions Configurations](https://cdn.cdata.com/help/DNM/cloud/default.htm#pg_permissions).
+The SuiteQL schema can only return a maximum of 100,000 records. This limitation is imposed by NetSuite itself. You can bypass this limitation in one of two ways: 
+
+- Set your Schema to SuiteTalk rather than Suite QL. 
+
+- Use the SuiteAnalytics Connect feature. If your account has SuiteAnalytics Connect, enable the SuiteAnalytics Connect feature by setting the **AccountSupportsSuiteAnalyticsConnect** property to True.
 </Accordion>
 
-<Accordion title="Too many requests (HTTP 429)">
+<Accordion title="Custom field not found">
 
-You have exceeded the NetSuite concurrency limits. You can try adjusting the **RetryWaitTime** or **MaximumRequestRetries** via the Other property.
+If you receive this error, you have not set the required **Custom Fields** permissions in NetSuite. See [Permissions Configurations](https://cdn.cdata.com/help/DNM/jp/cloud/default.htm#pg_permissions).
 </Accordion>
 
 ### SuiteTalk Errors
