@@ -9,7 +9,7 @@ import SaveAndTest from '/ja/snippets/save-and-test.mdx';
 Connect AI のダッシュボードから**Connections** ページを開きます。
 </Step>
 <Step>
-右上の **+ Add Connection** をクリックします。
+右上の **\+ Add Connection** をクリックします。
 </Step>
 <Step>
 検索フィールドに *FHIR* と入力し、データソース名をクリックします。
@@ -23,8 +23,8 @@ Set your **Connection Type**. The connection type determines the authentication 
 </Steps>
 
 ## Generic Authentication Methods
-
-### GenericOAuth
+<Tabs>
+<Tab title="GenericOAuth">
 
 The **Callback URL**, or Redirect URL, is the URL you need (`https://oauth.cdata.com/oauth/`) when setting up your OAuth app. Copy this URL and paste it into your OAuth app.
 
@@ -45,8 +45,9 @@ FHIR アカウントにログインし、リクエストされた権限を設定
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
 
-### None
+<Tab title="None">
 
 <Steps>
 <Step>
@@ -54,10 +55,12 @@ Enter the **URL** for your connection. A sample generic URL is as follows: `http
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
+</Tabs>
 
 ## Azure Authentication Methods
-
-### AzureAD
+<Tabs>
+<Tab title="AzureAD">
 
 <Steps>
 <Step>
@@ -71,8 +74,9 @@ FHIR アカウントにログインし、リクエストされた権限を設定
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
 
-### AzureServicePrincipal
+<Tab title="AzureServicePrincipal">
 
 <Steps>
 <Step>
@@ -83,12 +87,14 @@ Enter the following information:
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
-
+</Tab>
+</Tabs>
 ## AWS Authentication Methods
 
 Enter an **AWS Region**, and then select an **Auth Scheme**.
 
-### AwsRootKeys
+<Tabs>
+<Tab title="AwsRootKeys">
 
 <Steps>
 <Step>
@@ -99,9 +105,9 @@ Enter the following information:
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
 
-### AwsIAMRoles
-
+<Tab title="AwsIAMRoles">
 <Steps>
 <Step>
 Enter the following information:
@@ -112,10 +118,13 @@ Enter the following information:
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
+</Tabs>
 
 ## Google Authentication Methods
 
-### OAuth
+<Tabs>
+<Tab title="OAuth">
 
 <Steps>
 <Step>
@@ -129,8 +138,9 @@ Log in to your FHIR account.
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
 
-### OAuthJWT
+<Tab title="OAuthJWT">
 
 <Steps>
 <Step>
@@ -141,11 +151,13 @@ Enter the following information:
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
+</Tabs>
 
 ## InterSystems Authentication Methods
 
-### ApiKey
-
+<Tabs>
+<Tab title="ApiKey">
 <Steps>
 <Step>
 Enter the **API Key** for your FHIR account.
@@ -155,12 +167,18 @@ Enter the **URL** of the FHIR server.
 </Step>
 <SaveAndTest title="FHIR"/>
 </Steps>
+</Tab>
 
-### None
-
+<Tab title="None">
 <Steps>
 <Step>
 Enter the **URL** of the FHIR server.
 </Step>
 <SaveAndTest title="FHIR"/>
-</Steps>
+</Steps>	
+</Tab>
+</Tabs>
+
+## 詳細について
+
+For more information about interactions between Connect AI and FHIR, see [this information page](https://cdn.cdata.com/help/KIM/jp/cloud/default.htm#default).
