@@ -163,13 +163,13 @@ GET https://cloud.cdata.com/api.rsc/Salesforce/Opportunity
 Authorization: Bearer <token>
 ```
 - OData v4 は、BI ツールおよびページネーション / フィルタリングに使用されます：
-```bash
-GET https://cloud.cdata.com/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
-```
+	```bash
+	GET https://cloud.cdata.com/api/odata/Salesforce/Opportunity?$top=100&$orderby=Amount desc
+	```
 - OpenAPI はクライアントを生成し、リクエストを検証します：
-```bash
-GET https://cloud.cdata.com/openapi/Salesforce
-```
+	```bash
+	GET https://cloud.cdata.com/api/openapi/Salesforce
+	```
 
 ## Step 6：ワークスペースで整理する
 

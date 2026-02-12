@@ -35,13 +35,13 @@ from llama_index.core.agent import ReActAgent
 import asyncio
 
 client = BasicMCPClient(
-    "http://mcp.cloud.cdata.com/mcp",
+    "https://mcp.cloud.cdata.com/mcp",
     headers={"Authorization": "Basic Base64-encoded (CONNECTAI_USERNAME:PAT)"}
 )
 
 async def main():
     # List available tools
-    tools = await aget_tools_from_mcp_url("http://mcp.cloud.cdata.com/mcp", client=client)
+    tools = await aget_tools_from_mcp_url("https://mcp.cloud.cdata.com/mcp", client=client)
    
     llm = OpenAI(model="gpt-4o", api_key="YOUR_OPENAI_KEY")   
     # Create ReActAgent
