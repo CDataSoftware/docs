@@ -8,7 +8,12 @@ description: "The ***Users*** page enables you to manage the users on your Conne
 A ***user*** is an account that can log in and use your account. Two types of Connect AI users are available:
 
 - **Administrators** have full access to all Connect AI functions, including adding and managing users.
-- **Query users** can issue queries to established connections through the [Data Explorer](/en/Data-Explorer) page and through [integration tools](/en/Integrations). They cannot access administrative functions, including [Sources](/en/Sources) and user management.
+- **Query users** can authenticate to a connection with their own credentials, as long as the user and connection meet the following criteria:
+  
+  - The Administrator grants the user permission to use the connection.
+  - The Administrator selects **User Credentials**, rather than **Shared Credentials**, for the connection. 
+  
+  The query user can also issue queries to established connections through the [Data Explorer](/en/Data-Explorer) page and through [integration tools](/en/Integrations).
 
 Every account must have at least one active administrator.
 
