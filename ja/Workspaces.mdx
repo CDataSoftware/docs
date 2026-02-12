@@ -1,10 +1,11 @@
 ---
 title: "Workspaces"
+description: "The **Workspaces** feature is a data catalog that streamlines the accessibility of diverse data sources."
 ---
 
 ## 概要
 
-**Workspaces** 機能は、多様なデータソースへのアクセスを合理化するデータカタログです。ワークスペースは、Connect AI 内の特定のデータ（アセット）を整理し、カタログ化し、アクセスを制御するための方法を提供します。シンプルかつスケーラブルな方法で、関連するアセットを個別にバンドルできます。ワークスペースは、多くのビジネス機能にわたってデータ分析を合理化する、カスタマイズ可能な組織スキームを提供します。
+ワークスペースは、Connect AI 内の特定のデータ（アセット）を整理、カタログ化し、アクセスを制御する方法を提供します。シンプルかつスケーラブルな方法で、関連するアセットを個別まとめることができます。ワークスペースは、多くのビジネス機能にわたってデータ分析を合理化する、カスタマイズ可能な組織スキームを提供します。
 
 Connect AI データカタログでは、ワークスペースのカラムメタデータのプレビューを見ることができます。
 
@@ -66,7 +67,7 @@ REST API に接続するには、”workspace” という名前のREST API URL 
 **Endpoints** ダイアログの**OData** タブには、OData クライアントを介してワークスペースから接続するために必要な設定が含まれています。ダイアログの設定をコピーします。
 
 - **Username**—ワークスペースに接続するためのユーザー名は、E メールアドレス形式です。
-- **OData URL**—接続先のワークスペース名。URL の形式は、`https://cloud.cdata.com/api/odata/[workspace_name]` です。
+- **OData URL**—接続先のワークスペース名。URL の形式は、`https://cloud.cdata.com/api/odata/{workspace_name}` です。
 - **Password**—認証時にパスワードとして使用するパーソナルアクセストークン（PAT）を作成するには、**Create PAT** をクリックします。
 
 #### OpenAPI 経由で接続
