@@ -1,0 +1,35 @@
+---
+title: "SSO and SCIM"
+description: "Connect AI supports the SSO and SCIM protocols. SSO enables users to sign in through your chosen SSO instead of using Connect AI login credentials. SCIM standardizes the process of granting or removing access from Connect AI."
+---
+
+## SSO
+
+Connect AI supports the following SSO providers:
+
+- SAML
+- OpenID Connect
+- Google Workspace
+- Microsoft Entra ID (formerly Azure AD)
+- Active Directory Federation Services (ADFS)
+- Active Directory/LDAP
+- Ping Federate
+- Okta Workforce Identity Cloud
+
+To enable SSO for your account, contact [CData Support](https://jp.cdata.com/support/).
+
+## SCIM
+
+The System for Cross-domain Identity Management (SCIM) is a standard for managing user provision, update, and deletion in cloud-based applications. It allows you to use your company's identity provider, such as Okta or Entra ID, to provision, update, and delete users securely in Connect AI. To enable SCIM, contact [CData Support](https://www.cdata.com/support/submit.aspx).
+
+### User Provision, Update, and Deletion
+
+When you provision SCIM, CData support supplies a unique base URL following this format: `https://{your-domain.com}/scim/v2`. The URL endpoint contains the necessary user metadata. All SCIM endpoints require an authorization header with a bearer token.
+
+To provision a new user, `POST` to your unique SCIM endpoint. The system provisions the user in Connect AI. There is no need for the user to verify via email. The new user has a default role of Query user. See [Users](/ja/Users) for details on user types. The new user only has access to connections that have user-defined credentials turned on.
+
+To update a SCIM user's name and email, use `PATCH` with the SCIM endpoint. When a SCIM update user request comes in, the system updates the information in Connect AI.
+
+To delete a user, use `DELETE` and your unique SCIM endpoint. The SCIM delete event calls the delete endpoint.
+
+The Connect AI [Audit Log](/ja/Logs#audit-log) displays SCIM user provision, update, and deletion. 
