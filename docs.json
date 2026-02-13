@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "CData",
   "colors": {
-    "primary": "#00A0FF",
-    "light": "#00A0FF",
-    "dark": "#00A0FF"
+    "primary": "#002660",
+    "light": "#FFE500",
+    "dark": "#002660"
   },
   "favicon": "/favicon.ico",
   "defaultOrigin": "https://docs.cloud.cdata.com",
@@ -19,9 +19,7 @@
       }
     }
   },
-  "background": {
-    "decoration": "gradient"
-  },
+  
   "fonts": {
     "heading": {
       "family": "Verdana",
